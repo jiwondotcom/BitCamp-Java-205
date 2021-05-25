@@ -30,9 +30,7 @@ public class Member {
 	// 정수형 (byte, short, integer) - 표현할 수 있는 숫자의 범위가 상이함
 		
 	// 메소드 안에서 정의 되는 변수 -> 지역변수
-
 		
-	
 	}
 
 }
