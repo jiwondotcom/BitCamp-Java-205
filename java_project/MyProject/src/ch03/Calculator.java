@@ -17,27 +17,27 @@ import java.util.Scanner;
 
 public class Calculator {
 	
-	public int plus(int a, int b) {
+	int plus(int a, int b) {
 		return a + b;
 	}
-	public int minus(int a, int b) {
+	int minus(int a, int b) {
 		return a - b;
 	}
-	public int multi(int a, int b) {
+	int multi(int a, int b) {
 		return a * b;
 	}
-	public int div(int a, int b) {
+	int div(int a, int b) {
 		return a / b;
 	}
-	public double circleAround (double r) {
-		return (2 * Math.PI * r);
+	float circleAround (float r) {
+		return (float)Math.PI * 2 * r;
 	}
 	
-	public double circleArea (double r) {
-		return (Math.PI * r * r);
+	float circleArea (float r) {
+		return (float) Math.PI * r * r;
 	}
 	
-	public static int getIntInput(Scanner scanner) {
+	static int getIntInput(Scanner scanner) {
 		return scanner.nextInt();
 	}
 	
@@ -66,9 +66,9 @@ public class Calculator {
 		System.out.println("===========================");
 		
 		System.out.print("2. 반지름을 입력하세요 : ");
-		double r2 = getIntInput(scanner);
-		System.out.println("원의 둘레 : " + (2 * Math.PI * r2));
-		System.out.println("원의 넓이 : " + (Math.PI * r2 * r2));
+		float r = scanner.nextFloat();
+		System.out.println("원의 둘레 : " + cal.circleAround(r));
+		System.out.println("원의 넓이 : " + cal.circleArea(r));
 		System.out.println();
 
 		
