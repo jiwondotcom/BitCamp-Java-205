@@ -7,7 +7,7 @@ public class Member {
 	//인스턴스 변수
 	String name = "황짱구";
 	int age = 5;
-	double height = 171.4;
+	double height = 171.3;
 	boolean hasBook = false;
 	
 	System.out.println("이름은 " + name); // String + String
