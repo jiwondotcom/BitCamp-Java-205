@@ -4,32 +4,32 @@ package ch02;
 public class Member {
 	public static void main(String[] args) {
 	
-	//ÀÎ½ºÅÏ½º º¯¼ö
-	String name = "È²Â¯±¸";
+	//ì¸ìŠ¤í„´ìŠ¤ ë³€ìˆ˜
+	String name = "í™©ì§±êµ¬";
 	int age = 5;
 	double height = 171.3;
 	boolean hasBook = false;
 	
-	System.out.println("ÀÌ¸§Àº " + name); // String + String
-	System.out.println("Å°´Â " + height + "cm ÀÔ´Ï´Ù."); // String + double + String
-	System.out.println("³ªÀÌ´Â " + age + "¼¼ ÀÔ´Ï´Ù."); // String + int + String
-	System.out.println("JAVAÃ¥ÀÇ º¸À¯ ¿©ºÎ : " + hasBook); // String + boolean
+	System.out.println("ì´ë¦„ì€ " + name); // String + String
+	System.out.println("í‚¤ëŠ” " + height + "cm ìž…ë‹ˆë‹¤."); // String + double + String
+	System.out.println("ë‚˜ì´ëŠ” " + age + "ì„¸ ìž…ë‹ˆë‹¤."); // String + int + String
+	System.out.println("JAVAì±…ì˜ ë³´ìœ  ì—¬ë¶€ : " + hasBook); // String + boolean
 	// String + anyType -> String + String
 	
 	if(hasBook == true) {
-		System.out.println("º¸À¯ÇÏ°í ÀÖ½À´Ï´Ù.");
+		System.out.println("ë³´ìœ í•˜ê³  ìžˆìŠµë‹ˆë‹¤.");
 	} else { 
-		System.out.println("º¸À¯ÇÏ°í ÀÖÁö ¾Ê½À´Ï´Ù.");
+		System.out.println("ë³´ìœ í•˜ê³  ìžˆì§€ ì•ŠìŠµë‹ˆë‹¤.");
 	}
 
 	
-	// º¯¼ö ¼±¾ð
-	// µ¥ÀÌÅÍÀÇ Å¸ÀÔ ½Äº° ÀÌ¸§
-	// µ¥ÀÌÅÍ Å¸ÀÔ -> ³»°¡ ´Ù·ç¾î¾ß ÇÏ´Â µ¥ÀÌÅÍÀÇ Æ¯Â¡¿¡ ÀÇÇØ¼­ °áÁ¤
-	// ±âº»Çü Å¸ÀÔ 8°¡Áö -> Á¤¼öÇü, ½Ç¼öÇü, boolean, ¹®ÀÚÇü 
-	// Á¤¼öÇü (byte, short, integer) - Ç¥ÇöÇÒ ¼ö ÀÖ´Â ¼ýÀÚÀÇ ¹üÀ§°¡ »óÀÌÇÔ
+	// ë³€ìˆ˜ ì„ ì–¸
+	// ë°ì´í„°ì˜ íƒ€ìž… ì‹ë³„ ì´ë¦„
+	// ë°ì´í„° íƒ€ìž… -> ë‚´ê°€ ë‹¤ë£¨ì–´ì•¼ í•˜ëŠ” ë°ì´í„°ì˜ íŠ¹ì§•ì— ì˜í•´ì„œ ê²°ì •
+	// ê¸°ë³¸í˜• íƒ€ìž… 8ê°€ì§€ -> ì •ìˆ˜í˜•, ì‹¤ìˆ˜í˜•, boolean, ë¬¸ìží˜• 
+	// ì •ìˆ˜í˜• (byte, short, integer) - í‘œí˜„í•  ìˆ˜ ìžˆëŠ” ìˆ«ìžì˜ ë²”ìœ„ê°€ ìƒì´í•¨
 		
-	// ¸Þ¼Òµå ¾È¿¡¼­ Á¤ÀÇ µÇ´Â º¯¼ö -> Áö¿ªº¯¼ö
+	// ë©”ì†Œë“œ ì•ˆì—ì„œ ì •ì˜ ë˜ëŠ” ë³€ìˆ˜ -> ì§€ì—­ë³€ìˆ˜
 
 		
 	
