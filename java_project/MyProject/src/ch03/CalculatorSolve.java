@@ -84,7 +84,6 @@ public class CalculatorSolve {
 		System.out.println("입력 받은 반지름의 길이 : " + r2) ;
 		System.out.println("원의 둘레 : "  + calSo.cirCum(r2));
 		System.out.println("원의 넓이 : "  + calSo.cirArea(r2));
-		
 	}
 	
 }
