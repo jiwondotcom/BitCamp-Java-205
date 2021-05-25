@@ -87,12 +87,4 @@ public class CalculatorSolve {
 		
 	}
 	
-	
-	
-	
-	
-	
-	
-	
-	
 }
