@@ -8,21 +8,21 @@ public class Person {
 	long perNum2 = 9901012000000L;
 
 	
-	// ì¸ìŠ¤í„´ìŠ¤ ë³€ìˆ˜ë“¤ì˜ ë°ì´í„°ë¥¼ ì¶œë ¥í•˜ëŠ” ë©”ì†Œë“œ
+	// ÀÎ½ºÅÏ½º º¯¼öµéÀÇ µ¥ÀÌÅÍ¸¦ Ãâ·ÂÇÏ´Â ¸Ş¼Òµå
 	void showData() {
-		System.out.println("íšŒì› ì´ë¦„ : " + name);
-		System.out.println("íšŒì›ì˜ ì£¼ë¯¼ë²ˆí˜¸1 : " + perNum1);
-		System.out.println("íšŒì›ì˜ ì£¼ë¯¼ë²ˆí˜¸2 : " + perNum2);
+		System.out.println("È¸¿ø ÀÌ¸§ : " + name);
+		System.out.println("È¸¿øÀÇ ÁÖ¹Î¹øÈ£1 : " + perNum1);
+		System.out.println("È¸¿øÀÇ ÁÖ¹Î¹øÈ£2 : " + perNum2);
 	}
 
 	
 	public static void main (String[] args) {
 		
-		// Person ì¸ìŠ¤í„´ìŠ¤ ìƒì„±
+		// Person ÀÎ½ºÅÏ½º »ı¼º
 		Person person = new Person();
 		
-		System.out.println("ì´ë¦„ : " + person.name);
-		person.name = "ì§±êµ¬";
+		System.out.println("ÀÌ¸§ : " + person.name);
+		person.name = "Â¯±¸";
 		person.showData();
 
 	}
