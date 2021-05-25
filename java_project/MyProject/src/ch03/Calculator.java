@@ -70,6 +70,7 @@ public class Calculator {
 		System.out.println("원의 둘레 : " + (2 * Math.PI * r2));
 		System.out.println("원의 넓이 : " + (Math.PI * r2 * r2));
 		System.out.println();
+
 		
 	}
 }
