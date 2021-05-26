@@ -18,26 +18,30 @@ import java.util.Calendar;
 
 public class Person {
 
-	public String name;
+	String name;
 	int frontSsn;
 
+	
 	public String getName() {
 		return name;
 	}
+
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
+
 	public int getFrontSsn() {
 		return frontSsn;
 	}
+
 
 	public void setFrontSsn(int frontSsn) {
 		this.frontSsn = frontSsn;
 	}
 
-	
+
 	
 	public Person(String name, int frontSsn) {
 		this.name = name;
