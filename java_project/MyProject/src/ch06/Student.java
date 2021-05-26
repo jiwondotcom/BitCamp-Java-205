@@ -13,10 +13,16 @@ package ch06;
 
 public class Student {
 
+	//2.Student 클래스를 정의해봅시다.
+	//①학생이름, 국어점수, 영어점수, 수학점수를 저장하는 변수를 정의 합니다.
+	
 	private String name;
 	private int koreanScores;
 	private int englishScores;
 	private int mathScores;
+	
+	
+	//②변수는 캡슐화를 합니다. getter/setter 메소드를 정의합니다.
 	
 	public String getName() {
 		return name;
@@ -45,10 +51,6 @@ public class Student {
 	public void setMathScores(int mathScores) {
 		this.mathScores = mathScores;
 	}
-
-
-	//②변수는 캡슐화를 합니다. getter/setter 메소드를 정의합니다.
-
 
 	
 	public Student(String name,
@@ -82,7 +84,6 @@ public class Student {
 		System.out.println("평    균 : " + avgScores() + "점");
 		System.out.println("================");
 		
-		System.out.println("");
 	}
 	
 	
