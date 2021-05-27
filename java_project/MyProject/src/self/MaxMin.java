@@ -12,25 +12,27 @@ import java.util.Scanner;
 //int형 배열에 채워질 정수는 프로그램 사용자로부터 입력 받고, 배열의 길이는
 //임의로 결정
 
-public class MaxMin {
+public class MaxMin03 {
 	public static void main(String[] args) {
 		
-	int arrNum;
+	Scanner sc = new Scanner(System.in);
+		
+	int a;
 	System.out.print("몇개의 숫자를 입력하시겠습니까>> ");
-	arrNum = getInputInt();
+	a = sc.nextInt();
 	
-	int[] number = new int[arrNum];
-	// 배열 number는 입력받은 숫자 arrNum개로 이루어져있다.
+	int[] arr = new int[a];
+	// 배열 arr는 입력받은 숫자 a개로 이루어져있다.
 	
-	for (int i = 0; i < number.length; i++) {
+	for (int i = 0; i < arr.length; i++) {
 		System.out.print("■ 입력" + (i+1) + ": ");
-		number[i] = getInputInt();
-	// 입력받은 숫자들을 number라는 배열의 [i]값에 각각 순서대로 입력
+		arr[i] = sc.nextInt();
+	// 입력받은 숫자들을 arr라는 배열의 [i]값에 각각 순서대로 입력
 	}
 	
 	System.out.println("====================");
-	System.out.println(">> 최대값 : " + maxValue(number));
-	System.out.println(">> 최소값 : " + minValue(number));
+	System.out.println(">> 최대값 : " + maxValue(arr));
+	System.out.println(">> 최소값 : " + minValue(arr));
 
 	}
 	
@@ -54,13 +56,5 @@ public class MaxMin {
 			} 
 				} return minValue;
 	}
-			
 
-private static int getInputInt() {
-	Scanner scanner = new Scanner(System.in);
-	String input = scanner.nextLine();
-	return Integer.parseInt(input);
-	
-	}
 }
-
