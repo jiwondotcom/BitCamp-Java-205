@@ -1,6 +1,6 @@
 package self;
 
-	import java.util.Scanner;
+import java.util.Scanner;
 
 	//		다음의 형태로 표현된 2차원 배열이 존재한다고 가정해 보자.
 	//		1 2 3
