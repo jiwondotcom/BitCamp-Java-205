@@ -15,21 +15,20 @@ import java.util.Scanner;
 public class MaxMin {
 	public static void main(String[] args) {
 		
-	Scanner scanner = new Scanner(System.in);
+	Scanner sc = new Scanner(System.in);
 		
 	int a;
 	System.out.print("몇개의 숫자를 입력하시겠습니까>> ");
-	a = scanner.nextInt();
+	a = sc.nextInt();
 	
 	int[] arr = new int[a];
-	// 배열 arr는 입력받은 숫자 i개로 이루어져있다.
+	// 배열 arr는 입력받은 숫자 a개로 이루어져있다.
 	
 	for (int i = 0; i < arr.length; i++) {
 		System.out.print("■ 입력" + (i+1) + ": ");
-		arr[i] = scanner.nextInt();
-	// 입력받은 숫자들을 numbers라는 배열의 [i]값에 각각 순서대로 입력
+		arr[i] = sc.nextInt();
+	// 입력받은 숫자들을 arr라는 배열의 [i]값에 각각 순서대로 입력
 	}
-	
 	
 	System.out.println("====================");
 	System.out.println(">> 최대값 : " + maxValue(arr));
