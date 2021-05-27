@@ -55,7 +55,6 @@ public class MaxMin {
 				} return minValue;
 	}
 			
-	
 
 private static int getInputInt() {
 	Scanner scanner = new Scanner(System.in);
