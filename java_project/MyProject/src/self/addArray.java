@@ -42,6 +42,7 @@ public class addArray {
 }
 	
 	public static void addOneDArr (int[][] multiArr, int add) {
+		// 2차원배열 multiArr의 모든 요소에 int add만큼의 값을 더한다. (for문)
 		for (int i = 0; i < multiArr.length; i++) {
 			for (int j = 0; j < multiArr[i].length; j++) {
 				multiArr[i][j] += add;
