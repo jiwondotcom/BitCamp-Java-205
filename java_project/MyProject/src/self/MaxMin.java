@@ -56,4 +56,5 @@ public class MaxMin {
 			} 
 				} return minValue;
 	}
+
 }
