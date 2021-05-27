@@ -43,7 +43,6 @@ public class MaxMin {
 			} 
 				} return maxValue;
 	}
-				
 
 	public static int minValue(int[] arr) {
 		int minValue = arr[0];
