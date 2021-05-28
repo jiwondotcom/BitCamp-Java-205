@@ -41,9 +41,9 @@ public class FriendBook {
 			System.out.println("▶프로그램을 종료합니다.");
 			return; // System.exit; 으로도 가능하다.
 			
-		}
-			}
+		} // switch문의 끝
+			} // while문의 끝
 	
-	}
+	} // main문의 끝
 
-}
+} // class문의 끝
