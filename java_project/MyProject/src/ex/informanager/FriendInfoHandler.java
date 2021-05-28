@@ -14,7 +14,6 @@ public class FriendInfoHandler {
 		this.friends = new Friend[num];
 		this.numOfFriend = 0; // 0값은 생략이 가능하다. 명시적으로 입력.
 	}
-
 	
 	// 데이터의 입력 처리
 	// 사용자로부터 친구의 정보를 입력받아 => 인스턴스 생성 => 배열에 저장한다.
@@ -35,18 +34,20 @@ public class FriendInfoHandler {
 			
 			// 인스턴스 생성
 			// HighFriend hFriend = new HighFriend(name, phoneNumber, address, work);
+			
 			// 배열에 요소 추가
 			// friends[numOfFriend] = hFriend;
 			// numOfFriend++;
 			addFriendInfo(new HighFriend(name, phoneNumber, address, work));
 
-//		} else if (choice == 2); // 2개뿐이라 else if 사용은 필요없다.
+//		} else if (choice == 2); // 선택지가 2개뿐이라 else if 사용은 필요없다.
 		} else { // 2. 대학친구
 			System.out.print("전공을 입력해주세요>> ");
 			String major = sc.nextLine();
 				
 			// 인스턴스 생성
 			// UnivFriend uFriend = new UnivFriend(name, phoneNumber, address, major);
+			
 			// 배열에 요소 추가
 			// friends[numOfFriend] = uFriend;
 			// numOfFriend++;

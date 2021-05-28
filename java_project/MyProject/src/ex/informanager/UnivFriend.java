@@ -2,7 +2,7 @@ package ex.informanager;
 
 public class UnivFriend extends Friend {
 
-	// [대학교 친구]는 [전공 정보]를 추가적으로 가진다.
+	// [대학교 친구]는 [전공 정보]를 추가적으로 갖는다.
 	String major;
 	
 	public UnivFriend(String name, String phoneNumber, String address, String major) {

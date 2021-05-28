@@ -2,7 +2,7 @@ package ex.informanager;
 
 public class HighFriend extends Friend {
 
-	// [고등학교 친구]는 [직장 정보]를 추가적으로 가진다.
+	// [고등학교 친구]는 [직장 정보]를 추가적으로 갖는다.
 	String work;
 	
 	public HighFriend(String name, String phoneNumber, String address, String work) {
@@ -17,7 +17,7 @@ public class HighFriend extends Friend {
 		System.out.println("직   업: " + work);
 	}
 
-	// Friend 클래스 내의 showBasicInfo() 메소드는 가려지고 해당 메소드로 보여진다.
+	// Friend 클래스 내의 showBasicInfo() 메소드는 가려지고 해당 메소드로 사용한다.
 	@Override
 	public void showBasicInfo() {
 		System.out.println("이   름: " + name);
