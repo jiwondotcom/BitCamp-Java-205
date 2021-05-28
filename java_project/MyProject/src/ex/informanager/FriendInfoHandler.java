@@ -45,7 +45,7 @@ public class FriendInfoHandler {
 			System.out.print("전공을 입력해주세요>> ");
 			String major = sc.nextLine();
 				
-			//b인스턴스 생성
+			// 인스턴스 생성
 			// UnivFriend uFriend = new UnivFriend(name, phoneNumber, address, major);
 			addFriendInfo(new UnivFriend(name, phoneNumber, address, major));
 				// 배열에 요소 추가
