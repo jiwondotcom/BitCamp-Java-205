@@ -6,6 +6,7 @@ public class FriendBook {
 	public static void main(String[] args) {
 
 		FriendInfoHandler handler = new FriendInfoHandler(100);
+		// 100명의 친구들을 저장한다.
 
 		Scanner sc = new Scanner(System.in);
 		
