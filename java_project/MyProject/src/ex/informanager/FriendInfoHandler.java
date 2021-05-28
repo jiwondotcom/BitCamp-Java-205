@@ -84,11 +84,11 @@ public class FriendInfoHandler {
 			if(numOfFriend > 0) { // 입력된 정보가 하나 이상은 있어야 함
 				for (int i = 0; i < numOfFriend; i++) {
 					friends[i].showBasicInfo();
+					System.out.println("---------------------------");
 				}
 			} else {
 				System.out.println("▶입력된 정보가 없습니다.");
 			}
-			System.out.println("---------------------------\n");
 			
 		}
 }
