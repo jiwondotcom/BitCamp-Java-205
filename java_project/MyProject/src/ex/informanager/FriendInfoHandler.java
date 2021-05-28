@@ -35,10 +35,10 @@ public class FriendInfoHandler {
 			
 			// 인스턴스 생성
 			// HighFriend hFriend = new HighFriend(name, phoneNumber, address, work);
+			// 배열에 요소 추가
+			// friends[numOfFriend] = hFriend;
+			// numOfFriend++;
 			addFriendInfo(new HighFriend(name, phoneNumber, address, work));
-				// 배열에 요소 추가
-				// friends[numOfFriend] = hFriend;
-				// numOfFriend++;
 
 //		} else if (choice == 2); // 2개뿐이라 else if 사용은 필요없다.
 		} else { // 2. 대학친구
@@ -47,10 +47,10 @@ public class FriendInfoHandler {
 				
 			// 인스턴스 생성
 			// UnivFriend uFriend = new UnivFriend(name, phoneNumber, address, major);
+			// 배열에 요소 추가
+			// friends[numOfFriend] = uFriend;
+			// numOfFriend++;
 			addFriendInfo(new UnivFriend(name, phoneNumber, address, major));
-				// 배열에 요소 추가
-				// friends[numOfFriend] = uFriend;
-				// numOfFriend++;
 			}
 		}
 		
