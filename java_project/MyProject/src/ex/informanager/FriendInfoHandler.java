@@ -22,32 +22,32 @@ public class FriendInfoHandler {
 	
 		Scanner sc = new Scanner(System.in);
 		
-		System.out.println("이름을 입력해주세요.: ");
+		System.out.print("이름을 입력해주세요>> ");
 		String name = sc.nextLine();
-		System.out.println("전화번호를 입력해주세요.: ");
+		System.out.print("전화번호를 입력해주세요>> ");
 		String phoneNumber = sc.nextLine();
-		System.out.println("주소를 입력해주세요.: ");
+		System.out.print("주소를 입력해주세요>> ");
 		String address = sc.nextLine();
 		
 		if(choice == 1) { // 1. 고등학교 친구
-			System.out.println("직업을 입력해주세요>> ");
+			System.out.print("직업을 입력해주세요>> ");
 			String work = sc.nextLine();
 			
 			// 인스턴스 생성
-			HighFriend hFriend = new HighFriend(name, phoneNumber, address, work);
-			addFriendInfo(hFriend);
+			// HighFriend hFriend = new HighFriend(name, phoneNumber, address, work);
+			addFriendInfo(new HighFriend(name, phoneNumber, address, work));
 				// 배열에 요소 추가
 				// friends[numOfFriend] = hFriend;
 				// numOfFriend++;
 
 //		} else if (choice == 2); // 2개뿐이라 else if 사용은 필요없다.
 		} else { // 2. 대학친구
-			System.out.println("전공을 입력해주세요>> ");
+			System.out.print("전공을 입력해주세요>> ");
 			String major = sc.nextLine();
 				
-			//인스턴스 생성
-			UnivFriend uFriend = new UnivFriend(name, phoneNumber, address, major);
-			addFriendInfo(uFriend);
+			//b인스턴스 생성
+			// UnivFriend uFriend = new UnivFriend(name, phoneNumber, address, major);
+			addFriendInfo(new UnivFriend(name, phoneNumber, address, major));
 				// 배열에 요소 추가
 				// friends[numOfFriend] = uFriend;
 				// numOfFriend++;
@@ -58,12 +58,13 @@ public class FriendInfoHandler {
 		public void addFriendInfo(Friend f) {
 			// 배열에 요소 추가
 			friends[numOfFriend++] = f;
+			System.out.println("\n▶정보가 추가되었습니다.\n");
 		}
 
 		
 		// 모든 데이터를 출력하는 메소드
 		public void showAllData() {
-			System.out.println("▶친구의 모든 정보를 출력합니다.◀");
+			System.out.println("\n▶친구의 모든 정보를 출력합니다.◀");
 			System.out.println("---------------------------");
 			if(numOfFriend > 0) { // 입력된 정보가 하나 이상은 있어야 함
 			for (int i = 0; i < numOfFriend; i++) {
@@ -71,24 +72,23 @@ public class FriendInfoHandler {
 				System.out.println("---------------------------");
 		}
 			} else {
-				System.out.println("입력된 정보가 없습니다.");
+				System.out.println("▶입력된 정보가 없습니다.");
+				System.out.println("---------------------------\n");
 			}
-			System.out.println("---------------------------");
 	
 		}
 		
 		public void showAllBasicData() {
-			System.out.println("▶친구의 모든 기본정보를 출력합니다.◀");
+			System.out.println("\n▶친구의 기본정보를 출력합니다◀");
 			System.out.println("---------------------------");
 			if(numOfFriend > 0) { // 입력된 정보가 하나 이상은 있어야 함
 				for (int i = 0; i < numOfFriend; i++) {
 					friends[i].showBasicInfo();
-					System.out.println("---------------------------");
 				}
 			} else {
-				System.out.println("입력된 정보가 없습니다.");
+				System.out.println("▶입력된 정보가 없습니다.");
 			}
-			System.out.println("---------------------------");
+			System.out.println("---------------------------\n");
 			
 		}
 }
