@@ -21,7 +21,6 @@ public class VectorExample {
 			Board board = list.get(i);
 			System.out.println(board.subject + "\t" + board.content + "\t" + board.writer);
 		}
-
 	}
 
 }
