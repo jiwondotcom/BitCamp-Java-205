@@ -1,5 +1,6 @@
 package study_0531;
 
+// 게시물 정보 객체
 public class Board {
 
 		String subject;
@@ -11,6 +12,6 @@ public class Board {
 		this.content = content;
 		this.writer = writer;
 
-		}
+}
 	}
 

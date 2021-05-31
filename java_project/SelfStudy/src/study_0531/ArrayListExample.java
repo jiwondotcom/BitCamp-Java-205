@@ -2,6 +2,7 @@ package study_0531;
 
 import java.util.*;
 
+// String 객체를 저장하는 ArrayList
 public class ArrayListExample {
 	public static void main(String[] args) {
 

@@ -3,6 +3,7 @@ package study_0531;
 import java.util.List;
 import java.util.Vector;
 
+// Board 객체를 저장하는 Vector
 public class VectorExample {
 	public static void main(String[] args) {
 		
