@@ -1,4 +1,4 @@
-package self;
+package study_0527;
 
 import java.util.Scanner;
 
@@ -12,7 +12,7 @@ import java.util.Scanner;
 //int형 배열에 채워질 정수는 프로그램 사용자로부터 입력 받고, 배열의 길이는
 //임의로 결정
 
-public class MaxMin {
+public class MaxMin03 {
 	public static void main(String[] args) {
 		
 	Scanner sc = new Scanner(System.in);
@@ -56,4 +56,5 @@ public class MaxMin {
 			} 
 				} return minValue;
 	}
+
 }
