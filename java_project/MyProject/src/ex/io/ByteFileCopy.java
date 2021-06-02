@@ -16,7 +16,7 @@ public class ByteFileCopy {
 		int copyByte = 0;
 		// 파일에서 읽어올 바이트 데이터
 		int bData = -1;
-		
+		 
 		
 		while(true) {
 			
