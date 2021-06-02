@@ -5,7 +5,7 @@ import java.io.File;
 public class FileMove {
 	public static void main(String[] args) {
 
-		
+			
 //		File myFile = new File ("D:\\MyJava", "origin.pdf");
 		File myFile = new File ("D:\\MyJava\\origin.pdf");
 		System.out.println(myFile);
