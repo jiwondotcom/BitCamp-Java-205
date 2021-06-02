@@ -11,7 +11,7 @@ public class BufferFileCopy {
 		InputStream in = new FileInputStream("origin.pdf");
 		// 2. 파일을 쓰기 위한 스트림 생성 : FileOutputStream
 		OutputStream out = new FileOutputStream("copy2.pdf");
-		
+			
 		// 카피한 데이터의 크기
 		int copyByte = 0;
 		// 파일에서 읽어올 바이트 데이터 배열
