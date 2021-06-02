@@ -9,7 +9,7 @@ public class StringWriter {
 		
 		try {
 			
-		BufferedWriter out = new BufferedWriter(new FileWriter("String.txt"));
+		BufferedWriter out = new BufferedWriter(new FileWriter("String.html"));
 		
 		System.out.println("작성 시작");
 		out.write("짱구 - 안녕하세요.");
