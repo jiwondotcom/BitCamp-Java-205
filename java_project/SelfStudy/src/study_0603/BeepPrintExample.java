@@ -16,7 +16,7 @@ public class BeepPrintExample {
 			}
 			
 		for(int i = 0; i < 5; i++) {
-				System.out.println("띵");
+				System.out.println("beep!");
 				try {
 					Thread.sleep(500); // 0.5초간 일시정지
 				} catch (Exception e) {
