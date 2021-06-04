@@ -1,4 +1,4 @@
-package self;
+package ArrayQuiz;
 
 import java.util.*;
 
@@ -29,7 +29,7 @@ public class ArrayListExample {
 		System.out.println();
 		
 		list.remove(2); // 2번 인덱스 객체(Database) 삭제
-		list.remove(2); // 2번 인덱스 객체(iBATIS) 삭제
+		list.remove(2); // 2번 인덱스 객체(Servelet/JSP) 삭제
 		list.remove("iBATIS");
 		
 		for(int i = 0; i < list.size(); i++) { // 저장된 총 객체 수 만큼 루핑
