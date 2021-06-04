@@ -1,6 +1,6 @@
 package study_0604;
 
-public class TvTest2 {
+public class TvTest02 {
 	public static void main(String[] args) {
 
 		Tv t1 = new Tv();
