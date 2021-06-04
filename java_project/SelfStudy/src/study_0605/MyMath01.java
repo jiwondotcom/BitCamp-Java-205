@@ -1,6 +1,6 @@
 package study_0605;
 
-class MyMath {
+class MyMath01 {
 	
 	long add (long a, long b) {
 		long result = a + b;

@@ -1,9 +1,9 @@
 package study_0605;
 
-public class MyMathTest {
+public class MyMathTest01 {
 	public static void main(String[] args) {
 		
-		MyMath mm = new MyMath();
+		MyMath01 mm = new MyMath01();
 		long result1 = mm.add(5L, 3L);
 		long result2 = mm.subtract(5L, 3L);
 		long result3 = mm.multiply(5L, 3L);
