@@ -19,7 +19,7 @@ class PowerTest {
 			return x;
 		}
 		return x * power(x, n-1);
-		
+		 
 	}
 }
 
