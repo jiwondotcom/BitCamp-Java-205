@@ -1,4 +1,4 @@
-package test;
+package ArrayQuiz;
 
 import java.util.Scanner;
 
@@ -15,7 +15,7 @@ import java.util.Scanner;
 //		이번에도 마찬가지로 배열의 가로, 세로길이에 상관 없이 동작을 하도록 메서드가 정의되어야 하며,
 //		정의된 메서드의 확인을 위한 main메서드도 함께 정의하자.
 
-public class arrayChange02 {
+public class arrayChange {
 	public static int[][] setMultiArr() {
 		// multiArr 배열의 행과 열을 사용자에게 직접 값을 입력받아 2차원 배열의 길이를 세팅하는 메소드
 		Scanner sc = new Scanner(System.in);
