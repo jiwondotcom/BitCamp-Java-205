@@ -5,7 +5,6 @@ package ch13;
 // ②파일이 복사가 완료되면 완료 메시지를 콘솔에 출력합시다.
 
 public class CopyThread {
-
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
