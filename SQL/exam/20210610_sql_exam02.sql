@@ -5,7 +5,7 @@ select bookname
 from book
 where bookid = 1
 ;
-
+ 
 
 --(2) 가격이 20,000원 이상인 도서의 이름
 select bookname
