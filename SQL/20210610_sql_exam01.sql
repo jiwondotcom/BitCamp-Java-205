@@ -53,7 +53,7 @@ where hiredate between '81/02/20' and '81/05/01'
 --이름을 기준(내림차순)으로 영문자순으로 출력하시오.
 select ename
 from emp
-where deptno between 20 and 30 
+where deptno in (20, 30)
 order by ename 
 ;
 ​
