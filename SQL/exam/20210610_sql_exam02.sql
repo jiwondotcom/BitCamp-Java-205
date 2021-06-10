@@ -52,6 +52,7 @@ from customer
 select orderid
 from orders
 where orderdate >= '14/07/04' and orderdate <= '14/07/07'
+-- '14-07-04' and '14-07-07'도 가능하다
 ;
 
 
