@@ -1,37 +1,35 @@
 
--- Oralce Ex
--- DDL
+-- ì£¼ì„
+-- 2021.06.09
+-- emp, dept DDL -> DML
+-- Table ìƒì„± -> í…Œì´ë¸”ì— ë°ì´í„°ë¥¼ ì €ìž¥(insert)
 
-drop table emp; 
+drop table emp; -- ê°ì²´ë¥¼ ì‚­ì œí• ë•Œ ì“´ë‹¤ : drop
 drop table dept; 
 
-create table dept(                        -- dept table »ý¼º
-  deptno number,                          -- ºÎ¼­¹øÈ£
-  dname  varchar2(14),                    -- ºÎ¼­¸í
-  loc    varchar2(13),                    -- ºÎ¼­À§Ä¡
-  constraint pk_dept primary key (deptno) -- deptno·Î pk¼³Á¤
+create table dept(                        -- dept table ìƒì„±
+  deptno number,                          -- ë¶€ì„œë²ˆí˜¸
+  dname  varchar2(14),                    -- ë¶€ì„œëª…
+  loc    varchar2(13),                    -- ë¶€ì„œìœ„ì¹˜
+  constraint pk_dept primary key (deptno)  -- deptnoë¡œ pkì„¤ì •
 );
 
-create table emp(                         -- emp table »ý¼º
-  empno    number,                        -- Á÷¿ø¹øÈ£
-  ename    varchar2(10),                  -- Á÷¿ø¸í
-  job      varchar2(9),                   -- Á÷Ã¥
-  mgr      number(4),                     -- ´ã´ç¸Å´ÏÀú
-  hiredate date,                          -- ÀÔ»çÀÏ
-  sal      number(7),                     -- ¿ù±Þ
-  comm     number(7),                     -- º¸³Ê½º
-  deptno   number,                        -- ºÎ¼­¹øÈ£
-  constraint pk_emp primary key (empno)   -- empno·Î pk¼³Á¤
+create table emp(                         -- emp table ìƒì„±
+  empno    number,                        -- ì§ì›ë²ˆí˜¸
+  ename    varchar2(10),                  -- ì§ì›ëª…
+  job      varchar2(9),                   -- ì§ì±…
+  mgr      number(4),                     -- ë‹´ë‹¹ë§¤ë‹ˆì €
+  hiredate date,                          -- ìž…ì‚¬ì¼
+  sal      number(7),                     -- ì›”ê¸‰
+  comm     number(7),                     -- ë³´ë„ˆìŠ¤
+  deptno   number,                        -- ë¶€ì„œë²ˆí˜¸
+  constraint pk_emp primary key (empno)   -- empnoë¡œ pkì„¤ì •
 );
-
-
 -- DEPT DML
 insert into dept values(10, 'ACCOUNTING', 'NEW YORK');
 insert into dept values(20, 'RESEARCH', 'DALLAS');
 insert into dept values(30, 'SALES', 'CHICAGO');
 insert into dept values(40, 'OPERATIONS', 'BOSTON');
-
-select * from dept;
 
 -- EMP DML
 insert into emp values( 7839, 'KING', 'PRESIDENT', null, to_date('1996-11-17','yyyy-mm-dd'), 5000, null, 10);
@@ -49,7 +47,10 @@ insert into emp values( 7876, 'ADAMS', 'CLERK', 7788, to_date('13-7-87', 'dd-mm-
 insert into emp values( 7900, 'JAMES', 'CLERK', 7698, to_date('3-12-1981','mm-dd-yyyy'), 950, null, 30);
 insert into emp values( 7934, 'MILLER', 'CLERK', 7782, to_date('2003-1-23','yyyy-mm-dd'), 1300, null, 10);
 
+commit;
+
+-- ê²€ìƒ‰ : ì§ˆì˜ -> Select
+select * from dept;
 select * from emp;
 
-commit;
-?
+
