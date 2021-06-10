@@ -7,7 +7,7 @@
 select ename, sal, sal+300 as upsal
 from emp
 ;
-​
+​ 
 
 --2. 사원의 이름, 급여, 연간 총 수입을
 --총 수입이 많은 것부터 작은 순으로 출력하시오,
