@@ -111,7 +111,7 @@ where ename like '%A%' and ename like '%E%'
 --급여가 $1600, $950 또는 $1300이 아닌 사원의 이름, 담당업무, 급여를 출력하시오.
 select ename, job, sal
 from emp
-where sal in (1600, 950, 1300)
+where (job = 'CLERK' or job = 'SALESMAN') and sal not in (1600, 950, 1300)
 ;
 
 
