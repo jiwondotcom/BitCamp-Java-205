@@ -89,7 +89,7 @@ where mgr is null
 select ename, sal, comm
 from emp
 where comm is not null
-order by comm desc
+order by sal desc, comm desc
 ;
 ​ 
 
