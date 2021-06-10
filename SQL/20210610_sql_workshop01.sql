@@ -22,7 +22,7 @@ order by sal desc
 --급여가 많은 것부터 작은 순으로 출력하시오.
 select ename, sal
 from emp
-where sal >= 2000
+where sal > 2000
 order by sal desc
 ;
 
