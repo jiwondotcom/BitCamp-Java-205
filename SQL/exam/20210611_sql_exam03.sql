@@ -8,7 +8,7 @@ from emp
 
 
 --17. SUBSTR 함수를 사용하여 4월에 입사한 사원을 출력하시오.
-select ename
+select ename    
 from emp
 where substr(hiredate, 4, 2) = 04
 ;
