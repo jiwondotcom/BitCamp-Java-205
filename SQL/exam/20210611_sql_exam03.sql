@@ -35,7 +35,7 @@ from dual
 
 
 --21. 사원들의 상관 사번을 출력하되 상관이 없는 사원에 대해서는 NULL 값 대신 0으로 출력하시오.
-select ename, nvl(mgr, 0)
+select ename as "사원 이름", nvl(mgr, 0) as "상관 사번"
 from emp
 order by mgr
 ;
