@@ -7,7 +7,7 @@
 select 'Oracle'
 from dual
 ;
-
+ 
 -- 절대값을 구한다.
 select abs(10), abs(-10)
 from dual
@@ -40,7 +40,10 @@ where mod(sal, 2) = 1
 ;
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 414c378bb7472c55a3ee411aac1249f32f884671
 -- 2021.06.11
 
 -- 형변환 함수
@@ -144,4 +147,7 @@ from emp
 ;
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 414c378bb7472c55a3ee411aac1249f32f884671
