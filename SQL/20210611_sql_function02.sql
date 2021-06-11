@@ -75,5 +75,43 @@ group by job
 order by job
 ;
 
+-- '부서별'로 그룹핑 : group by deptno
+-- 부서별 사원수와 커미션을 받는 부서별 사원들의 수를 계산해서 출력
+-- null값은 계산의 대상이 되지 않는다.
+select deptno as "부서 번호", count(*) as "부서별 인원",  count(comm) as "커미션을 받는 인원" 
+from emp
+group by deptno
+order by deptno -- 부서별 정렬 (기본 오름차순)
+;
 
 
+-- (select 절에 조건을 사용하여 결과를 제한할때는 where절 사용)
+
+-- having 절 : 그룹핑 group by 활용 후, 그룹의 결과를 제한할때 사용
+-- group by의 그룹함수의 결과를 비교시에는 having절을 이용한다. 
+
+-- select
+-- from
+--where
+-- group by 
+-- having 그룹함수 연산자 값 (=, !=, >, <, >=, <= 비교연산자 모두 가능)
+-- ** 순서 중요 **
+
+-- 부서별로 그룹지은 후(GROUP BY),
+-- 그룹 지어진 부서별 평균 급여가 2000 이상인(HAVING)
+-- 부서번호와 부서별 평균 급여를 출력
+select deptno as "부서 번호", avg(sal) as "부서별 평균 급여"
+from emp
+group by deptno
+having avg(sal) >= 2000
+;
+
+
+-- 부서의 급여 최대값과 최소값을 구하되
+-- 최대 급여가 2900이상인 부서만 출력합니다.
+select deptno as  "부서 번호", max(sal) as "부서별 급여 최대값", min(sal) as "부서별 급여 최소값"
+from emp
+group by deptno
+having max(sal) > 2900
+order by deptno
+;
