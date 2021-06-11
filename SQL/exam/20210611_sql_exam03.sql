@@ -85,7 +85,7 @@ group by job
 ​
 
 --26. 관리자 수를 출력하시오.
-select count(mgr) as "관리자 인원"
+select count(distinct mgr) as "관리자 인원" -- 중복 매니저 제거 :  distinct 활용
 from emp
 ;
 ​
