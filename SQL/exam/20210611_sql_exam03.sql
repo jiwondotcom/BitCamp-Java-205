@@ -5,7 +5,7 @@
 select substr(hiredate,1, 2) as "입사 년도", SUBSTR(hiredate, 4, 2) as "입사 달" 
 from emp
 ;
-​​ss
+
 
 --17. SUBSTR 함수를 사용하여 4월에 입사한 사원을 출력하시오.
 select ename
