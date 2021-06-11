@@ -128,12 +128,14 @@ order by dname
 
 select ename, sal,
          decode(job, 'ANALYST', sal * 1.05,     -- 5% 인상
-                    job, 'SALESMAN', sal * 1.1,    -- 10% 인상
-                    job, 'MANAGER', sal * 1.15,   -- 15% 인상
-                    job, 'CLERK', sal * 1.2           -- 20% 인상
+                    'SALESMAN', sal * 1.1,    -- 10% 인상
+                    'MANAGER', sal * 1.15,   -- 15% 인상
+                    'CLERK', sal * 1.2           -- 20% 인상
                     ) as UPSAL
 from emp
 ;
+
+
 
 -- case 함수도 분기할 때 사용
 -- case when 조건식 then이 참일때 값
@@ -147,8 +149,3 @@ select ename, deptno,
 from emp
 ;
 
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 414c378bb7472c55a3ee411aac1249f32f884671
