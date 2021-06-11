@@ -103,7 +103,7 @@ select job, min(sal)
 from emp
 where mgr is not null
 group by job
-having min(sal) > 2000
+having min(sal) >= 2000
 order by min(sal) desc
 ;
 
