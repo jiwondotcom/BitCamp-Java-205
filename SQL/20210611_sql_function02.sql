@@ -1,104 +1,22 @@
 -- 2021.06.11
 
--- 형변환 함수
--- 날짜->문자, 숫자->문자
--- 문자->숫자, 문자->날짜
--- to_char(날짜 데이터, '패턴'), to_char(숫자, '패턴')
-select sysdate, to_char(sysdate, 'YYYY.MM.DD.  HH24:MI:SS')
-from dual
-;
+-- 그룹함수
+-- 여러행을 묶어 처리하는 함수
+-- sum, avg, cont, max, min
 
-select ename, hiredate, to_char(hiredate, 'YYYY.MM.DD.')
+-- 사원 테이블에서
+-- 1. 사원의 수
+-- 2. 사원의 급여 총합
+-- 3. 급여 평균
+-- 4. 최대 급여
+-- 5. 최소 급여
+select count (*) as "사원의 수",
+         sum(sal) as "급여의 총합",
+         round (avg(sal), 2) as "급여 평균", -- 소수점 둘째자리까지, 셋째 자리에서 반올림 (round 함수 사용)
+         max(sal) as "최대 급여",
+         min(sal) as "최소 급여"
 from emp
 ;
 
-select * from orders;
-select orderid, orderdate, to_char(orderdate, 'YYYY.MM.DD')
-from orders
-;
-
-
--- 숫자 -> 문자
-select to_char(123456, '0,000,000,000'), to_char(123456, 'L9,999,999,999')
-from dual
-;
-
-
--- 이번달 사원 급여지급내역
-select empno, ename, sal, to_char(sal*1100, 'L999,999,999')
-from emp
-;
-
-
--- '1,000,000'  + 100000
-
--- 문자->숫자
--- to_number 함수 (문자열)
--- 숫자를 가지고 있는 문자열이어야 한다.
-select TO_NUMBER('1,000,000', '9,999,999'),
-         TO_NUMBER('1,000,000', '9,999,999') + 100000
-from dual
-;
-
-
--- 문자->날짜
--- to_date (문자열, 패턴)
--- 특정 사용자의 생일을 알면 오늘 날짜를 기준으로 사용자의 만나이를 뽑아낼 수 있다.
-select to_date('2012.05.17', 'YYYY.MM.DD'), 
-          trunc ( (sysdate-to_date('2012.05.17', 'YYYY.MM.DD')) / 365 )
-from dual;
-
-
--- decode 함수 : 분기를 위해 사용, 자바의 switch-case와 유사
--- decode (컬럼, = 조건1 값, 조건1이 참일때 사용할 값
---              , 조건2 값, 조건2의 참일때 사용할 값
---              , ... )
-
--- emp 테이블에서 부서번호에 맞는 부서이름 출력
-select  * from dept;
-
--- 10 ACCOUNTING
--- 20 RESEARCH
--- 30 SALES
--- 40 OPERATIONS
-
-select ename, deptno,
-        decode (deptno, 10, 'ACCOUNTING',
-                                20, 'RESEARCH',
-                                30, 'SALES',
-                                40, 'OPERATIONS' 
-                    ) AS DNAME
-from emp
-order by dname
-;
-
-
---  8. 직급에 따라 급여를 인상하도록 하자.
--- 직급이 'ANALYST'인 사원은 5%
---           'SALESMAN'인 사원은 10%
---           'MANAGER'인 사원은 15%
---           'CLERK'인 사원은 20% 인상한다.
-
-select ename, sal,
-         decode(job, 'ANALYST', sal * 1.05,     -- 5% 인상
-                    job, 'SALESMAN', sal * 1.1,    -- 10% 인상
-                    job, 'MANAGER', sal * 1.15,   -- 15% 인상
-                    job, 'CLERK', sal * 1.2           -- 20% 인상
-                    ) as UPSAL
-from emp
-;
-
--- case 함수도 분기할 때 사용
--- case when 조건식 then이 참일때 값
--- case로 시작 END로 마감
-select ename, deptno,
-         case when deptno = 10 then 'ACCOUNTING'
-                when deptno = 20 then 'RESEARCH'
-                when deptno = 30 then 'SALES'
-                when deptno = 40 then 'OPERATIONS'
-        END as deptname
-from emp
-;
-
-
-
+select sum(comm) as "커머션의 총합",
+         avg(comm) as "커머션의 평균",
