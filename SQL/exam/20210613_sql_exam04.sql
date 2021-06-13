@@ -68,3 +68,5 @@ from emp e, emp m -- self join
 where e.mgr = m.empno and e.hiredate < m.hiredate -- 매니저번호 = 사원번호
 order by e.hiredate
 ; 
+
+
