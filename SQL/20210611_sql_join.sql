@@ -23,3 +23,14 @@ where e.deptno = d.deptno
 -- e.ename에서 'e' 생략 가능 (겹치는 컬럼이 없기 때문)
 order by d.dname, e.ename -- 부서가 같을 경우 이름 알파벳 순서대로 정렬
 ;
+
+
+-- self JOIN : 자기 자신을 조인 (참조)
+-- emp -> mgr 컬럼이 emp.empno 참조
+select e.empno, e.ename, e.mgr, m.ename
+from emp e, emp m
+where e.mgr = m.empno (+)
+-- 만족하지 않는 결과가 있어 누락될 경우 : outer join(+) 하여 출력값에 포함시킨다.
+;
+
+
