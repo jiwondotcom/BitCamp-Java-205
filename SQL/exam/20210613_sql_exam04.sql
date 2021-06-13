@@ -66,5 +66,5 @@ order by e.hiredate
 select e.ename, e.hiredate, m.ename as "매니저 이름", m.hiredate as "매니저 입사일"
 from emp e, emp m -- self join
 where e.mgr = m.empno and e.hiredate < m.hiredate -- 매니저번호 = 사원번호
-order by e.hiredate;
-
+order by e.hiredate
+; 
