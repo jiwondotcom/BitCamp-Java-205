@@ -2,9 +2,10 @@
 -- workshop
 
 -- 32. EQUI 조인을 사용하여 SCOTT 사원의 부서번호와 부서 이름을 출력하시오.
-select ename
-from dept d, emp e
-where d.deptno = e.deptno and e.ename = 'SCOTT'
+select e.deptno as "부서 번호", ename as "사원 이름", dname as "부서명"
+from emp e, dept d
+where d.deptno = e.deptno 
+         and e.ename = 'SCOTT'
 ;
 ​
 
