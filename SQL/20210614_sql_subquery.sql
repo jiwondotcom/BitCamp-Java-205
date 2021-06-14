@@ -147,3 +147,31 @@ select saleprice from orders where custid = '3';
 --                        from orders
 --                        where custid = '3');
 
+
+-- 다음은 부서번호가 30번인 사원들의 급여 중
+-- 가장 작은 값(950)보다 많은 급여를 받는 
+-- 사원의 이름, 급여를 출력하는 예제를 작성해 봅시다.
+select ename, sal
+from emp
+where sal > any
+                (select sal
+                from emp
+                where deptno = 30);
+
+-- 부서번호가 30번인 사원들의 급여
+select sal from emp where deptno = 30;
+
+
+-- EXISTS 연산자로
+-- 대한민국에 거주하는 고객에게 판매한 도서의 총 판매액을 구하시오.
+select sum(saleprice) as "TOTAL"
+from orders o
+where exists (
+                    select *
+                    from customer c
+                    where c.custid = o.custid 
+                    and address like '%대한민국%'
+                    )
+;
+
+select * from customer c where c.custid = o.custid and address like '%대한민국%';
