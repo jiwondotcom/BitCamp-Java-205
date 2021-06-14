@@ -61,7 +61,7 @@ where o.custid = c.custid
 group by c.name
 ;
 ​
-​
+
 --(11) 고객의 이름과 - customer
 --고객이 구매한 도서 목록 - book, orders
 select c.name, b.bookname
