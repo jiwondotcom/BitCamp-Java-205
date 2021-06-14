@@ -39,7 +39,6 @@ where o.custid = c.custid
 group by c.custid, c.name
 ;
 
-
 select * from orders;
 
 -- 스칼라 부속질의 이용
