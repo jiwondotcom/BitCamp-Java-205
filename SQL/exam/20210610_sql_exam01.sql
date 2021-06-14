@@ -1,3 +1,6 @@
+-- 2021.06.10 (THU)
+-- exam01
+
 --EMP 테이블과 DEPT 테이블을 이용해서 풀이해 주세요.
 ​
 --1. 덧셈연산자를 이용하여
@@ -7,7 +10,7 @@
 select ename, sal, sal+300 as upsal
 from emp
 ;
-​
+​ 
 
 --2. 사원의 이름, 급여, 연간 총 수입을
 --총 수입이 많은 것부터 작은 순으로 출력하시오,
@@ -89,7 +92,7 @@ where mgr is null
 select ename, sal, comm
 from emp
 where comm is not null
-order by comm desc
+order by sal desc, comm desc
 ;
 ​ 
 
