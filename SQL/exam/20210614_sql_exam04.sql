@@ -1,5 +1,5 @@
--- 2021.06.13 (SUN)
--- workshop
+-- 2021.06.14 (MON)
+-- exam04
 
 -- 32. EQUI 조인을 사용하여 SCOTT 사원의 부서번호와 부서 이름을 출력하시오.
 select e.deptno as "부서 번호", ename as "사원 이름", dname as "부서명"
