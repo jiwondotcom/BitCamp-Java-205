@@ -1,114 +1,207 @@
 -- 2021.06.14 (MON)
 -- exam05
--- join & sub query 
+-- 부속질의
 
---마당서점의 고객이 요구하는 다음 질문에 대해 SQL문을 작성하시오.
-
---(5) 박지성이 구매한 도서의 출판사 수
-select count(publisher)
-from orders o, customer c, book b
-where name = '박지성'
-and o.custid = c.custid and o.bookid = b.bookid
+--43. 사원 번호가 7788인 사원과 담당 업무가 같은 사원을 표시
+--(사원 이름과 담당업무)하시오.
+select ename "사원 이름", job "담당 업무"
+from emp
+where job in (select job from emp where empno = '7788')
 ;
 
 
---(6) 박지성이 구매한 -- customer, order
--- 도서의 이름, 가격, -- book
--- 정가와 판매가격의 차이 -- book, order
-select name as "구매자",
-        bookname as "도서명",
-        saleprice as "판매가",
-        (price - saleprice) as "정가-판매가격"
-from book b, customer c, orders o
-where c.name = '박지성'
-        and c.custid = o.custid and  b.bookid = o.bookid
-order by bookname;
-
-
---(7) 박지성이 구매하지 않은 도서의 이름
-select publisher, bookname
-from book
-where bookid not in (select bookid from orders where custid = 
-                            (select custid from customer where name = '박지성'))
-order by bookname;
-
-
--- 2 마당서점의 운영자와 경영자가 요구하는 다음 질문에 대해 SQL문을 작성하시오.
-
--- (8) 주문하지 않은 고객의 이름 (부속질의 사용)
-select name as "미주문자"
-from customer
-where custid not in
-                (select distinct custid
-                from orders)
-;
-
---select distinct custid
---from orders
---order by custid
---;
-
---(9) 주문금액의 총액과 주문의 평균 금액
-select sum(saleprice) as "주문금액의 총액", avg(saleprice) as "주문 평균 금액"
-from orders
-;
-
-
---(10) 고객의 이름과 고객별 구매액 -- customer, order
-select c.name, sum(o.saleprice) as "주문금액의 총액"
-from customer c, orders o
-where o.custid = c.custid
-group by c.name
+--44. 사원번호가 7499인 사원보다 급여가 많은 사원을 표시하시오.
+--사원이름과 담당 업무
+select ename "사원 이름", job "담당 업무"
+from emp
+where sal > (select sal from emp where empno = '7499')
 ;
 ​
+
+--45. 최소급여를 받는
+--사원의
+--이름, 담당업무 및 급여를 표시하시오. (그룹함수 사용)
+select ename, job, sal
+from emp
+where sal in (select min(sal) from emp)
+;
 ​
---(11) 고객의 이름과 - customer
---고객이 구매한 도서 목록 - book, orders
-select c.name, b.bookname
-from customer c, orders o, book b
-where o.custid = c.custid and o.bookid = b.bookid
-order by c.name
+
+--46. 평균 급여가 가장 적은 직급의
+--직급 이름과 직급의 평균을 구하시오.
+select job "직급 이름", avg(sal) "평균 직급"
+from emp
+group by job
+having avg(sal) = (select min(avg(sal))
+                        from emp 
+                        group by job)
 ;
 
 
---(12) 도서의 가격(Book 테이블)과 판매가격(Orders 테이블)의 차이가 가장 많은 주문
-select o.orderid as "주문번호", (b.price - o.saleprice) as "정가-판매가격"
-from book b, orders o
-where b.bookid = o.bookid
-and (b.price - o.saleprice) =
-                                    (select MAX (price - saleprice)
-                                    from book natural join orders);
-                            
-
---(13) 도서의 판매액 평균보다 -- avg(saleprice) / orders
--- 자신의 구매액 평균이 더 높은 고객의 이름 -- avg(saleprice) group by name / customer
-select name
-from orders natural join customer
-having avg(saleprice) > (select avg(saleprice) from orders)
-group by name
+--47. 각 부서의 최소 급여를 받는
+--사원의 이름, 급여, 부서번호를 표시하시오.
+select ename "사원 이름", sal "급여", deptno "부서 번호"
+from emp
+where sal in
+                (select min(sal)
+                from emp 
+                group by deptno)
+order by deptno
 ;
 
 
---3. 마당서점에서 다음의 심화된 질문에 대해 SQL 문을 작성하시오.
-
---(1) 박지성이 구매한 도서의 출판사와 같은 출판사에서 도서를 구매한 고객의 이름
-select name as "고객 이름"
-from book natural join customer natural join orders
-where publisher in (select publisher
-                            from book natural join customer natural join orders
-                            where name = '박지성')
-and name != '박지성'
+--48. 담당업무가 ANALYST 인 사원보다
+--급여가 적으면서
+--업무가 ANALYST가 아닌 사원들을 표시
+--(사원번호, 이름, 담당 업무, 급여)하시오.
+select empno, ename, job, sal
+from emp
+where sal < ALL(select sal from emp where job = 'ANAYLST')
+                and job != 'ANAYLST'
+order by sal
 ;
 
 
---(2) 두 개 이상의 서로 다른 출판사에서 -- book / distinct 사용(중복 제거) 
---도서를 구매한 고객의 이름 -- orders, customer
-select name as "고객 이름",  count(distinct publisher) as "구매 출판사 수"
-from book natural join customer natural join orders
-group by name
-having count(distinct publisher) >= 2
+--49. 부하직원이 없는 사원의 이름을 표시하시오.
+--(본인이 매니저가 아님)
+select ename "사원 이름"
+from emp
+where empno not in (select distinct mgr from emp where mgr is not null)
 ;
 
 
+--50. 부하직원이 있는 사원의 이름을 표시하시오.
+select ename "사원 이름"
+from emp
+where empno in (select distinct mgr from emp)
+;
+​
+
+--51. BLAKE와 동일한 부서에 속한
+--사원의 이름과 입사일을 표시하는 질의를 작성하시오.
+--( 단 BLAKE는 제외 )
+select ename, hiredate
+from emp 
+where deptno in (select deptno from emp where ename = 'BLAKE')
+and ename != 'BLAKE'
+order by ename
+;
+​
+
+--52. 급여가 평균 급여보다 많은 사원들의
+--사원 번호와 이름을 표시하되 결과를
+--급여에 대해서 오름차순으로 정렬하시오.
+select empno "사원 번호", ename "사원 이름", sal "급여"
+from emp
+where sal > (select avg(sal) from emp)
+order by sal
+;
+
+
+--53. 이름에 K가 포함된 사원과
+-- 같은 부서에서 일하는 사원의 사원 번호와 이름을 표시하시오.
+select deptno "부서 번호", empno "사원 번호", ename "사원 이름"
+from emp
+where deptno in (select deptno from emp where ename like '%K%')
+;
 
 ​
+--54. 부서위치가 DALLAS인
+--사원의 이름과 부서번호 및 담당업무를 표시하시오.
+select e.ename "사원 이름", d.deptno "부서 번호", e.job "담당 업무"
+from emp e, dept d
+where d.loc = 'DALLAS'
+;
+
+-- sub query
+select ename "사원 이름", deptno "부서 번호", job "담당 업무"
+from emp
+where deptno = (select deptno from dept where loc = 'DALLAS')
+;
+​
+
+--55. KING에게 보고하는 사원의 이름과 급여를 표시하시오.
+--상관 번호를 KING 으로 두고 있는 사원
+
+--상관 번호 KING : empno 7839
+--select empno
+--from emp
+--where ename = 'KING';
+
+--select ename, job
+--from emp
+--where mgr = '7839';
+
+select ename, job, mgr
+from emp
+where mgr = (select empno from emp where ename = 'KING')
+;
+
+
+--56. RESEARCH 부서의 사원에 대한
+--부서번호, 사원이름 및 담당 업무를 표시하시오.
+
+--(1)
+select deptno "부서 번호", ename "사원 이름", job "담당 업무"
+from emp
+where deptno = (select deptno
+                        from dept
+                        where dname = 'RESEARCH')
+order by ename
+;
+
+--(2)
+select d.deptno "부서 번호", e.ename "사원 이름", e.job "담당 업무"
+from emp e, dept d
+where e.deptno = d.deptno
+         and dname = 'RESEARCH'
+order by ename
+;
+
+--(3)
+select deptno "부서 번호", ename "사원 이름", job "담당 업무"
+from emp natural join dept
+where dname = 'RESEARCH'
+order by ename
+;
+
+
+--57. 평균 급여보다 많은 급여를 받고 
+--이름에 M이 포함된 사원과 같은 부서에서 근무하는 사원의 
+--사원 번호, 이름, 급여를 표시하시오.
+
+--select avg(sal) from emp;
+--평균 급여 : 2073
+
+select empno "사원 번호", ename "사원 이름", sal "급여"
+from emp
+where sal > (select avg(sal)
+                 from emp) 
+        and deptno in (select deptno
+                             from emp
+                             where ename like '%M%')
+order by sal
+;
+
+
+--58. 평균급여가 가장 적은 업무를 찾으시오.
+select job "업무명", avg(sal) "평균 급여"
+from emp
+having avg(sal) =(select min(avg(sal))
+                         from emp
+                         group by job)
+group by job
+;​
+​
+
+--59. 담당업무가 MANAGER 인 사원이
+--소속된 부서와 동일한 부서의 사원을 표시하시오.
+select ename "사원 이름", job "담당 업무"
+from emp
+where deptno in (select deptno
+                        from emp
+                        where job = 'MANAGER')
+order by ename
+;
+
+
