@@ -5,16 +5,27 @@
 --마당서점의 고객이 요구하는 다음 질문에 대해 SQL문을 작성하시오.
 
 --(5) 박지성이 구매한 도서의 출판사 수
-select count(publisher)
+--distinct : 중복 출판사 제거
+select count(distinct publisher) as "구매도서 출판사 수"
 from orders o, customer c, book b
 where name = '박지성'
 and o.custid = c.custid and o.bookid = b.bookid
 ;
 
 
---(6) 박지성이 구매한 -- customer, order
--- 도서의 이름, 가격, -- book
--- 정가와 판매가격의 차이 -- book, order
+select count (distinct publisher)
+from book
+where bookid in ( 
+        select distinct o.bookid
+        from orders o, customer c
+        where o.custid = c.custid and c.name = '박지성');
+
+
+--(6) 박지성이 구매한 -- customer, orders
+-- 도서의 이름, 가격, 정가와 -- book
+-- 판매가격의 차이 -- orders
+
+--(1)
 select name as "구매자",
         bookname as "도서명",
         saleprice as "판매가",
@@ -23,6 +34,15 @@ from book b, customer c, orders o
 where c.name = '박지성'
         and c.custid = o.custid and  b.bookid = o.bookid
 order by bookname;
+
+--(2) 조인 2개 사용(고객번호)
+select b.bookname, b.price, (b.price-o.saleprice)
+from orders o, book b
+where o.bookid = b.bookid
+            and custid= (select custid
+                                from customer
+                                where name = '박지성')
+;
 
 
 --(7) 박지성이 구매하지 않은 도서의 이름

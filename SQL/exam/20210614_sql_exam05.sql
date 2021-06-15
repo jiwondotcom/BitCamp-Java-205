@@ -26,6 +26,11 @@ from emp
 where sal in (select min(sal) from emp)
 ;
 ​
+-- emp 테이블의 급여를 ""모두"" 비교한다 -- ALL 사용
+select ename, job, sal
+from emp
+where sal <= ALL (select sal from emp)
+;
 
 --46. 평균 급여가 가장 적은 직급의
 --직급 이름과 직급의 평균을 구하시오.
@@ -40,15 +45,21 @@ having avg(sal) = (select min(avg(sal))
 
 --47. 각 부서의 최소 급여를 받는
 --사원의 이름, 급여, 부서번호를 표시하시오.
-select ename "사원 이름", sal "급여", deptno "부서 번호"
-from emp
-where sal in
-                (select min(sal)
-                from emp 
-                group by deptno)
-order by deptno
-;
+--select ename "사원 이름", sal "급여", deptno "부서 번호"
+--from emp
+--where sal in
+--                (select min(sal)
+--                from emp 
+--                group by deptno)
+--order by deptno;
 
+select *
+from emp e1
+where sal in (select min(sal)
+                from emp e2
+                where e1.deptno = e2.deptno
+                group by deptno)
+;
 
 --48. 담당업무가 ANALYST 인 사원보다
 --급여가 적으면서
