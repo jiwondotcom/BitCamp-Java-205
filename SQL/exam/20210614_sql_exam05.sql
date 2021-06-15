@@ -108,10 +108,6 @@ where deptno in (select deptno from emp where ename like '%K%')
 ​
 --54. 부서위치가 DALLAS인
 --사원의 이름과 부서번호 및 담당업무를 표시하시오.
-select e.ename "사원 이름", d.deptno "부서 번호", e.job "담당 업무"
-from emp e, dept d
-where d.loc = 'DALLAS'
-;
 
 -- sub query
 select ename "사원 이름", deptno "부서 번호", job "담당 업무"
