@@ -113,7 +113,7 @@ order by sal
 -- 같은 부서에서 일하는 사원의 사원 번호와 이름을 표시하시오.
 select deptno "부서 번호", empno "사원 번호", ename "사원 이름"
 from emp
-where deptno in (select deptno from emp where ename like '%K%')
+where deptno in (select distinct deptno from emp where ename like '%K%')
 ;
 
 ​

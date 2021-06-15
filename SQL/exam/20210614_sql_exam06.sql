@@ -111,7 +111,7 @@ and (b.price - o.saleprice) =
 -- 자신의 구매액 평균이 더 높은 고객의 이름 -- avg(saleprice) group by name / customer
 
 --1. 도서의 판매 평균을 먼저 구한다. (서브쿼리)
-select avg(saleprice) from orders.
+select avg(saleprice) from orders;
 
 --2. 고객의 구매 평균을 구한다. (고객별 : group by)
 --고객의 구매평균을 having절에서 비교한다.
