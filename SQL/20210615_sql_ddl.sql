@@ -98,7 +98,7 @@ drop table emp01;
 
 
 -- 새로운 테이블 생성
-create table emp01
+create table emp03
 as
 select * from emp
 ;
@@ -145,3 +145,19 @@ insert into emp02 (empno, ename, sal, job, deptno)
 insert into emp02 values (null, null, 10000, 'MANAGER');
 
 select * from emp02;
+
+
+
+
+create table emp03 (
+            empno number(4), -- constraint emp02_empno_pk primary key, --not null unique, 
+            ename varchar2(20) constraint emp02_ename_nn not null,
+            sal number(6, 2) constraint emp02_sal_chk check (sal > 500 and sal < 5000),
+            job varchar(20), -- default '미지정', -- 문자열 type
+            deptno number(4), -- constraint emp02_deptno_fk REFERENCES dept (deptno) --외래키
+-----------------------------------------------------------------
+-- 제약 정의
+            constraint emp03_empno_pk PRIMARY KEY (empno), -- PK 제약
+            constraint emp03_deptno FOREIGN KEY (deptno) REFERENCES dept (deptno)
+);
+
