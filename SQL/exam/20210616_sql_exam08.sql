@@ -35,9 +35,38 @@ where idx = 2;
 delete from phoneInfo_basic
 where idx = 1;
 
-select * from phoneInfo_basic where idx = 4;
--- 한명에 대한 정보를 가져온다. : select
 
 --2. phoneinfo_univ 테이블의 SELECT, UPDATE, DELETE, INSERT 하는 SQL
+select * from phoneInfo_univ;
+
+insert into phoneInfo_univ
+                values(2, 'PHOTO', 3, 3);
+-- INSERT
+-- SELECT
+select *
+from phoneInfo_basic pb, phoneInfo_univ pu
+where pb.idx = pu.fr_ref
+;
+
+-- UPDATE : 데이터 수정
+-- 전공과 학년을 수정, idx 또는 참조키(외래키)
+-- 대한친구의 정보를 입력한다.
+update phoneInfo_univ
+set fr_u_major = 'ENG', fr_u_year = 3
+where fr_ref = 2;
+
+-- DELETE : 데이터 삭제
+delete from phoneInfo_univ
+where fr_ref = 2;
 
 --3. phoneinfo_com 테이블의 SELECT, UPDATE, DELETE, INSERT 하는 SQL
+
+
+
+
+
+-- 전체 친구 정보
+select *
+from phoneInfo_basic pb, phoneInfo_univ pu, phoneInfo_com pc
+where pb.idx = pc.fr_ref(+) and pb.idx = pc.fr_ref
+;
