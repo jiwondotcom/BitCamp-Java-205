@@ -55,3 +55,15 @@ select rownum, ename, hiredate
 from view_HIRE
 where rownum < 6
 ;
+
+
+
+
+-- sequence : 번호 재생기
+create sequence pi_idx_pk;
+
+select pi_idx_pk.nextval
+from dual;
+
+select pi_idx_pk.currval
+from dual;
