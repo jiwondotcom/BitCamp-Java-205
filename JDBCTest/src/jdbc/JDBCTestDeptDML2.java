@@ -8,7 +8,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Scanner;
 
-public class JDBCTestDeptDML {
+public class JDBCTestDeptDML2 {
 
 	public static void main(String[] args) {
 		
@@ -40,27 +40,31 @@ public class JDBCTestDeptDML {
 			conn.setAutoCommit(false);
 			
 			
-			System.out.println("부서 정보 입력을 시작합니다.");
-			System.out.println("부서 이름을 입력해주세요.");
-			String dname = sc.nextLine();
-			System.out.println("부서 위치를 입력해주세요.");
-			String loc = sc.nextLine();
+			System.out.println("부서 정보의 삭제를 시작합니다.");
+			System.out.println("부서 번호를 입력해주세요.");
+			String deptno = sc.nextLine();
+			
+			
 			
 			// 3. sql 처리
 			// 사용자에게 정보를 받아 부서 데이터를 입력하는 프로그램을 만들어보자
-			String sql = "insert into dept01 values (DEPT01_DEPTNO_SEQ.nextval, ?, ?)";
+			String sql = "delete from dept01 where deptno=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dname);
-			pstmt.setString(2, loc);
-
+			pstmt.setInt(1,Integer.parseInt(deptno));
+			
 			int result = pstmt.executeUpdate();
 			
-			
-			if(result > 0) {
-				System.out.println("입력되었습니다.");
+			if(result>0) {
+				System.out.println(result+"개 행이 삭제되었습니다.");
 			} else {
-				System.out.println("입력 실패!!!!");
+				System.out.println("조건에 맞는 데이터가 존재하지 않습니다.");
 			}
+			
+			
+			
+			
+			
+			
 			
 			
 			// 트렌젝션 완료(성공)
