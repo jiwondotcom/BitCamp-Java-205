@@ -60,9 +60,17 @@ public class JDBCTestDeptDML2 {
 				System.out.println("조건에 맞는 데이터가 존재하지 않습니다.");
 			}
 			
-			
-			
-			
+			// 1. 데이터를 저장하는 클래스를 정의하자. 
+			//    Value Object
+			// 2. 데이터베이스를 dept테이블의 데이터를 CRUD
+			// 3. DAO : Data Access Object
+			//    싱글톤 : 하나의 인스턴스만 생성해서 사용하도록 하는 패턴
+			//    1-리스트 출력 : select 결과를 모아서 반환
+			//	  			  Dept 객체-> 배열 또는 컬렉션
+			//    2-입력 : insert 데이터 필요 Dept 객체 
+			//    3-수정 : update 데이터 필요 Dept 객체
+			//    4-삭제 : delete deptno 정수를 받는다.
+			// 4. UI : 1. 입력 / 2. 검색 / 3. 수정 / 4. 삭제 / 5. exit 로 구성
 			
 			
 			
