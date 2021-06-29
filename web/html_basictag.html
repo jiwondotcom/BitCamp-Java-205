@@ -7,11 +7,45 @@
     <title>HTML5 기본 태그</title>
     <!-- 문서의 추가적인 속성 -->
     <meta charset = "UTF-8">  <!-- 웹 문서의 문자셋 설정 -->
-    <style></style>
+    
+    <!-- span은 height/weight 설정을 지원하지 않는다. -->
+    <style>
+        div { 
+            background-color : yellowgreen;
+            margin-top : 10px;
+            height : 50px;
+        }
+        span {
+            background-color : yellow;
+            margin-right : 10px;
+            height : 40px;
+            weigth : 100px;
+        }
+    </style>
     <script></script>
 </head>
 
 <body>
+
+    <div> div - 1 </div>
+    <div> div - 2 </div>
+    <div> div - 3 </div>
+
+    <!-- 텍스트의 사이즈 만큼만 -->
+    <span> span - 1 </span>
+    <span> span - 2 </span>
+    <span> span - 3 </span>
+
+    <br>
+
+    <!-- 픽셀 단위 / 높이와 너비 사이즈값 하나만 지정시에는 비율에 맞게 조정이 된다. -->
+    <!-- 보통 폭을 맞추고 높이는 비율 맞춰 늘어나도록 정의한다. -->
+    <img src = "짱구.jpg" height = "100">
+    <img src = "튤립.jpg" height = "300" width = "100">
+    <img src = "양꼬치.jpg" width = "400" alt = "내사랑 양꼬치">
+
+    <img src = "https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png">
+    <img src = "https://via.placeholder.com/400x300"> <!-- 테스트용 더미 이미지 -->
 
 
     <table border = "1">
@@ -96,7 +130,7 @@
         </thead>
     </table>
    
-    
+
    <br>
 
 
