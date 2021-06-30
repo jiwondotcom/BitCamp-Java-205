@@ -6,29 +6,96 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    /* 전체 선택자 : * */
- * { 
-     color : red;
- }
-     /* 태그 선택자 */
-    h1 {
-        background-color: yellow;
+    /*스타일 속성은 제일 마지막 항목이 우선한다.*/
+
+    /* 여러개의 선택자 지정 */
+    /* padding : 간격 */
+    body, h1, p {
+        margin : 0;
+        padding : 0;
     }
+
+    /* 전체 선택자 : */
+    /* * { 
+        color : white;
+    } */
+
+     /* 태그 선택자 */
+    /* h1 {
+        background-color: yellowgreen;
+        margin-top : 30px;
+        margin-left : 30px;
+    } */
+
+    p { 
+        background-color: indianred;
+    }
+
     /* ID 선택 */
     #title{
-
+        /* font-size : 16px; */
     }
-    </style>
-</head>
-<body>
+
+    /* 클래스 선택자 */
+    .font_a {
+        font-style: italic;
+    }
+
+    .font_b {
+        font-weight: bold;
+    }
     
-    <h1 id = "title">경기남부 아침~밤 소나기…체감온도 31도 더위</h1>
-    <p>
+    #header {
+        background-color : lightblue;
+        color : navy;
+        width : 400px;
+        /* margin :  상하간격 좌우간격 */
+        margin : 10px auto;
+    }
+
+    /* body 영역기준의 퍼센트만큼 width */
+    #aside {
+        background-color : seagreen;
+        color : white;
+        width : 60%;
+    }
+
+    #content {
+        background-color : slateblue;
+        color : whitesmoke;
+        width : 200px;
+    }
+
+    </style>
+    
+</head>
+<!-- div : 공간분할 태그 -->
+<body>
+
+    <div id = "header">
+        <h1>header</h1>
+    </div>    
+    <div id = "wrap">
+        <div id = "aside">
+            <h1>aside</h1>
+        </div>
+        <div id = "content">
+            <h1>content</h1>
+        </div>        
+
+    </div>
+    
+    
+    <hr>
+
+    <h1 id = "title" class = "font_a font_b">경기남부 아침l~밤 소나기…체감온도 31도 더위</h1>
+
+    <p class = "font_a font_b">
         [수원=뉴시스] 이병희 기자 = 30일 경기남부지역은 구름이 많겠고, 아침부터 밤 사이 내륙을 중심으로 소나기가 내리는 곳이 있겠다.
         수도권기상청에 따르면 예상 강수량은 10~60㎜다.
         우리나라 상층으로 찬 공기가 머무는 가운데, 낮 동안 지상의 기온이 오르면서 불안정한 대기 상태가 유지돼 수도권에는 다음 달 1일까지 돌풍과 천둥·번개를 동반한 소나기가 오는 곳이 있겠다.
         일부 지역에는 우박이 떨어지는 곳도 있어 농작물과 시설물 관리, 안전사고에 각별히 유의해야 한다. 
     </p>
-
 </body>
 </html>
+
