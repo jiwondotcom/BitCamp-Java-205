@@ -125,18 +125,82 @@
         color : orange;
     }
 
+    /* 
+    자손 선택자
+    부모 선택>선택자
+    */
+    #header1>h1 {
+        background-color: palevioletred;
+    }
+    
+    #section>h1 {
+        background-color: springgreen;
+    }
 
+    /*
+    동위 선택자
+    기준 선택요소 뒤에 오는 요소를 선택
+    1. 바로 뒤에 위치하는 요소를 선택
+    2. 뒤에 존재하는 요소를 선택
+    */
+    /* 바로 뒤에 위치하는 요소를 선택 : + 기호 사용 */
+    #title1+h2 {
+        background-color : steelblue;
+    }
+
+    /* 기준 요소 뒤로 존재하는 요소를 선택 : ~ 기호 사용 */
+    #title1~h2 {
+        background-color : brown;
+    }
+
+    /* 선택영역에 마우스 커서가 위치하는 경우 : :hover 사용 */
+    #btn00:hover {
+        background-color: crimson;
+        color :white;
+    }
+
+    /* 선택영역에 마우스가 클릭할 경우 :active 사용 */
+    #btn00:active {
+        background-color: yellowgreen;
+        color : white;
+    }
+
+    /* a 태그는 영역까지만 */
+    h1>a:hover {
+        color:deeppink;
+        background-color:goldenrod;
+    }
     </style>
 </head>
 
 <!-- div : 공간분할 태그 -->
 <body>
+    
+    <!-- href : 자기 자신을 의미한다. -->
+    <!-- 반응 선택자 -->
+    <h1><a href = "#">click</a></h1>
+    <h1 id = "btn00">button</h1>
 
+    <hr>
+
+    <h2>header2-0</h2>
+
+    <h1 id = "title1">header1</h1>
+    
+    <h2>header2-1</h2>
+    <h2>header2-2</h2>
+    <h2>header2-3</h2>
+    <h2>header2-4</h2>
+    <h2>header2-5</h2>
+
+    <hr>
+    <h2>head2-6</h2>
 
     <div id="header1">
         <h1 class="title">Lorem ipsum</h1>
         <div id="nav">
             <h1>Navigation</h1>
+            <h2>header2-7</h2>
         </div>
     </div>
     <div id="section">
