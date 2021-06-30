@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
+
     /*스타일 속성은 제일 마지막 항목이 우선한다.*/
 
     /* 여러개의 선택자 지정 */
@@ -13,6 +14,15 @@
     body, h1, p {
         margin : 0;
         padding : 0;
+    }
+
+    h1::selection, p::selection {
+        background-color: teal;
+    }
+
+    /* 구분선 상하로 여백을 추가로 더 준다. */
+    hr { 
+        margin : 50px 0;
     }
 
     /* 전체 선택자 : */
@@ -176,28 +186,126 @@
         background-color: black;
     }
 
-    input:enabled {
+    /* input:enabled {
         width : 200px;
         height : 35px;
-        font-size : 1.2em; /* 배수 = 120% (기본 16px) */
-    }
+        font-size : 1.2em; /* 배수 = 120% (기본 16px)
+    } */
 
     input:focus {
         border : 5px solid red;
+    }
+
+    div.box {
+        width : 500px;
+        height : 150px;
+        border : 1px solid black;
+    }
+
+    #chk{
+        display: none;
+    }
+
+    input[type=checkbox]:checked {
+        width : 30px;
+        height : 30px;
+    }
+
+    input[type=checkbox]:checked+div {
+        /* background-color: goldenrod;
+        height : 0px;
+        overflow: hidden; */
+        display : none; 
+    }
+
+    label {
+        font-size: 200% ;
+        font-weight : bold;
+    }
+
+    ol {
+        overflow : hidden;
+        list-style : none;
+    }
+
+    ol>li {
+        float : left;
+        /* width : 100px; */
+        padding : 12px 40px;
+      
+    }
+
+    ol>li:nth-child(2n) {
+        background-color : chartreuse;
+       
+    }
+
+    ol>li:nth-child(2n+1) {
+        background-color: darkorange;
+    }
+
+    /* rounding 처리는 모서리가 시계방향으로 1 2 3 4 순서 */
+    ol>li:first-child {
+        border-radius : 10px 0px 0px 10px;
+    }
+
+    ol>li:last-child {
+        border-radius: 0px 10px 10px 0px;
+    }
+
+    ol>li:hover {
+        background-color:darkred;
+        color:white;
+        font-weight : bold;
+    }
+
+    a {
+        text-decoration: none;
+        color : mediumpurple;
+    }
+
+    a:visited {
+        color: yellow;
+    }
+
+    a:hover {
+        text-decoration: underline;
     }
     </style>
 </head>
 
 <!-- div : 공간분할 태그 -->
 <body>
-    
-    <input>
 
-    <input disabled value="test">
-
+    <ol>
+        <li><a href = "http://www.naver.com">naver</a></li>
+        <li>two</li>
+        <li>three</li>
+        <li>four</li>
+        <li>five</li>
+        <li>six</li>
+        <li>seven</li>
+        <li>eight</li>
+    </ol>
 
     <hr>
 
+
+    <label for = "chk"> check </label>
+    <input type = "checkbox">
+    <div class = "box">
+        <h1> 개인정보보호정책 </h1>
+        <p>
+            개인 정보를 활용합니다.
+        </p>
+    </div>
+
+    <hr>
+
+    <input>
+    <input disabled value="test">
+
+    <hr>
 
     <!-- href : 자기 자신을 의미한다. -->
     <!-- 반응 선택자 -->
