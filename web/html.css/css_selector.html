@@ -78,11 +78,82 @@
         background-color : silver;
     }
 
-    </style>
+    /* 속성 선택자 */
+    input[type] {
+        width : 150px;
+        height : 50px;
+        font-size : 150%; /* 16px * 1.5 -> 24px */
+    }
+
+    input[type = text] {
+        background-color: tan;
+    }
+
+    input[type = password] {
+        background-color : olive;
+    }
+
+    /* 모든 전체 이미지 or img 클래스 속성을 부여해준 이미지 : .의 유무 */
+    img {
+        width : 200px;
+        height : 250px;
+    }
+
+    /* jpg로 끝나는 */
+    img[src$=jpg] {
+        border : 5px solid red;
+    }
+
+    img[src$=png] {
+        border : 5px solid blue;
+    }
+
+    img[src$=gif] {
+        border : 5px solid black;
+    }
+
+    /* 
+    후손 선택자
+    부모 선택 (공백) 선택자 
+    --> 범위 한정
+    */
+    #header1 {
+        color : red;
+    }
     
+    #section h1 {
+        color : orange;
+    }
+
+
+    </style>
 </head>
+
 <!-- div : 공간분할 태그 -->
 <body>
+
+
+    <div id="header1">
+        <h1 class="title">Lorem ipsum</h1>
+        <div id="nav">
+            <h1>Navigation</h1>
+        </div>
+    </div>
+    <div id="section">
+        <h1 class="title">Lorem ipsum</h1>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    </div>
+
+
+    <img src = "a.jpg" alt = "a.jpg" class = "img">
+    <img src = "b.png" alt = "b.png" class = "png">
+    <img src = "c.gif" alt = "c.gif" class = "gif">
+
+    <hr>
+
+    <input type = "text"> 
+    <input type = "password">
+
 
     <ul>
         <li class = "font_color_blue">사과</li>
