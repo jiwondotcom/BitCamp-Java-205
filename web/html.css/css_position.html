@@ -16,8 +16,8 @@
         }
         
         div.box {
-            width : 100px;
-            height : 100px;
+            width : 300px;
+            height : 300px;
             
             position : absolute;
         }
@@ -28,28 +28,56 @@
             background-color : lightgrey;
             left : 50px;
             top : 50px;
+            /* z-index : 9; */
         } 
 
         #b2 {
             background-color : lightblue;
             left : 100px;
             top : 100px;
-            z-index : 999;
+            /* z-index : 999; */
         }
 
         #b3 {
             background-color: lemonchiffon;
             left : 150px;
             top : 150px;
-            z-index : 1000;
+            /* z-index : 1000; */
+        }
+
+        header {
+            font-size : 2.0em;
+            border : 1px solid #DDD;
+        }
+
+        footer {
+             border : 1px solid #DDD;
+        }
+
+        #wrap {
+            height : 400px;
+            width : 400px;
+            border : 1px solid #DDD;
+
+            position : relative;
+
+            overflow : auto;
         }
     </style>
 </head>
 <body>
+
+    <header>헤더 영역 입니다.</header>
     
-    <div id = "b1" class = "box"></div>
-    <div id = "b2" class = "box"></div>
-    <div id = "b3" class = "box"></div>
+    <div id = "wrap">
+        <div id = "b1" class = "box"></div>
+        <div id = "b2" class = "box"></div>
+        <div id = "b3" class = "box"></div>
+    </div>
+    <!-- div와 비슷한 속성을 같는다. block -->
+    <footer>
+        푸터 영역입니다.
+    </footer>
 
 </body>
 </html>
