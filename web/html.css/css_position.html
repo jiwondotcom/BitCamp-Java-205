@@ -7,21 +7,35 @@
     <title>Document</title>
     <style>
 
+        * {
+            margin : 0;
+            padding : 0;
+        }
+        
         div.box {
             width : 100px;
             height : 100px;
-        }
 
+            position : absolute;
+        }
+ 
+        /* 마지막 개체가 가장 위로, 포개져서 보인다. */
         #b1 {
             background-color : lightgrey;
+            left : 50px;
+            top : 50px;
         } 
 
         #b2 {
             background-color : lightblue;
+            left : 100px;
+            top : 100px;
         }
 
         #b3 {
             background-color: lemonchiffon;
+            left : 150px;
+            top : 150px;
         }
     </style>
 </head>
