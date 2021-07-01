@@ -1,0 +1,97 @@
+<!-- 2021.07.01 (THU) -->
+<!-- layout 예제 -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        * {
+            margin : 0;
+            padding : 0;
+        }
+
+        body {
+            padding-top : 30px;
+        }
+
+        .border {
+            border : 1px solid #AAA;
+        }
+
+        .text_center {
+            text-align : center;
+        }
+
+        .font_size_200p {
+            font-size : 200%
+        }
+       
+        .font_size_150p {
+            font-size : 150%
+        }
+
+        .div_align_center {
+            margin : 0 auto;
+        }
+        
+        header {
+            margin-top : 30px;
+            width : 798px;
+            height : 80px;
+            border : 1px solid #AAA;
+            line-height : 80px;
+        }
+
+        nav {
+            width : 798px;
+            height : 30px;
+            line-height : 30px;
+        }
+
+        section {
+            width : 598px;
+            height : 400px;
+            float : left;
+        }
+        
+        aside {
+            width : 198px;
+            height : 200px;
+            float : left;
+        }
+
+        #wrap {
+            width : 800px;
+            overflow : hidden;
+        }
+
+        footer {
+            width : 798px;
+            height : 100px;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- header : div와 같은 속성을 갖는다. -->
+    <header class = "border text_center font_size_200p div_align_center"> header </header>
+    <nav class = "border text_center font_size_150p div_align_center"> MENU 영역</nav>
+
+    <div id = "wrap" class = "div_align_center">
+        <section class = "border text_center font_size_150p">
+            <article> 내용 </article>
+        </section>
+
+        <aside class = "border text_center font_size_150p">
+            서브 메뉴 영역입니다 어쩌구
+        </aside>
+    </div>
+   
+    <footer class = "border text_center font_size_150p div_align_center">footer</footer>
+</body>
+</html>
