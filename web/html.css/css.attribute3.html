@@ -1,3 +1,6 @@
+<!-- 2021.07.01 (THU) -->
+<!-- 웹폰트 import -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +8,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+  
+    <!-- 방법 1) css파일 내에 스타일을 불러온다 -->
+    <link rel = "styleSheet" href = "../css/default.css"></link>
+    
+    <!-- 방법 2)구글의 Open API -->
+    <!--
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap" rel="stylesheet">
+    -->
+
     <style>
+        
+        
+        /* 방법 3)
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap'); 
+        */
 
         .a {
             font-size : 32px;
@@ -16,7 +35,7 @@
         }
 
         .c {
-            font-size : large;
+            font-size : xx-large;
         }
 
         .d {
@@ -27,19 +46,38 @@
             font-family : Arial;
         }
 
+        /* 콤마를 활용하여 대체안 설정 */
         .font_gungseo {
             font-family: '돋움체', '궁서체';
         }
 
+        .font_nanum {,
+            font-family: 'Nanum Gothic', sans-serif;
+        }
+ 
+        .font_bold {
+            font-weight : bold;
+         }
+         
+         .font_lighter {
+             font-weight : lighter;
+             font-size : 48px;
+         }
     </style>
 </head>
-<body>
-    
-    <h1>안녕하세요</h1>
+<body,>
+
+    <h1>토스뱅크, 출범 전 경력직 채용 "연봉 1.5배 올려줄게 드루와"</h1>
+    <h4>발행일 2021-07-01 11:00:06</h4>
+
+    <!-- 가독성을 높이기 위해 h1, p 등우로 분리 -->
+    <h1 class = "font_nanum font_lighter">안녕하세요</h1>
+    <p class = "font_nanum font_lighter">안녕하세요</p>
     <p class = "a font_arial">안녕하세요</p>
     <p class = "b font_gungseo">안녕하세요</p>
-    <p class = "c">안녕하세요</p>
-    <p class = "d">안녕하세요</p>
+    <p class = "c font_haerang">안녕하세요</p>
+    <p class = "d font_bold">안녕하세요</p>
+    <p class = "font_lighter">안녕하세요</p>
 
-</body>
+</body,
 </html>
