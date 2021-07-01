@@ -1,0 +1,151 @@
+/* 브라우저 별 요소 스타일 초기화 */
+* {
+    font-family : 'Work Sans';
+    margin : 0;
+    padding : 0;
+}
+
+/* 타이틀 상단 여백 */
+body {
+    padding-top : 30px;
+    padding-bottom : 30px;
+}
+
+/* 전체 값 */
+#all_wrap {
+    width : 798px;
+    border : 8px solid rgba(211, 211, 211, 0.692);
+    border-radius : 8px;
+    margin : 10px auto;
+    padding : 40px;
+}
+
+a {
+    text-decoration: none;
+    color : black;
+}
+
+.text_center {
+    text-align : center;
+}
+
+.text_left {
+    text-align : left;
+}
+
+.text_right {
+    text-align : right;
+}
+
+.font_size_250p {
+    font-size : 250%;
+}
+
+.font_menu {
+    font-size : 120%;
+}
+
+.font.size_160p {
+    font-size : 160%;
+}
+
+.div_align_center {
+    margin : 0 auto;
+}
+
+header {
+    padding-left : 40px;
+    width : 798px;
+    height : 100px;
+    line-height : 40px;
+}
+
+nav {
+    border-top: 1px solid   lightgray;
+    border-bottom: 1px solid  lightgray;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    width: 798px;
+    overflow: hidden;
+}
+
+nav li {
+    float : left;
+    display : inline;
+    padding-left : 35px;
+    padding-right : 30px;
+}
+
+#search [type=text] {
+    border-right: 0px solid   lightgray;
+    border-color: lightgray;
+    border-radius: 8px 0 0 8px;
+    width: 150px;
+    height: 20px;
+}
+
+#search {
+    padding-right : 35px;
+}
+#search [type=button] {
+    border-color: lightgray;
+    border-radius: 0 8px 8px 0;
+    width : 40px;
+    height : 25px;
+}
+
+#contents {
+    width : 800px;
+    overflow : hidden;
+    padding-left : 40px;
+    padding-top : 20px;
+    padding-bottom : 8px;
+}
+
+#contents section{
+    width : 598px;
+    float : left;
+}
+
+/* 이미지 상하 여백 */
+#contents img{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* 타이틀 행간 */
+article>p {
+    line-height : 180%;
+}
+
+/* 내용 행간 */
+.linegap {
+    line-height : 125%;
+}
+
+aside {
+    width : 198px;
+    float : right;
+    
+}
+
+aside ul {
+    list-style-type: none;
+    line-height: 150%;
+    display : inline;
+    margin: 30px;
+    padding-bottom : 7px;
+}
+
+
+footer {
+    padding-top : 20px;
+    padding-left : 40px;
+    width : 798px;
+    height : 50px;
+    line-height : 50px;
+}
+
+footer a {
+    color : blue;
+}
