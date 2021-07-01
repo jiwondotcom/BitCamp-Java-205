@@ -1,3 +1,6 @@
+<!-- 2021.07.01 (THU) -->
+<!-- postion값 주기 -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-
+      
         * {
             margin : 0;
             padding : 0;
@@ -15,11 +18,12 @@
         div.box {
             width : 100px;
             height : 100px;
-
+            
             position : absolute;
         }
- 
+        
         /* 마지막 개체가 가장 위로, 포개져서 보인다. */
+        /* z-index : 큰 숫자가 가장 위로 올라온다. */
         #b1 {
             background-color : lightgrey;
             left : 50px;
@@ -30,12 +34,14 @@
             background-color : lightblue;
             left : 100px;
             top : 100px;
+            z-index : 999;
         }
 
         #b3 {
             background-color: lemonchiffon;
             left : 150px;
             top : 150px;
+            z-index : 1000;
         }
     </style>
 </head>
