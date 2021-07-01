@@ -20,11 +20,13 @@ body {
     padding : 40px;
 }
 
+/* 클릭 개체 속성 */
 a {
     text-decoration: none;
     color : black;
 }
 
+/* 텍스트 정렬 */
 .text_center {
     text-align : center;
 }
@@ -37,6 +39,7 @@ a {
     text-align : right;
 }
 
+/* 폰트 사이즈 */
 .font_size_250p {
     font-size : 250%;
 }
@@ -53,6 +56,7 @@ a {
     margin : 0 auto;
 }
 
+/* 헤더 */
 header {
     padding-left : 40px;
     width : 798px;
@@ -60,6 +64,7 @@ header {
     line-height : 40px;
 }
 
+/* 네비게이션 */
 nav {
     border-top: 1px solid   lightgray;
     border-bottom: 1px solid  lightgray;
@@ -76,6 +81,11 @@ nav li {
     padding-right : 30px;
 }
 
+/* 검색창 속성 */
+#search {
+    padding-right : 35px;
+}
+
 #search [type=text] {
     border-right: 0px solid   lightgray;
     border-color: lightgray;
@@ -84,9 +94,6 @@ nav li {
     height: 20px;
 }
 
-#search {
-    padding-right : 35px;
-}
 #search [type=button] {
     border-color: lightgray;
     border-radius: 0 8px 8px 0;
@@ -94,6 +101,7 @@ nav li {
     height : 25px;
 }
 
+/* 컨텐츠 속성 */
 #contents {
     width : 800px;
     overflow : hidden;
@@ -123,6 +131,7 @@ article>p {
     line-height : 125%;
 }
 
+/* 사이드 바 속성 */
 aside {
     width : 198px;
     float : right;
@@ -137,7 +146,7 @@ aside ul {
     padding-bottom : 7px;
 }
 
-
+/* 푸터 속성 */
 footer {
     padding-top : 20px;
     padding-left : 40px;
