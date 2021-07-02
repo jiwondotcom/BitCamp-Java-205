@@ -112,7 +112,9 @@ nav>ul>li>a:hover {
     border-width : 1px;
     width: 150px;
     height: 20px;
+    padding: 0 5px;
 }
+
 
 #search [type=button] {
     border-color: lightgray;
