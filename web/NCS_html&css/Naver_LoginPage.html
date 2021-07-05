@@ -8,30 +8,65 @@
     <link rel="stylesheet" href="css/Naver_LoginPage.css">
 </head>
 <body>
+    <!-- 전체 wrap 영억 시작-->
     <div class="all_wrap">
-        <div class="lang_select"></div>
-        <div class="logo"></div>
+     
+        <!-- 언어 선택 영역 -->
+        <div class="lang_select">
+            <select name="language">
+                <option value="KOR">한국어</option>
+                <option value="ENG">English</option>
+                <option value="CHN1">中文(简体)</option>
+                <option value="CHN2">中文(台灣)</option>
+            </select>
+        </div> 
+        <!-- 언어 선택 영역 끝 -->
+
+        <!-- 로고 섹션 시작 -->
+        <section class="logo">
+            <img src="images/NAVER_logo.png"><a href="http://www.naver.com"></a>
+        </section>
+        <!-- 로고 영역 끝 -->
     
-        <div class="login_section">
+        <!-- 로그인 섹션 시작 -->
+        <section class="login_section">
             <input type="text" class="ID" placeholder="아이디"></input>
             <input type="text" class="PW" placeholder="비밀번호"></input>
-            <input type="button class = " LOGIN" value "로그인"></input>
-            <input type="checkbox" name="loginchk">로그인 상태 유지</input>
+            <input type="button" class="LOGINbtn" value="로그인"></input>
+        </section>
+        <!-- 로그인 섹션 끝 -->
+
+        <!-- 로그인 상태 유지 체크박스 -->
+        <div id="chkbox_part">
+            <input type="checkbox" id="chkbox"> 로그인 상태 유지</input>
         </div>
     
     
-        <select class="simple_login section">
-            <div class="simplelogin_title"></div>
+        <!-- 간편 로그인 섹션 시작 -->
+        <section class="simplelogin_section">
+            <!-- 간편 로그인 타이틀  -->
+            <div class="simplelogin_title">
+                <h1 class="fontweight_500">더욱 간편한 로그인</h1>
+            </div>
+
+            <!-- 간편 로그인 버튼 섹션 -->
             <div class="simplelogin_btn">
-                <div class="QRlogin"></div>
-                <div calss="ONETIMElogin"></div>
+                <!-- 버튼 1) QR코드 -->
+                <input type="button" value="QR코드 로그인" class="QRlogin" style='cursor:pointer'></input>
+                <!-- 버튼 2) 일회용 번호 -->
+                <input type="button" value="일회용 번호 로그인" class="ONElogin" style='cursor:pointer'></input>
             </div>
+
+            <!-- 아이디-비밀번호 찾기, 회원가입 바로가기 -->
             <div class="find_join">
-                <span><a href="#">아이디 찾기</a></span>
-                <span><a href="#">비밀번호 찾기</a></span>
-                <span><a href="#">회원가입</a></span>
+                <span><a href="#" class="findID">아이디 찾기 </a></span><span id="bar">　|　</span>
+                <span><a href="#" class="findPW">비밀번호 찾기</a></span><span id="bar">　|　</span>
+                <span><a href="#" class="JOIN">회원가입</a></span>
             </div>
-        </select>
+            
+        </section>
+        <!-- 간편 로그인 섹션 끝 -->
     </div>
+    <!-- 전체 wrap 영역의 끝 -->
 </body>
 </html>
