@@ -146,6 +146,8 @@ a:hover {
 
 
 /* 페이지 만들기 */
+
+
 #createpage>p {
     color : black;
     float: center;
@@ -156,12 +158,9 @@ a:hover {
     float: right;
 }
 
-#createpage>a {
+#createpage_msg {
     color : black;
-    font-weight: 800;
-    text-decoration: none;
 }
-
 
 /* 푸터 영역 시작 */
 footer {
