@@ -1,0 +1,279 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Helvetica;
+  list-style: none;
+  text-decoration: none;
+  overflow-x: hidden;
+}
+
+/* 텍스트 처리 클래스 */
+
+/* 입력 정보 텍스트 처리 */
+.input_text {
+  text-align: left;
+  font-size: 14.5px;
+  margin-left: 23px;
+  margin-bottom: 8px;
+}
+
+/* 링크 마우스오버 처리 */
+/* 방문한 페이지일 경우 텍스트 처리 */
+a:hover { 
+    text-decoration: underline;
+    color : #068640;
+}
+
+a:visited {
+    color : gray;
+}
+
+a:visited:hover {
+    color : #068640;
+}
+/* 텍스트 처리 클래스 끝*/
+
+
+
+/* 입력 정보 서브 텍스트 처리(이메일) */
+.input_subtext {
+  font-size: 8px;
+}
+
+/* 하단 메뉴 텍스트 처리 */
+.bottom_menu_text {
+    text-decoration: none;
+    color : gray;
+}
+
+/* 폰트 볼드 600 처리 */
+.font_weight_600 {
+    font-weight: 600;
+}
+
+/* 바디 영역 전체 배경 컬러 */
+body {
+  background: #f5f6f7;
+}
+
+.all_wrap {
+  width: 500px;
+  height: 100%;
+  margin: 0 auto;
+}
+
+
+/* 상단 로고 섹션 */
+.logo {
+  width: 100%;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+}
+
+.logo > a > img {
+  height: 30px;
+}
+
+/* 회원정보 입력창 섹션 */
+.input_section {
+  text-align: center;
+}
+
+/* 아이디, 비밀번호, 비밀번호 재확인, 이름, 휴대폰번호 입력창 */
+.ID,
+.PW,
+.PWchk,
+.name,
+.phoneNum {
+  font-size: 15px;
+  width: 430px;
+  height: 53px;
+  border: 1px solid lightgray;
+  text-align : left;
+  margin-bottom : 19px;
+  padding : 0 13px;
+}
+
+/* ID 입력창 내 placeholder 텍스트 처리 */
+.ID::placeholder {
+  text-align: right;
+  color : gray;
+}
+
+/* 비밀번호 재확인-이름 사이 여백 처리 */
+.PWchk_input {
+  margin-bottom: 15px;
+}
+
+/* 이름-생년월일 입력창 사이 여백 처리 */
+.name {
+    margin-bottom : 30px;
+}
+
+/* 태어난 연도 입력창 */
+.year {
+  width: 128px;
+  height: 53px;
+  border: 1px solid lightgray;
+  text-align: left;
+  margin-bottom: 19px;
+  padding : 0 13px;
+  font-size: 15px;
+}
+
+/* 태어난 월 선택창 */
+.month {
+  width: 128px;
+  height: 53px;
+  border: 1px solid lightgray;
+  margin-bottom: 19px;
+  margin-left: 5px;
+  padding : 0 13px;
+  font-size: 15px;
+}
+
+/* 태어난 일 입력창 */
+.day {
+  width: 128px;
+  height: 53px;
+  border: 1px solid lightgray;
+  text-align: left;
+  margin-bottom: 19px;
+  margin-left: 5px;
+  padding: 0 13px;
+  font-size: 15px;
+}
+
+/* 성별 선택창 */
+.gender {
+  width: 460px;
+  height: 53px;
+  border: 1px solid lightgray;
+  text-align: right;
+  padding: 0 13px;
+  margin-bottom: 19px;
+  font-size: 15px;
+}
+
+/* (선택) 텍스트 처리 */
+.input_subtext {
+  font-size: 12px;
+  margin-left: 3px;
+  font-weight: lighter;
+  color: #888;
+}
+
+/* 이메일 입력창 */
+.email {
+  font-size: 15px;
+  width: 430px;
+  height: 53px;
+  border: 1px solid lightgray;
+  margin-bottom: 19px;
+  padding: 0 13px;
+}
+
+/* 이메일-휴대전화 사이 여백 처리*/
+.email_input {
+  margin-bottom: 20px;
+}
+
+/* 국가 코드 선택창 */
+.nationCode {
+  width: 463px;
+  height: 53px;
+  border: 1px solid lightgray;
+  margin-bottom: 12px;
+  padding: 0 13px;
+  font-size: 15px;
+}
+
+/* 휴대폰 번호 입력창 */
+.phoneNum {
+  width: 310px;
+  height: 53px;
+  border: 1px solid lightgray;
+  text-align: left;
+  margin-bottom: 12px;
+  padding: 0 13px;
+  font-size: 15px;
+}
+
+/* 인증번호 받기 버튼 */
+.codeBtn {
+  width: 115px;
+  height: 54px;
+  margin-left: 5px;
+  background-color: #03c75a;
+  border: 1px solid #02aa4e;
+  color: white;
+  font-size: 15px;
+}
+
+.codeInput {
+  background-color: #f5f6f7;
+  width: 430px;
+  height: 53px;
+  border: 1px solid lightgray;
+  text-align: left;
+  padding: 0 13px;
+  margin-bottom: 19px;
+  font-size: 15px;
+}
+
+
+/* 인증번호 입력창-가입하기 버튼 사이 여백 처리 */
+.phoneNum_input {
+  margin-bottom: 13px;
+}
+
+
+/* 가입하기 버튼 */
+.joinBtn {
+  width: 463px;
+  height: 53px;
+  background-color: #03c75a;
+  border: 1px solid #02aa4e;
+  color: white;
+  font-size: 18px;
+}
+
+/* 가입하기 버튼과 하단메뉴 사이 여백 처리 */
+.joinButton {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+ 
+/* 푸터 처리 */
+footer {
+    text-align: center;
+    font-size : 12px;
+    color : gray;
+    text-decoration: none;
+}
+
+/* 하단 메뉴와 카피라이트 사이 여백 처리 */
+.bottom_menu {
+    margin-bottom : 10px;
+}
+
+/* 메뉴별 분리 bar 자간 처리 */
+.bottom_menu>span {
+    margin : 0 5px;
+}
+
+
+/* 카피라이트 하단 여백 처리 */
+.copyright {
+    margin-bottom : 15px;
+}
+
+
+/* 전체 입력창 포커스 처리 */
+.ID:focus, .PW:focus, .PWchk:focus, .name:focus, .year:focus, .month:focus, .day:focus, .gender:focus,
+.email:focus, .nationCode:focus, .phoneNum:focus, .codeInput:focus {
+  outline : #03c75a;
+    box-shadow : 0 0 0 0.8px #03c75a;
+}

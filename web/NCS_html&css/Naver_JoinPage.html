@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버 : 회원가입</title>
+    <link rel="stylesheet" href="css/Naver_JoinPage.css">
+</head>
+<body>
+    <!-- 전체 wrap 시작 -->
+    <div class="all_wrap">
+        <!-- 네이버 메인로고 섹션 -->
+        <section class="logo">
+            <a href = "http://www.naver.com"><img src="images/NAVER_logo.png"></a>
+        </section>
+        <!-- 회원정보 입력창 섹션 -->
+        <section class="input_section">
+    
+            <div class="ID_input">
+                <h4 class = "input_text">아이디</h4>
+                <input type="text" class="ID" placeholder="@naver.com"></input>
+            </div>
+    
+            <div class="PW_input">
+                <h4 class = "input_text">비밀번호</h4>
+                <input type="password" class="PW"></input>
+            </div>
+    
+            <div class="PWchk_input">
+                <h4 class = "input_text">비밀번호 재확인</h4>
+                <input type="password" class="PWchk"></input>
+            </div>
+    
+            <div class="name_input">
+                <h4 class = "input_text">이름</h4>
+                <input type="text" class="name"></input>
+            </div>
+    
+            <div class="birth_input">
+                <h4 class = "input_text">생년월일</h4>
+                <input type="text" class="year" placeholder="년(4자)"></input>
+                <select class="month">
+                    <option value="월" selected>월</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+                <input type="text" class="day" placeholder="일"></input>
+            </div>
+    
+            <div class="gender_input">
+                <h4 class = "input_text">성별</h4>
+                <select class="gender">
+                    <option value="성별" selected>성별</option>
+                    <option value="남자">남자</option>
+                    <option value="여자">여자</option>
+                    <option value="선택안함">선택안함</option>
+                </select>
+            </div>
+    
+            <div class="email_input">
+                <h4 class = "input_text">본인 확인 이메일<span class = "input_subtext">(선택)</span></h4>
+                <input type="text" class="email" placeholder="선택입력"></input>
+            </div>
+    
+            <div class="phoneNum_input">
+                <h4 class = "input_text">휴대전화</h4>
+                <select class="nationCode">
+                    <option value="대한민국 +82" selected>대한민국 +82</option>
+                    <option value="덴마크 +45">덴마크 +45</option>
+                    <option value="그리스 +30">그리스 +30</option>
+                    <option value="기니 +224">기니 +224</option>
+                    <option value="나이지리아 +234">나이지리아 +234</option>
+                    <option value="네덜란드 +31">네덜란드 +31</option>
+                    <option value="독일 +49">독일 +49</option>
+                    <option value="동티모르 +670">동티모르 +670</option>
+                    <option value="라오스 +856">라오스 +856</option>
+                    <option value="라트비아 +371">라트비아 +371</option>
+                </select>
+                <input type="text" class="phoneNum" placeholder="전화번호 입력"></input>
+                <input type="button" class="codeBtn" value="인증번호 받기" style='cursor:pointer'></input>
+                <input type="text" class="codeInput" placeholder="인증번호 입력하세요"></input>
+            </div>
+        </section>
+        <!-- 회원정보 입력창 섹션 끝 -->
+
+
+        <div class = "joinButton">
+            <input type="button" class="joinBtn" value="가입하기" style='cursor:pointer'></input>
+        </div>
+    
+        <footer>
+            <div class="bottom_menu">
+                <span><a href="#" class = "bottom_menu_text">이용약관 </a></span> |
+                <span class = "font_weight_600"><a href="#" class = "bottom_menu_text">개인정보처리방침 </a></span> | 
+                <span><a href="#" class = "bottom_menu_text">책임의 한계와 법적고지 </a></span> |
+                <span><a href="#" class = "bottom_menu_text">회원정보 고객센터 </a></span>
+            </div>
+    
+            <div class="copyright">
+                <p>© <a href = "http://www.naver.com">NAVER Corp.</a></p>
+            </div>
+    
+        </footer>
+    </div>
+    </div>
+</body>
+</html>
