@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Event</title>
+    <style>
+
+        * {
+
+        }
+        h1 {
+            background-color: greenyellow;
+        }
+
+        h2 {
+            background-color: khaki;
+        }
+
+    </style>
+    <script>
+        window.onload = function () {
+
+            // 이벤트 적용 : 캐스팅 -> 이벤트 속성에 핸들러를 할당
+            // h1 태그를 캐스팅
+            var header = document.getElementById('btn');
+
+            // 이벤트 속성에 핸들러 할당
+            header.onclick = function () {
+                alert('h1태그에 마우스 클릭!!');
+
+                /* 이벤트 제거 */
+                header.onclick = null;
+            };
+
+
+            document.getElementById('btn1').onclick = function () {
+                /* document.getElementById('btn1').style.backgroundColor = 'black'; */
+                /* document.getElementById('btn1').style.color = 'white'; */
+                this.style.backgroundColor = 'black';
+                this.style.color = 'white';
+                /* this -> 이벤트가 발생한 객체를 가르킨다. */
+            }
+
+
+            /* 버튼을 누를때 마다 span 값을 증식시킨다. */
+            /* 버튼A와 버튼B를 클릭할 떄 클릭 횟수를 화면에서 출력 */
+            /* 버튼과 출력 영역을 캐스팅 */
+            var btnA = document.getElementById('btnA');
+            var btnB = document.getElementById('btnB');
+            var cntA = document.getElementById('cntA');
+            var cntB = document.getElementById('cntB');
+
+
+            /* 버튼에 클릭이벤트 연결 */
+            btnA.onclick = function () {
+                /* 카운트를 증가시키고 화면에 갱신 */
+                var cnt = Number(cntA.innerText) + 1;
+                cntA.innerText = cnt;
+            }
+
+            btnB.onclick = function () {
+                /* 카운트를 증가시키고 화면에 갱신 */
+                /* var cnt = Number(cntA.innerText) + 1;
+                cntA.innerText = cnt; */
+                cntB.innerText = Number(cntB.innerText) + 1;
+
+                이벤트 강제 발생
+                btnA.onclick();
+            }
+
+
+            /* form 태그 캐스팅 */
+            var form = document.getElementById('myForm');
+            form.onsubmit = function () {
+                console.log('submit 이벤트');
+
+                var id = document.getElementById('userID').value;
+                console.log(typeof id, id);
+                if (id.length < 1) {
+                    alert('아이디를 입력해주세요.');
+                    return false;
+                }
+            }
+
+
+            var p1 = document.getElementById('p1');
+            p1.onclick = function (e) {
+                var event = e || window.event;
+
+                alert('P Click');
+
+                // IE 일때
+                event.cancelBubble = true;
+                // IE 이외의 브라우저일 경우
+                if(event.stopPropagation) {
+                    event.stopPropagation();
+                }
+            }
+
+        };
+
+        function mClick() {
+            alert('클릭 완.');
+        }
+
+    </script>
+</head>
+<body>
+
+    <!-- 인라인 -> style -> 외부 순서로 스타일값 적용 -->
+
+    <div style = "border : 4px solid blue;" onclick = "alert('div1')">
+        <div style = "border : 4px solid green;"onclick = "alert('div2')">
+            <h1 style = "border : 4px solid purple;"onclick = "alert('H1')">
+                <p id = "p1" style = "border : 4px solid red; width : 50%; background-color: red;">클릭하세요</p>
+            </h1>
+        </div>
+    </div>
+    
+    
+    <!-- /?userID=cool&userPW=1234 -->
+    <!-- get은 주소 뒤쪽으로 파라미터를 붙여서 보낸다. -->
+    <!-- host는 developer - Network -ㅇ엉ㅅ3453345ㅇㅇ Header - From Data 에서 보낸 데이터를 확인할 수 있다. -->
+    <form id = "myForm" action = "http://www.naver.com" method = "post">
+
+        <!-- name -> 서버 전송시 parameter 이름 -->
+        id <input type = "text" id = "userID" name = "userID"><br>
+        pw <input type = "password" id = "userPW" name = "userPW"><br>
+        <input type = "submit" value = "로그인">
+
+    </form>
+
+
+    <!-- <button> : 버튼을 클릭하면 자동 summit이 된다. -->
+    <!-- <input> : 자동 summit이 이루어지지 않는다. -->
+    <button id = "btnA">ButtonA</button>
+    <input id = "btnB" type = "button" value = "ButtonB">
+    <!-- <input type = 'button' value = "ButtonC"> -->
+
+    <!-- <span> : 같은 인라인 -->
+    <h3>ButtonA - <span id = "cntA">0</span></h3>
+    <h3>ButtonB - <span id = "cntB">0</span></h3>
+   
+   
+    <h1 id = 'btn'>Click</h1>
+    <h2 onclick = "mClick();">클릭!!!</h2>
+    <h1 id = "btn1">클릭하세요</h1>
+
+</body>
+</html>
