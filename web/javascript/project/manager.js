@@ -44,10 +44,12 @@ window.onload = function() {
         // JSON 문자열 -> 객체로 변환
         // member에 할당해준다.
         console.log(members);
+       
+        // 테이블 세팅
+        setList();
     }
 
-    setList();
-
+   
         // 사용자가 입력한 값(value)을 반환한다.
         var userID = document.querySelector('#userID');
         var userPW = document.querySelector('#userPW');
@@ -185,7 +187,7 @@ function setList () {
             tbody += '    <th>' + members[i].userID + '</th>';
             tbody += '    <th>' + members[i].userPW + '</th>';
             tbody += '    <th>' + members[i].userName + '</th>';
-            tbody += '    <th><a href = "javascript:editMember(' + i + ')">수정</a> | <a href = "javascript:delete(' + i + ')">삭제</a></th>';
+            tbody += '    <th><a href = "javascript:editMember(' + i + ')">수정</a> | <a href = "javascript:deleteMember(' + i + ')">삭제</a></th>';
             tbody += '</tr>';
         }   
      }
@@ -209,11 +211,14 @@ function deleteMember(index) {
         members.splice(index, 1);
         alert('삭제되었습니다.');
         // 테이블의 리스트를 갱신한다.
+
+        // 저장
+        localStorage.setItem('members', JSON.stringify(members));
         setList();
-    } else {
-        alert ('취소되었습니다.');
     }
 }
+
+
 
 
 // 배열의 요소 수정 함수
@@ -262,7 +267,10 @@ function editMember(index) {
         members[editINDEX.value].userName = editUserName.value;
         
         alert ('수정 완.');
-
+        
+        //저장
+        localStorage.setItem('members', JSON.stringify(members));
+        
         // 테이블 세팅
         setList();
 
