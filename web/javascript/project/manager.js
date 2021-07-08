@@ -211,7 +211,7 @@ function deleteMember(index) {
         members.splice(index, 1);
         alert('삭제되었습니다.');
         // 테이블의 리스트를 갱신한다.
-
+ 
         // 저장
         localStorage.setItem('members', JSON.stringify(members));
         setList();
