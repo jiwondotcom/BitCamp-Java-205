@@ -16,6 +16,10 @@
             float : left;
         }
 
+        h1 {
+            color : aqua;
+        }
+
     </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"
     integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous">
@@ -56,12 +60,52 @@
                     return (1+index) * 100;
                 }
             });
+
+            // height 속성은 사라지고 width 값만 갖게 된다.
+            $('img').removeAttr('height');
+
+            // 태그의 css 속성값 확인
+            var color = $('h1.title').css('color');
+            console.log(color);
+
+            // css 속성 적용
+            // $('h1').css('background', 'red');
+            var colors = ['black', 'white', 'yellow'];
+            // $('h1').css('background', function(index){
+            //     return colors [index];
+            // });
+            $('h1').css ({
+                color : 'green',
+                backgroundColor : function(index){
+                     return colors[index];
+                }
+            });
+            
+            var strHtml = $('h1').html();
+            console.log('html() : ', strHtml);
+
+            console.log($('#menu').html());
+            console.log($('#menu').text());
+
+            // 문자열 추가
+            $('div').html(function(index, html){
+                console.log(index, html);
+                $(this).html(html + '~!~!~!~!');
+            });
         });
 
     </script>
 
 </head>
 <body>
+
+    <div>DIV - 0</div>
+
+
+    <h1 class = "title">header - 0</h1>
+    <h1>header - 1</h1>
+    <h1>header - 2</h1>
+
 
     <img class = "img" src = "../images/짱구.jpg">
     <img class = "img" src = "../images/짱구.jpg">
