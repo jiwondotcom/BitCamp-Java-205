@@ -7,9 +7,40 @@
     <title>Document</title>
     <script src="https://code.jquery.com/jquery-1.12.4.js"
     integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script>
+
+        // 3초에 한번씩 이미지가 바뀌는 롤링 배너
+        $(document).ready(function () {
+            setInterval(function () {
+                $('#banner>img').first().appendTo('#banner');
+            }, 3000);
+ 
+        });
+
+    </script>
+    
+    <style>
+        div>img {
+            width : 250px;
+            height : 300px;
+        }
+
+        #banner {
+            width : 250px;
+            height : 200px;
+            border : 2px solid red;
+            overflow : hidden;
+        }
+    </style>
    
 </head>
 <body>
     
+    
+    <div id = "banner">
+        <img src = "../images/양꼬치.jpg">
+        <img src = "../images/짱구.jpg">
+    </div>
+
 </body>
 </html>

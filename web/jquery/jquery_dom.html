@@ -6,27 +6,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <style>
-
-        div>img {
-            width : 250px;
-            height : 300px;
-        }
-
-        #banner {
-            width : 250px;
-            height : 200px;
-            border : 2px solid red;
-        }
-
-
-    </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"
     integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
    
    <script>
         $(document).ready(function() {
-            
+
             // 동적 html 요소 생성
             $('<h1></h1>');
             $('<h1></h1>').html('Hello~!!!');
@@ -61,19 +46,12 @@
                 return '<h3><a href = "' + links[index].url + '">' + links[index].name + '</a></h3>';
             });
 
-            setInterval(function(){
-                $('#banner>img').first().appendTo('#banner');
-            }, 3000);
-
+      
         }); 
     </script>
 </head>
 <body>
 
-    <div id = "banner">
-        <img src = "../images/양꼬치.jpg">
-        <img src = "../images/짱구.jpg">
-    </div>
     
 </body>
 </html>
