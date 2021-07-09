@@ -41,8 +41,15 @@
             var srcPath = $('.img').attr('src');
             console.log('이미지 경로', srcPath);
             // 속성의 값을 정의
-            $('.img').attr('width', 300);
-            
+
+            // 이미지 값을 변경
+            // $('.img').attr('width', 300);
+
+            // 차례대로 100, 200, 300의 사이즈 값을 갖는다.
+            $('img').attr('width', function(index){
+                return (index + 1) * 100;
+            });
+
         });
 
     </script>
@@ -50,6 +57,8 @@
 </head>
 <body>
 
+    <img class = "img" src = "../images/짱구.jpg">
+    <img class = "img" src = "../images/짱구.jpg">
     <img class = "img" src = "../images/짱구.jpg">
 
     <ul id = "menu">
