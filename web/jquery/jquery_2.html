@@ -90,8 +90,9 @@
             // 문자열 추가
             $('div').html(function(index, html){
                 console.log(index, html);
-                $(this).html(html + '~!~!~!~!');
+                $(this).html('<h1>' + html + index + '~!~!~!~! </h1>');
             });
+
         });
 
     </script>
@@ -99,6 +100,8 @@
 </head>
 <body>
 
+    <div>DIV - 0</div>
+    <div>DIV - 0</div>
     <div>DIV - 0</div>
 
 
