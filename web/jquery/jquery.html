@@ -6,6 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>jquery</title>
+
+    <style>
+
+        #wrap {
+            overflow: hidden;
+        }
+
+        .title {
+            background-color: crimson;
+            color : floralwhite;
+            float : left;
+        }
+
+    </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"
         integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
     <!-- //  jquery 라이브러리 다운 -->
@@ -45,6 +59,7 @@
             $('table tr:first').css('background-color', '#000').css('color', '#FFF');
             $('table tr:last').css('background-color', '#FFF');
 
+            $('table tr').filter(':even').css('background-color', "#FFF");
 
             // 배열을 다루는 . each() 메소드
             // $.each(배열 원본, callback : 배열의 하나의 요소르 처리하는 함수, 매개변수 배열의 index값, 요소 데이터)
@@ -68,10 +83,38 @@
             console.log(output);
             
             // document.body.innerHTML = output;
-            console.log($('body').html()); // getter
+            // console.log($('body').html()); // getter
             
             // $('body').html(output);
             $('#links').html(output);
+
+
+
+            $('h1').each(function(index, item) {
+                console.log(index, item.innerHTML);
+                console.log(index, $(item).html());
+            });
+
+            // $('h1').add Class('title');
+
+
+            // 인덱스값 나누기 3을 했을때 나머지가 0인 인덱스 
+            $('h3').filter(function(index){
+                return index%3 == 0;
+            }).css({
+                backgroundColor : 'black', 
+                color : 'white'
+            });
+
+
+            $('h2').css('background', 'orange').filter(':even').css('color', 'white').end().filter(':odd').css('color', 'red');
+
+            $('h1').eq(2).css('background', 'orange');
+            $('h1').last().css('background', 'blue').css('color', 'white');
+            $('h1').first().css('background', 'hotpink');
+
+            $('h1').css('background', 'gray').add('h3').css('float');
+
     });
 
     </script>
@@ -79,11 +122,27 @@
 
 <body>
 
+    <h2>header - 0</h2>
+    <h2>header - 1</h2>
+    <h2>header - 2</h2>
+    <h2>header - 3</h2>
+    <h2>header - 4</h2>
+  
+
+    <h3>header - 0</h3>
+    <h3>header - 1</h3>
+    <h3>header - 2</h3>
+    <h3>header - 3</h3>
+    <h3>header - 4</h3>
+    <h3>header - 5</h3>
+
+    <div id = "wrap">
     <h1>header - 0</h1>
     <h1>header - 1</h1>
     <h1>header - 2</h1>
     <h1>header - 3</h1>
     <h1>header - 4</h1>
+    </div>
 
 
     <div id = "links"></div>
