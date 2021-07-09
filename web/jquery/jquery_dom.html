@@ -5,10 +5,27 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+
+        div>img {
+            width : 250px;
+            height : 300px;
+        }
+
+        #banner {
+            width : 250px;
+            height : 200px;
+            border : 2px solid red;
+        }
+
+
+    </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"
     integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
-    <script>
-        $(document).ready(function(){
+   
+   <script>
+        $(document).ready(function() {
             
             // 동적 html 요소 생성
             $('<h1></h1>');
@@ -27,8 +44,8 @@
             }).appendTo('body');
 
             var html1 = '<a href = "#">test</a>';
-            var html2 = <p>TEST</p>;
-            var html3 = <div>DIV-0</div><div>DIV-1</div><div>DIV-2</div>;
+            var html2 = '<p>TEST</p>';
+            var html3 = '<div>DIV-0</div><div>DIV-1</div><div>DIV-2</div>';
 
             $('body').append('<h3>Hello~!~! JS!</h3>');
             $('body').append(html1, html2, html3, '<hr>');
@@ -42,14 +59,21 @@
 
             $('div').apopend(function(index){
                 return '<h3><a href = "' + links[index].url + '">' + links[index].name + '</a></h3>';
-            })
+            });
 
+            setInterval(function(){
+                $('#banner>img').first().appendTo('#banner');
+            }, 3000);
 
-
-        });
+        }); 
     </script>
 </head>
 <body>
+
+    <div id = "banner">
+        <img src = "../images/양꼬치.jpg">
+        <img src = "../images/짱구.jpg">
+    </div>
     
 </body>
 </html>
