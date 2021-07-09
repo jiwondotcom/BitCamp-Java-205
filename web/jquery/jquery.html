@@ -1,25 +1,98 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>jquery</title> 
-    <script src="https://code.jquery.com/jquery-1.12.4.js" 
+    <title>jquery</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
         integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
-
+    <!-- //  jquery 라이브러리 다운 -->
     <script>
-        
+
         // $() -> jquery의 객체 생성 : 메소드 사용 가능
         // documnet 객체를 -> jquery 객체로 변환
-        $(document).ready(function() {
+        // 문서안에 있는 태그들을 습득해서 객체화 -> 메소드를 활용 할 수 있다.
+        // 보다 직관적인 활용 가능.
+
+        $(document).ready(function () {
+
+            // 선택자는 작은 따옴표로 감싸준다 -> 문자열 취급
+
+            // $('*').css('color', 'red');
+
+            // var value = $('#userID').val();
+            // var value = document.querySelector('#userID').value
+            var value = $('input[type = text]').val(); // get 메소드
+            console.log(value);
+            // $('input[type=text]').val('안녕');
+            $('input:text').val('안녕하세요');
+
+            // 5초 후에  select의 선택 항목의 value 값을 확인
+            setTimeout(function () {
+                var selVal = $('select>option:selected').val();
+                console.log(selVal);
+
+                var chk = $('input:checkbox:checked').val();
+                console.log(chk);
+
+            }, 5000);
+
+
+            $('table tr:odd').css('background-color', '#DDD');
+            $('table tr:even').css('background-color', '#AAA');
+            $('table tr:first').css('background-color', '#000').css('color', '#FFF');
+            $('table tr:last').css('background-color', '#FFF');
 
         });
 
 
     </script>
 </head>
+
 <body>
     
+    <table>
+        <tr>
+            <td>thead 1</td>
+            <td>thead 2</td>
+        </tr>
+        <tbdoy>
+            <tr>
+                <td> tbody 1 - 1</td>
+                <td> tbody 1 - 2</td>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>222</td>
+            </tr>
+        </tbdoy>
+        <tfoot>
+            <tr>
+                <td>tfoot - 1</td>
+                <td>tfoot - 2</td>
+            </tr>
+        </tfoot>
+    </table>
+    </table>
+
+
+
+    개인정보 보호정책 보기 <input type="checkbox" value="ok">
+
+    <select>
+        <option value="2021">2021</option>
+        <option>2020</option>
+        <option>2019</option>
+    </select>
+
+
+    <input id="userID" type="text" value="hello">
+
+    <h1>안녕하세요</h1>
+    <h2>안녕하세요</h2>
+
 </body>
+
 </html>
