@@ -46,8 +46,15 @@
             // $('.img').attr('width', 300);
 
             // 차례대로 100, 200, 300의 사이즈 값을 갖는다.
-            $('img').attr('width', function(index){
-                return (index + 1) * 100;
+            // $('img').attr('width', function(index){
+            //     return (index + 1) * 100;
+            // });
+            
+            $('img').attr({
+                width : 100,
+                height : function(index){ // 높이값에 function 부여
+                    return (1+index) * 100;
+                }
             });
         });
 
