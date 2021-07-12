@@ -78,11 +78,30 @@
                 // $('h1').last().trigger('click');
             }, 1000);
 
+            $('a').click(function(e){
+                alert('a tag click');
+            
+                var e = e || window.event;
+
+                // 이벤트 버블링 제거
+                if(e.stopPropagation) {
+                    e.stopPropagation();
+                }
+
+                // 기본 이벤트 제거
+                e.preventDefault();
+
+            });
+
 
         });
     </script>
 </head>
 <body>
+
+    <div>
+        <h1><a>click</a></h1>
+    </div>
 
     <div>
         <h3>header 1</h3> 
