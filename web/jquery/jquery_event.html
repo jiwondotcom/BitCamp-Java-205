@@ -19,6 +19,13 @@
             background-color: black;
             color : white;
         }
+
+        div {
+            border: 3px solid #AAA;
+            padding : 10px;
+            border-radius : 5px;
+        }
+
     </style>
     <script src="https://code.jquery.com/jquery-1.12.4.js"
     integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous">
@@ -49,12 +56,40 @@
                 $(this).addClass('reverse');
             }, function(){
                 $(this).removeClass('reverse');
+                // 이벤트 삭제
+                // $(this).off();
+                $(this).off('mouseleave');
             });
+
+
+            $('div').click(function(){
+                // 이벤트가 발생한 div -> this
+                // $('h3', this) -> 이벤트가 발생한 div안에 위치한 h3을 선택
+                var h3 = $('h3', this).text();
+                var p = $('p', this).text();
+
+                alert(h3 + '\n' + p);
+            });
+
+
 
         });
     </script>
 </head>
 <body>
+
+    <div>
+        <h3>header 1</h3> 
+        <p>paragraph 1</p>
+    </div>
+    <div>
+        <h3>header 2</h3> 
+        <p>paragraph 2</p>
+    </div>
+    <div>
+        <h3>header 3</h3> 
+        <p>paragraph 3</p>
+    </div>
 
     <h2>header2-0</h2>
     <h2>header2-1</h2>
