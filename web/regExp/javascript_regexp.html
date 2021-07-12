@@ -47,8 +47,18 @@
         result = string.replace(regExp, '+$&+');
         // console.log(result);
 
-        var string = prompt('소문자와 숫자로 된 단어를 입력해주세요.');
-        regExp = /([0-9][a-z])/g;
+        // var string = prompt('이메일을 입력해주세요.');
+        
+        // 영문자(소문자)와 숫자만 가능
+        // regExp = /([0-9][a-z])/g;
+        
+        // 한글만 가능한 패턴
+        // regExp = /([가-힣])/g;
+        
+        // 이메일을 체크하는 패턴
+        regExp = /\w+@\w+.\w+/; // 아무단어(숫자 포함)
+        // 문자열 하나 이상(+), 중간 골뱅이가 들어가야함(@), 문자열이 더 들어가야함(\w)
+
         // 포함하고 있는 값을 아무것도 없는 것으로 치환
         result = string.replace(regExp, '');
         if(result.length == 0) { // 정상적으로 다 바뀜
@@ -60,6 +70,11 @@
     </script>
 </head>
 <body>
+    
+    <!-- <form>
+        <input type = "email"> // input type 이메일을 썼을때는 한계가 있다.
+        <input type = "submit">
+    </form> -->
     
 </body>
 </html>
