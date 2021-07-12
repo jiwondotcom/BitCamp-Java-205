@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        h1 {
+            border : 1px solid #AAA;
+        }
+
+        h1.hover {
+            cursor: pointer;
+        }
+
+        .reverse {
+            background-color: black;
+            color : white;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
+    integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous">
+    </script>
+    
+    <script>
+        $(document).ready(function() {
+            // h1을 캐스팅 -> click 이벤트를 연결
+            $('h1').on('click', function() {
+                // this -> 이벤트가 발생한 엘리먼트 객체를 가르킨다.
+                $(this).html(function(index, html) {
+                    return html + '+';
+                });
+            });
+
+            $('h1').on({
+                // click : function(){},
+                mouseenter : function(){
+                    $(this).addClass('reverse');
+                },
+                mouseleave : function(){
+                    $(this).removeClass('reverse');
+                }
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+
+    <h1>header - 0</h1>
+    <h1>header - 1</h1>
+    <h1>header - 2</h1>
+    
+</body>
+</html>
