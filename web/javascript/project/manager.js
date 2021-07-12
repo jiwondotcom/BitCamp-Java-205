@@ -62,9 +62,9 @@ window.onload = function() {
     
     regForm.onsubmit = function() {
        
-        var idPattern = /^[a-z0-9]{4,10}$/g;
+        var idPattern = /^[a-zA-Z0-9]{4,12}$/;
         var pwPattern = /^[A-za-z0-9]{4,20}$/g;
-        var namePattern = /([가-힣\x20a-zA-Z]){2,10}$/g;
+        var namePattern = /^[가-힣a-zA-Z]+$/;
 
 
         // 아이디 공백 체크
@@ -77,7 +77,7 @@ window.onload = function() {
 
         // 아이디 형식 체크 
         if (!idPattern.test(userID.value)) {
-            document.querySelector('#userID+div.msg').innerHTML = '아이디는 4~10자 사이의 영문 소문자+숫자만 가능합니다.';
+            document.querySelector('#userID+div.msg').innerHTML = '아이디는 4~11자 사이의 영어 대소문자, 숫자, -, _만 사용 가능합니다.';
             document.querySelector('#userID+div.msg').style.display='block';
             userID.value = "";
             return false;
@@ -131,7 +131,7 @@ window.onload = function() {
 
         // 이름 형식 체크
         if (!namePattern.test(userName.value)) {
-            document.querySelector('#userName+div.msg').innerHTML = '이름은 2~10자 사이의 한글/영문만 가능합니다.';
+            document.querySelector('#userName+div.msg').innerHTML = '이름은 한글/영문만 사용 가능합니다.';
             document.querySelector('#userName+div.msg').style.display = 'block';
             userName.value = "";
             return false;
@@ -287,7 +287,7 @@ function editMember(index) {
         // console.log(editINDEX.value, member);
        
         var pwPattern = /^[A-za-z0-9]{4,20}$/g;
-        var namePattern = /([가-힣\x20a-zA-Z]){2,10}$/g;
+        var namePattern = /^[가-힣a-zA-Z]+$/;
 
 
         // 수정한 비밀번호 형식 체크
@@ -304,10 +304,9 @@ function editMember(index) {
 
         // 수정한 이름 형식 체크
         if (!namePattern.test(editUserName.value)) {
-            alert('이름은 2~10자 사이의 한글/영문만 가능합니다.');
+            alert('이름은 한글/영문만 사용 가능합니다.');
             return false;
         }
-
 
         if (!confirm ('수정하시겠습니까?')) {
             return false;
