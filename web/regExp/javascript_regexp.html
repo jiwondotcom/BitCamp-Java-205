@@ -11,21 +11,52 @@
         // 정규식 객체 생성
         var regExp = /script/;
         var string = 'Javascript jquery Ajax';
-
+        
         var result = regExp.test(string);
-        console.log(result);
-
+        // console.log(result);
+        
         // 문자열 타입의 메소드 : split
-
+        
         result = string.split(regExp);
-        console.log(result);
-
-
-        regExp = /a/gi;
+        // console.log(result);
+        
+        
+        regExp = /a/ig;
+        // var string = 'Javascript \njquery Ajax';
 
         //문자열의 해당 패턴을 찾아 특정 문자열로 변경
-        result = string.replace(regExp, '+$&+'); // $& -> a -> +a+로 변경한다.
-        console.log(result);
+        // result = string.replace(regExp, '+$&+'); // $& -> a -> +a+로 변경한다.
+        // console.log(result);
+
+        var string = 'Javascript \njquery Ajax';
+        // 함수를 이용해서 변경하고자 하는 값을 지정
+        result = string.replace(regExp, function(value){
+            return '+' + value + '+';
+        });
+        // console.log(result);
+
+        // regExp = /^j/ig;
+        regExp = /x$/ig;
+        
+        string = 'Javascript query Ajax';
+        result = string.replace(regExp, '+$&+');
+        // console.log(result);
+
+        regExp = /[aj]/ig;
+        string = 'Javascript query Ajax';
+        result = string.replace(regExp, '+$&+');
+        // console.log(result);
+
+        var string = prompt('소문자와 숫자로 된 단어를 입력해주세요.');
+        regExp = /([0-9][a-z])/g;
+        // 포함하고 있는 값을 아무것도 없는 것으로 치환
+        result = string.replace(regExp, '');
+        if(result.length == 0) { // 정상적으로 다 바뀜
+            console.log(result, '패턴에 일치하는 문자열입니다.');            
+        } else {
+            console.log(result, '패턴에 맞지 않는 문자열을 포함하고 있습니다');
+        }
+        
     </script>
 </head>
 <body>
