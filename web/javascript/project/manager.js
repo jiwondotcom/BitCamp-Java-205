@@ -1,4 +1,3 @@
-
 // 회원의 정보 : 아이디, 비밀번호, 이름
 // Member -> 생성자 함수를 정의
 
@@ -63,14 +62,26 @@ window.onload = function() {
     
     regForm.onsubmit = function() {
        
-      
+        var idPattern = /^[a-z0-9]{4,10}$/g;
+        var pwPattern = /^[A-za-z0-9]{4,20}$/g;
+        var namePattern = /([가-힣\x20a-zA-Z]){2,10}$/g;
+
+
         // 아이디 공백 체크
         if(userID.value.trim().length < 1) {
             document.querySelector('#userID+div.msg').innerHTML = '필수항목입니다.';
             document.querySelector('#userID+div.msg').style.display='block';
             // alert('이름을 입력해주세요.');
             return false;
-        }
+        } 
+
+        // 아이디 형식 체크 
+        if (!idPattern.test(userID.value)) {
+            document.querySelector('#userID+div.msg').innerHTML = '아이디는 4~10자 사이의 영문 소문자+숫자만 가능합니다.';
+            document.querySelector('#userID+div.msg').style.display='block';
+            userID.value = "";
+            return false;
+            }
 
 
         // 비밀번호 공백 체크
@@ -80,6 +91,15 @@ window.onload = function() {
             // alert('비밀번호를 입력해주세요.');
             return false;
         }
+        
+        // 비밀번호 형식 체크
+        if (!pwPattern.test(userPW.value)) {
+            document.querySelector('#userPW+div.msg').innerHTML = '비밀번호는 4~20자 사이의 영문 대소문자+숫자만 가능합니다.';
+            document.querySelector('#userPW+div.msg').style.display='block';
+            userPW.value = "";
+            return false;
+            }
+
 
         // 비밀번호 확인 공백 체크
         if(rePW.value.trim().length < 1) {
@@ -89,21 +109,34 @@ window.onload = function() {
             return false;
         }
 
+
         // 비밀번호와 비밀번호 확인의 일치 여부 체크(비교)
         if(userPW.value.trim() != rePW.value.trim()) {
-            document.querySelector('#rePW+div.msg').innerHTML = '비밀번호가 일치하지 않습니다. \n다시 확인해주세요.';
+            document.querySelector('#rePW+div.msg').innerHTML = '비밀번호가 일치하지 않습니다. 다시 확인해주세요.';
             document.querySelector('#rePW+div.msg').style.display='block';
             // alert('비밀번호가 일치하지 않습니다. \n다시 확인해주세요.');
             return false;
         }
 
-        // 사용자 이름 정보
+
+
+        // 사용자 이름 공백 체크
         if(userName.value.trim() < 1) {
             document.querySelector('#userName+div.msg').innerHTML = '필수항목입니다.';
             document.querySelector('#userName+div.msg').style.display='block';
             // alert ('이름을 입력해주세요.');
             return false;
         }
+
+
+        // 이름 형식 체크
+        if (!namePattern.test(userName.value)) {
+            document.querySelector('#userName+div.msg').innerHTML = '이름은 2~10자 사이의 한글/영문만 가능합니다.';
+            document.querySelector('#userName+div.msg').style.display = 'block';
+            userName.value = "";
+            return false;
+        }
+        
 
         // console 출력
         console.log(userID.value);
@@ -132,6 +165,7 @@ window.onload = function() {
 
         return false;
     }
+
 
     // 입력란 공백시 출력되는 안내문 -> 포커스시(재입력 시도시) 삭제하는 함수
     userID.addEventListener('focus', function() {
@@ -251,13 +285,29 @@ function editMember(index) {
 
         // var member = new Member(editUserID.value, editUserPW.value, editUserName.value);
         // console.log(editINDEX.value, member);
+       
+        var pwPattern = /^[A-za-z0-9]{4,20}$/g;
+        var namePattern = /([가-힣\x20a-zA-Z]){2,10}$/g;
 
+
+        // 수정한 비밀번호 형식 체크
+        if (!pwPattern.test(editUserPW.value)) {
+            alert ('비밀번호는 4~20자 사이의 영문 대소문자+숫자만 가능합니다.');
+            return false;
+        }
 
         // 비밀번호와 비밀번호 확인이 같은지 체크
         if (editUserPW.value != editUserRePW.value) {
             alert('비밀번호가 일치하지 않습니다. \n다시 확인해주세요.');
             return false;
         }
+
+        // 수정한 이름 형식 체크
+        if (!namePattern.test(editUserName.value)) {
+            alert('이름은 2~10자 사이의 한글/영문만 가능합니다.');
+            return false;
+        }
+
 
         if (!confirm ('수정하시겠습니까?')) {
             return false;
