@@ -13,9 +13,19 @@
         var string = 'Javascript jquery Ajax';
 
         var result = regExp.test(string);
-
         console.log(result);
 
+        // 문자열 타입의 메소드 : split
+
+        result = string.split(regExp);
+        console.log(result);
+
+
+        regExp = /a/gi;
+
+        //문자열의 해당 패턴을 찾아 특정 문자열로 변경
+        result = string.replace(regExp, '+$&+'); // $& -> a -> +a+로 변경한다.
+        console.log(result);
     </script>
 </head>
 <body>
