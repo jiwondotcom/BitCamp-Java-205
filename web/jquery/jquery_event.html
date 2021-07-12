@@ -7,11 +7,11 @@
     <title>Document</title>
     <style>
 
-        h1 {
+        h1, h2 {
             border : 1px solid #AAA;
         }
 
-        h1.hover {
+        h1:hover, h2:hover {
             cursor: pointer;
         }
 
@@ -44,11 +44,21 @@
                 }
             });
 
+            // .hover() -> mouseenter, mouseleave 한번에 처리해주는 메소드
+            $('h2').hover(function(){
+                $(this).addClass('reverse');
+            }, function(){
+                $(this).removeClass('reverse');
+            });
 
         });
     </script>
 </head>
 <body>
+
+    <h2>header2-0</h2>
+    <h2>header2-1</h2>
+    <h2>header2-2</h2>
 
     <h1>header - 0</h1>
     <h1>header - 1</h1>
