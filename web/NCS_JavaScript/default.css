@@ -24,6 +24,7 @@ a:hover {
     text-decoration : underline;
     color : aqua;
 }
+
 /* 타이틀 폰트 적용 */
 .title_font {
     font-family: 'Sunflower';
