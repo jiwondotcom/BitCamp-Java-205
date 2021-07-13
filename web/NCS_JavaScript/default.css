@@ -105,7 +105,7 @@ div.msg {
 
 #listArea>table {
     margin : 10px 0;
-    width : 730px;
+    width : 100%;
     /* 테이블 전체의 outline */
     /* border : 1px solid #000; */
     border-collapse: collapse;
@@ -127,8 +127,8 @@ div.msg {
     border-radius: 10px;
     background-color: rgb(198, 233, 212);
     position : absolute;
-    left : 50%;
-    top : 100px;
+    left : 80%;
+    top : 30px;
     margin-left : -175px;
     display : none;
 }

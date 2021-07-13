@@ -8,7 +8,7 @@ function Member(userID, userPW, userName) {
 }
 
 // 객체가 가지는 메소드는 공통으로 사용 -> prototype
-Member.prototype.makeHtml = function() {
+Member.prototype.makeHtml = function () {
     return '[ userID : ' + this.userID + ', userPW : ' + this.userPW + ', userName : ' + this.userName + ' ]'
 };
 
@@ -44,7 +44,7 @@ $(document).ready(function () {
     // 입력창 아래 메시지 출력
 
 
-    $('#regForm').submit(function() {
+    $('#regForm').submit(function () {
 
         var idPattern = /^[a-z0-9_+.-]+@([a-z0-9-]+\.)+[a-z0-9]{2,4}$/;
         var pwPattern = /^[A-za-z0-9]{4,20}$/g;
@@ -76,7 +76,7 @@ $(document).ready(function () {
             $('#userPW+div.msg').html('비밀번호는 4~20자 사이의 영문 대소문자+숫자만 가능합니다.');
             $('#userPW+div.msg').css('display', 'block');
             return false;
-        } 
+        }
 
 
         // 사용자 이름 공백 체크
@@ -113,9 +113,9 @@ $(document).ready(function () {
 
     });
 
-        // 배열의 요소 수정 함수
-        $('#editForm').submit(function() {
-       
+    // 배열의 요소 수정 함수
+    $('#editForm').submit(function () {
+
         var pwPattern = /^[A-za-z0-9]{4,20}$/g;
         var namePattern = /^[가-힣a-zA-Z]{2,10}$/;
 
@@ -126,15 +126,15 @@ $(document).ready(function () {
             alert('비밀번호를 입력해주세요.');
             return false;
         } else if (!pwPattern.test($('#editPW').val())) {
-            alert ('비밀번호는 4~20자 사이의 영문 대소문자+숫자만 가능합니다.');
+            alert('비밀번호는 4~20자 사이의 영문 대소문자+숫자만 가능합니다.');
             return false;
-        } 
+        }
 
 
         // 사용자 이름 공백 체크
         // 이름 형식 체크
         if ($('#editName').val().trim().length < 1) {
-            alert ('이름을 입력해주세요.');
+            alert('이름을 입력해주세요.');
             return false;
         } else if (!namePattern.test($('#editName').val())) {
             alert('이름은 2~10자 사이의 한글/영문만 사용 가능합니다.');
@@ -142,28 +142,25 @@ $(document).ready(function () {
         }
 
 
-        if (!confirm ('수정하시겠습니까?')) {
+        if (!confirm('수정하시겠습니까?')) {
             return false;
         }
 
-        
         // 로컬스토리지에 저장(반영)
-        members[$('#editIndex').val()].userPW = $('#editPW').val();
-        members[$('#editIndex').val()].userName = $('#editName').val();
+        members[$('#index').val()].userPW = $('#editPW').val();
+        members[$('#index').val()].userName = $('#editName').val();
         localStorage.setItem('members', JSON.stringify(members));
-        
         // 테이블 세팅
         setList();
-        
+
         alert('수정 완료되었습니다.');
 
         // 수정 창 닫힘
         editMemberClose();
 
-        return false; 
+        return false;
 
     });
-
 
     // 입력란 공백시 출력되는 안내문 -> 포커스시(재입력 시도시) 삭제하는 함수
     $('#userID').focus(function () {
@@ -195,7 +192,7 @@ $(document).ready(function () {
 
 
 // 배열에 있는 요소를 -> table tr행을 만들어서 출력
-function setList () {
+function setList() {
 
     var list = $('#list');
 
@@ -207,24 +204,24 @@ function setList () {
     tbody += '  <th>관리</th>';
     tbody += '</tr>';
 
-    if(members.length < 1) {
+    if (members.length < 1) {
 
         tbody += '<tr>';
         tbody += '<th colspan = "5"> 데이터가 존재하지 않습니다.</th>';
         tbody += '</tr>';
 
     } else {
-        for(var i = 0; i < members.length; i++) {
-            tbody += '<tr>';    
+        for (var i = 0; i < members.length; i++) {
+            tbody += '<tr>';
             tbody += '    <th>' + i + '</th>';
             tbody += '    <th>' + members[i].userID + '</th>';
             tbody += '    <th>' + members[i].userPW + '</th>';
             tbody += '    <th>' + members[i].userName + '</th>';
             tbody += '    <th><a href = "javascript:editMember(' + i + ')">수정</a>  |  <a href = "javascript:deleteMember(' + i + ')">삭제</a></th>';
             tbody += '</tr>';
-        }   
-     }
-    
+        }
+    }
+
     // list를 캐스팅
     $('#list').html(tbody);
 
@@ -236,11 +233,11 @@ function deleteMember(index) {
 
     // 배열의 index 요소를 삭제
     // splice (index, count) : index에서 시작해서 count만큼의 요소를 삭제하고 남은 요소의 배열을 반환합니다.
-    if(confirm('삭제하시겠습니까?')) {
+    if (confirm('삭제하시겠습니까?')) {
         members.splice(index, 1);
         alert('삭제되었습니다.');
         // 테이블의 리스트를 갱신한다.
- 
+
         // 저장
         localStorage.setItem('members', JSON.stringify(members));
         setList();
@@ -259,7 +256,7 @@ function editMember(index) {
     $('#editPW').val(members[index].userPW);
     $('#editrePW').val(members[index].userPW);
     $('#editName').val(members[index].userName);
-    $('#editIndex').val(index);
+    $('#index').val(index);
 }
 
 
