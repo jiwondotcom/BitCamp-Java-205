@@ -130,8 +130,8 @@ public class Member {
 		member1.name = "짱구";
 		member1.showInfo();
 //		member1.phoneNumber = "00000000";
-		
-		
+		 
+		 
 		System.out.println("==============================");
 		
 		
