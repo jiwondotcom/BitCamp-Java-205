@@ -147,6 +147,11 @@ div.msg {
     text-align: center;
 }
 
+#editID, #editPW, #editrePW, #editName {
+    padding-left : 5px;
+    padding-right : 5px;
+}
+
  
 #editForm input[type=submit] {
     width : 50px;
