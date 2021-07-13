@@ -16,7 +16,6 @@ Member.prototype.makeHtml = function () {
 // 회원의 정보를 저장하는 배열
 var members = []; // new Array()
 
-
 // 사용자가 입력한 정보로 Member 객체를 생성
 // submit 이벤트 연결
 
