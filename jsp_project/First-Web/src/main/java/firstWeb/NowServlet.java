@@ -15,6 +15,8 @@ public class NowServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		System.out.println("GET로 요청");
 		
+		resp.setContentType("text/html; chartset=utf-8");
+		
 		PrintWriter writer = resp.getWriter();
 		writer.println("<html>");
 		writer.println("	<head><title>NowServlet</title></head>");
@@ -22,7 +24,6 @@ public class NowServlet extends HttpServlet {
 		writer.println("<h1>" + new Date() + "</h1>");
 		writer.println("</body>");
 		writer.println("</html>");
-	
 	
 	}
 
