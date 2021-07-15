@@ -13,11 +13,9 @@ java.util.Date now = new Date();
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<script>
-</script>
-<body>
 
+<body>
 	<!-- 날짜와 시간을 출력 -->
-	<%= now %>
+	<h1><%= now %></h1>
 </body>
 </html>
