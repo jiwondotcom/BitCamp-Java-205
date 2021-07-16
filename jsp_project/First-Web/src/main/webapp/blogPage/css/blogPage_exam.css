@@ -1,0 +1,184 @@
+/* 브라우저 별 요소 스타일 초기화 */
+* {
+    font-family : 'Work Sans';
+    margin : 0;
+    padding : 0;
+}
+
+/* 타이틀 상단 여백 */
+body {
+    padding-top : 30px;
+    padding-bottom : 30px;
+}
+
+/* 전체 값 */
+#all_wrap {
+    width : 798px;
+    border : 8px solid rgba(211, 211, 211, 0.692);
+    border-radius : 8px;
+    margin : 10px auto;
+    padding : 40px;
+}
+
+/* 클릭 개체 속성 */
+a {
+    text-decoration: none;
+    color : black;
+}
+
+a:hover {
+    color: hotpink;
+}
+
+/* 텍스트 정렬 */
+.text_center {
+    text-align : center;
+}
+
+.text_left {
+    text-align : left;
+}
+
+.text_right {
+    text-align : right;
+}
+
+/* 폰트 사이즈 */
+.font_size_250p {
+    font-size : 250%;
+}
+
+.font_menu {
+    font-size : 110%;
+}
+
+.font.size_160p {
+    font-size : 160%;
+}
+
+.div_align_center {
+    margin : 0 auto;
+}
+
+/* 헤더 */
+header {
+    padding-left : 40px;
+    width : 798px;
+    height : 100px;
+    line-height : 40px;
+}
+
+/* 네비게이션 */
+nav {
+    border-top: 1px solid   lightgray;
+    border-bottom: 1px solid  lightgray;
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-left : 5px;
+    width: 798px;
+    overflow: hidden;
+}
+
+
+nav>ul>li {
+    height : 30px;
+    line-height : 30px;
+    float : left;
+    display : inline;
+    padding-left : 35px;
+    padding-right : 30px;
+}
+
+nav>ul>li>a {
+    display : block;
+}
+
+nav>ul>li>a:hover {
+    background-color: black;
+    text-decoration : underline;
+}
+
+/* 검색창 속성 */
+#search {
+    padding-right : 35px;
+    margin-top : 3px;
+
+}
+
+#search [type=text] {
+    border-right: 0px solid   lightgray;
+    border-color: lightgray;
+    border-radius: 8px 0 0 8px;
+    border-width : 1px;
+    width: 150px;
+    height: 20px;
+    padding: 0 5px;
+}
+
+
+#search [type=button] {
+    border-color: lightgray;
+    border-radius: 0 8px 8px 0;
+    border-width : 1px;
+    width : 40px;
+    height : 23px;
+    margin-left : -5.3px;
+    margin-top : 3px;
+}
+
+/* 컨텐츠 속성 */
+#contents {
+    width : 800px;
+    overflow : hidden;
+    padding-left : 40px;
+    padding-top : 20px;
+    padding-bottom : 8px;
+}
+
+#contents section{
+    width : 598px;
+    float : left;
+}
+
+/* 이미지 상하 여백 */
+#contents img{
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+/* 타이틀 행간 */
+article>p {
+    line-height : 180%;
+}
+
+/* 내용 행간 */
+.linegap {
+    line-height : 125%;
+}
+
+/* 사이드 바 속성 */
+aside {
+    width : 198px;
+    float : right;
+}
+
+aside ul {
+    list-style : none;
+    line-height: 150%;
+    display : inline;
+    margin: 30px;
+    padding-bottom : 7px;
+}
+
+/* 푸터 속성 */
+footer {
+    padding-top : 20px;
+    padding-left : 40px;
+    width : 798px;
+    height : 50px;
+    line-height : 50px;
+}
+
+footer a {
+    color : blue;
+}
