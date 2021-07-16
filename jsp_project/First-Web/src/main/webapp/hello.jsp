@@ -3,14 +3,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Hello JSP</title>
 </head>
 <body>
-	<%
+	<%--
 		String name = "SON";
-	%>
-	안녕하세요 <%= name %>
+	--%>
+	안녕하세요 <%--= name --%>
 	<%= request.getContextPath() %>
 	
 </body>
