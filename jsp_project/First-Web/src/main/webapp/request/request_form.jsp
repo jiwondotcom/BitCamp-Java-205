@@ -11,7 +11,7 @@
 	<h1>request Form Test</h1>
 	<hr>
 	<!-- 데이터를 처리할 위치로 전송 : input 요소에 *** name 속성 *** 을 반드시 정의해주어야 한다! -->
-	<form action = "request_result.jsp" type = "get">
+	<form action = "request_result.jsp" method = "post">
 		<table>
 			<tr>
 				<td>이름</td>
