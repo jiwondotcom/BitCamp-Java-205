@@ -7,10 +7,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BlogExmaple</title>
+    
+    <!-- css파일 불러오기 / 절대경로 사용 -->
+    <!-- http://localhost:8080/First-Web/blogPage/css/blogPage.css -->
+    <link rel="stylesheet" href="/First-Web/blogPage/css/blogPage.css">
     <!-- 외부 웹 폰트 불러오기 -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@500&display=swap">
-    <!-- css파일 불러오기 -->
-    <link rel="stylesheet" href="css/blogPage_exam.css">
 </head>
 <body>
     <!-- 전체 -->
