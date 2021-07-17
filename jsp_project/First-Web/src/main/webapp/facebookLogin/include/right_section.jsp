@@ -15,8 +15,8 @@
 	<!-- 로그인 박스 끝 -->
 	<div id="createpage">
 		<p class="fontweight_400">
-			유명인, 밴드, 비즈니스를 위한 <a href="#" class="fontweight_800"
-				id="createpage_msg">페이지 만들기</a>
+			유명인, 밴드, 비즈니스를 위한
+			<a href="#" class="fontweight_800" id="createpage_msg">페이지 만들기</a>
 		</p>
 	</div>
 </div>
