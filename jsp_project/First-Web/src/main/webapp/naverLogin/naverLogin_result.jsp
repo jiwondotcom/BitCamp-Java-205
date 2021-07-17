@@ -29,13 +29,13 @@
 
 		<!-- 로고 섹션 시작 -->
 		<section class="logo">
-		<img src="images/NAVER_logo.png"><a href="http://www.naver.com"></a>
+			<img src="images/NAVER_logo.png"><a href="http://www.naver.com"></a>
 		</section>
 		<!-- 로고 영역 끝 -->
-		<h1 class = "text_center">로그인이 완료 되었습니다.</h1>
+		<h1 class="text_center">로그인이 완료 되었습니다.</h1>
 
 		<!-- 데이터를 처리할 위치로 전송 : input 요소에 *** name 속성 *** 을 반드시 정의해주어야 한다! -->
-		<table border="1" id = "table">
+		<table border="1" id="table">
 			<tr>
 				<td>아이디</td>
 				<td><%=id%></td>
@@ -47,6 +47,5 @@
 			</tr>
 		</table>
 	</div>
-
 </body>
 </html>
