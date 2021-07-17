@@ -1,0 +1,179 @@
+* {
+    margin : 0;
+    padding : 0;
+    font-family: Helvetica;
+    list-style : none;
+    text-decoration : none;
+}
+
+/* 폰트 볼드처리 클래스 */
+.fontweight_500 {
+    font-weight: 500;
+}
+
+
+body {
+    background: #f5f6f7;
+}
+
+.all_wrap {
+    width : 500px;
+    height: 100%;
+    margin : 0 auto;
+}
+
+
+/* 상단 로고 */
+.logo {
+    width : 100%;
+    text-align : center;
+    margin-bottom : 40px;
+}
+
+.logo>img {
+    height : 30px;
+}
+
+
+/* 우측 상단 언어 선택창 */
+.lang_select {
+    height : 70px;
+}
+
+.lang_select>select {
+    float : right;
+    font-size : 13px;
+    margin-top : 12px;
+    margin-right : 15px;
+    background-color: rgba(255, 255, 255, 0);
+    width : 80px;
+    height : 25px;
+    border : 1px solid lightgray;
+}
+
+.lang_select>select:focus {
+    border : 1px solid lightgray;
+}
+
+
+/* 로그인 섹션 */
+.login_section {
+    display: inline-block;
+    text-align: center;
+}
+
+
+/* ID 입력창 */
+.login_section .ID {
+    border : 1px solid lightgray;
+    width : 452px;
+    height : 47px;
+    padding-left : 15px;
+    margin-bottom : 9px;
+    font-size : 15px;
+}
+
+.login_section .ID::placeholder {
+    color : rgb(167, 167, 167);
+}
+
+
+/* PW 입력창 */
+.login_section .PW {
+    border : 1px solid lightgray;
+    width : 452px;
+    height : 47px;
+    padding-left : 15px;
+    margin-bottom : 9px;
+    font-size : 15px;
+}
+
+.login_section .PW::placeholder {
+    color : rgb(167, 167, 167);
+}
+
+
+.ID:focus, .PW:focus {
+    outline : #03c75a;
+    box-shadow : 0 0 0 0.8px #03c75a;
+}
+
+
+/* 로그인 버튼 */
+.login_section .LOGINbtn{
+    background-color: #03c75a;
+    color : white;
+    border : 1px solid lightgray;
+    width : 470px;
+    height : 57px;
+    margin : 5px 0;
+    font-size : 20px;
+    text-align : center;
+    overflow: hidden;
+}
+
+
+/* 로그인 상태 유지 체크박스 */
+#chkbox_part {
+    width : 470px;
+    height : 30px;
+    border-bottom : 1px solid lightgray;
+    margin-top : 10px;
+    padding-bottom : 4px;
+    margin-left : 17px;
+}
+
+
+/* 간편 로그인 섹션 */
+.simplelogin_section {
+    padding-bottom : 200px;
+}
+
+.simplelogin_title { 
+    margin-top : 30px;
+    margin-bottom : 15px;
+    font-size : 15px;
+    text-align: center;
+}
+
+.simplelogin_btn {
+    text-align: center;
+    margin-bottom : 20px;
+}
+
+
+/* QR로그인, 일회용로그인 버튼 */
+.QRlogin, .ONElogin {
+    font-size : 18px;
+    font-weight: 500;
+    background-color: white;
+    border : 1px solid #03c75a;
+    max-width: 400px;
+    margin : 0 4px;
+    width : 45%;
+    height : 55px;
+}
+
+/* 마우스 오버 */
+.QRlogin:hover, .ONElogin:hover {
+    background-color: #03c75a;
+    color : white;
+}
+
+
+/* 아이디-비밀번호 찾기, 회원가입 바로가기 */
+.simplelogin_section .find_join {
+    text-align: center;
+    color : gray;
+}
+
+.findID, .findPW, .JOIN {
+    font-size : 16px;
+    text-decoration: none;
+    color : gray;
+}
+
+/* 중간 바 : | */
+#bar {
+    color : rgb(221, 221, 221);
+}
