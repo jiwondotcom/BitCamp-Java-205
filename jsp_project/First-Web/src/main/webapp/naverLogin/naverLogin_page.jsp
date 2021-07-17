@@ -1,61 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en"> 
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>네이버 : 로그인</title>
-    <link rel="stylesheet" href="css/Naver_LoginPage.css">
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>네이버 : 로그인</title>
+<link rel="stylesheet" href="css/naverLogin_page.css">
 </head>
 <body>
-    <!-- 전체 wrap 영억 시작-->
-    <div class="all_wrap">
-     
-        <!-- 언어 선택 영역 -->
-		<%@ include file="include/langSelect.jsp" %>
-        <!-- 언어 선택 영역 끝 -->
+	<!-- 전체 wrap 영억 시작-->
+	<div class="all_wrap">
 
-        <!-- 로고 섹션 시작 -->
-		<%@ include file="include/logo.jsp" %>
-        <!-- 로고 영역 끝 -->
-    
-        <!-- 로그인 섹션 시작 -->
-		<%@ include file="include/loginSection.jsp" %>
-        <!-- 로그인 섹션 끝 -->
+		<!-- 언어 선택 영역 -->
+		<%@ include file="include/langSelect.jsp"%>
+		<!-- 언어 선택 영역 끝 -->
 
-        <!-- 로그인 상태 유지 체크박스 -->
-        <div id="chkbox_part">
-            <input type="checkbox" id="chkbox"> 로그인 상태 유지</input>
-        </div>
-    
-    
-        <!-- 간편 로그인 섹션 시작 -->
-        <section class="simplelogin_section">
-            <!-- 간편 로그인 타이틀  -->
-            <div class="simplelogin_title">
-                <h1 class="fontweight_500">더욱 간편한 로그인</h1>
-            </div>
+		<!-- 로고 섹션 시작 -->
+		<%@ include file="include/logo.jsp"%>
+		<!-- 로고 영역 끝 -->
 
-            <!-- 간편 로그인 버튼 섹션 -->
-            <div class="simplelogin_btn">
-                <!-- 버튼 1) QR코드 -->
-                <input type="button" value="QR코드 로그인" class="QRlogin" style='cursor:pointer'></input>
-                <!-- 버튼 2) 일회용 번호 -->
-                <input type="button" value="일회용 번호 로그인" class="ONElogin" style='cursor:pointer'></input>
-            </div>
+		<!-- 로그인 섹션 시작 -->
+		<%@ include file="include/loginSection.jsp"%>
+		<!-- 로그인 섹션 끝 -->
 
-            <!-- 아이디-비밀번호 찾기, 회원가입 바로가기 -->
-            <div class="find_join">
-                <span><a href="#" class="findID">아이디 찾기 </a></span><span id="bar">　|　</span>
-                <span><a href="#" class="findPW">비밀번호 찾기</a></span><span id="bar">　|　</span>
-                <span><a href="#" class="JOIN">회원가입</a></span>
-            </div>
-            
-        </section>
-        <!-- 간편 로그인 섹션 끝 -->
-    </div>
-    <!-- 전체 wrap 영역의 끝 -->
+		<!-- 로그인 상태 유지 체크박스 -->
+		<div id="chkbox_part">
+			<input type="checkbox" id="chkbox"> 로그인 상태 유지
+		</div>
+
+
+		<!-- 간편 로그인 섹션 시작 -->
+		<section class="simplelogin_section">
+			<!-- 간편 로그인 타이틀  -->
+			<div class="simplelogin_title">
+				<h1 class="fontweight_500">더욱 간편한 로그인</h1>
+			</div>
+
+			<!-- 간편 로그인 버튼 섹션 -->
+			<div class="simplelogin_btn">
+				<!-- 버튼 1) QR코드 -->
+				<input type="button" value="QR코드 로그인" class="QRlogin"
+					style='cursor: pointer'></input>
+				<!-- 버튼 2) 일회용 번호 -->
+				<input type="button" value="일회용 번호 로그인" class="ONElogin"
+					style='cursor: pointer'></input>
+			</div>
+
+			<!-- 아이디-비밀번호 찾기, 회원가입 바로가기 -->
+			<div class="find_join">
+				<span><a href="#" class="findID">아이디 찾기 </a></span><span id="bar">
+					| </span> <span><a href="#" class="findPW">비밀번호 찾기</a></span><span
+					id="bar"> | </span> <span><a href="#" class="JOIN">회원가입</a></span>
+			</div>
+
+		</section>
+		<!-- 간편 로그인 섹션 끝 -->
+	</div>
+	<!-- 전체 wrap 영역의 끝 -->
 </body>
 </html>
