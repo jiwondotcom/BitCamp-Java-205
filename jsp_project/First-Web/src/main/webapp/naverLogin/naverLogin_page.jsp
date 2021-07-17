@@ -14,28 +14,15 @@
     <div class="all_wrap">
      
         <!-- 언어 선택 영역 -->
-        <div class="lang_select">
-            <select name="language">
-                <option value="KOR">한국어</option>
-                <option value="ENG">English</option>
-                <option value="CHN1">中文(简体)</option>
-                <option value="CHN2">中文(台灣)</option>
-            </select>
-        </div> 
+		<%@ include file="include/langSelect.jsp" %>
         <!-- 언어 선택 영역 끝 -->
 
         <!-- 로고 섹션 시작 -->
-        <section class="logo">
-            <img src="images/NAVER_logo.png"><a href="http://www.naver.com"></a>
-        </section>
+		<%@ include file="include/logo.jsp" %>
         <!-- 로고 영역 끝 -->
     
         <!-- 로그인 섹션 시작 -->
-        <section class="login_section">
-            <input type="text" class="ID" placeholder="아이디"></input>
-            <input type="password" class="PW" placeholder="비밀번호"></input>
-            <input type="button" class="LOGINbtn" value="로그인"></input>
-        </section>
+		<%@ include file="include/loginSection.jsp" %>
         <!-- 로그인 섹션 끝 -->
 
         <!-- 로그인 상태 유지 체크박스 -->

@@ -5,10 +5,10 @@
 	<div>
 		<form action="facebookLogin_result.jsp" method="post" class="loginbox">
 			<input type=text id="id" placeholder="이메일 또는 전화번호" name="id"></input>
-			<input type=password id="pw" placeholder="비밀번호" name="pw"></input> <input
-				type=submit id="loginbtn" value="로그인" style='cursor: pointer'></input>
-				<a href="#" class="forgetpw_text">비밀번호를 잊으셨나요?</a> <input
-			type="button" id="joinbtn" value="새 계정 만들기" style='cursor: pointer'></input>
+			<input type=password id="pw" placeholder="비밀번호" name="pw"></input>
+			<input type=submit id="loginbtn" value="로그인" style='cursor: pointer'></input>
+			<a href="#" class="forgetpw_text">비밀번호를 잊으셨나요?</a>
+			<input type="button" id="joinbtn" value="새 계정 만들기" style='cursor: pointer'></input>
 		</form>
 		
 	</div>
