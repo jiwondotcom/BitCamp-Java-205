@@ -22,7 +22,6 @@
 <link rel="stylesheet" href="css/Naver_LoginPage.css">
 </head>
 <body>
-
     <!-- 로고 섹션 시작 -->
 	<%@ include file="include/logo.jsp" %>
     <!-- 로고 영역 끝 -->
