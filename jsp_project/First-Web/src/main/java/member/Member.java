@@ -9,6 +9,46 @@ public class Member {
 	// default - 같은 패키지 / protected - 상속 관계
 	private String id;
 	private String pw;
-	String name;
+	private String name;
+
+	
+	// beans 클래스는 기본 생성자 필수
+	public Member(){}
+
+	
+	// setter
+	public void setId(String id) {
+		this.id = id;
+	}
+	
+	// getter
+	public String getId() {
+		return this.id;
+	}
+
+	
+	// setter
+	public void setPw(String pw) {
+		this.pw = pw;
+	}
+	
+	// getter
+	public String getPw() {
+		return this.pw;
+	}
+	
+	
+	// setter
+	public void name(String name) {
+		this.name = name;
+	}
+	
+	// getter
+	public String getName() {
+		return this.name;
+	}
+
+	
+	
 	
 }
