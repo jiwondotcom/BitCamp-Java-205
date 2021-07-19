@@ -12,16 +12,7 @@
 </script>
 <body>
 
-	<%
-
-		String str = request.getParameter("id");
-		String str1 = str.toUpperCase();
-	
-/* 		String[] str = {"a", "b"};
-	
-		out.println(str[5]); */
-	
-	%>
+	<h1>Index</h1>
 
 </body>
 </html>
