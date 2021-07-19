@@ -17,7 +17,7 @@
 		String userName = (String)session.getAttribute("userName");
 	
 		if(userName == null) {
-			out.println("로그인 상태 아님!");
+			out.println("<script>alert('로그인이 필요한 페이지입니다.');</script>");
 		}
 	%>
 	
