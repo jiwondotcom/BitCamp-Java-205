@@ -48,7 +48,12 @@ public class Member {
 		return this.name;
 	}
 
-	
+
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + "]";
+	}
+
 	
 	
 }
