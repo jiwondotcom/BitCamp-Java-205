@@ -1,14 +1,15 @@
+<%@page import="java.sql.ResultSet"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
 <%@page import="java.sql.DriverManager"%>
-<%@page import="java.sql.Connection"%>
 <%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
    
 <%
 	// 1. 사용자가 입력한 데이터를 받고.
-	// 2. DB 처리 : 새로운 데이터 insert
+	// 2. DB 처리 : 새로운 데이터 edit(수정)
 	// 3. dept_list.jsp 페이지로 이동
 	// (send redirect / java script location 이동 : 두가지 방법으로 처리해본다.)
 
@@ -33,31 +34,28 @@
 	// 데이터베이스 드라이버 로드
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	
-	
+	try {
+		
 	// 연결
 	Connection conn = null;
 	PreparedStatement pstmt = null;
+	ResultSet rs = null;
 	
-	try {
-		
+	//jdbcUrl
 	conn = ConnectionProvider.getConnection();
 	
-	
 	// PreparedStatement 생성
-	String sqlInsert = "insert into dept values(?, ?, ?)";
-	pstmt = conn.prepareStatement(sqlInsert);
-	pstmt.setInt(1, Integer.parseInt(deptno));	
-	pstmt.setString(2, dname);
-	pstmt.setString(3, loc);
+	String sqlUpdate = "update dept set dname=?, loc=? where deptno=?";
+	pstmt = conn.prepareStatement(sqlUpdate);
+	pstmt.setString(1, dname);
+	pstmt.setString(2, loc);
+	pstmt.setInt(3, Integer.parseInt(deptno));
 	
 
-	// insert 처리 -> int 결과
+	// update 처리 -> int 결과
 	resultCnt = pstmt.executeUpdate();
-	
-	/* out.println(resultCnt); */
-	
-	
-	// insert 처리 후(새로운 부서정보 등록 후)
+
+	// update 처리 후(부서정보 수정 후)
 	
 	// (1) send redirect 처리
 	// dept_list.jsp 페이지로 이동
@@ -69,23 +67,22 @@
 
 	// (2) 자바스크립트 location 이동 처리
 	// int resultCnt값이 1이 나왔을 때 -> 페이지 이동
+		
 	if(resultCnt > 0) {
 		%>
 		<script>
-			alert('등록되었습니다.');
+			alert('수정되었습니다.');
 			location.href = "dept_list.jsp";
 		</script>
 		<%
-	} else {
+		} else {
 		%>
 		<script>
-			alert('error : 등록되지 않았습니다.\n 부서등록 페이지로 다시 이동합니다.');
-			/* location.href = "dept_regForm.jsp"; */
-			window.history.go(-1); // 이전페이지로 돌아간다.
+			alert('해당 데이터를 찾지 못했습니다.');
+			location.href = "dept_list.jsp";
 		</script>
 		<%
-	}
-		
-
+		}
+	
 
 %>

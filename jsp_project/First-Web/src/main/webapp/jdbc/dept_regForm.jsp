@@ -32,20 +32,11 @@
 			<td>
 				<input type = "submit" value = "등록">
 				<input type = "reset" value = "초기화">
+				<input type = "button" value = "이전으로" onclick = "location.href = 'dept_list.jsp';">
 			</td>
 		</tr>
 	</table>
 	</form>
-	
-
-
-
-
-
-
-
-
-
 
 
 </body>
