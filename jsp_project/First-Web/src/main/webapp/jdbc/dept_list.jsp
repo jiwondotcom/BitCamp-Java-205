@@ -37,7 +37,9 @@
 	// 4. ResultSet
 	rs = stmt.executeQuery(sqlSelect);
 	
+	
 	// 5. List<Dept> 생성 : 결과
+	
 	// 6. 결과데이터를 request의 속성에 저장 -> 데이터를 공유(전달)
 
 %>
