@@ -1,3 +1,6 @@
+<%@page import="dept.domain.Dept"%>
+<%@page import="java.util.ArrayList"%>
+<%@page import="java.util.List"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="java.sql.Statement"%>
 <%@page import="java.sql.DriverManager"%>
@@ -39,9 +42,27 @@
 	
 	
 	// 5. List<Dept> 생성 : 결과
+	List<Dept> deptList = new ArrayList<Dept>();
+	
+	while(rs.next()) {
+		// List 에 객체 추가
+		deptList.add(new Dept(rs.getInt("deptno"),
+							  rs.getString("dname"),
+							  rs.getString("loc")));
+	} // 객체 add메소드 끝
+	
+	out.println(deptList);
+	// 중간 확인(출력)
+	
 	
 	// 6. 결과데이터를 request의 속성에 저장 -> 데이터를 공유(전달)
+	
 
 %>
 
+    <!-- view의 역할만 수행한다. -->
     <jsp:forward page = "List_view.jsp"/>
+
+    
+    
+    

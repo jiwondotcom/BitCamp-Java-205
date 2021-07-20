@@ -47,7 +47,6 @@ public class Dept {
 	
 	
 	
-	
 	// 변수 일괄 출력 : toString (데이터 확인용)
 	@Override
 	public String toString() {
