@@ -22,8 +22,12 @@
 		<tr>
 			<td>부서번호</td>
 			<td><input type = "number" name = "deptno" required></td>
+		</tr>
+		<tr>	
 			<td>부서이름</td>
 			<td><input type = "text" name = "dname" required></td>
+		</tr>
+		<tr>
 			<td>위치</td>
 			<td><input type = "text" name = "loc" required></td>
 		</tr>

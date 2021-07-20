@@ -31,8 +31,12 @@
 		<tr>
 			<td>부서번호</td>
 			<td><input type = "number" name = "deptno"  value = "<%= dept.getDeptno() %>"readonly></td>
+		</tr>
+		<tr>
 			<td>부서이름</td>
 			<td><input type = "text" name = "dname" value = "<%= dept.getDname() %>"required></td>
+		</tr>
+		<tr>	
 			<td>위치</td>
 			<td><input type = "text" name = "loc" value = "<%= dept.getLoc() %>"required></td>
 		</tr>
@@ -41,6 +45,7 @@
 			<td>
 				<input type = "submit" value = "등록">
 				<input type = "reset" value = "초기화">
+				<input type = "button" value = "이전으로" onclick = "location.href = 'dept_list.jsp';">
 			</td>
 		</tr>
 	</table>

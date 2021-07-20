@@ -15,7 +15,7 @@
 </head>
 <style>
 
-	td {
+	td, th {
 	text-align : center;
 	padding : 5px 10px;
 	}
