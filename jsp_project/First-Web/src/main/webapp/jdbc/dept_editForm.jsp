@@ -53,6 +53,6 @@
 
 %>
 
-<jsp:forward page = "form_view.jsp"/>
+<jsp:forward page = "editform_view.jsp"/>
 
 
