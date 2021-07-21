@@ -132,6 +132,9 @@ public class MemberDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(rs);
 		}
 		
 		return member;
@@ -162,6 +165,8 @@ public class MemberDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
 		}
 	
 		return resultCnt;

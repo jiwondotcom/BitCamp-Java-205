@@ -38,11 +38,11 @@ window.onload = function() {
 	<table>
 		<tr>
 			<td>회원번호</td>
-			<td><input type="number" name="index" value = "<%= member.getIndex() %>"readonly></td>
+			<td><input type="number" name="index" readonly></td>
 		</tr>
 		<tr>
 			<td>아이디</td>
-			<td><input type="text" name="userID" required></td>
+			<td><input type="text" name="userID" value = "<%= member.getUserID() %>"required></td>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
