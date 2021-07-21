@@ -87,14 +87,6 @@ public class Member {
 		this.regDate = regDate;
 	}
 
-	
-
-	// 변수 일괄 출력 : toString (데이터 확인용)
-	@Override
-	public String toString() {
-		return "Member [Index=" + index + ", userID=" + userID + ", userPW=" + userPW + ", userName=" + userName
-				+ ", regDate=" + regDate + "]";
-	}
 
 	
 }

@@ -38,11 +38,11 @@ window.onload = function() {
 	<table>
 		<tr>
 			<td>회원번호</td>
-			<td><input type="number" name="index" readonly></td>
+			<td><input type="number" name="index"></td>
 		</tr>
 		<tr>
 			<td>아이디</td>
-			<td><input type="text" name="userID" value = "<%= member.getUserID() %>"required></td>
+			<td><input type="text" name="userID" required></td>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
@@ -54,7 +54,7 @@ window.onload = function() {
 		</tr>
 		<tr>
 			<td>가입일시</td>
-			<td><input id = "today" type = "date" name = "regDate"></td>
+			<td><input id = "today" type = "hidden" name = "regDate" readonly></td>
 		</tr>
 
 		

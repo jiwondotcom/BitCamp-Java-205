@@ -1,5 +1,4 @@
 <%@page import="jdbc.util.ConnectionProvider2"%>
-<%@page import="dept.dao.DeptDao"%>
 <%@page import="jdbc.util.JdbcUtil"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.util.Date"%>
@@ -68,7 +67,7 @@
 		%>
 		<script>
 			alert('해당 데이터를 찾지 못했습니다.');
-			location.href = "editForm_view.jsp";
+			location.href = "member_list.jsp";
 		</script>
 		<%
 	}

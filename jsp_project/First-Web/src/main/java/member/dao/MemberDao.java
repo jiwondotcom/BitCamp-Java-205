@@ -13,7 +13,6 @@ import member.domain.Member;
 
 public class MemberDao {
 	
-	private List<Member> list;
 
 	// 싱글톤 패턴
 	// 1. 인스턴스 생성을 막는다.
@@ -33,24 +32,28 @@ public class MemberDao {
 		
 		Statement stmt = null;
 		ResultSet rs = null;
-		
+	
+		List<Member> list2 = null;
 		
 		try {
 		stmt = conn.createStatement();
 		String sql = "select * from memberinfo;";
 		rs = stmt.executeQuery(sql);
 		
-		List<Member> list = new ArrayList<Member>();
+		list2 = new ArrayList<Member>();
 		
 		while(rs.next()) {
-			list.add(new Member(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
+			list2.add(makeMember(rs));
 		}
 		
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(stmt);
+			JdbcUtil.close(rs);
 		}
 		
-		return list;
+		return list2;
 
 	}
 	
