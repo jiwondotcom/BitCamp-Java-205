@@ -48,6 +48,7 @@
 	if (list != null) {
 		for(int i = 0; i < list.size(); i++) {
 			%>
+			
 			<tr>
 				<td><%= list.get(i).getUserID() %></td>
 				<td><%= list.get(i).getUserPW() %></td>
@@ -59,6 +60,7 @@
 					<!-- 자바스크립트 함수 호출 -->
 				</td>
 			</tr>
+			
 			<% 
 			
 		}
