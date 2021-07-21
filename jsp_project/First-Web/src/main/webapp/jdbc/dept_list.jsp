@@ -1,3 +1,5 @@
+<%@page import="java.sql.SQLException"%>
+<%@page import="jdbc.util.JdbcUtil"%>
 <%@page import="dept.dao.DeptDao"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
 <%@page import="dept.domain.Dept"%>
@@ -13,11 +15,11 @@
     
 <%
 
-	// dept_list.jsp -> 요청을 받고 처리
-
+	// dept_list.jsp -> 요청을 받고 처리 -> 결과 데이터를 객체 속성에 저장 -> view를 지정
+	
 	// 1.드라이버 로드 : 서블릿클래스 Loader에서 드라이버 로드
 	// Class.forName("com.mysql.cj.jdbc.Driver");
-	
+
 	
 	// 2. DB 연결
 	Connection conn = null;
@@ -28,8 +30,16 @@
 	try {
 		// jdbcUrl
 		conn = ConnectionProvider.getConnection();
+		
+		// 6. 결과데이터를 request의 속성에 저장 -> 데이터를 공유(전달)
+		request.setAttribute("result", dao.getDeptList(conn));
+	
 	} catch(SQLException e) {
 		e.printStackTrace();		
+	} catch(Exception e) {
+		e.printStackTrace();		
+	} finally {
+		JdbcUtil.close(conn);
 	}
 	
 	
@@ -58,10 +68,7 @@
 	out.println(deptList);
 	// 중간 확인(출력)
 */
-	
-	
-	// 6. 결과데이터를 request의 속성에 저장 -> 데이터를 공유(전달)
-	request.setAttribute("result", dao.getDeptList(conn));
+
 	
 %>
 

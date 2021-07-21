@@ -1,3 +1,5 @@
+<%@page import="java.sql.SQLException"%>
+<%@page import="dept.dao.DeptDao"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
 <%@page import="dept.domain.Dept"%>
 <%@page import="java.sql.DriverManager"%>
@@ -9,7 +11,7 @@
     
 <%
 
-	// 사용자가 전달하는 부서번호 받기
+	// 사용자가 전달하는 부서번호 받기 -> 실행 -> 결과
 	String deptno = request.getParameter("deptno");
 	/* out.println(deptno); */
 	
@@ -21,6 +23,22 @@
 	
 	// 2. DB 연결
 	Connection conn = null;
+	DeptDao dao = DeptDao.getInstance();
+	
+	try {
+		conn = ConnectionProvider.getConnection();
+		
+		resultCnt = dao.deleteDept(conn, Integer.parseInt(deptno));
+		
+	} catch(SQLException e) {
+		e.printStackTrace();
+	} catch (Exception e) {
+		e.printStackTrace();
+	}
+	
+	
+	
+/*
 	PreparedStatement pstmt = null;
 	ResultSet rs = null;
 	
@@ -35,6 +53,7 @@
 
 	
 	resultCnt = pstmt.executeUpdate();
+*/
 	
 
 	// 확인

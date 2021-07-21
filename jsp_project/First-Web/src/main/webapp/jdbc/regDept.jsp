@@ -1,3 +1,5 @@
+<%@page import="dept.domain.Dept"%>
+<%@page import="dept.dao.DeptDao"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="java.sql.Connection"%>
@@ -7,12 +9,11 @@
 
    
 <%
-	// 1. 사용자가 입력한 데이터를 받고.
+	// 1. 사용자가 입력한 데이터를 받고 -> 처리 -> 결과를 속성에 저장 -> view 지정
 	// 2. DB 처리 : 새로운 데이터 insert
 	// 3. dept_list.jsp 페이지로 이동
 	// (send redirect / java script location 이동 : 두가지 방법으로 처리해본다.)
 
-	
 	
 	// 사용자가 입력한 데이터의 한글 처리 (우선)
 	request.setCharacterEncoding("UTF-8");
@@ -36,33 +37,16 @@
 	
 	// 연결
 	Connection conn = null;
-	PreparedStatement pstmt = null;
+	DeptDao dao = DeptDao.getInstance();
 	
 	try {
 		
-	conn = ConnectionProvider.getConnection();
+		conn = ConnectionProvider.getConnection();
+		
+		// insert 처리 -> int 결과
+		resultCnt = dao.insertDept(conn, new Dept(Integer.parseInt(deptno), dname, loc));
 	
-	
-	// PreparedStatement 생성
-	String sqlInsert = "insert into dept values(?, ?, ?)";
-	pstmt = conn.prepareStatement(sqlInsert);
-	pstmt.setInt(1, Integer.parseInt(deptno));	
-	pstmt.setString(2, dname);
-	pstmt.setString(3, loc);
-	
-
-	// insert 처리 -> int 결과
-	resultCnt = pstmt.executeUpdate();
-	
-	/* out.println(resultCnt); */
-	
-	
-	// insert 처리 후(새로운 부서정보 등록 후)
-	
-	// (1) send redirect 처리
-	// dept_list.jsp 페이지로 이동
-	// response.sendRedirect("dept_list.jsp");
-	
+		
 	} catch (Exception e) {
 		
 	}
