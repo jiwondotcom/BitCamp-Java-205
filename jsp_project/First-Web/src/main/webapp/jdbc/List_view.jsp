@@ -64,6 +64,7 @@
 	%>
 
 </table>
+</body>
 <script>
 
 	function delDept(deptno) {
@@ -77,5 +78,5 @@
 
 <%-- <% out.println(list); %> --%>
 
-</body>
+
 </html>

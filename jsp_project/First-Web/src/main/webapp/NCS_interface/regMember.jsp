@@ -1,3 +1,7 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.sql.DriverManager"%>
 <%@page import="member.domain.Member"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
 <%@page import="member.dao.MemberDao"%>
@@ -19,13 +23,20 @@
 	request.setCharacterEncoding("UTF-8");
 	
 	
+	
 	// 1. 사용자가 입력한 데이터를 받는다.
 	// 아이디, 비밀번호, 이름, 가입일자
 	String userID = request.getParameter("userID");
 	String userPW = request.getParameter("userPW");
 	String userName = request.getParameter("userName");
-	String regDate = request.getParameter("regDate");
 	
+	SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
+    Calendar cal = Calendar.getInstance();
+
+    Date date = cal.getTime();
+    String regDate = sdf.format(date);
+    // 날짜데이터를 String타입으로 형변환
+
 	
 	int resultCnt = 0;
 	
@@ -39,11 +50,11 @@
 	MemberDao dao = MemberDao.getInstance();
 	
 	// 2-3. jdbcUrl
-	String jdbcUrl = "jdbc:mysql://localhost:3306/project?serverTimezone=UTC";
+	String jdbcUrl = "jdbc:mysql://localhost:3306/member?serverTimezone=UTC";
 	String user = "root";
 	String pw = "1234";
-	// ConnectionProvider 아직 미연결 - 추후 연결 예정
-	// conn = ConnectionProvider.getConnection();
+	
+	conn = DriverManager.getConnection(jdbcUrl, user, pw);
 	
 	
 	resultCnt = dao.insertMember(conn, new Member(userID, userPW, userName, regDate));
@@ -51,6 +62,8 @@
 	
 	// 3. member_List.jsp 페이지로 이동 (javaScript location)
 	// int resultCnt의 값이 1이 나왔을 때 -> 페이지 이동
+	
+	
 	if (resultCnt > 0) {
 		%>
 		<script>

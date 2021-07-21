@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
     
    	<% 
-   		List<Member>list = (List<Member>) request.getAttribute("result");
+   		List<Member> list = (List<Member>) request.getAttribute("result");
    	%>
    	
 <!DOCTYPE html>
@@ -41,6 +41,7 @@
 			<th>비밀번호</th>
 			<th>회원 이름</th>
 			<th>가입 날짜</th>
+			<th>관리</th>
 			<!-- <th> : 표의 라벨링 기능 -->
 		</tr>
 	

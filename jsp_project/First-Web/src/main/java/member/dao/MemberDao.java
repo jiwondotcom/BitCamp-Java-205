@@ -36,14 +36,16 @@ public class MemberDao {
 		
 		try {
 		stmt = conn.createStatement();
-		String sql = "select * from member;";
+		String sql = "select * from memberinfo;";
 		rs = stmt.executeQuery(sql);
 		
 		list = new ArrayList<Member>();
 		
 		while(rs.next()) {
-			list.add(makeMember(rs));
+			list.add(new Member(rs.getString(1), rs.getString(2),
+								rs.getString(3), rs.getString(4)));
 		}
+		
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
@@ -55,14 +57,13 @@ public class MemberDao {
 	
 	
 	
-	
 	// DB 처리 : 새로운 데이터 삽입 insert
 	public int insertMember(Connection conn, Member member) {
 		
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert into member values (?, ?, ?, ?)";
+		String sql = "insert into memberinfo values (?, ?, ?, ?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -70,6 +71,7 @@ public class MemberDao {
 			pstmt.setString(1, member.getUserID());
 			pstmt.setString(2, member.getUserPW());
 			pstmt.setString(3, member.getUserName());
+			pstmt.setString(4, member.getRegDate());
 			
 			resultCnt = pstmt.executeUpdate();
 			
@@ -85,15 +87,21 @@ public class MemberDao {
 	
 	
 	
+/*	
 	private Member makeMember (ResultSet rs) throws SQLException {
 		
 		Member member = new Member();
 		member.setUserID(rs.getString("userID"));
 		member.setUserPW(rs.getString("userPW"));
 		member.setUserName(rs.getString("userName"));
+		member.setRegDate(rs.getString("regDate"));
 		
 		
 		return member;
 		
 	}
+*/
+	
+	
+	
 }
