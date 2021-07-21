@@ -1,3 +1,4 @@
+<%@page import="jdbc.util.JdbcUtil"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="dept.dao.DeptDao"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
@@ -34,6 +35,8 @@
 		e.printStackTrace();
 	} catch (Exception e) {
 		e.printStackTrace();
+	} finally {
+		JdbcUtil.close(conn);
 	}
 	
 	

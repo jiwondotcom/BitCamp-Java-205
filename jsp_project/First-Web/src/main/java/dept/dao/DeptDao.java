@@ -94,7 +94,7 @@ public class DeptDao {
 	
 	
 	// DB 처리 : 기존 데이터 삭제 delete
-	public int deleteDept (Connection conn, Dept dept) {
+	public int deleteDept (Connection conn, int deptno) {
 		 int resultCnt = 0;
 		 PreparedStatement pstmt = null;
 		 
@@ -102,7 +102,7 @@ public class DeptDao {
 		 
 		 try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setInt(1, dept.getDeptno());
+			pstmt.setInt(1, deptno);
 			
 			resultCnt = pstmt.executeUpdate();
 			
