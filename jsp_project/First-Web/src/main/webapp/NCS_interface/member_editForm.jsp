@@ -32,4 +32,4 @@
  
 %>
 
-<jsp:forwrad page = "editForm_view.jsp"/>
+<jsp:forward page = "editform_view.jsp"/>

@@ -126,6 +126,7 @@ public class MemberDao {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
+				member.setIndex(rs.getInt("index"));
 				member.setUserID(rs.getString("userID"));
 				member.setUserPW(rs.getString("userPW"));
 				member.setUserName(rs.getString("userName"));
@@ -149,14 +150,16 @@ public class MemberDao {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update member set `userpw` = ?, `userName` = ?";
+		String sql = "update memberinfo set `userid` = ?, `userpw` = ?, `userName` = ? where `index` = ? ";
 		
 		
 		try {
 			
-			pstmt.setString(2, member.getUserName());
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, member.getUserPW());
+			pstmt.setString(1, member.getUserID());
+			pstmt.setString(2, member.getUserPW());
+			pstmt.setString(3, member.getUserName());
+			pstmt.setInt(4, member.getIndex());
 			
 			resultCnt = pstmt.executeUpdate();
 			
@@ -169,6 +172,23 @@ public class MemberDao {
 		
 	}
 	
+	
+	
+	private Member makeMember(ResultSet rs) throws SQLException {
+
+		Member member = new Member();
+		member.setIndex(rs.getInt("index"));
+		member.setUserID(rs.getString("userid"));
+		member.setUserPW(rs.getString("userpw"));
+		member.setUserName(rs.getString("username"));
+		member.setRegDate(rs.getString("regdate"));
+		
+		
+		return member;
+		
+
+	}
+
 	
 	
 }

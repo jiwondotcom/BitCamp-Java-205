@@ -30,7 +30,7 @@
 	<table>
 		<tr>
 			<td>아이디</td>
-			<td><input type = "text" name = "userID" readonly></td>
+			<td><input type = "text" name = "userID" required></td>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
