@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import dept.domain.Dept;
 import jdbc.util.JdbcUtil;
 import member.domain.Member;
 
@@ -109,24 +110,64 @@ public class MemberDao {
 	
 	
 	
-	
-	
-	
-	
-/*	
-	private Member makeMember (ResultSet rs) throws SQLException {
+	// 회원번호를 전달받아 선택처리
+	public Member selectByIndex (Connection conn, int index) {
 		
-		Member member = new Member();
-		member.setUserID(rs.getString("userID"));
-		member.setUserPW(rs.getString("userPW"));
-		member.setUserName(rs.getString("userName"));
-		member.setRegDate(rs.getString("regDate"));
+		Member member = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
 		
+		String sql = "select * from memberinfo where `index` = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, index);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member.setUserID(rs.getString("userID"));
+				member.setUserPW(rs.getString("userPW"));
+				member.setUserName(rs.getString("userName"));
+				member.setRegDate(rs.getString("regDate"));
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return member;
+	
+	}
+	
+	
+	
+	// 위에서 전달받은 (selectByIndex) 회원번호에 해당되는 데이터를 수정 (회원 비밀번호, 회원 이름)
+	public int updateMember(Connection conn, Member member) {
+		
+		int resultCnt = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = "update member set `userpw` = ?, `userName` = ?";
+		
+		
+		try {
+			
+			pstmt.setString(2, member.getUserName());
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, member.getUserPW());
+			
+			resultCnt = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	
+		return resultCnt;
 		
 	}
-*/
 	
 	
 	

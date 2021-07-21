@@ -27,12 +27,9 @@
     conn = DriverManager.getConnection(jdbcUrl, user, pw); */
     
     conn = ConnectionProvider.getConnection();
+    request.setAttribute("index", dao.selectByIndex (conn, Integer.parseInt(index)));
 
-	
-
-
-
-
-
-
+ 
 %>
+
+<jsp:forwrad page = "editForm_view.jsp"/>
