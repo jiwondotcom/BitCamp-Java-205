@@ -24,6 +24,6 @@
 	request.setAttribute("result", dao.getMemberList(conn));
 	
 %>
-
+	<!-- view의 역할만 수행하는 페이지로 이동 -->
 	<jsp:forward page = "memberList_view.jsp"/>	
 	

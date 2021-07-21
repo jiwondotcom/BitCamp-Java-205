@@ -72,7 +72,7 @@
 	
 %>
 
-    <!-- view의 역할만 수행한다. -->
+    <!-- view의 역할만 수행하는 페이지로 이동 -->
     <jsp:forward page = "List_view.jsp"/>
 
     
