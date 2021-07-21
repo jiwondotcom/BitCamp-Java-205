@@ -3,16 +3,20 @@ package member.domain;
 public class Member {
 	
 	// Beans 빈즈 형태
-	private int IDX;
+	private int Index;
 	private String userID;
 	private String userPW;
 	private String userName;
 	private String regDate;
 	
 	
+	// 기본 생성자 생성
+	public Member() {}
+
 	
-	public Member(int IDX, String userID, String userPW, String userName, String regDate) {
-		this.IDX = IDX;
+
+	public Member(int index, String userID, String userPW, String userName, String regDate) {
+		this.Index = index;
 		this.userID = userID;
 		this.userPW = userPW;
 		this.userName = userName;
@@ -21,20 +25,17 @@ public class Member {
 
 
 
-	// 기본 생성자 생성
-	public Member() {}
-	
-	
 
-	public int IDX() {
-		return IDX;
+	// getter-setter
+	public int getIndex() {
+		return Index;
 	}
-	
-	
-	public void setIDX(int IDX) {
-		this.IDX = IDX;
+
+
+	public void setIndex(int index) {
+		Index = index;
 	}
-	
+
 
 	public String getUserID() {
 		return userID;
@@ -76,14 +77,17 @@ public class Member {
 	}
 
 
+	
+	
 
 	// 변수 일괄 출력 : toString (데이터 확인용)
 	@Override
 	public String toString() {
-		return "Member [iDX=" + IDX + ", userID=" + userID + ", userPW=" + userPW
-				+ ", userName=" + userName + ", regDate=" + regDate + "]";
-	
+		return "Member [Index=" + Index + ", userID=" + userID + ", userPW=" + userPW + ", userName=" + userName
+				+ ", regDate=" + regDate + "]";
 	}
 
-
+	
+	
+	
 }

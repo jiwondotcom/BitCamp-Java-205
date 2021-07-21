@@ -8,7 +8,7 @@ CREATE TABLE member.memberInfo (
   drop table member.memberInfo;
 
   
-  insert into member.memberInfo values ('jiwon', 2568, '황지원', sysdate());
+  insert into member.memberInfo values (default, 'jiwon', 2568, '황지원', sysdate());
   
   
   commit;

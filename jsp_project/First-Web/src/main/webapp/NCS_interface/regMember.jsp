@@ -1,10 +1,10 @@
+<%@page import="member.domain.Member"%>
+<%@page import="member.dao.MemberDao"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.DriverManager"%>
-<%@page import="member.domain.Member"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
-<%@page import="member.dao.MemberDao"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -57,7 +57,7 @@
 	conn = DriverManager.getConnection(jdbcUrl, user, pw);
 	
 	
-	resultCnt = dao.insertMember(conn, new Member(userID, userPW, userName, regDate));
+	resultCnt = dao.insertMember(conn, new Member(1, userID, userPW, userName, regDate));
 	
 	
 	// 3. member_List.jsp 페이지로 이동 (javaScript location)

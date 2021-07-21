@@ -42,8 +42,7 @@ public class MemberDao {
 		list = new ArrayList<Member>();
 		
 		while(rs.next()) {
-			list.add(new Member(rs.getString(1), rs.getString(2),
-								rs.getString(3), rs.getString(4)));
+			list.add(new Member(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5)));
 		}
 		
 		} catch (SQLException e) {
@@ -63,7 +62,7 @@ public class MemberDao {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert into memberinfo values (?, ?, ?, ?)";
+		String sql = "insert into memberinfo values (default, ?, ?, ?, ?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -81,16 +80,6 @@ public class MemberDao {
 		}
 		
 		return resultCnt;
-		
-	}
-	
-	
-	
-	// DB 처리 : 기존 데이터 삭제 delete
-	public int deleteMember(Connection conn, Member member) {
-		
-		
-		return 0;
 		
 	}
 	
