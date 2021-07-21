@@ -30,8 +30,8 @@
 	
 	// DB처리 : 새로운 데이터를 insert
 	
-	// 데이터베이스 드라이버 로드
-	Class.forName("com.mysql.cj.jdbc.Driver");
+	// 1.드라이버 로드 : 서블릿클래스 Loader에서 드라이버 로드
+	// Class.forName("com.mysql.cj.jdbc.Driver");
 	
 	
 	// 연결
