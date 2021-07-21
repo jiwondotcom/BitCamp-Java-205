@@ -36,6 +36,7 @@
 	
 	<table border = 1>
 		<tr>
+			<th>회원번호</th>
 			<th>아이디</th>
 			<th>비밀번호</th>
 			<th>회원 이름</th>
@@ -50,12 +51,13 @@
 			%>
 			
 			<tr>
+				<td><%= list.get(i).getIndex() %></td>
 				<td><%= list.get(i).getUserID() %></td>
 				<td><%= list.get(i).getUserPW() %></td>
 				<td><%= list.get(i).getUserName() %></td>
 				<td><%= list.get(i).getRegDate() %></td>
 				<td>
-					<a href = "#">수정</a> |
+					<a href = "member_editForm.jsp?index=<%=list.get(i).getIndex()%>">수정</a> |
 					<a href = "javascript:delMember(<%=list.get(i).getIndex()%>)">삭제</a>
 					<!-- 자바스크립트 함수 호출 -->
 				</td>

@@ -6,7 +6,7 @@ CREATE TABLE member.memberInfo (
   );
   
   drop table member.memberInfo;
-
+delete from member.memberinfo where `index` = 5;
   
   insert into member.memberInfo values (default, 'jiwon', 2568, '황지원', sysdate());
   

@@ -91,7 +91,7 @@ public class MemberDao {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = "delete from memberinfo where index=?";
+		String sql = "delete from memberinfo where `index`=?";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
