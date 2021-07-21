@@ -12,6 +12,7 @@
 
 	// 전달받은 회원번호로 회원정보를 가져온다. -> 처리 -> Member -> 공유
 	// 1. 드라이버 로드
+	
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	
 	

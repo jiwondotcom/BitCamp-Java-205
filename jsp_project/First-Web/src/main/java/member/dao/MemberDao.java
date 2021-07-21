@@ -146,8 +146,7 @@ public class MemberDao {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update memberinfo set `userid` = ?, `userpw` = ?, `userName` = ? where `index` = ? ";
-		
+		String sql = "update memberinfo set `userid`=?, `userpw`=?, `userName`=?, where `index`=?";
 		
 		try {
 			

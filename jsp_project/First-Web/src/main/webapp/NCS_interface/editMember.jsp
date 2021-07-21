@@ -1,3 +1,6 @@
+<%@page import="java.util.Date"%>
+<%@page import="java.util.Calendar"%>
+<%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="member.domain.Member"%>
 <%@page import="member.util.ConnectionProvider"%>
@@ -18,11 +21,11 @@
 	
 	// 1. 사용자가 입력한 데이터를 받는다.
 	String index = request.getParameter("index");
-	String userID = request.getParameter("userid");
-	String userPW = request.getParameter("userpw");
-	String userName = request.getParameter("username");
-	String regDate = request.getParameter("regdate");
-	
+	String userID = request.getParameter("userID");
+	String userPW = request.getParameter("userpW");
+	String userName = request.getParameter("userName");
+	String regDate = request.getParameter("regDate");
+
 	
 	int resultCnt = 0;
 	
@@ -44,8 +47,6 @@
 	conn = DriverManager.getConnection(jdbcUrl, user, pw);
 	
 	resultCnt = dao.updateMember(conn, new Member(Integer.parseInt(index), userID, userPW, userName, regDate));
-	
-
 	
 	
 	// 3. member_List.jsp 페이지로 이동 (javaScript location)

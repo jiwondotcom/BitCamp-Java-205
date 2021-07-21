@@ -10,9 +10,10 @@ public class Member {
 	private String regDate;
 	
 	
-	// 기본 생성자 생성
+	
 	public Member() {}
-
+	
+	// 기본 생성자 생성
 
 	
 
@@ -25,7 +26,6 @@ public class Member {
 	}
 
 
-	
 	
 
 

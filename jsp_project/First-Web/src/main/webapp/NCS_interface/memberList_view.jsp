@@ -57,8 +57,8 @@
 				<td><%= list.get(i).getUserName() %></td>
 				<td><%= list.get(i).getRegDate() %></td>
 				<td>
-					<a href = "member_editForm.jsp?index=<%= list.get(i).getIndex() %>">수정</a> |
-					<a href = "javascript:delMember(<%= list.get(i).getIndex() %>)">삭제</a>
+					<a href = "member_editForm.jsp?index=<%=list.get(i).getIndex()%>">수정</a> |
+					<a href = "javascript:delMember(<%=list.get(i).getIndex()%>)">삭제</a>
 					<!-- 자바스크립트 함수 호출 -->
 				</td>
 			</tr>
