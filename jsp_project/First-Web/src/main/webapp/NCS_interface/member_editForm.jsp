@@ -20,16 +20,18 @@
 	MemberDao dao = null;
 	
 	// jdbcUrl
-	/* String jdbcUrl = "jdbc:mysql://localhost:3306/member?serverTimezone=UTC";
+	String jdbcUrl = "jdbc:mysql://localhost:3306/member?serverTimezone=UTC";
     String user = "root";
     String pw = "1234";
 
-    conn = DriverManager.getConnection(jdbcUrl, user, pw); */
+    conn = DriverManager.getConnection(jdbcUrl, user, pw);
+   
+    dao = MemberDao.getInstance();
     
-    conn = ConnectionProvider.getConnection();
+   	// conn = ConnectionProvider.getConnection();
     request.setAttribute("index", dao.selectByIndex (conn, Integer.parseInt(index)));
 
  
 %>
 
-<jsp:forward page = "editform_view.jsp"/>
+<jsp:forward page = "editForm_view.jsp"/>

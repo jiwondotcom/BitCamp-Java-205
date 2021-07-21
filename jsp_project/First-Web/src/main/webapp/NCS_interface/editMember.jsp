@@ -1,3 +1,4 @@
+<%@page import="java.sql.DriverManager"%>
 <%@page import="member.domain.Member"%>
 <%@page import="member.util.ConnectionProvider"%>
 <%@page import="member.dao.MemberDao"%>
@@ -16,9 +17,12 @@
 
 	
 	// 1. 사용자가 입력한 데이터를 받는다.
-	// 비밀번호, 이름
+	String index = request.getParameter("index");
+	String userID = request.getParameter("userid");
 	String userPW = request.getParameter("userpw");
 	String userName = request.getParameter("username");
+	String regDate = request.getParameter("regdate");
+	
 	
 	int resultCnt = 0;
 	
@@ -28,15 +32,24 @@
 	// 2-1. 드라이버 로드
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	
+	
 	// 2-2. 연결
 	Connection conn = null;
-	MemberDao dao = null;
+	MemberDao dao = MemberDao.getInstance();
 	
-	conn = ConnectionProvider.getConnection();
-	dao = MemberDao.getInstance();
+	String jdbcUrl = "jdbc:mysql://localhost:3306/member?serverTimezone=UTC";
+	String user = "root";
+	String pw = "1234";
 	
-	resultCnt = dao.updateMember(conn, new Member(Integer.parseInt(index), userID, userPW, userName, regdate));
+	conn = DriverManager.getConnection(jdbcUrl, user, pw);
+	
+	resultCnt = dao.updateMember(conn, new Member(Integer.parseInt(index), userID, userPW, userName, regDate));
+	
 
+	
+	
+	// 3. member_List.jsp 페이지로 이동 (javaScript location)
+	// int resultCnt의 값이 1이 나왔을 때 -> 페이지 이동
 	if (resultCnt > 0) {
 		%>
 		<script>

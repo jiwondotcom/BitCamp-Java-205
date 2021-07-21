@@ -62,8 +62,6 @@
 	
 	// 3. member_List.jsp 페이지로 이동 (javaScript location)
 	// int resultCnt의 값이 1이 나왔을 때 -> 페이지 이동
-	
-	
 	if (resultCnt > 0) {
 		%>
 		<script>

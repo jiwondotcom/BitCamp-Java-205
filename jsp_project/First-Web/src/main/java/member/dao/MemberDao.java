@@ -126,11 +126,7 @@ public class MemberDao {
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
-				member.setIndex(rs.getInt("index"));
-				member.setUserID(rs.getString("userID"));
-				member.setUserPW(rs.getString("userPW"));
-				member.setUserName(rs.getString("userName"));
-				member.setRegDate(rs.getString("regDate"));
+				member = makeMember(rs);
 			}
 			
 		} catch (SQLException e) {
