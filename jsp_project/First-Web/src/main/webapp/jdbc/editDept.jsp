@@ -1,3 +1,7 @@
+<%@page import="dept.dao.DeptDao"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="dept.domain.Dept"%>
+<%@page import="jdbc.util.JdbcUtil"%>
 <%@page import="java.sql.ResultSet"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
 <%@page import="java.sql.DriverManager"%>
@@ -33,38 +37,26 @@
 	
 	// 1.드라이버 로드 : 서블릿클래스 Loader에서 드라이버 로드
 	// Class.forName("com.mysql.cj.jdbc.Driver");
-	
-	try {
-		
+
 	// 연결
 	Connection conn = null;
-	PreparedStatement pstmt = null;
-	ResultSet rs = null;
+	DeptDao dao = null;
 	
-	//jdbcUrl
-	conn = ConnectionProvider.getConnection();
-	
-	// PreparedStatement 생성
-	String sqlUpdate = "update dept set dname=?, loc=? where deptno=?";
-	pstmt = conn.prepareStatement(sqlUpdate);
-	pstmt.setString(1, dname);
-	pstmt.setString(2, loc);
-	pstmt.setInt(3, Integer.parseInt(deptno));
-	
-
-	// update 처리 -> int 결과
-	resultCnt = pstmt.executeUpdate();
-
-	// update 처리 후(부서정보 수정 후)
-	
-	// (1) send redirect 처리
-	// dept_list.jsp 페이지로 이동
-	// response.sendRedirect("dept_list.jsp");
-	
-	} catch (Exception e) {
+	try {
+		conn = ConnectionProvider.getConnection();
+		dao = DeptDao.getInstance();
 		
+		resultCnt = dao.updateDept(conn, new Dept(Integer.parseInt(deptno), dname, loc));
+		
+	
+	} catch(SQLException e) {
+		e.printStackTrace();
+	} finally { 
+		JdbcUtil.close(conn);
 	}
-
+	
+	
+	
 	// (2) 자바스크립트 location 이동 처리
 	// int resultCnt값이 1이 나왔을 때 -> 페이지 이동
 		
@@ -75,14 +67,13 @@
 			location.href = "dept_list.jsp";
 		</script>
 		<%
-		} else {
+		
+	} else {
 		%>
 		<script>
 			alert('해당 데이터를 찾지 못했습니다.');
 			location.href = "dept_list.jsp";
 		</script>
 		<%
-		}
-	
-
+	}
 %>

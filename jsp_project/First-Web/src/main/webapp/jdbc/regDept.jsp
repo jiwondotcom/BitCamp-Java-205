@@ -12,7 +12,7 @@
 	// 1. 사용자가 입력한 데이터를 받고 -> 처리 -> 결과를 속성에 저장 -> view 지정
 	// 2. DB 처리 : 새로운 데이터 insert
 	// 3. dept_list.jsp 페이지로 이동
-	// (send redirect / java script location 이동 : 두가지 방법으로 처리해본다.)
+	// (send redirect / javaScript location 이동 : 두가지 방법으로 처리해본다.)
 
 	
 	// 사용자가 입력한 데이터의 한글 처리 (우선)

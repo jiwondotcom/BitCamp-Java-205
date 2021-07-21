@@ -11,9 +11,9 @@ import java.util.List;
 import dept.domain.Dept;
 import jdbc.util.JdbcUtil;
 
+
 public class DeptDao {
 
-	
 	// 싱글톤 패턴
 	// 1. 인스턴스 생성을 막는다.
 	private DeptDao() {}
@@ -43,9 +43,7 @@ public class DeptDao {
 		list = new ArrayList<Dept>();
 		
 		while(rs.next()) {
-			list.add(new Dept(rs.getInt(1),
-							  rs.getString(2),
-							  rs.getString(3)));
+			list.add(makeDept(rs));
 		}
 		
 		} catch(SQLException e) {
@@ -86,6 +84,7 @@ public class DeptDao {
 			JdbcUtil.close(pstmt);
 		}
 		
+		
 		return resultCnt;
 	}
 	
@@ -113,12 +112,85 @@ public class DeptDao {
 			JdbcUtil.close(pstmt);
 		}
 		 
-		 
 		 return resultCnt;
 		
 	}
 	
 	
+	
+	// 부서번호를 전달받아 선택
+	public Dept selectByDeptno (Connection conn, int deptno) {
+		
+		Dept dept = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from dept where deptno = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, deptno);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dept = makeDept(rs);
+				
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(rs);
+		}
+		
+		return dept;
+	}
+	
+	
+	
+	// 위에서 선택받은(selectByDeptno) 부서번호에 해당되는 데이터를 수정 (부서이름, 위치)
+	public int updateDept (Connection conn, Dept dept) {
+		
+		int resultCnt = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = "update dept set dname = ?, loc = ? where deptno = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dept.getDname());
+			pstmt.setString(2, dept.getLoc());
+			pstmt.setInt(3, dept.getDeptno());
+			
+			resultCnt = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+		
+		
+		return resultCnt;
+		
+	}
+	
+	
+	
+	private Dept makeDept (ResultSet rs) throws SQLException {
+		
+		Dept dept = new Dept();
+		dept.setDeptno(rs.getInt("deptno"));
+		dept.setDname(rs.getString("dname"));
+		dept.setLoc(rs.getString("Loc"));
+
+		
+		return dept;
+	}
 	
 	
 }

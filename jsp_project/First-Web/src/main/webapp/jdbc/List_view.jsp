@@ -52,8 +52,10 @@
 				<td><%= list.get(i).getDeptno() %></td>
 				<td><%= list.get(i).getDname()  %></td>
 				<td><%= list.get(i).getLoc() %></td>
-				<td><a href = "dept_editForm.jsp?deptno=<%= list.get(i).getDeptno() %>">수정</a> | 
-					<a href = "javascript:delDept(<%= list.get(i).getDeptno() %>)">삭제</a></td>
+				<td>
+					<a href = "dept_editForm.jsp?deptno=<%= list.get(i).getDeptno() %>">수정</a> | 
+					<a href = "javascript:delDept(<%= list.get(i).getDeptno() %>)">삭제</a>
+				</td>
 					<!-- 자바스크립트 함수 호출 -->
 			</tr>
 				<%
