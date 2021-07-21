@@ -146,7 +146,7 @@ public class MemberDao {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update memberinfo set `userid`=?, `userpw`=?, `userName`=?, where `index`=?";
+		String sql = "update memberinfo set `USERID`=?, `USERPW`=?, `USERNAME`=?, `REGDATE`=? where `INDEX`=?";
 		
 		try {
 			
@@ -154,7 +154,8 @@ public class MemberDao {
 			pstmt.setString(1, member.getUserID());
 			pstmt.setString(2, member.getUserPW());
 			pstmt.setString(3, member.getUserName());
-			pstmt.setInt(4, member.getIndex());
+			pstmt.setString(4, member.getRegDate());
+			pstmt.setInt(5, member.getIndex());
 			
 			resultCnt = pstmt.executeUpdate();
 			

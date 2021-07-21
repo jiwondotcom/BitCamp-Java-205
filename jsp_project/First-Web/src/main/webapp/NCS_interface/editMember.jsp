@@ -22,11 +22,10 @@
 	// 1. 사용자가 입력한 데이터를 받는다.
 	String index = request.getParameter("index");
 	String userID = request.getParameter("userID");
-	String userPW = request.getParameter("userpW");
+	String userPW = request.getParameter("userPW");
 	String userName = request.getParameter("userName");
 	String regDate = request.getParameter("regDate");
 
-	
 	int resultCnt = 0;
 	
 	
@@ -35,11 +34,11 @@
 	// 2-1. 드라이버 로드
 	Class.forName("com.mysql.cj.jdbc.Driver");
 	
-	
 	// 2-2. 연결
 	Connection conn = null;
 	MemberDao dao = MemberDao.getInstance();
 	
+	// 2-3. jdbcUrl
 	String jdbcUrl = "jdbc:mysql://localhost:3306/member?serverTimezone=UTC";
 	String user = "root";
 	String pw = "1234";

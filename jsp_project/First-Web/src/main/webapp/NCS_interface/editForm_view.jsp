@@ -5,7 +5,7 @@
     
     <%
     	// object 형변환
-    	Member memebr = (Member) request.getAttribute("member");
+    	Member member = (Member)request.getAttribute("member");
     %>
     
 <!DOCTYPE html>
@@ -16,7 +16,15 @@
 </head>
 <style>
 </style>
-<script>
+<script type="text/javascript">
+window.onload = function() {
+	today = new Date();
+	console.log("today.toISOString() >>>" + today.toISOString());
+	today = today.toISOString().slice(0, 10);
+	console.log("today >>>> " + today);
+	bir = document.getElementById("todaybirthday");
+	bir.value = today;
+}
 </script>
 <body>
 
@@ -28,7 +36,10 @@
 	<!-- readonly : 읽기 전용 (수정 불가) -->
 	<form action = "editMember.jsp" method = "post">
 	<table>
-		
+		<tr>
+			<td>회원번호</td>
+			<td><input type="number" name="index" value = "<%=member.getIndex()%>" readonly></td>
+		</tr>
 		<tr>
 			<td>아이디</td>
 			<td><input type="text" name="userID" required></td>
@@ -41,9 +52,13 @@
 			<td>이름</td>
 			<td><input type="text" name="userName" required></td>
 		</tr>
-		<tr>
-			<td><input type = "text" name = "regDate"></td>
+		<!-- <tr>
+			<td><input type = "hidden" name = "regDate" required></td>
 			<td><input type = "number" name = "index"></td>
+		</tr> -->
+		<tr>
+			<td>가입일시</td>
+			<td><input id = "today" type = "date" name = "regDate" readonly></td>
 		</tr>
 
 		

@@ -14,7 +14,7 @@
 		console.log("today.toISOString() >>>" + today.toISOString());
 		today = today.toISOString().slice(0, 10);
 		console.log("today >>>> " + today);
-		bir = document.getElementById("todaybirthday");
+		bir = document.getElementById("today");
 		bir.value = today;
 	}
 </script>
@@ -41,7 +41,7 @@
 		</tr>
 		<tr>
 			<td>가입일시</td>
-			<td><input id = "todaybirthday" type = "date" name = "regDate" readonly></td>
+			<td><input id = "today" type = "date" name = "regDate" readonly></td>
 		</tr>
 		<tr>
 			<td></td>
