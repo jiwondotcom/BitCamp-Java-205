@@ -86,6 +86,14 @@ public class MemberDao {
 	
 	
 	
+	// DB 처리 : 기존 데이터 삭제 delete
+	public int deleteMember(Connection conn, Member member) {
+		
+		
+		return 0;
+		
+	}
+	
 	
 /*	
 	private Member makeMember (ResultSet rs) throws SQLException {

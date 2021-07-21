@@ -3,6 +3,7 @@ package member.domain;
 public class Member {
 	
 	// Beans 빈즈 형태
+	private int IDX;
 	private String userID;
 	private String userPW;
 	private String userName;
@@ -10,7 +11,8 @@ public class Member {
 	
 	
 	
-	public Member(String userID, String userPW, String userName, String regDate) {
+	public Member(int IDX, String userID, String userPW, String userName, String regDate) {
+		this.IDX = IDX;
 		this.userID = userID;
 		this.userPW = userPW;
 		this.userName = userName;
@@ -22,6 +24,16 @@ public class Member {
 	// 기본 생성자 생성
 	public Member() {}
 	
+	
+
+	public int IDX() {
+		return IDX;
+	}
+	
+	
+	public void setIDX(int IDX) {
+		this.IDX = IDX;
+	}
 	
 
 	public String getUserID() {
@@ -68,12 +80,10 @@ public class Member {
 	// 변수 일괄 출력 : toString (데이터 확인용)
 	@Override
 	public String toString() {
-		return "Member [userID=" + userID + ", userPW=" + userPW + ", userName=" + userName + ", regDate=" + regDate
-				+ "]";
+		return "Member [iDX=" + IDX + ", userID=" + userID + ", userPW=" + userPW
+				+ ", userName=" + userName + ", regDate=" + regDate + "]";
+	
 	}
 
-
-
-	
 
 }
