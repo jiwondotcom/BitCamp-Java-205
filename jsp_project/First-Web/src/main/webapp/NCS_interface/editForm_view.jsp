@@ -22,7 +22,7 @@ window.onload = function() {
 	console.log("today.toISOString() >>>" + today.toISOString());
 	today = today.toISOString().slice(0, 10);
 	console.log("today >>>> " + today);
-	bir = document.getElementById("todaybirthday");
+	bir = document.getElementById("today");
 	bir.value = today;
 }
 </script>
@@ -38,7 +38,7 @@ window.onload = function() {
 	<table>
 		<tr>
 			<td>회원번호</td>
-			<td><input type="number" name="index" value = "<%=member.getIndex()%>" readonly></td>
+			<td><input type="number" name="index" value = "<%= member.getIndex() %>"readonly></td>
 		</tr>
 		<tr>
 			<td>아이디</td>
@@ -52,13 +52,9 @@ window.onload = function() {
 			<td>이름</td>
 			<td><input type="text" name="userName" required></td>
 		</tr>
-		<!-- <tr>
-			<td><input type = "hidden" name = "regDate" required></td>
-			<td><input type = "number" name = "index"></td>
-		</tr> -->
 		<tr>
 			<td>가입일시</td>
-			<td><input id = "today" type = "date" name = "regDate" readonly></td>
+			<td><input id = "today" type = "date" name = "regDate"></td>
 		</tr>
 
 		

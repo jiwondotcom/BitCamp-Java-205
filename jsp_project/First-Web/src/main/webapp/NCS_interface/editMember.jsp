@@ -1,9 +1,12 @@
+<%@page import="jdbc.util.ConnectionProvider2"%>
+<%@page import="dept.dao.DeptDao"%>
+<%@page import="jdbc.util.JdbcUtil"%>
+<%@page import="java.sql.SQLException"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.util.Calendar"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="member.domain.Member"%>
-<%@page import="member.util.ConnectionProvider"%>
 <%@page import="member.dao.MemberDao"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -32,20 +35,24 @@
 	// 2. DB 처리 : 새로운 데이터를 edit(수정)
 	
 	// 2-1. 드라이버 로드
-	Class.forName("com.mysql.cj.jdbc.Driver");
+	// Class.forName("com.mysql.cj.jdbc.Driver");
 	
 	// 2-2. 연결
+	
 	Connection conn = null;
-	MemberDao dao = MemberDao.getInstance();
+	MemberDao dao = null;
 	
-	// 2-3. jdbcUrl
-	String jdbcUrl = "jdbc:mysql://localhost:3306/member?serverTimezone=UTC";
-	String user = "root";
-	String pw = "1234";
+	try {
+		conn = ConnectionProvider2.getConnection();
+		dao = MemberDao.getInstance();
 	
-	conn = DriverManager.getConnection(jdbcUrl, user, pw);
+		resultCnt = dao.updateMember(conn, new Member(Integer.parseInt(index), userID, userPW, userName, regDate));
 	
-	resultCnt = dao.updateMember(conn, new Member(Integer.parseInt(index), userID, userPW, userName, regDate));
+	} catch(SQLException e) {
+		e.printStackTrace();
+	} finally { 
+		JdbcUtil.close(conn);
+	}
 	
 	
 	// 3. member_List.jsp 페이지로 이동 (javaScript location)

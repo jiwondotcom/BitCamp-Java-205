@@ -1,4 +1,5 @@
-<%@page import="jdbc.util.ConnectionProvider"%>
+<%@page import="java.sql.SQLException"%>
+<%@page import="jdbc.util.ConnectionProvider2"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="member.dao.MemberDao"%>
 <%@page import="java.sql.Connection"%>
@@ -12,26 +13,22 @@
 
 	// 전달받은 회원번호로 회원정보를 가져온다. -> 처리 -> Member -> 공유
 	// 1. 드라이버 로드
-	
-	Class.forName("com.mysql.cj.jdbc.Driver");
+	// Class.forName("com.mysql.cj.jdbc.Driver");
 	
 	
 	// 2. DB 연결
 	Connection conn = null;
 	MemberDao dao = null;
 	
-	// jdbcUrl
-	String jdbcUrl = "jdbc:mysql://localhost:3306/member?serverTimezone=UTC";
-    String user = "root";
-    String pw = "1234";
+	try {
+		conn = ConnectionProvider2.getConnection();
+		dao = MemberDao.getInstance();
 
-    conn = DriverManager.getConnection(jdbcUrl, user, pw);
-   
-    dao = MemberDao.getInstance();
-    
-   	// conn = ConnectionProvider.getConnection();
-    request.setAttribute("index", dao.selectByIndex (conn, Integer.parseInt(index)));
-
+    	request.setAttribute("index", dao.selectByIndex (conn, Integer.parseInt(index)));
+	
+	} catch (SQLException e) {
+		e.printStackTrace();
+	}
  
 %>
 
