@@ -84,6 +84,35 @@ public class MemberDao {
 	}
 	
 	
+	
+	// DB 처리 : 기존 데이터 삭제 delete
+	public int deleteMember (Connection conn, int index) {
+		
+		int resultCnt = 0;
+		PreparedStatement pstmt = null;
+		
+		String sql = "delete from memberinfo where index=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, index);
+			
+			resultCnt = pstmt.executeUpdate();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} 
+		
+		return resultCnt;
+	}
+	
+	
+	
+	
+	
+	
+	
 /*	
 	private Member makeMember (ResultSet rs) throws SQLException {
 		

@@ -3,7 +3,7 @@ package member.domain;
 public class Member {
 	
 	// Beans 빈즈 형태
-	private int Index;
+	private int index;
 	private String userID;
 	private String userPW;
 	private String userName;
@@ -13,10 +13,11 @@ public class Member {
 	// 기본 생성자 생성
 	public Member() {}
 
+
 	
 
 	public Member(int index, String userID, String userPW, String userName, String regDate) {
-		this.Index = index;
+		this.index = index;
 		this.userID = userID;
 		this.userPW = userPW;
 		this.userName = userName;
@@ -24,17 +25,31 @@ public class Member {
 	}
 
 
+	
+	
 
+
+	// 변수 일괄 출력 : toString (데이터 확인용)
+	@Override
+	public String toString() {
+		return "Member [Index=" + index + ", userID=" + userID + ", userPW=" + userPW + ", userName=" + userName
+				+ ", regDate=" + regDate + "]";
+	}
+
+	
+	
 
 	// getter-setter
 	public int getIndex() {
-		return Index;
+		return index;
 	}
+
 
 
 	public void setIndex(int index) {
-		Index = index;
+		this.index = index;
 	}
+
 
 
 	public String getUserID() {
@@ -42,9 +57,11 @@ public class Member {
 	}
 
 
+
 	public void setUserID(String userID) {
 		this.userID = userID;
 	}
+
 
 
 	public String getUserPW() {
@@ -52,9 +69,11 @@ public class Member {
 	}
 
 
+
 	public void setUserPW(String userPW) {
 		this.userPW = userPW;
 	}
+
 
 
 	public String getUserName() {
@@ -62,9 +81,11 @@ public class Member {
 	}
 
 
+
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
+
 
 
 	public String getRegDate() {
@@ -72,19 +93,9 @@ public class Member {
 	}
 
 
+
 	public void setRegDate(String regDate) {
 		this.regDate = regDate;
-	}
-
-
-	
-	
-
-	// 변수 일괄 출력 : toString (데이터 확인용)
-	@Override
-	public String toString() {
-		return "Member [Index=" + Index + ", userID=" + userID + ", userPW=" + userPW + ", userName=" + userName
-				+ ", regDate=" + regDate + "]";
 	}
 
 	

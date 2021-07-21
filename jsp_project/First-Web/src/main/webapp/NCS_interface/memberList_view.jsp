@@ -55,10 +55,11 @@
 				<td><%= list.get(i).getRegDate() %></td>
 				<td>
 					<a href = "#">수정</a> |
-					<a href = "#">삭제</a>
+					<a href = "javascript:delMember(<%=list.get(i).getIndex()%>)">삭제</a>
+					<!-- 자바스크립트 함수 호출 -->
 				</td>
 			</tr>
-			<% /* 자바스크립트 함수 호출 끝  */
+			<% 
 			
 		}
 	}
@@ -68,8 +69,12 @@
 	
 </body>
 <script>
-/*
- * 삭제 스크립트 추후 추가예정
- */
+
+	function delMember(index) {
+		if (confirm ('정말 삭제하시겠습니까?')) {
+			location.href = 'member_deleteForm.jsp?index=' + index;
+		}
+	}
+	
 </script>
 </html>
