@@ -18,11 +18,10 @@
 	
 	// 2. DB 연결
 	Connection conn = null;
-	MemberDao dao = null;
+	MemberDao dao = MemberDao.getInstance();
 	
 	try {
 		conn = ConnectionProvider.getConnection();
-		dao = MemberDao.getInstance();
 
     	request.setAttribute("index", dao.selectByIndex (conn, Integer.parseInt(index)));
 	
