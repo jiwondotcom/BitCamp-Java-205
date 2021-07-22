@@ -1,4 +1,4 @@
-<%@page import="jdbc.util.ConnectionProvider2"%>
+<%@page import="member.util.ConnectionProvider"%>
 <%@page import="member.util.JdbcUtil"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.util.Date"%>
@@ -42,7 +42,7 @@
 	MemberDao dao = null;
 	
 	try {
-		conn = ConnectionProvider2.getConnection();
+		conn = ConnectionProvider.getConnection();
 		dao = MemberDao.getInstance();
 	
 		resultCnt = dao.updateMember(conn, new Member(Integer.parseInt(index), userID, userPW, userName, regDate));

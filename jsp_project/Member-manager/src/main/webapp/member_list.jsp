@@ -1,6 +1,6 @@
+<%@page import="member.util.ConnectionProvider"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="member.util.JdbcUtil"%>
-<%@page import="jdbc.util.ConnectionProvider2"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="member.dao.MemberDao"%>
 <%@page import="java.sql.Connection"%>
@@ -19,7 +19,7 @@
 	
 	try {
 	// jdbcURl
-	conn = ConnectionProvider2.getConnection();
+	conn = ConnectionProvider.getConnection();
 	
 	
 	// 결과데이터를 request의 속성에 저장

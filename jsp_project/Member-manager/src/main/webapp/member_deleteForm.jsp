@@ -1,6 +1,6 @@
+<%@page import="member.util.ConnectionProvider"%>
 <%@page import="member.util.JdbcUtil"%>
 <%@page import="java.sql.SQLException"%>
-<%@page import="jdbc.util.ConnectionProvider2"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="member.dao.MemberDao"%>
 <%@page import="java.sql.Connection"%>
@@ -25,7 +25,7 @@
     		
 
     	try {
-    		conn = ConnectionProvider2.getConnection();
+    		conn = ConnectionProvider.getConnection();
     		resultCnt = dao.deleteMember(conn, Integer.parseInt(index));
     		
     	} catch(SQLException e) {

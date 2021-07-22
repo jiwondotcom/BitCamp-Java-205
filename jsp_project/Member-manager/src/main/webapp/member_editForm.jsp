@@ -1,5 +1,5 @@
+<%@page import="member.util.ConnectionProvider"%>
 <%@page import="java.sql.SQLException"%>
-<%@page import="jdbc.util.ConnectionProvider2"%>
 <%@page import="java.sql.DriverManager"%>
 <%@page import="member.dao.MemberDao"%>
 <%@page import="java.sql.Connection"%>
@@ -21,7 +21,7 @@
 	MemberDao dao = null;
 	
 	try {
-		conn = ConnectionProvider2.getConnection();
+		conn = ConnectionProvider.getConnection();
 		dao = MemberDao.getInstance();
 
     	request.setAttribute("index", dao.selectByIndex (conn, Integer.parseInt(index)));

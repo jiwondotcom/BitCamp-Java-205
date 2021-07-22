@@ -1,4 +1,4 @@
-<%@page import="jdbc.util.ConnectionProvider2"%>
+<%@page import="member.util.ConnectionProvider"%>
 <%@page import="member.domain.Member"%>
 <%@page import="member.dao.MemberDao"%>
 <%@page import="java.util.Date"%>
@@ -49,7 +49,7 @@
 	Connection conn = null;
 	MemberDao dao = MemberDao.getInstance();
 	try {
-		conn = ConnectionProvider2.getConnection();
+		conn = ConnectionProvider.getConnection();
 		resultCnt = dao.insertMember(conn, new Member(1, userID, userPW, userName, regDate));
 	
 	} catch (Exception e) {
