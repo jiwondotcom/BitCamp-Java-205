@@ -1,5 +1,5 @@
 <%@page import="jdbc.util.ConnectionProvider2"%>
-<%@page import="jdbc.util.JdbcUtil"%>
+<%@page import="member.util.JdbcUtil"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.util.Date"%>
 <%@page import="java.util.Calendar"%>

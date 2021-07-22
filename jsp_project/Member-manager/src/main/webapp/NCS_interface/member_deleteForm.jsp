@@ -1,4 +1,4 @@
-<%@page import="jdbc.util.JdbcUtil"%>
+<%@page import="member.util.JdbcUtil"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="jdbc.util.ConnectionProvider2"%>
 <%@page import="java.sql.DriverManager"%>

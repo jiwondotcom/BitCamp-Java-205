@@ -1,9 +1,9 @@
-package jdbc.util;
+package member.jdbc;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 
-public class Loader extends HttpServlet{
+public class DriverLoader extends HttpServlet{
 
 //	init() : 컨테이너가 서블릿 객체를 만들때 실행되는 요소
 	@Override

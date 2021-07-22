@@ -8,8 +8,8 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import jdbc.util.JdbcUtil;
 import member.domain.Member;
+import member.util.JdbcUtil;
 
 public class MemberDao {
 	
