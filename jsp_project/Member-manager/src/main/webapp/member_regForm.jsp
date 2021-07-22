@@ -40,15 +40,11 @@
 			<td><input type = "text" name = "userName" required></td>
 		</tr>
 		<tr>
-			<td>가입일시</td>
-			<td><input id = "today" type = "date" name = "regDate" readonly></td>
-		</tr>
-		<tr>
 			<td></td>
 			<td>
 				<input type = "submit" value = "등록">
-				<input type = "submit" value = "초기화">
-				<input type = "submit" value = "이전으로" onclick = "location.href = 'member_list.jsp';">
+				<input type = "reset" value = "초기화">
+				<input type = "button" value = "이전으로" onclick = "location.href = 'member_list.jsp';">
 			</td>
 		</tr>
 	</table>

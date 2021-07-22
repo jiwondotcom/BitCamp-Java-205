@@ -52,12 +52,7 @@ window.onload = function() {
 			<td>이름</td>
 			<td><input type="text" name="userName" value = "<%= member.getUserName() %>"></td>
 		</tr>
-		<tr>
-			<td>가입일시</td>
-			<td><input id = "today" type = "hidden" name = "regDate" value = "<%= member.getRegDate() %>" readonly></td>
-		</tr>
 
-		
 
 		<tr>
 			<td></td>
