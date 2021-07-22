@@ -1,3 +1,4 @@
+<%@page import="member.domain.EditInfo"%>
 <%@page import="member.util.ConnectionProvider"%>
 <%@page import="member.util.JdbcUtil"%>
 <%@page import="java.sql.SQLException"%>
@@ -25,8 +26,8 @@
 	String index = request.getParameter("index");
 	String userID = request.getParameter("userID");
 	String userPW = request.getParameter("userPW");
-/* 	String userName = request.getParameter("userName");
-	String regDate = request.getParameter("regDate"); */
+	String userName = request.getParameter("userName");
+/* 	String regDate = request.getParameter("regDate"); */
 
 	int resultCnt = 0;
 	
@@ -45,7 +46,7 @@
 		conn = ConnectionProvider.getConnection();
 		dao = MemberDao.getInstance();
 	
-		resultCnt = dao.updateMember(conn, index, userID, userPW);
+		resultCnt = dao.updateMember(conn, new EditInfo(Integer.parseInt(index), userID, userPW, userName));
 	
 	} catch(SQLException e) {
 		e.printStackTrace();

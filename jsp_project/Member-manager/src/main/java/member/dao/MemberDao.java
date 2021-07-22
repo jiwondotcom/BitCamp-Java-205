@@ -8,6 +8,7 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
+import member.domain.EditInfo;
 import member.domain.Member;
 import member.util.JdbcUtil;
 
@@ -147,7 +148,7 @@ public class MemberDao {
 	
 	
 	// 위에서 전달받은 (selectByIndex) 회원번호에 해당되는 데이터를 수정 (회원 비밀번호, 회원 이름)
-	public int updateMember(Connection conn, Member member) {
+	public int updateMember(Connection conn, EditInfo editInfo) {
 		
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
@@ -157,10 +158,10 @@ public class MemberDao {
 		try {
 			
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, member.getUserID());
-			pstmt.setString(2, member.getUserPW());
-			pstmt.setString(3, member.getUserName());
-			pstmt.setInt(4, member.getIndex());
+			pstmt.setString(1, editInfo.getUserID());
+			pstmt.setString(2, editInfo.getUserPW());
+			pstmt.setString(3, editInfo.getUserName());
+			pstmt.setInt(4, editInfo.getIndex());
 			
 			resultCnt = pstmt.executeUpdate();
 			

@@ -5,7 +5,7 @@
     
     <%
     	// object 형변환
-    	Member member = (Member)request.getAttribute("member");
+    	Member member = (Member)request.getAttribute("index");
     %>
     
 <!DOCTYPE html>
@@ -38,23 +38,23 @@ window.onload = function() {
 	<table>
 		<tr>
 			<td>회원번호</td>
-			<td><input type="number" name="index" value = "<%= member.getIndex() %>"></td>
+			<td><input type="number" name="index" value = "<%= member.getIndex() %>" readonly></td>
 		</tr>
 		<tr>
 			<td>아이디</td>
-			<td><input type="text" name="userID" required></td>
+			<td><input type="text" name="userID" value = "<%= member.getUserID() %>" ></td>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
-			<td><input type="password" name="userPW" required></td>
+			<td><input type="password" name="userPW" value = "<%= member.getUserPW() %>"></td>
 		</tr>
 		<tr>
 			<td>이름</td>
-			<td><input type="text" name="userName" required></td>
+			<td><input type="text" name="userName" value = "<%= member.getUserName() %>"></td>
 		</tr>
 		<tr>
 			<td>가입일시</td>
-			<td><input id = "today" type = "hidden" name = "regDate" readonly></td>
+			<td><input id = "today" type = "hidden" name = "regDate" value = "<%= member.getRegDate() %>" readonly></td>
 		</tr>
 
 		
