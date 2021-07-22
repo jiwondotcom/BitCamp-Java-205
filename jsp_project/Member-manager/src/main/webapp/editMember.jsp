@@ -16,17 +16,17 @@
 	// 2. DB 처리 : 새로운 데이터 edit(수정)
 	// 3. member_list.jsp 페이지로 이동
 	
+	Member mb = new Member();
 	
 	// 0. 사용자가 입력한 데이터의 한글 처리 (우선)
 	request.setCharacterEncoding("UTF-8");
 
-	
 	// 1. 사용자가 입력한 데이터를 받는다.
 	String index = request.getParameter("index");
 	String userID = request.getParameter("userID");
 	String userPW = request.getParameter("userPW");
-	String userName = request.getParameter("userName");
-	String regDate = request.getParameter("regDate");
+/* 	String userName = request.getParameter("userName");
+	String regDate = request.getParameter("regDate"); */
 
 	int resultCnt = 0;
 	
@@ -45,7 +45,7 @@
 		conn = ConnectionProvider.getConnection();
 		dao = MemberDao.getInstance();
 	
-		resultCnt = dao.updateMember(conn, new Member(Integer.parseInt(index), userID, userPW, userName, regDate));
+		resultCnt = dao.updateMember(conn, index, userID, userPW);
 	
 	} catch(SQLException e) {
 		e.printStackTrace();

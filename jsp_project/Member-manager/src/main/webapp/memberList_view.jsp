@@ -4,7 +4,7 @@
     pageEncoding="UTF-8"%>
     
    	<% 
-   		List<Member> list2 = (List<Member>) request.getAttribute("result");
+   		List<Member> list = (List<Member>) request.getAttribute("result");
    	%>
    	
 <!DOCTYPE html>
@@ -46,19 +46,19 @@
 		</tr>
 	
 <%
-	if (list2 != null) {
-		for(int i = 0; i < list2.size(); i++) {
+	if (list != null) {
+		for(int i = 0; i < list.size(); i++) {
 			%>
 			
 			<tr>
-				<td><%= list2.get(i).getIndex() %></td>
-				<td><%= list2.get(i).getUserID() %></td>
-				<td><%= list2.get(i).getUserPW() %></td>
-				<td><%= list2.get(i).getUserName() %></td>
-				<td><%= list2.get(i).getRegDate() %></td>
+				<td><%= list.get(i).getIndex() %></td>
+				<td><%= list.get(i).getUserID() %></td>
+				<td><%= list.get(i).getUserPW() %></td>
+				<td><%= list.get(i).getUserName() %></td>
+				<td><%= list.get(i).getRegDate() %></td>
 				<td>
-					<a href = "member_editForm.jsp?index=<%=list2.get(i).getIndex()%>">수정</a> |
-					<a href = "javascript:delMember(<%=list2.get(i).getIndex()%>)">삭제</a>
+					<a href = "member_editForm.jsp?index=<%=list.get(i).getIndex()%>">수정</a> |
+					<a href = "javascript:delMember(<%=list.get(i).getIndex()%>)">삭제</a>
 					<!-- 자바스크립트 함수 호출 -->
 				</td>
 			</tr>

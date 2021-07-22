@@ -38,7 +38,7 @@ window.onload = function() {
 	<table>
 		<tr>
 			<td>회원번호</td>
-			<td><input type="number" name="index"></td>
+			<td><input type="number" name="index" value = "<%= member.getIndex() %>"></td>
 		</tr>
 		<tr>
 			<td>아이디</td>

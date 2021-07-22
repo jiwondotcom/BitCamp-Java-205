@@ -33,17 +33,17 @@ public class MemberDao {
 		Statement stmt = null;
 		ResultSet rs = null;
 	
-		List<Member> list2 = null;
+		List<Member> list = null;
 		
 		try {
 		stmt = conn.createStatement();
 		String sql = "select * from memberinfo;";
 		rs = stmt.executeQuery(sql);
 		
-		list2 = new ArrayList<Member>();
+		list = new ArrayList<Member>();
 		
 		while(rs.next()) {
-			list2.add(makeMember(rs));
+			list.add(makeMember(rs));
 		}
 		
 		} catch (SQLException e) {
@@ -53,7 +53,7 @@ public class MemberDao {
 			JdbcUtil.close(rs);
 		}
 		
-		return list2;
+		return list;
 
 	}
 	
@@ -152,7 +152,7 @@ public class MemberDao {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = "update memberinfo set `USERID`=?, `USERPW`=?, `USERNAME`=?, `REGDATE`=? where `INDEX`=?";
+		String sql = "update memberinfo set `USERID`=?, `USERPW`=?, `USERNAME`=? where `INDEX`=?";
 		
 		try {
 			
@@ -160,8 +160,7 @@ public class MemberDao {
 			pstmt.setString(1, member.getUserID());
 			pstmt.setString(2, member.getUserPW());
 			pstmt.setString(3, member.getUserName());
-			pstmt.setString(4, member.getRegDate());
-			pstmt.setInt(5, member.getIndex());
+			pstmt.setInt(4, member.getIndex());
 			
 			resultCnt = pstmt.executeUpdate();
 			
