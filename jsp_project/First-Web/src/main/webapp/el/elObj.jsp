@@ -7,7 +7,6 @@
     	application.setAttribute("name", "지원");
     %>
     
-    
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,6 +46,15 @@
 	${pageContext.request.requestURL} <br>
 	${pageContext.request.requestURI} <br>
 	${pageContext.request.contextPath} <br>
+	<%= request.getContextPath() %> <br>
+	
+	<br>
+	${true} / ${false} / ${100}	/ ${'황짱구'} / ${null}${'null'}
+	<!-- (null이 들어왔을땐 아무것도 출력하지 않는다.) -->
+	
+	
+	
+	
 	
 </body>
 </html>
