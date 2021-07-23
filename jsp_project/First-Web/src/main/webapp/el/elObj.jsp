@@ -1,3 +1,4 @@
+<%@page import="member.Member"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
@@ -5,6 +6,12 @@
     	request.setAttribute("name", "짱구");
     	session.setAttribute("name", "짱아");
     	application.setAttribute("name", "지원");
+    	
+    	Member member = new Member();
+    	member.setID("cool");
+    	member.setPW("cool");
+    	member.setName("cool");
+    	session.setAttribute("member", member);
     %>
     
 <!DOCTYPE html>
@@ -51,8 +58,15 @@
 	<br>
 	${true} / ${false} / ${100}	/ ${'황짱구'} / ${null}${'null'}
 	<!-- (null이 들어왔을땐 아무것도 출력하지 않는다.) -->
+	<br>
 	
-	
+ 	<hr> <!-- member.getID() -->
+	${member} / ${member.ID}
+	<br>
+	<%= session.getAttribute("member") %> <br>
+	<%= ((Member) session.getAttribute("member")).getID() %> <br>
+	<!-- getAttribute : 형변환이 필요하다.  -->
+	<!-- el표현이 훨씬 더 간결하고 편리하다. -->
 	
 	
 	
