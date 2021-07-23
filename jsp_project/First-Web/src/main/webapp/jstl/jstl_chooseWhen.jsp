@@ -15,6 +15,13 @@
 </script>
 <body>
 
+	<select>
+		<option ${param.sel eq 'a' ? 'selected' : ''}>a ----- </option>
+		<option ${param.sel eq 'b' ? 'selected' : ''}>b ----- </option>
+		<option ${param.sel eq 'c' ? 'selected' : ''}>c ----- </option>
+	</select>
+
+
 	<c:choose>
 		<c:when test = "${param.sel == 'a'}">
 		<h3>a를 선택했습니다.</h3>
@@ -36,15 +43,15 @@
 	
 	<c:set var = "num" value = "10"/>
 	
+	<br>
 	
-	
+	숫자 ${num}은
 	<c:choose>
-		<h3><c:when test = "${num > 0}">양수입니다.</c:when></h3>
-		<h3><c:when test = "${num < 0}">음수입니다.</c:when></h3>
-		<h3><c:otherwise>0입니다.</c:otherwise></h3>
+		<c:when test = "${num>0}">양수입니다.</c:when>
+		<c:when test = "${num<0}">음수입니다.</c:when>
+		<c:otherwise>0입니다.</c:otherwise>
 	</c:choose>
 	
-	${num}
 
 </body>
 </html>
