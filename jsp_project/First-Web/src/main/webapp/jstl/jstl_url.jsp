@@ -26,13 +26,14 @@
 		<!-- 절대경로로 이동 -->
 		<a href = "<c:url value = "/index.jsp"/>">홈으로 가기</a>
 		
-		<hr>
+		<br>
+		<br>
 		
 		<!-- url뒤에 type & index 추가 -->
 		<!-- index.jsp?type=main&index=1 -->
 		<c:url value = "/index.jsp" var = "homeUrl">
 			<!-- 꺽쇠 안에 / => 마감태그없이 단일태그로 사용 가능 -->
-			<!-- </c:param> : 생략 가능 -->
+			<!-- /c:param : 생략 가능 -->
 			<c:param name = "type" value = "main"/>main
 			<c:param name = "index">1</c:param>
 		</c:url>
