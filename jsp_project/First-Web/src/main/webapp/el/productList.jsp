@@ -4,7 +4,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>상품을 선택해주세요.</title>
 </head>
 <style>
 </style>
@@ -33,15 +33,17 @@ ${product}
 --%>
 
 	<h1>상품 리스트 : 원하시는 상품을 선택하세요.</h1>
-	<form action = "productSelect.jsp">
+	<form action = "productSelect.jsp" method = "post">
 	
 		<select name = "select">
-		
-		
-		
+		<%
+			for(int i = 0; i < product.getProductList().length; i++) {
+				out.println("<option>" + product.getProductList()[i] + "</option>");
+			}
+		%>
 		</select>
-	
-	
+
+		<input type = "submit">	
 	
 	</form>
 
