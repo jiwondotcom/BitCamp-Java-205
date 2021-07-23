@@ -14,7 +14,9 @@
 
 	${members} <br>
 	${members[0]} <br>
-	${members[1]} <br>
+	${members[1]} / ${memeber[1].name} <br> 
+	
+	<!-- 치환 -->
 
 </body>
 </html>
