@@ -25,7 +25,11 @@
 	
 	<br><br>
 	내장객체의 표현식이 생략되었을 때의 규칙 <br>
-	(1. pageScope -> 2. requestScope -> 3. sessionScope -> 4.applicationScope) 의 속성을 순서대로 찾는다.
+	1. pageScope ->
+	2. requestScope ->
+	3. sessionScope ->
+	4.applicationScope
+	의 속성을 순서대로 찾는다.
 	<br><br>
 	
 	표현언어2 : ${name} <br>
@@ -35,6 +39,14 @@
 	<hr>
 	param.code : <%= request.getParameter("code") %> <br>
 	param.code : ${param.code} <br>
+	
+	<hr>
+	(표현식 표현) pageContext : 
+	<%= pageContext.getRequest().getServletContext().getContextPath() %>
+	<br>
+	${pageContext.request.requestURL} <br>
+	${pageContext.request.requestURI} <br>
+	${pageContext.request.contextPath} <br>
 	
 </body>
 </html>
