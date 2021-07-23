@@ -37,7 +37,8 @@
 			
 		
 		<!-- 반복하고자 하는 아이템 속성을 기재해준다. -->
-		<c:forEach items = "${members}" var = "member">
+		<!-- varStatus : 상태변수 -->
+		<c:forEach items = "${members}" var = "member" varStatus = "stat">
 		<tr>
 			<td>${member.ID}</td>
 			<td>${member.PW}</td>
@@ -59,9 +60,17 @@
 	<c:forEach var = "number" begin = "1" end = "5" step = "1">
 		<h3>${number}</h3>
 	</c:forEach>
+	
+	<!-- delims : 자른다 / str : 문자열 형식 -->
+	<c:forTokens items = "황짱구, 010-2222-7777, 부천" delims = ",-" var = "str" varStatus = "stat">
+		<c:if test = "${stat.index == 0}">
+			<input type = "text" value = "${str}">
+		</c:if>
+		<c:if test = "${stat.index == 1}">
+			<input type = "text" value = "${str}">
+		</c:if>
+	</c:forTokens>
 		
-
-
 
 </body>
 </html>
