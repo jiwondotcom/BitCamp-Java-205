@@ -5,12 +5,15 @@ import java.util.Arrays;
 // beans 형식의 클래스로 정의 : 상품정보를 저장한다.
 public class Product {
 
+	
 	// 상품 목록 : 배열 활용
 	private String[] productList = {"item1", "item2", "item3", "item4", "item5"};
 
+	
 	// 변수 : el테스트용
 	private int price = 100;
 	private int amount = 1000;
+	
 	
 	
 	public String[] getProductList() {
@@ -35,8 +38,9 @@ public class Product {
 	
 	// ${product.display}
 	public String getDisplay() {
-		return "price : " + this.price + ", amount : " + this.amount;
+		return "price : " + this.price + " / amount : " + this.amount;
 	}
+	
 	
 	
 	@Override
@@ -45,10 +49,6 @@ public class Product {
 		return "Product [productList=" + Arrays.toString(productList) + ", price=" + price + ", amount=" + amount + "]";
 	}
 	
-	
-	
-	
-	
-	
+
 	
 }

@@ -14,9 +14,14 @@
 
 
 	<h3>
-		1. 선택한 상품 : ${param.select}
 	
 	
+		1. 선택한 상품 : ${param.select} <br>
+		2. 상품의 설명 : ${product.display} <br>
+		<!-- display 변수는 없음 -> EL은 메소드를 호출 -->
+		3. 첫번째 상품 : ${product.productList[0]}
+		
+		
 	</h3>
 
 </body>
