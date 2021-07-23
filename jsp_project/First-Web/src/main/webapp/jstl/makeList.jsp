@@ -17,6 +17,8 @@
     members.add(new Member("jiwon8", "12348", null));
     members.add(new Member("jiwon9", "12349", "지원9"));
     members.add(new Member("jiwon0", "12340", "지원0"));
+    
+    session.setAttribute("members", members);
     %>
     
     

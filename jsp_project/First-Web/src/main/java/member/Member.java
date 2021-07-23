@@ -9,13 +9,6 @@ public class Member {
 	
 	public Member() {}
 	
-	public Member(String ID, String PW, String Name) {
-		this.ID = ID;
-		this.PW = PW;
-		this.Name = Name;
-	}
-	
-	
 	
 	public String getID() {
 		return ID;
