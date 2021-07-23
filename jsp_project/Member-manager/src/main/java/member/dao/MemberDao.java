@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import member.domain.EditInfo;
+import member.domain.LoginInfo;
 import member.domain.Member;
 import member.util.JdbcUtil;
 
@@ -75,7 +76,7 @@ public class MemberDao {
 			pstmt.setString(1, member.getUserID());
 			pstmt.setString(2, member.getUserPW());
 			pstmt.setString(3, member.getUserName());
-			pstmt.setString(4, member.getRegDate());
+			pstmt.setTimestamp(4, member.getRegDate());
 			
 			resultCnt = pstmt.executeUpdate();
 			
@@ -176,6 +177,46 @@ public class MemberDao {
 		
 	}
 	
+
+	
+	
+	
+	public Member selectByIdPw(Connection conn, String userID, String userPW) {
+		
+		Member member = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from memberinfo where `userID` = ? and `userPW` = ?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			
+			pstmt.setString(1, userID);
+			pstmt.setString(2, userPW);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				member = makeMember(rs);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
+		}
+		
+		return member;
+		
+		
+	}
+
+	
+	
+	
 	
 	
 	private Member makeMember(ResultSet rs) throws SQLException {
@@ -185,14 +226,15 @@ public class MemberDao {
 		member.setUserID(rs.getString("userid"));
 		member.setUserPW(rs.getString("userpw"));
 		member.setUserName(rs.getString("username"));
-		member.setRegDate(rs.getString("regdate"));
+		member.setRegDate(rs.getTimestamp("regdate"));
 		
 		
 		return member;
 		
-
 	}
-
+	
+	
+	
 	
 	
 }

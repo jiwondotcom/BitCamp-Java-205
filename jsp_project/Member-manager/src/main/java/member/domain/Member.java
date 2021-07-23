@@ -1,5 +1,7 @@
 package member.domain;
 
+import java.sql.Timestamp;
+
 public class Member {
 	
 	// Beans 빈즈 형태
@@ -7,12 +9,11 @@ public class Member {
 	private String userID;
 	private String userPW;
 	private String userName;
-	private String regDate;
-	
+	private Timestamp regDate;
 	
 
 
-	public Member(int index, String userID, String userPW, String userName, String regDate) {
+	public Member(int index, String userID, String userPW, String userName, Timestamp regDate) {
 		this.index = index;
 		this.userID = userID;
 		this.userPW = userPW;
@@ -77,15 +78,30 @@ public class Member {
 
 
 
-	public String getRegDate() {
+	public Timestamp getRegDate() {
 		return regDate;
 	}
 
 
 
-	public void setRegDate(String regDate) {
+	public void setRegDate(Timestamp regDate) {
 		this.regDate = regDate;
 	}
 
 
+	
+	// 로그인 정보에 비밀번호는 노출하지 않는다.
+	public LoginInfo toLoginInfo() {
+		return new LoginInfo(this.index, this.userID, this.userName);
+	}
+	
+	
+	// index는 input type = readonly로 설정 예정
+	// 아이디, 비밀번호, 이름만 회원정보 수정이 가능하도록 설정한다.
+	public EditInfo editInfo() {
+		return new EditInfo(this.index, this.userID, this.userPW, this.userName);
+	}
+	
+	
+	
 }
