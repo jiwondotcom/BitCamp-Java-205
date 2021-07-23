@@ -7,6 +7,9 @@ public class Member {
 	private String Name;
 	
 	
+	public Member() {}
+	
+	
 	
 	public String getID() {
 		return ID;

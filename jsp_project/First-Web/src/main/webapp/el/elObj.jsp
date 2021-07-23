@@ -63,10 +63,10 @@
  	<hr> <!-- member.getID() -->
 	${member} / ${member.ID}
 	<br>
-	<%= session.getAttribute("member") %> <br>
-	<%= ((Member) session.getAttribute("member")).getID() %> <br>
 	<!-- getAttribute : 형변환이 필요하다.  -->
 	<!-- el표현이 훨씬 더 간결하고 편리하다. -->
+	<%= session.getAttribute("member") %> <br>
+	<%= ((Member) session.getAttribute("member")).getID() %> <br>
 	
 	
 </body>
