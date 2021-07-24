@@ -1,3 +1,4 @@
+<%@page import="member.util.CookieBox"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="member.domain.LoginInfo"%>
 <%@page import="member.domain.Member"%>
@@ -42,7 +43,7 @@
 		e.printStackTrace();
 	}
 	
-
+	
 }
 	
 	
