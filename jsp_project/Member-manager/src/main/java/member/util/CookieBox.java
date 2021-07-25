@@ -56,13 +56,13 @@ public class CookieBox {
 	// Cookie 객체 생성하는 메소드 : 오버로딩, static
 		// 쿠키 이름, 쿠키 값
 		public static Cookie makeCookie(String name, String value) throws UnsupportedEncodingException {
-			Cookie c = new Cookie(name, URLEncoder.encode(value, "utf-8"));
+			Cookie c = new Cookie(name, URLEncoder.encode(value, "UTF-8"));
 			return c;
 		}
 
 		// 쿠키 이름, 쿠키 값, 경로, 유지 시간
 		public static Cookie makeCookie(String name, String value, String path, int maxAge) throws UnsupportedEncodingException {
-			Cookie c = new Cookie(name, URLEncoder.encode(value, "utf-8"));
+			Cookie c = new Cookie(name, URLEncoder.encode(value, "UTF-8"));
 			c.setPath(path); //    /
 			c.setMaxAge(maxAge);
 			return c;
@@ -70,7 +70,7 @@ public class CookieBox {
 
 		// 쿠키 이름, 쿠키 값, 경로, 유지 시간, 도메인
 		public static Cookie makeCookie(String name, String value, String path, int maxAge, String domain) throws UnsupportedEncodingException {
-			Cookie c = new Cookie(name, URLEncoder.encode(value, "utf-8"));
+			Cookie c = new Cookie(name, URLEncoder.encode(value, "UTF-8"));
 			c.setPath(path); //    /
 			c.setMaxAge(maxAge);
 			c.setDomain(domain);
