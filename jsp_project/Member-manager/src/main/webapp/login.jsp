@@ -15,7 +15,7 @@
 	
 	String userID = request.getParameter("userID");
 	String userPW = request.getParameter("userPW");
-	String userName = request.getParameter("userName");
+	String reID = request.getParameter("reID");
 	
 	boolean loginChk = false;
 	
@@ -25,7 +25,6 @@
 	if(userID != null && userPW != null && userID.trim().length() > 2 && userPW.trim().length() > 3) {
 	
 	try {
-		
 		
 		conn = ConnectionProvider.getConnection();
 		dao = MemberDao.getInstance();
@@ -46,7 +45,6 @@
 	
 }
 	
-
 	
 	
 	// ID 저장을 위한 쿠키 설정
