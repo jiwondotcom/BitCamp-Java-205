@@ -24,6 +24,30 @@
 
  <%@ inlcude file = /WEB-INF/frame/header.jsp %>
  <%@ inlcude file = /WEB-INF/frame/nav.jsp %>
+ 
+ <div class = "contents">
+ 	<h2>Login</h2>
+ 	<hr>
+ 	
+ 	<form action = "login.jsp" method = "post">
+ 		<table>
+ 			<tr>
+ 				<th>아이디</th>
+ 				<td><input type = "text" name = "userID" value = "<%= reID %>"></td>
+ 			</tr>
+ 			<tr>
+ 				<th>비밀번호</th>
+ 				<td><input type = "text" name = "userPW"></td>
+ 			</tr>
+ 			<tr>
+ 				<th>ID</th>
+ 				<td><input type = "text" name = "reID" value = "on"
+ 							<%= checked %>>아이디 기억하기</td>
+ 			</tr>
+ 		</table>
+ 	</form>
+ </div>
+
 
 </body>
 </html>
