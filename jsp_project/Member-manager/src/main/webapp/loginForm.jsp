@@ -22,8 +22,8 @@
 </script>
 <body>
 
- <%@ inlcude file = /WEB-INF/frame/header.jsp %>
- <%@ inlcude file = /WEB-INF/frame/nav.jsp %>
+<%@ include file = "/WEB-INF/frame/header.jsp" %>
+<%@ include file = "/WEB-INF/frame/nav.jsp" %>
  
  <div class = "contents">
  	<h2>Login</h2>
@@ -41,8 +41,12 @@
  			</tr>
  			<tr>
  				<th>ID</th>
- 				<td><input type = "text" name = "reID" value = "on"
+ 				<td><input type = "checkbox" name = "reID" value = "on"
  							<%= checked %>>아이디 기억하기</td>
+ 			</tr>
+ 			<tr>
+ 				<th></th>
+ 				<td><input type = "submit"></td>
  			</tr>
  		</table>
  	</form>
