@@ -46,6 +46,7 @@
 	
 }
 	
+
 	
 	
 	// ID 저장을 위한 쿠키 설정
@@ -58,26 +59,16 @@
 		response.addCookie(CookieBox.makeCookie("reID", userID, "/", 0));
 	}
 	
-	
-	
-	
-	
-	
-	
+	if(loginChk) {
+		response.sendRedirect("index.jsp");
+	} else {
+		%>
+	<script>
+		alert('아이디 또는 비밀번호가 일치하지 않습니다.');
+		history.go(-1); // 이전 페이지로 이동
+	</script>	
+		<%
+	}
 	
 %>  
-    
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<style>
-</style>
-<script>
-</script>
-<body>
-
-</body>
-</html>
+  
