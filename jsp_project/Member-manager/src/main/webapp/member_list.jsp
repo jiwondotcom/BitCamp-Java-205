@@ -24,7 +24,7 @@
 	
 	// 결과데이터를 request의 속성에 저장
 	// 데이터를 공유 (전달)
-	request.setAttribute("result", dao.getMemberList(conn));
+	request.setAttribute("mList", dao.getMemberList(conn));
 	
 	} catch(SQLException e) {
 		e.printStackTrace();		

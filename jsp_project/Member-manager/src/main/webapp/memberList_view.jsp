@@ -3,16 +3,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+<%-- 
    	<% 
    		List<Member> list = (List<Member>) request.getAttribute("result");
    	%>
-   	
+--%>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>Member List</title>
-<link rel = "stylesheet" href = "<%= request.getContextPath() %>/css/default.css">
+<link rel = "stylesheet" href = "<c:url value='/css/default.css'/>">
 </head>
 <style>
 
@@ -26,8 +30,6 @@
 	}
 
 </style>
-<script>
-</script>
 <body>
 
 <%@ include file = "/WEB-INF/frame/header.jsp" %>
@@ -50,7 +52,28 @@
 			<!-- <th> : 표의 라벨링 기능 -->
 		</tr>
 	
-<%
+
+
+	<c:if test = "${mList != null}">
+		<c:forEach items = "${mList}" var = "member">
+			<tr>
+				<td>${member.index}</td>
+				<td>${member.userID}</td>
+				<td>${member.userPW}</td>
+				<td>${member.userName}</td>
+				<td>${member.regDate}</td>
+				<td>
+					<a href = "member_editForm.jsp?index=${member.index}">수정</a> |
+					<a href = "javascript:delMember('${member.index}')">삭제</a>
+			</tr>		
+		</c:forEach>
+	</c:if>
+	
+	</table>	
+	
+	
+<%--
+	<%
 	if (list != null) {
 		for(int i = 0; i < list.size(); i++) {
 			%>
@@ -68,13 +91,13 @@
 				</td>
 			</tr>
 			
-			<% 
+	<%  
 			
 		}
 	}
 
 %>
-	</table>
+--%>
 	
 </body>
 <script>

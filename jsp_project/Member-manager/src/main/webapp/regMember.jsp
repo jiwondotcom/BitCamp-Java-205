@@ -27,20 +27,7 @@
 	
 	// 1. 사용자가 입력한 데이터를 받는다.
 	// 아이디, 비밀번호, 이름, 가입일자
-/*
-	String userID = request.getParameter("userID");
-	String userPW = request.getParameter("userPW");
-	String userName = request.getParameter("userName");
-	Timestamp regDate = request.getParameter("regDate");
-	
-	SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
-    Calendar cal = Calendar.getInstance();
 
-    Date date = cal.getTime();
-    String regDate = sdf.format(date);
-    // 날짜데이터를 String타입으로 형변환
- */
-	
 	int result = 0;
 	
 	// 2. DB 처리 : 새로운 데이터 insert
@@ -74,9 +61,9 @@
 		%>
 		<script>
 			alert('error : 등록되지 않았습니다. \n 회원등록 페이지로 다시 이동합니다.');
-			location.href = "member_regForm.jsp";
-			// window.history.go(-1);
 			// 이전 페이지로 돌아간다.
+			window.history.go(-1);
+			/* location.href = "member_regForm.jsp"; */
 		</script>
 		<%
 	}

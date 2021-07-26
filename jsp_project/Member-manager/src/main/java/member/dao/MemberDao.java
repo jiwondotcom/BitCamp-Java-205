@@ -223,8 +223,6 @@ public class MemberDao {
 	
 	
 	
-	
-	
 	private Member makeMember(ResultSet rs) throws SQLException {
 
 		Member member = new Member();
