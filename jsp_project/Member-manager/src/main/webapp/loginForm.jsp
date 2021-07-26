@@ -37,7 +37,7 @@
  			</tr>
  			<tr>
  				<th>비밀번호</th>
- 				<td><input type = "text" name = "userPW"></td>
+ 				<td><input type = "password" name = "userPW"></td>
  			</tr>
  			<tr>
  				<th>ID</th>
