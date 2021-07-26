@@ -11,6 +11,7 @@ public class jdbcListener implements ServletContextListener {
 	@Override
 	public void contextDestroyed(ServletContextEvent sce) {
 		
+		System.out.println("Listener 진입");
 		
 		try {
 		ServletContext context = sce.getServletContext();

@@ -26,8 +26,6 @@
 	<filter-class>filter.LoginCheckFilter</filter-class>
 </filter>
 
-
-
 <filter-mapping>
 	<filter-name>LoginCheckFilter</filter-name>
 	<url-pattern>/member/mypage/*</url-pattern>
@@ -37,6 +35,17 @@
 	<filter-name>LoginCheckFilter</filter-name>
 	<url-pattern>/jdbc/*</url-pattern>
 </filter-mapping>
+
+
+<context-param>
+	<param-name>jdbcdriver</param-name>
+	<param-value>com.mysql.cj.jdbc.Driver</param-value>
+</context-param>
+
+
+<listener>
+	<listener-class>jdbc.util.JdbcListener</listener-class>
+</listener>
 
 
 <!-- 에러페이지 등록 -->
