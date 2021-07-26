@@ -13,6 +13,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel = "stylesheet" href = "<%= request.getContextPath() %>/css/default.css">
 </head>
 <style>
 </style>
@@ -28,7 +29,10 @@ window.onload = function() {
 </script>
 <body>
 
-	<h1>회원 정보 수정</h1>
+<%@ include file = "/WEB-INF/frame/header.jsp" %>
+<%@ include file = "/WEB-INF/frame/nav.jsp" %>
+
+	<h2>회원 정보 수정</h2>
 	<hr>
 	
 	<!-- 그리드 맞추는 용도의 테이블 생성 -->

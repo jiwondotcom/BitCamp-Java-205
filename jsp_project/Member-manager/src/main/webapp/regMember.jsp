@@ -18,9 +18,8 @@
 	
 <%
 	// 0. 사용자가 입력한 데이터의 한글 처리 (우선순위)
-	request.setCharacterEncoding("UTF-8");
+	// request.setCharacterEncoding("UTF-8");
 %>	
-	
 	<jsp:useBean id = "member" class = "member.domain.Member"/>
 	<jsp:setProperty property = "*" name = "member"/>
 <%
@@ -42,7 +41,7 @@
     // 날짜데이터를 String타입으로 형변환
  */
 	
-	int resultCnt = 0;
+	int result = 0;
 	
 	// 2. DB 처리 : 새로운 데이터 insert
 	
@@ -51,10 +50,12 @@
 	
 	// 2-2. 연결
 	Connection conn = null;
-	MemberDao dao = MemberDao.getInstance();
+	MemberDao dao = null;
 	try {
 		conn = ConnectionProvider.getConnection();
-		resultCnt = dao.insertMember(conn, member);
+		dao = MemberDao.getInstance();
+		
+		result = dao.insertMember(conn, member);
 	
 	} catch (Exception e) {
 		
@@ -62,7 +63,7 @@
 	
 	// 3. member_List.jsp 페이지로 이동 (javaScript location)
 	// int resultCnt의 값이 1이 나왔을 때 -> 페이지 이동
-	if (resultCnt > 0) {
+	if (result > 0) {
 		%>
 		<script>
 			alert('등록되었습니다.');

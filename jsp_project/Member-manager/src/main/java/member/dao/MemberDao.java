@@ -32,20 +32,27 @@ public class MemberDao {
 	// 멤버 리스트 생성-출력
 	public List<Member> getMemberList(Connection conn) throws SQLException {
 		
+		List<Member> list = null;
+
 		Statement stmt = null;
 		ResultSet rs = null;
-	
-		List<Member> list = null;
 		
 		try {
-		stmt = conn.createStatement();
-		String sql = "select * from memberinfo;";
-		rs = stmt.executeQuery(sql);
+			stmt = conn.createStatement();
+			
+			String sql = "select * from memberinfo;";
+			
+			rs = stmt.executeQuery(sql);
 		
-		list = new ArrayList<Member>();
+			list = new ArrayList<Member>();
 		
 		while(rs.next()) {
-			list.add(makeMember(rs));
+			list.add(new Member(
+								rs.getInt(1),
+								rs.getString(2),
+								rs.getString(3),
+								rs.getString(4),
+								rs.getTimestamp(5)));
 		}
 		
 		} catch (SQLException e) {
@@ -68,7 +75,7 @@ public class MemberDao {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert into memberinfo values (default, ?, ?, ?, ?)";
+		String sql = "insert into memberinfo (userID, userPW, userName) values (?, ?, ?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -76,7 +83,6 @@ public class MemberDao {
 			pstmt.setString(1, member.getUserID());
 			pstmt.setString(2, member.getUserPW());
 			pstmt.setString(3, member.getUserName());
-			pstmt.setTimestamp(4, member.getRegDate());
 			
 			resultCnt = pstmt.executeUpdate();
 			

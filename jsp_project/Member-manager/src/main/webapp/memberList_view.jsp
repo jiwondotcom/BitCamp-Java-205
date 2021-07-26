@@ -12,6 +12,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Member List</title>
+<link rel = "stylesheet" href = "<%= request.getContextPath() %>/css/default.css">
 </head>
 <style>
 
@@ -29,10 +30,14 @@
 </script>
 <body>
 
-	<h1>회원 리스트</h1>
+<%@ include file = "/WEB-INF/frame/header.jsp" %>
+<%@ include file = "/WEB-INF/frame/nav.jsp" %>
+
+
+	<h2>회원 리스트</h2>
 	<hr>
 	
-	<button onclick = "location.href = 'member_regForm.jsp';">회원 등록</button>
+	<!-- <button onclick = "location.href = 'member_regForm.jsp';">회원 등록</button> -->
 	
 	<table border = 1>
 		<tr>
@@ -41,7 +46,7 @@
 			<th>비밀번호</th>
 			<th>회원 이름</th>
 			<th>가입 날짜</th>
-			<th>관리</th>
+			<!-- <th>관리</th> -->
 			<!-- <th> : 표의 라벨링 기능 -->
 		</tr>
 	
@@ -56,11 +61,11 @@
 				<td><%= list.get(i).getUserPW() %></td>
 				<td><%= list.get(i).getUserName() %></td>
 				<td><%= list.get(i).getRegDate() %></td>
-				<td>
+				<%-- <td>
 					<a href = "member_editForm.jsp?index=<%=list.get(i).getIndex()%>">수정</a> |
 					<a href = "javascript:delMember(<%=list.get(i).getIndex()%>)">삭제</a>
 					<!-- 자바스크립트 함수 호출 -->
-				</td>
+				</td> --%>
 			</tr>
 			
 			<% 
