@@ -13,7 +13,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>마이페이지 : 내정보 수정</title>
 <link rel = "stylesheet" href = "<c:url value='/css/default.css'/>">
 </head>
 <style>
@@ -70,7 +70,7 @@ window.onload = function() {
 			<td>
 				<input type = "submit" value = "수정">
 				<input type = "reset" value = "초기화">
-				<input type = "button" value = "이전으로" onclick = "location.href='member_list.jsp';">
+				<input type = "button" value = "이전으로" onclick = "location.href='mypage.jsp';">
 			</td>
 		</tr>
 		

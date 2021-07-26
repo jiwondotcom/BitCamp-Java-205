@@ -58,6 +58,11 @@
 	}
 	
 	if(loginChk) {
+		%>
+		<script>
+			alert('로그인 완료!');
+		</script>
+		<%
 		response.sendRedirect("index.jsp");
 	} else {
 		%>

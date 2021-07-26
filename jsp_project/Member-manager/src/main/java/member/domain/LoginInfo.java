@@ -24,7 +24,7 @@ public class LoginInfo {
 		this.userName = userName;
 	}
 	
-	
+
 	@Override
 	public String toString() {
 		return "회원 번호 : " + index +

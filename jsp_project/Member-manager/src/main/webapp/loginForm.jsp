@@ -15,7 +15,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Insert title here</title>
+<title>로그인 페이지</title>
 <link rel = "stylesheet" href = "<c:url value='/css/default.css'/>">
 </head>
 <style>
