@@ -3,7 +3,7 @@
 
 <%
 	session.setAttribute("userName", request.getParameter("userID"));
-	response.sendRedirect("/member/mypage/myPage.jsp");
 
-
+	//					/web/member/mypage/myPage.jsp
+	response.sendRedirect(request.getContextPath() + "/member/mypage/myPage.jsp");
 %>

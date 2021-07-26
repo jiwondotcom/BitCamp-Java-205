@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,10 +15,11 @@
 </script>
 <body>
 
+
 	<h1>LoginForm</h1>
-	<hr>
+	<hr> 
 	
-	<form action = "Login.jsp"> <!-- /web/member/mypage/mypage.jsp -->
+	<form action = "<c:url value = "/member/Login.jsp"/>"> <!-- /web/member/mypage/mypage.jsp -->
 		<table>
 			<tr>
 				<td>아이디</td>

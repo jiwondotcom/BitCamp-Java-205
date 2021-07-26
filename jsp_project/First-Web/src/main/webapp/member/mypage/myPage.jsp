@@ -12,7 +12,9 @@
 </script>
 <body>
 
-	<h1></h1>
+	<h1>
+		${userName}
+	</h1>
 
 </body>
 </html>
