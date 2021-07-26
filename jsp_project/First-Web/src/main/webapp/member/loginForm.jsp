@@ -15,7 +15,7 @@
 	<h1>LoginForm</h1>
 	<hr>
 	
-	<form action = "">
+	<form action = "Login.jsp"> <!-- /web/member/mypage/mypage.jsp -->
 		<table>
 			<tr>
 				<td>아이디</td>

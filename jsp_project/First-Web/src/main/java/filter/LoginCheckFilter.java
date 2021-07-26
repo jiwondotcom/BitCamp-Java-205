@@ -39,7 +39,7 @@ public class LoginCheckFilter implements Filter {
 			chain.doFilter(request, response);
 			// 다음 필터를 실행, 현재 필터가 마지막 필터이면 실제 요청을 처리한다.
 		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("");
+			RequestDispatcher dispatcher = request.getRequestDispatcher("/memebr/loginForm.jsp");
 			dispatcher.forward(request, response);
 		}
 		
