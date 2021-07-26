@@ -12,12 +12,25 @@
 <link rel = "stylesheet" href = "<c:url value='/css/default.css'/>">
 </head>
 <style>
+
+.allWrap {
+		padding : 10px 20px;
+}
+	
+#btn {
+	margin-top : 8px;
+	margin-right : 5px;
+	padding : 5px;
+}
+
 </style>
 <body>
 
 <%@ include file = "/WEB-INF/frame/header.jsp" %>
 <%@ include file = "/WEB-INF/frame/nav.jsp" %>
 
+
+<div class = "allWrap">
 	<h2>회원 정보 등록</h2>
 	<hr>
 	
@@ -40,13 +53,13 @@
 		<tr>
 			<td></td>
 			<td>
-				<input type = "submit" value = "등록">
-				<input type = "reset" value = "초기화">
-				<input type = "button" value = "이전으로" onclick = "location.href = 'member_list.jsp';">
+				<input type = "submit" value = "등록" id = "btn">
+				<input type = "reset" value = "초기화" id = "btn">
+				<input type = "button" value = "이전으로" onclick = "location.href = 'index.jsp';" id = "btn">
 			</td>
 		</tr>
 	</table>
 	</form>
-
+</div>
 </body>
 </html>

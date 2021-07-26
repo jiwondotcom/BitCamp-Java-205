@@ -102,6 +102,4 @@ public class Member {
 		return new EditInfo(this.index, this.userID, this.userPW, this.userName);
 	}
 	
-	
-	
 }

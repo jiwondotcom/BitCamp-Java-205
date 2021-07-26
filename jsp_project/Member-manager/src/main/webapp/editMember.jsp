@@ -60,7 +60,7 @@
 		%>
 		<script>
 			alert('수정되었습니다.');
-			location.href = "member_list.jsp";
+			location.href = "mypage.jsp";
 		</script>
 		<%
 	} else {

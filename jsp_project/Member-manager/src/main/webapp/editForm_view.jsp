@@ -17,6 +17,11 @@
 <link rel = "stylesheet" href = "<c:url value='/css/default.css'/>">
 </head>
 <style>
+
+	.allWrap {
+		padding : 10px 20px;
+	}
+	
 </style>
 <script type="text/javascript">
 window.onload = function() {
@@ -33,6 +38,7 @@ window.onload = function() {
 <%@ include file = "/WEB-INF/frame/header.jsp" %>
 <%@ include file = "/WEB-INF/frame/nav.jsp" %>
 
+<div class = "allWrap">
 	<h2>회원 정보 수정</h2>
 	<hr>
 	
@@ -73,6 +79,6 @@ window.onload = function() {
 		
 	</form>
 
-
+</div>
 </body>
 </html>

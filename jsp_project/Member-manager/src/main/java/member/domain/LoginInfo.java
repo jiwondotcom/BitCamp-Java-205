@@ -25,13 +25,12 @@ public class LoginInfo {
 	}
 	
 	
-	
 	@Override
 	public String toString() {
-		return "LoginInfo [index=" + index + ", userID=" + userID + ", userName=" + userName + "]";
+		return "회원 번호 : " + index +
+				" / 회원 아이디 : " + userID +
+				" / 회원 이름 : " + userName;
 	}
-	
-	
 	
 
 }

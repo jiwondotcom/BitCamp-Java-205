@@ -9,7 +9,6 @@
 <%
 	
 	LoginInfo loginInfo = (LoginInfo) session.getAttribute("loginInfo");
-	List<Member> list = (List<Member>) request.getAttribute("mList");
 	
 	if(loginInfo == null) {
 		%>
@@ -30,9 +29,16 @@
 </head>
 <style>
 	
-	.allWrap {
+.allWrap {
 		padding : 10px 20px;
-	}
+}
+	
+#btn {
+	margin-top : 8px;
+	margin-right : 5px;
+	padding : 5px;
+}
+	
 	
 </style>
 <body>
@@ -47,7 +53,9 @@
 		<hr>
 		<h3><c:out value = "${loginInfo}"/></h3>
 		<%-- <%= loginInfo %> --%>
-		<button onclick = "location.href = 'member_editForm.jsp?index=${member.index}';">내정보 수정</button>
+		
+		<button onclick = "location.href = 'member_editForm.jsp?index=${loginInfo.index}';" id = "btn">내정보 수정</button>
+		<button onclick = "javascript:delMember('${loginInfo.index}');" id = "btn">회원 탈퇴</button>
 	</div>
 	
 </div>
