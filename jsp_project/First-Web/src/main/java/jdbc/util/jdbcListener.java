@@ -21,14 +21,13 @@ public class jdbcListener implements ServletContextListener {
 			String jdbcDriver = tokenizer.nextToken();
 			// 드라이버 로드
 			Class.forName(jdbcDriver);
+			System.out.println("드라이버 로드 성공!");
 		}
 		} catch(Exception e) {
-			
+			e.printStackTrace();
 		}
 	}
 
-	
-	
 	
 	
 	@Override
