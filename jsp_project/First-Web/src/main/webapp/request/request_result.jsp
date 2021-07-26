@@ -6,6 +6,8 @@
 
 	// 사용자가 전달한 데이터의 한글 인코딩 처리
 	// request.setCharacterEncoding("UTF-8");
+
+	// CharacterEncodingFilter.java로 처리
 	
 	String userName = request.getParameter("userName");
 	String job = request.getParameter("job");
