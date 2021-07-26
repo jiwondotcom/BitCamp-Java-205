@@ -41,9 +41,7 @@
 		<script>
 			alert('탈퇴 처리되었습니다.');
 			location.href = "index.jsp";
-			<%
-			session.invalidate();
-			%>
+			<% session.invalidate(); %>
 		</script>
 		<%
 	} else {
