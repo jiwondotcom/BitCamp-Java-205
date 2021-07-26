@@ -46,7 +46,7 @@
 			<th>비밀번호</th>
 			<th>회원 이름</th>
 			<th>가입 날짜</th>
-			<!-- <th>관리</th> -->
+			<th>관리</th>
 			<!-- <th> : 표의 라벨링 기능 -->
 		</tr>
 	
@@ -61,11 +61,11 @@
 				<td><%= list.get(i).getUserPW() %></td>
 				<td><%= list.get(i).getUserName() %></td>
 				<td><%= list.get(i).getRegDate() %></td>
-				<%-- <td>
+				<td>
 					<a href = "member_editForm.jsp?index=<%=list.get(i).getIndex()%>">수정</a> |
 					<a href = "javascript:delMember(<%=list.get(i).getIndex()%>)">삭제</a>
 					<!-- 자바스크립트 함수 호출 -->
-				</td> --%>
+				</td>
 			</tr>
 			
 			<% 

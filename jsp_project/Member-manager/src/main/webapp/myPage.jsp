@@ -1,6 +1,7 @@
 <%@page import="member.domain.LoginInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
     
 <%
 	
@@ -31,12 +32,9 @@
 <div>
 	<h2>My Page</h2>
 	<hr>
-	<h3>
-		<%= loginInfo %>
-	</h3>
+	<h3><c:out value = "${loginInfo}"/></h3>
+	<%-- <%= loginInfo %> --%>
 </div>
-
-<input type = "button" value = "내정보 수정" href = "member_editForm.jsp?index=<%=list.get(i).getIndex()%>">>
 
 </body>
 </html>
