@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="member.domain.Member"%>
 <%@page import="member.domain.LoginInfo"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -7,7 +9,8 @@
 <%
 	
 	LoginInfo loginInfo = (LoginInfo) session.getAttribute("loginInfo");
-
+	List<Member> list = (List<Member>) request.getAttribute("mList");
+	
 	if(loginInfo == null) {
 		%>
 		<script>
@@ -44,7 +47,9 @@
 		<hr>
 		<h3><c:out value = "${loginInfo}"/></h3>
 		<%-- <%= loginInfo %> --%>
+		<button onclick = "location.href = 'member_editForm.jsp?index=${member.index}';">내정보 수정</button>
 	</div>
+	
 </div>
 </body>
 </html>

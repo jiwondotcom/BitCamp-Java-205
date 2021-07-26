@@ -40,7 +40,7 @@
  		<table>
  			<tr>
  				<th>아이디</th>
- 				<td><input type = "text" name = "userID" value = "<%= reID %>"></td>
+ 				<td><input type = "text" name = "userID" value = "${cookie.reID.value}"></td>
  			</tr>
  			<tr>
  				<th>비밀번호</th>
