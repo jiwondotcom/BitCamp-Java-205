@@ -55,16 +55,16 @@
 		<%-- <%= loginInfo %> --%>
 		
 		<button onclick = "location.href = 'member_editForm.jsp?index=${loginInfo.index}';" id = "btn">내정보 수정</button>
-		<button onclick = "javascript:delMember('${loginInfo.index}');" id = "btn">회원 탈퇴</button>
+		<input type = "button" onclick = "javascript:delMember('${loginInfo.index}');" id = "btn" value = "회원 탈퇴">
 	</div>
 	
 </div>
 </body>
 <script>
 
-	function delMember(loginInfo.index) {
-		if (confirm ('정말 삭제하시겠습니까?')) {
-			location.href = 'member_deleteForm.jsp?index=' + loginInfo.index;
+	function delMember(index) {
+		if (confirm ('정말 탈퇴하시겠습니까?')) {
+			location.href = 'member_deleteForm.jsp?index=' + index;
 	}
 }
 

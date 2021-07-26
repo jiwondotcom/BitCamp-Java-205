@@ -39,15 +39,18 @@
     	if (resultCnt > 0) {
     %>
 		<script>
-			alert('삭제되었습니다.');
-			location.href = "member_list.jsp";
+			alert('탈퇴 처리되었습니다.');
+			location.href = "index.jsp";
+			<%
+			session.invalidate();
+			%>
 		</script>
 		<%
 	} else {
 		%>
 		<script>
 			alert('해당 데이터를 찾지 못했습니다.');
-			location.href = "member_list.jsp";
+			location.href = "mypage.jsp";
 		</script>
 		<%
 	}
