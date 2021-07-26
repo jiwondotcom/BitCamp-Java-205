@@ -14,6 +14,7 @@ header {
 nav>ul {
 	overflow : hidden;
 	margin : 10px;
+	list-style : none;
 	border-top : 2px solid #AAA;
 	border-bottom : 2px solid #AAA;
 }

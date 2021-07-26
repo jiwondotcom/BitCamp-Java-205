@@ -36,6 +36,8 @@
 	</h3>
 </div>
 
+<input type = "button" onclick = "member_editForm.jsp?index=list.get(i).getIndex();" value = "내정보 수정">
+
 </body>
 </html>
 	<% 

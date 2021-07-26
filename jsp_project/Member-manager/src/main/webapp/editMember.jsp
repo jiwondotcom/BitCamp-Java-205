@@ -17,7 +17,7 @@
 	// 2. DB 처리 : 새로운 데이터 edit(수정)
 	// 3. member_list.jsp 페이지로 이동
 	
-	Member mb = new Member();
+	Member member = new Member();
 	
 	// 0. 사용자가 입력한 데이터의 한글 처리 (우선)
 	request.setCharacterEncoding("UTF-8");
