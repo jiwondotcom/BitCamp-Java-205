@@ -38,8 +38,11 @@ public class LoginCheckFilter implements Filter {
 			// 현재 로그인 상태 (if문)
 			chain.doFilter(request, response);
 			// 다음 필터를 실행, 현재 필터가 마지막 필터이면 실제 요청을 처리한다.
-		} else {
-			RequestDispatcher dispatcher = request.getRequestDispatcher("/memebr/loginForm.jsp");
+		} else { // 특정 페이지로 forwarding(view 페이지)
+		
+			String viewPage = "member/loginForm.jsp";
+			
+			RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 			dispatcher.forward(request, response);
 		}
 		
