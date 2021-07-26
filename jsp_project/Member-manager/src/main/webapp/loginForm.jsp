@@ -2,6 +2,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+    
 <% 
 	CookieBox cBox = new CookieBox(request);
 
@@ -17,6 +19,11 @@
 <link rel = "stylesheet" href = "<c:url value='/css/default.css'/>">
 </head>
 <style>
+
+#btn {
+	padding : 5px;
+}
+
 </style>
 <script>
 </script>
@@ -40,13 +47,13 @@
  				<td><input type = "password" name = "userPW"></td>
  			</tr>
  			<tr>
- 				<th>ID</th>
+ 				<th></th>
  				<td><input type = "checkbox" name = "reID" value = "on"
- 							<%= checked %>>아이디 기억하기</td>
+ 							<%= checked %>> 아이디 기억하기</td>
  			</tr>
  			<tr>
  				<th></th>
- 				<td><input type = "submit"></td>
+ 				<td><input type = "submit" id = "btn" value = "로그인"></td>
  			</tr>
  		</table>
  	</form>

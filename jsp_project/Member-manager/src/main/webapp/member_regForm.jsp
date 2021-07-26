@@ -1,5 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,16 +13,6 @@
 </head>
 <style>
 </style>
-<script type="text/javascript">
-	window.onload = function() {
-		today = new Date();
-		console.log("today.toISOString() >>>" + today.toISOString());
-		today = today.toISOString().slice(0, 10);
-		console.log("today >>>> " + today);
-		bir = document.getElementById("today");
-		bir.value = today;
-	}
-</script>
 <body>
 
 <%@ include file = "/WEB-INF/frame/header.jsp" %>

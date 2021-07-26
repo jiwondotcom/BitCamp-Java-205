@@ -20,13 +20,17 @@
 </head>
 <style>
 
+	.allWrap {
+		padding : 10px 20px;
+	}
+	
 	td, th {
-	text-align : center;
-	padding : 5px 10px;
+		text-align : center;
+		padding : 5px 10px;
 	}
 
 	button {
-	margin-bottom : 15px;
+		margin-bottom : 15px;
 	}
 
 </style>
@@ -35,7 +39,7 @@
 <%@ include file = "/WEB-INF/frame/header.jsp" %>
 <%@ include file = "/WEB-INF/frame/nav.jsp" %>
 
-
+<div class = "allWrap">
 	<h2>회원 리스트</h2>
 	<hr>
 	
@@ -70,7 +74,7 @@
 	</c:if>
 	
 	</table>	
-	
+</div>	
 	
 <%--
 	<%

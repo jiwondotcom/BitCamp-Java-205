@@ -25,18 +25,27 @@
 <title>Insert title here</title>
 <link rel = "stylesheet" href = "<c:url value='/css/default.css'/>">
 </head>
+<style>
+	
+	.allWrap {
+		padding : 10px 20px;
+	}
+	
+</style>
 <body>
 
 <%@ include file = "WEB-INF/frame/header.jsp" %>
 <%@ include file = "WEB-INF/frame/nav.jsp" %>
 
-<div>
-	<h2>My Page</h2>
-	<hr>
-	<h3><c:out value = "${loginInfo}"/></h3>
-	<%-- <%= loginInfo %> --%>
-</div>
+<div class = "allWrap"> 
 
+	<div>
+		<h2>My Page</h2>
+		<hr>
+		<h3><c:out value = "${loginInfo}"/></h3>
+		<%-- <%= loginInfo %> --%>
+	</div>
+</div>
 </body>
 </html>
 	<% 
