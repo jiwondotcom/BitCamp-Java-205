@@ -19,6 +19,6 @@
 			<li><a href = "<%= request.getContextPath() %>/member_list.jsp">회원리스트</a></li>
 		<%
 			} 			%>
-			<li><a href = "<%= request.getContextPath() %>/myPage.jsp">MyPage</a></li>
+			<li><a href = "<%= request.getContextPath() %>/mypage/mypage.jsp">MyPage</a></li>
 		</ul>
 	</nav>

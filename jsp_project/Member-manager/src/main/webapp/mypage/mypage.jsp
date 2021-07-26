@@ -34,8 +34,8 @@
 </style>
 <body>
 
-<%@ include file = "WEB-INF/frame/header.jsp" %>
-<%@ include file = "WEB-INF/frame/nav.jsp" %>
+<%@ include file = "/WEB-INF/frame/header.jsp" %>
+<%@ include file = "/WEB-INF/frame/nav.jsp" %>
 
 <div class = "allWrap"> 
 
