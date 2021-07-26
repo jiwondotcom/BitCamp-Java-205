@@ -60,6 +60,15 @@
 	
 </div>
 </body>
+<script>
+
+	function delMember(loginInfo.index) {
+		if (confirm ('정말 삭제하시겠습니까?')) {
+			location.href = 'member_deleteForm.jsp?index=' + loginInfo.index;
+	}
+}
+
+</script>
 </html>
 	<% 
 	}
