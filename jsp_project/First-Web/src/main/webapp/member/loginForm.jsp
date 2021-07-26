@@ -19,7 +19,7 @@
 	<h1>LoginForm</h1>
 	<hr> 
 	
-	<form action = "<c:url value = "/member/Login.jsp"/>"> <!-- /web/member/mypage/mypage.jsp -->
+	<form action = "<c:url value = "/member/login.jsp"/>"> <!-- /web/member/mypage/mypage.jsp -->
 		<table>
 			<tr>
 				<td>아이디</td>

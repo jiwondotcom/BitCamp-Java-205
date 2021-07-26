@@ -32,6 +32,10 @@
 	<url-pattern>/member/mypage/*</url-pattern>
 </filter-mapping>
 
+<filter-mapping>
+	<filter-name>LoginCheckFilter</filter-name>
+	<url-pattern>/jdbc/*</url-pattern>
+</filter-mapping>
 
 
 <!-- 에러페이지 등록 -->
