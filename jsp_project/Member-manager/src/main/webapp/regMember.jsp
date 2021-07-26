@@ -1,3 +1,4 @@
+<%@page import="java.sql.Timestamp"%>
 <%@page import="member.util.ConnectionProvider"%>
 <%@page import="member.domain.Member"%>
 <%@page import="member.dao.MemberDao"%>
@@ -9,26 +10,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
-    
-<%
-
-/*
+	<!--
 	1. 사용자가 입력한 데이터를 받고 -> 처리 -> 결과를 속성에 저장 -> view 지정
 	2. DB 처리 : 새로운 데이터 insert
 	3. member_List.jsp 페이지로 이동 (javaScript location)
-*/
+	-->
 	
-
+<%
 	// 0. 사용자가 입력한 데이터의 한글 처리 (우선순위)
 	request.setCharacterEncoding("UTF-8");
+%>	
 	
+	<jsp:useBean id = "member" class = "member.domain.Member"/>
+	<jsp:setProperty property = "*" name = "member"/>
+<%
 	
 	
 	// 1. 사용자가 입력한 데이터를 받는다.
 	// 아이디, 비밀번호, 이름, 가입일자
+/*
 	String userID = request.getParameter("userID");
 	String userPW = request.getParameter("userPW");
 	String userName = request.getParameter("userName");
+	Timestamp regDate = request.getParameter("regDate");
 	
 	SimpleDateFormat sdf = new SimpleDateFormat ("yyyy-MM-dd hh:mm:ss");
     Calendar cal = Calendar.getInstance();
@@ -36,7 +40,7 @@
     Date date = cal.getTime();
     String regDate = sdf.format(date);
     // 날짜데이터를 String타입으로 형변환
-
+ */
 	
 	int resultCnt = 0;
 	
@@ -50,7 +54,7 @@
 	MemberDao dao = MemberDao.getInstance();
 	try {
 		conn = ConnectionProvider.getConnection();
-		resultCnt = dao.insertMember(conn, new Member(1, userID, userPW, userName, regDate));
+		resultCnt = dao.insertMember(conn, member);
 	
 	} catch (Exception e) {
 		

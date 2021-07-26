@@ -27,7 +27,6 @@
 	String userID = request.getParameter("userID");
 	String userPW = request.getParameter("userPW");
 	String userName = request.getParameter("userName");
-/* 	String regDate = request.getParameter("regDate"); */
 
 	int resultCnt = 0;
 	
