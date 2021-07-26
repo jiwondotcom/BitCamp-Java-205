@@ -60,10 +60,11 @@
 	if(loginChk) {
 		%>
 		<script>
-			alert('로그인 완료!');
+			alert('로그인 완료');
+			location.href = "index.jsp";
 		</script>
 		<%
-		response.sendRedirect("index.jsp");
+		/* response.sendRedirect("index.jsp"); */
 	} else {
 		%>
 		<script>
