@@ -44,7 +44,7 @@
  			</tr>
  			<tr>
  				<th>비밀번호</th>
- 				<td><input type = "password" name = "userPW"></td>
+ 				<td><input type = "password" name = "userPW" minlength = '4'></td>
  			</tr>
  			<tr>
  				<th></th>

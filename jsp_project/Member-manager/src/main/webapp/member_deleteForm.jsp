@@ -1,3 +1,4 @@
+<%@page import="member.domain.LoginInfo"%>
 <%@page import="member.util.ConnectionProvider"%>
 <%@page import="member.util.JdbcUtil"%>
 <%@page import="java.sql.SQLException"%>
@@ -9,6 +10,7 @@
 
     
 <%
+		LoginInfo loginInfo = (LoginInfo) session.getAttribute("loginInfo");
     // 사용자가 전달하는 회원번호 받기 -> 실행 -> 결과
     	String index = request.getParameter("index");
     	
@@ -36,12 +38,12 @@
     		JdbcUtil.close(conn);
     	}
 
-    	if (resultCnt > 0) {
+    	if (resultCnt > 0 && index != "${'loginInfo.index'}") {
     %>
 		<script>
 			alert('탈퇴 처리되었습니다.');
-			location.href = "index.jsp";
 			<% session.invalidate(); %>
+			location.href = "index.jsp";
 		</script>
 		<%
 	} else {

@@ -60,7 +60,7 @@
 	} else {
 		%>
 		<script>
-			alert('error : 등록되지 않았습니다. \n 회원등록 페이지로 다시 이동합니다.');
+			alert('error : 등록되지 않았습니다. \n회원등록 페이지로 다시 이동합니다.');
 			// 이전 페이지로 돌아간다.
 			window.history.go(-1);
 			/* location.href = "member_regForm.jsp"; */

@@ -52,7 +52,7 @@
 			<th>비밀번호</th>
 			<th>회원 이름</th>
 			<th>가입 날짜</th>
-			<th>관리</th>
+			<!-- <th>관리</th> -->
 			<!-- <th> : 표의 라벨링 기능 -->
 		</tr>
 	
@@ -66,9 +66,10 @@
 				<td>${member.userPW}</td>
 				<td>${member.userName}</td>
 				<td>${member.regDate}</td>
-				<td>
+			<%-- <td>
 					<a href = "member_editForm.jsp?index=${member.index}">수정</a> |
 					<a href = "javascript:delMember('${member.index}')">삭제</a>
+				 </td> --%>
 			</tr>		
 		</c:forEach>
 	</c:if>

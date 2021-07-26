@@ -26,7 +26,7 @@
 
 <filter-mapping>
 	<filter-name>LoginCheckFilter</filter-name>
-	<url-pattern>/member/mypage/*</url-pattern>
+	<url-pattern>/member/mypage.jsp</url-pattern>
 </filter-mapping>
 
 

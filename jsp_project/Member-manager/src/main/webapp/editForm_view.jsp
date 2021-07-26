@@ -57,7 +57,7 @@ window.onload = function() {
 		</tr>
 		<tr>
 			<td>비밀번호</td>
-			<td><input type="password" name="userPW" value = "<%= member.getUserPW() %>"></td>
+			<td><input type="password" name="userPW" value = "<%= member.getUserPW() %>" minlength = '4'></td>
 		</tr>
 		<tr>
 			<td>이름</td>
