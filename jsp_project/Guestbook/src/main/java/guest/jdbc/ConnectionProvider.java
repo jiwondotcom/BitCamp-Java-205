@@ -8,14 +8,14 @@ public class ConnectionProvider {
 	
 	public static Connection getConnection() throws SQLException {
 		
-		String jdbcUrl = "";
-		String user = "";
-		String pw = "";
+		String jdbcUrl = "jdbc:mysql://localhost:3306/project?serverTimezone=UTC";
+		String user = "bit";
+		String pw = "bit";
 
 		Connection conn = null;
 		conn = DriverManager.getConnection(jdbcUrl, user, pw);
 		
-		
+		return conn;
 		
 	}
 
