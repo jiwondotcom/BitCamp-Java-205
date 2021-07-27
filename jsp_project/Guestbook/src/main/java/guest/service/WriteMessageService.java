@@ -11,6 +11,15 @@ import guest.jdbc.JdbcUtil;
 
 public class WriteMessageService {
 
+	// 싱글톤 처리
+	private WriteMessageService() {}
+	
+	private static WriteMessageService service = new WriteMessageService();
+	
+	public static WriteMessageService getInstance() {
+		reutrn service;
+	}
+	
 	// 메시지를 DB에 쓰고 처리된 결과 생성 -> 반환
 	public int writeMessage(MessageRequest requestMessage) {
 		
@@ -22,7 +31,7 @@ public class WriteMessageService {
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			dao = new MessageDao();
+			dao = MessageDao.getInstance() //new MessageDao();
 			conn.setAutoCommit(false);
 			// AutoCommit의 기본값은 ture -> 자동 commit
 			// 프로그래머가 Java JDBC에서 트랜젝션을 컨트롤 -> conn.setAutoCommit(false);
