@@ -33,7 +33,7 @@
 			</tr>	
 			<tr>
 				<td></td>
-				<td><input type = "submit" value = "제출"></td>
+				<td><input type = "submit" value = "방명록 등록"></td>
 			</tr>
 		</table>
 	</form>
