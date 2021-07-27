@@ -8,5 +8,7 @@ regdate timestamp default current_timestamp
 );
 
 -- selelct
-select * from project.guestbook_message limit 0, 3;
--- limit n, m : n번째부터 m개 (index, count 기능)
+-- 가장 최근 게시물 순차대로 나열
+select * from project.guestbook_message order by regdate desc;
+-- limit n, m : n번째부터 m개 (index, count 기능 - 페이징 처리)
+select * from project.guestbook_message order by regdate desc limit 0, 3;
