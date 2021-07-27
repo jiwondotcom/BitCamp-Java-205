@@ -12,5 +12,8 @@
 </script>
 <body>
 
+	<h3>${msg}</h3>
+	<a href = "list.jsp">리스트 보기</a>
+
 </body>
 </html>
