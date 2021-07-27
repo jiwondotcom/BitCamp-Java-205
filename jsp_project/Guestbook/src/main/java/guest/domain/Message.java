@@ -17,7 +17,6 @@ public class Message {
 	// default 생성자
 	public Message() {}
 
-
 	
 	public Message(int messageID, String guestName, String password, String message, Timestamp regDate) {
 		this.messageID = messageID;

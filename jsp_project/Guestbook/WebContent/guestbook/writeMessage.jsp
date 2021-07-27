@@ -11,6 +11,7 @@
 <jsp:setProperty property = "*" name = "messageRequest"/>
 
 <%
+
 	int result = WriteMessageService.getInstance().writeMessage(messageRequest);
 
 	request.setAttribute("result", result);

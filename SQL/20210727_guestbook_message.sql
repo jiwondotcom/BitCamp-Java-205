@@ -2,7 +2,7 @@
 create table project.guestbook_message (
 messageID int not null auto_increment primary key,
 guestName varchar(20) not null,
-password varchar(20) not null,
+password varchar(guestbook_message20) not null,
 message text not null,
 regDate timestamp default current_timestamp
 );
@@ -23,10 +23,13 @@ set guestName='goo', password='0000', message='bark!'
 where messageID=1;
 
 -- delete
-delete from project.guestbook_message where messageID=1;
+delete from project.guestbook_message where messageID=10;
 
 -- 테이블 삭제
 drop table project.guestbook_message;
 
 -- 전체 게시물의 개수
 select count(*) from project.guestbook_message;
+
+-- messageID로 게시물 검색
+select * from project.guestbook_message where messageID = 1;

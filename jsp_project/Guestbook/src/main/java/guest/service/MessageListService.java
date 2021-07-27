@@ -48,6 +48,16 @@ public class MessageListService {
 			
 			/* select * from project.guestbook_message order by regDate desc limit 0, 3; */
 			messageList = dao.selectMessageList(conn, firstRow, messageCountPerPage);
+			System.out.println("message List : " + messageList);
+			
+			
+			listView = new MessageListView(
+					messageList, 
+					totalMessageCount, 
+					pageNumber, 
+					messageCountPerPage, 
+					firstRow, 
+					0);
 			
 			
 		} catch (SQLException e) {

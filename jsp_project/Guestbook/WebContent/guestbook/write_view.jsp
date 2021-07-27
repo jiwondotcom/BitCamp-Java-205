@@ -20,8 +20,7 @@
 		<c:if test="${result eq 1 }">방명록이 작성되었습니다.</c:if>
 	</h1>
 	
-	<a href = "list_view.jsp">리스트 보기</a>
-	
+	<a href = "list.jsp">리스트 보기</a>
 	
 </body>
 </html>
