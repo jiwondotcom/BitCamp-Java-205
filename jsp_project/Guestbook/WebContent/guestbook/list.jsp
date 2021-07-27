@@ -28,7 +28,7 @@
 			<tr>
 				<td>메시지</td>
 				<td>
-					<textarea name = "mesage" rows = "10" cols = "10" required></textarea>
+					<textarea name = "message" rows = "10" cols = "30" required></textarea>
 				</td>
 			</tr>	
 			<tr>
