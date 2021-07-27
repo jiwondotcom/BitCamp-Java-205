@@ -2,13 +2,15 @@ package guest.dao;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 import guest.domain.Message;
 import guest.domain.MessageRequest;
+import guest.jdbc.JdbcUtil;
 
 public class MessageDao {
 
-	public int writeMessage(Connection conn, MessageRequest requestMessage) {
+	public int writeMessage(Connection conn, Message message) throws SQLException {
 		
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
@@ -18,14 +20,15 @@ public class MessageDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, Message.getGuestName());
+			pstmt.setString(1, message.getGuestName());
 			pstmt.setString(2, message.getPassword());
 			pstmt.setString(3, message.getMessage());
 			
 			resultCnt = pstmt.executeUpdate();
 		
 		} finally {
-			// close 처리 예정
+			// close 처리
+			JdbcUtil.close(pstmt);
 		}
 		
 		return 0;
