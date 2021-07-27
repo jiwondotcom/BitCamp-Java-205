@@ -35,6 +35,7 @@
 				<td><input type = "submit" value = "방명록 등록"></td>
 			</tr>
 		</table>
+		
 	</form>
 </div>	
 	
