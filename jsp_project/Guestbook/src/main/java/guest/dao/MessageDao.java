@@ -42,7 +42,7 @@ public class MessageDao {
 			JdbcUtil.close(pstmt);
 		}
 		
-		return 0;
+		return resultCnt;
 	}
 
 	

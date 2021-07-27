@@ -17,4 +17,4 @@
 
 %>
 
-<jsp:forword page = "write_view.jsp"/>
+<jsp:forward page = "write_view.jsp"/>
