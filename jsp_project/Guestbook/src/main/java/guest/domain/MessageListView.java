@@ -34,7 +34,7 @@ public class MessageListView {
 			// (전체 게시물 개수) / (한페이지에 표현할 메시지의 개수)
 			// ex. (전체 게시물 10개) / (한페이지에 3개씩 표현) = 총 페이지 개수는 3 = pageTotalCount
 			this.pageTotalCount = this.messageTotalCount /  this.messageCountPerPage;
-			if (this.messageTotalCount / this.messageCountPerpage > 0) {
+			if (this.messageTotalCount / this.messageCountPerPage > 0) {
 				this.pageTotalCount++;
 			}
 		

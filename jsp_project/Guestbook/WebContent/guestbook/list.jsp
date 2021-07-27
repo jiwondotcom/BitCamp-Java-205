@@ -24,7 +24,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<style>
+<style> 
 </style>
 <script>
 </script>
