@@ -17,7 +17,7 @@ public class WriteMessageService {
 	private static WriteMessageService service = new WriteMessageService();
 	
 	public static WriteMessageService getInstance() {
-		reutrn service;
+		return service;
 	}
 	
 	// 메시지를 DB에 쓰고 처리된 결과 생성 -> 반환
