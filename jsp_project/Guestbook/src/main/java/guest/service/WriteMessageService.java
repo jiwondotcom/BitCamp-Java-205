@@ -31,7 +31,7 @@ public class WriteMessageService {
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			dao = MessageDao.getInstance() //new MessageDao();
+			dao = MessageDao.getInstance(); //new MessageDao();
 			conn.setAutoCommit(false);
 			// AutoCommit의 기본값은 ture -> 자동 commit
 			// 프로그래머가 Java JDBC에서 트랜젝션을 컨트롤 -> conn.setAutoCommit(false);
@@ -41,7 +41,7 @@ public class WriteMessageService {
 			// ......(처리)
 		
 			
-			resultCnt = dao.writeMessage(conn, requestMessage);
+			resultCnt = dao.writeMessage(conn, message);
 					
 			// 트랜젝션 완료
 			conn.commit();
