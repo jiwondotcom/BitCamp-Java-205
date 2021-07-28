@@ -17,11 +17,9 @@ public class LoginInfo {
 	public String getUserName() {
 		return userName;
 	}
-
 	public String getUserPhoto() {
 		return userPhoto;
 	}
-	
 	
 	
 	

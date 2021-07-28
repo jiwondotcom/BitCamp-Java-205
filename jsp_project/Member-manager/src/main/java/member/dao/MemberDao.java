@@ -52,7 +52,8 @@ public class MemberDao {
 								rs.getString(2),
 								rs.getString(3),
 								rs.getString(4),
-								rs.getTimestamp(5)));
+								rs.getString(5),
+								rs.getTimestamp(6)));
 		}
 		
 		} catch (SQLException e) {
@@ -75,14 +76,25 @@ public class MemberDao {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 		
-		String sql = "insert into memberinfo (userID, userPW, userName) values (?, ?, ?)";
+		String sql1 = "insert into memberinfo (userID, userPW, userName) values (?, ?, ?)";
+		String sql2 = "insert into memberinfo (userID, userPW, userName, userPhoto) values (?, ?, ?, ?)";
 		
 		try {
-			pstmt = conn.prepareStatement(sql);
 			
-			pstmt.setString(1, member.getUserID());
-			pstmt.setString(2, member.getUserPW());
-			pstmt.setString(3, member.getUserName());
+			if(member.getUserPhoto() != null) {
+				pstmt = conn.prepareStatement(sql1);
+				
+				pstmt.setString(1, member.getUserID());
+				pstmt.setString(2, member.getUserPW());
+				pstmt.setString(3, member.getUserName());
+			} else {
+				pstmt = conn.prepareStatement(sql2);
+				
+				pstmt.setString(1, member.getUserID());
+				pstmt.setString(2, member.getUserPW());
+				pstmt.setString(3, member.getUserName());
+				pstmt.setString(4, member.getUserPhoto());
+			}
 			
 			resultCnt = pstmt.executeUpdate();
 			

@@ -110,7 +110,7 @@ public class Member {
 	
 	// 로그인 정보에 비밀번호는 노출하지 않는다.
 	public LoginInfo toLoginInfo() {
-		return new LoginInfo(this.index, this.userID, this.userName);
+		return new LoginInfo(this.index, this.userID, this.userName, this.userPhoto);
 	}
 	
 	

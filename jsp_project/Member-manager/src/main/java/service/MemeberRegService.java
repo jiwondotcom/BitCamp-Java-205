@@ -1,5 +1,9 @@
 package service;
 
+import java.io.File;
+import java.io.UnsupportedEncodingException;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.Iterator;
 import java.util.List;
 
@@ -8,6 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+
+import member.dao.MemberDao;
+import member.domain.Member;
+import member.util.ConnectionProvider;
 
 public class MemeberRegService {
 	
@@ -19,15 +27,15 @@ public class MemeberRegService {
 	}
 	
 	
-	public int regMember(HttpServletRequest request) {
+	public int regMember(HttpServletRequest request) throws Exception {
 		
 		int resultCnt = 0;
 		
-		Member
+		Member member = new Member();
 		
 		
 		
-		
+		try {
 		// 1. mulitpart 여부 확인
 		boolean isMultipart = ServletFileUpload.isMultipartContent(request);
 		
@@ -55,54 +63,72 @@ public class MemeberRegService {
 				// file과 file 이외의 폼을 구분
 				if(item.isFormField()) {
 					
-					// 회원 아이디, 회원 이름, 비밀번호, 
-					
+					// 회원 아이디, 회원 이름, 비밀번호
+					String paramName = item.getFieldName();
+					if(paramName.equals("userID")) {
+						// String value = item.getString("UTF-8"); // 인코딩 처리
+						member.setUserID(item.getString("UTF-8"));
+					} else if (paramName.equals("userPW")) {
+						member.setUserPW(item.getString("UTF-8"));
+					} else if (paramName.equals("userName")) {
+						member.setUserName(item.getString("UTF-8"));
+					}
 					
 				} else {
+					String uploadUri = "upload";
+					String dir = request.getSession().getServletContext().getRealPath(uploadUri);
 					
-					// 사진 데이터 처리
+					File saveDir = new File(dir);
 					
+					if(!saveDir.exists()) {
+						saveDir.mkdir();
+					}
 					
-				
+					String paramName = item.getFieldName();
+
 					if(paramName.equals("photo")) {
 						
-						String userFileName = item.getName(); 			// 파일의 이름
-						String contentType = item.getContentType();		// contentType 반환
-						long fileSize = item.getSize();					// byte 사이즈
-						
-						out.println("fileName : " + userFileName + "<br>");
-						out.println("contentType : " + contentType + "<br>");
-						out.println("fileSize : " + fileSize + "<br>");
-						
-						
-						// 파일을 쓰기 위한 조건
-						if (userFileName != null && fileSize > 0) {
-							File savePath = new File(dir, userFileName);
-							item.write(savePath);
-							System.out.println("데이터 저장 완료.");
-							newFile = userFileName;
-							
-						} 
-						
-						
-					} else if (paramName.equals("file")) {
-						// ...
-						
+						// 파일 이름, 사이즈
+						if(item.getName() != null && item.getSize() > 0) {
+							// 저장
+							item.write (new File(saveDir, item.getName()));
+							// DB에 저장할 파일의 이름
+							member.setUserPhoto(item.getName());
+						}
+
 					}
 	 	 		}
 				
 			}
 			
 			
+		} else {
+			throw new Exception("multipart 타입이 아닙니다.");
 		}
 		
 		
+		////////////////////////////////////////////////////////////////////////////////////////
+		// DB 인서트
+		// Connection, MemberDao
+		Connection conn = null;
+		MemberDao dao = null;
+		
+		dao = MemberDao.getInstance();
+		
+		ConnectionProvider.getConnection();
+	
+		resultCnt = dao.insertMember(conn, member);
 		
 		
-		
-		
-		
-		
+		} catch(SQLException e) {
+			e.printStackTrace();
+		} catch (UnsupportedEncodingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		
 		return resultCnt;
