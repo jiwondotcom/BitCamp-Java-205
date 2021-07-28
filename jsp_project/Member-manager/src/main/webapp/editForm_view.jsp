@@ -22,6 +22,10 @@
 		padding : 10px 20px;
 	}
 	
+	.float_left {
+		float : left;
+	}
+	
 </style>
 <body>
 
@@ -36,6 +40,7 @@
 	<!-- required : 필수 입력 (공백 불가) -->
 	<!-- readonly : 읽기 전용 (수정 불가) -->
 	<form action = "editMember.jsp" method = "post">
+	<div class = "float_left">
 	<table>
 		<tr>
 			<td>회원번호</td>
@@ -64,8 +69,16 @@
 			</td>
 		</tr>
 		
+		
+		<tr>
+			<td>
+				<img src = "<c:url value = "/upload/<%= member.getUserPhoto() %>"/>" height="40">
+			</td>
+		</tr>
+		
 	</table>
 		
+	</div>
 		
 	</form>
 
