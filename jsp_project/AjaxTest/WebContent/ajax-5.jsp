@@ -15,6 +15,14 @@
 	$(document).ready(function() {
 		// alert("ready");
 
+		$.getJSON('data.json', function(data) {
+			$.each(data, function(index, value){
+				var html = '<h3>이름 : ' + value.name + ', 가격 : ' + value.price + '</h3>'			
+				$('body').append(html);
+
+			});	
+		});
+		
 		
 	});
 		
