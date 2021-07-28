@@ -48,6 +48,7 @@
 	<table border = 1>
 		<tr>
 			<th>회원번호</th>
+			<th>프로필사진</th>
 			<th>아이디</th>
 			<th>비밀번호</th>
 			<th>회원 이름</th>
@@ -62,6 +63,7 @@
 		<c:forEach items = "${mList}" var = "member">
 			<tr>
 				<td>${member.index}</td>
+				<td><img src = "<c:url value = "/upload/${member.userPhoto}"/>" height="40"></td>
 				<td>${member.userID}</td>
 				<td>${member.userPW}</td>
 				<td>${member.userName}</td>
