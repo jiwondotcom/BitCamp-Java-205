@@ -5,6 +5,7 @@ public class LoginInfo {
 	private int index;
 	private String userID;
 	private String userName;
+	private String userPhoto;
 	
 	
 	public int getIndex() {
@@ -17,20 +18,28 @@ public class LoginInfo {
 		return userName;
 	}
 
+	public String getUserPhoto() {
+		return userPhoto;
+	}
 	
-	public LoginInfo(int index, String userID, String userName) {
+	
+	
+	
+	public LoginInfo(int index, String userID, String userName, String userPhoto) {
 		this.index = index;
 		this.userID = userID;
 		this.userName = userName;
+		this.userPhoto = userPhoto;
+	}
+	
+	
+	
+	@Override
+	public String toString() {
+		return "LoginInfo [index=" + index + ", userID=" + userID + ", userName=" + userName + ", userPhoto="
+				+ userPhoto + "]";
 	}
 	
 
-	@Override
-	public String toString() {
-		return "회원 번호 : " + index +
-				" / 회원 아이디 : " + userID +
-				" / 회원 이름 : " + userName;
-	}
-	
 
 }

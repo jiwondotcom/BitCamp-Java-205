@@ -36,7 +36,7 @@
 	
 	<!-- 그리드 맞추는 용도의 테이블 생성 -->
 	<!-- required : 필수 입력 (공백 불가) -->
-	<form action = "regMember.jsp" method = "post">
+	<form action = "regMember.jsp" method = "post" enctype = "multipart/form-data">
 	<table>
 		<tr>
 			<td>아이디</td>
@@ -49,6 +49,10 @@
 		<tr>
 			<td>이름</td>
 			<td><input type = "text" name = "userName" required></td>
+		</tr>
+			<tr>
+			<td>사진</td>
+			<td><input type = "file" name = "photo" required></td>
 		</tr>
 		<tr>
 			<td></td>

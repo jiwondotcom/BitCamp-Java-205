@@ -9,21 +9,30 @@ public class Member {
 	private String userID;
 	private String userPW;
 	private String userName;
+	private String userPhoto;
 	private Timestamp regDate;
 	
 
 
-	public Member(int index, String userID, String userPW, String userName, Timestamp regDate) {
+	public Member(int index, String userID, String userPW, String userName, String userPhoto, Timestamp regDate) {
 		this.index = index;
 		this.userID = userID;
 		this.userPW = userPW;
 		this.userName = userName;
+		this.userPhoto = userPhoto;
 		this.regDate = regDate;
 	}
 
 
-	
-	
+
+	@Override
+	public String toString() {
+		return "Member [index=" + index + ", userID=" + userID + ", userPW=" + userPW + ", userName=" + userName
+				+ ", userPhoto=" + userPhoto + ", regDate=" + regDate + "]";
+	}
+
+
+
 	// 기본 생성자 생성
 	public Member() {}
 
@@ -76,6 +85,15 @@ public class Member {
 		this.userName = userName;
 	}
 
+	
+	public String getUserPhoto() {
+		return userPhoto;
+	}
+
+
+	public void setUserPhoto(String userPhoto) {
+		this.userPhoto = userPhoto;
+	}
 
 
 	public Timestamp getRegDate() {

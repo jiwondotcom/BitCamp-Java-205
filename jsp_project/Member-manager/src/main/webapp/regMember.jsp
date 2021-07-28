@@ -20,8 +20,12 @@
 	// 0. 사용자가 입력한 데이터의 한글 처리 (우선순위)
 	// request.setCharacterEncoding("UTF-8");
 %>	
+<!-- multipart 떄문에 사용할수없다. -->
+
 	<jsp:useBean id = "member" class = "member.domain.Member"/>
 	<jsp:setProperty property = "*" name = "member"/>
+
+
 <%
 	
 	
