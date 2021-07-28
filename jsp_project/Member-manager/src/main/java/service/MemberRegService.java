@@ -10,6 +10,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 
 import org.apache.commons.fileupload.FileItem;
+import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
 
@@ -17,23 +18,26 @@ import member.dao.MemberDao;
 import member.domain.Member;
 import member.util.ConnectionProvider;
 
-public class MemeberRegService {
+public class MemberRegService {
 	
 	// 싱글톤 처리
-	private MemeberRegService() {}
-	private static MemeberRegService service = new MemeberRegService();
-	public static MemeberRegService getInstance() {
+	private MemberRegService() {}
+	private static MemberRegService service = new MemberRegService();
+	public static MemberRegService getInstance() {
 		return service;
 	}
 	
 	
-	public int regMember(HttpServletRequest request) throws Exception {
+	public int regMember(HttpServletRequest request) throws FileUploadException {
 		
 		int resultCnt = 0;
 		
 		Member member = new Member();
 		
+		Connection conn = null;
+		MemberDao dao = null;
 		
+		File newFile = null;
 		
 		try {
 		// 1. mulitpart 여부 확인
@@ -91,9 +95,11 @@ public class MemeberRegService {
 						// 파일 이름, 사이즈
 						if(item.getName() != null && item.getSize() > 0) {
 							// 저장
-							item.write (new File(saveDir, item.getName()));
+							newFile = new File(saveDir, item.getName());
+							item.write (newFile);
 							// DB에 저장할 파일의 이름
 							member.setUserPhoto(item.getName());
+							System.out.println("파일 저장 완료.");
 						}
 
 					}
@@ -110,18 +116,23 @@ public class MemeberRegService {
 		////////////////////////////////////////////////////////////////////////////////////////
 		// DB 인서트
 		// Connection, MemberDao
-		Connection conn = null;
-		MemberDao dao = null;
 		
+		conn = ConnectionProvider.getConnection();
 		dao = MemberDao.getInstance();
 		
-		ConnectionProvider.getConnection();
-	
 		resultCnt = dao.insertMember(conn, member);
 		
 		
 		} catch(SQLException e) {
 			e.printStackTrace();
+
+			// DB 입력시 오류라면 파일을 삭제한다.
+			if (newFile != null && newFile.exists()) {
+				// 파일을 삭제
+				newFile.delete();
+				System.out.println("파일이 정상적으로 삭제되었습니다.");
+			}
+			
 		} catch (UnsupportedEncodingException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -129,6 +140,10 @@ public class MemeberRegService {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		
+		request.setAttribute("result", resultCnt);
+		
 		
 		
 		return resultCnt;

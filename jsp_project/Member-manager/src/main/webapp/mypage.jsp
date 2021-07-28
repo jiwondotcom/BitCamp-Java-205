@@ -54,9 +54,13 @@
 		<h3><c:out value = "${loginInfo}"/></h3>
 		<%-- <%= loginInfo %> --%>
 		
+		<img src = "<c:url value = "/upload/${loginInfo.userPhoto}"/>" height="50">
+		
+		<br>
 		<button onclick = "location.href = 'member_editForm.jsp?index=${loginInfo.index}';" id = "btn">내정보 수정</button>
 		<input type = "button" onclick = "javascript:delMember('${loginInfo.index}');" id = "btn" value = "회원 탈퇴">
 	</div>
+	
 	
 </div>
 </body>

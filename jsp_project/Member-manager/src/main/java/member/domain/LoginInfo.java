@@ -34,8 +34,7 @@ public class LoginInfo {
 	
 	@Override
 	public String toString() {
-		return "LoginInfo [index=" + index + ", userID=" + userID + ", userName=" + userName + ", userPhoto="
-				+ userPhoto + "]";
+		return "회원정보 [회원번호 : " + index + " / 회원ID : " + userID + " / 회원 이름 : " + userName + " / 회원 사진 : " + userPhoto + "]";
 	}
 	
 

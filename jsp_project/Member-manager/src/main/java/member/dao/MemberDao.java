@@ -71,7 +71,7 @@ public class MemberDao {
 	
 	
 	// DB 처리 : 새로운 데이터 삽입 insert
-	public int insertMember(Connection conn, Member member) {
+	public int insertMember(Connection conn, Member member) throws SQLException {
 		
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
@@ -81,7 +81,7 @@ public class MemberDao {
 		
 		try {
 			
-			if(member.getUserPhoto() != null) {
+			if(member.getUserPhoto() == null) {
 				pstmt = conn.prepareStatement(sql1);
 				
 				pstmt.setString(1, member.getUserID());
@@ -98,9 +98,9 @@ public class MemberDao {
 			
 			resultCnt = pstmt.executeUpdate();
 			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(pstmt);
+			
 		}
 		
 		return resultCnt;
@@ -242,6 +242,7 @@ public class MemberDao {
 		member.setUserID(rs.getString("userid"));
 		member.setUserPW(rs.getString("userpw"));
 		member.setUserName(rs.getString("username"));
+		member.setUserPhoto(rs.getString("userPhoto"));
 		member.setRegDate(rs.getTimestamp("regdate"));
 		
 		
