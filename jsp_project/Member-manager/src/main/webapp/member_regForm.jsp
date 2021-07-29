@@ -23,7 +23,14 @@
 	padding : 5px;
 }
 
+.display_none {
+	display : none;
+}
+
 </style>
+
+<script src = "http://code.jquery.com/jquery-1.12.4.min"></script>
+
 <body>
 
 <%@ include file = "/WEB-INF/frame/header.jsp" %>
@@ -40,7 +47,10 @@
 	<table>
 		<tr>
 			<td>아이디</td>
-			<td><input type = "text" name = "userID" required></td>
+			<td>
+				<input type = "text" name = "userID" required>
+				<span id = "msg" class = "display_none"></span>
+			</td>
 		</tr>
 		<tr>
 			<td>비밀번호</td>
