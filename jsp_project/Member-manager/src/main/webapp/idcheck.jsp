@@ -2,4 +2,4 @@
     pageEncoding="UTF-8"%>
 
 <%@ page trimDirectiveWhitespaces="true" %>
-${param.mid eq '' ? 'N' : 'Y'}
+${param.mid eq 'cool' ? 'N' : 'Y'}

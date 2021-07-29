@@ -249,6 +249,21 @@ public class MemberDao {
 		return member;
 		
 	}
+
+
+	
+	// ID 중복여부 확인을 위한 id값으로 검색
+	public int selectByID(Connection conn, String userID) {
+
+		int cnt = 0;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select count(*) from memberinfo where userID = ?";
+		
+		
+		return cnt;
+	}
 	
 	
 	
