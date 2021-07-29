@@ -9,6 +9,4 @@ public interface Command {
 	// public abstract
 	String getPage(HttpServletRequest request);
 	
-	
-	
 }

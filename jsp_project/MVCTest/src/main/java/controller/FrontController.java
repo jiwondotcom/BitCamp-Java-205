@@ -17,12 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import service.Command;
-import service.DateCommandImple;
-import service.DateService;
-import service.GreetingCommandImple;
-import service.GreetingService;
 import service.InvalidCommandImple;
-import service.InvalidService;
+
 
 public class FrontController extends HttpServlet{
 
@@ -37,16 +33,16 @@ public class FrontController extends HttpServlet{
 
 		// commands에 요청 문자열과 처리할 객체를 저장
 		
-		commands.put("/", new GreetingCommandImple());
-		commands.put("/greeting.do", new GreetingCommandImple());
-		commands.put("/date.do", new DateCommandImple());
+		// commands.put("/", new GreetingCommandImple());
+		// commands.put("/greeting.do", new GreetingCommandImple());
+		// commands.put("/date.do", new DateCommandImple());
 		// commands.put("/login.do", new DateCommandImple());
 		
 		
 		// 설정파일의 경로 가져오기
 		String configFile = config.getInitParameter("config");
 		
-		Properties prp = new Properties();
+		Properties prop = new Properties();
 		FileInputStream fis = null;
 		
 		// 설정 파일의 시스템 경로
@@ -64,11 +60,8 @@ public class FrontController extends HttpServlet{
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
-	
-	
-	}
-	
-	
+
+		
 	Iterator<Object> itr = prop.keySet().iterator();
 	
 	while(itr.hasNext()) {
@@ -94,6 +87,10 @@ public class FrontController extends HttpServlet{
 	
 }
 
+	}
+		}
+	
+	
 
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -190,7 +187,6 @@ public class FrontController extends HttpServlet{
 		// 4. viewPage로 포워딩
 		RequestDispatcher dispatcher = request.getRequestDispatcher(viewPage);
 		dispatcher.forward(request, response);
-		
 		
 		
 	}
