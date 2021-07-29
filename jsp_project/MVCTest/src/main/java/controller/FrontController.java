@@ -2,18 +2,46 @@ package controller;
 
 import java.io.IOException;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.RequestDispatcher;
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.Command;
+import service.DateCommandImple;
 import service.DateService;
+import service.GreetingCommandImple;
 import service.GreetingService;
+import service.InvalidCommandImple;
+import service.InvalidService;
 
 public class FrontController extends HttpServlet{
 
+	
+	private Map<String, Command> commands = new HashMap<String, Command>();
+	//			요청(uri), new GreetingCommandImple()
+	// commands.put("/", new GreetingCommandImple())
+	
+	
+	@Override
+	public void init(ServletConfig config) throws ServletException {
+
+		// commands에 요청 문자열과 처리할 객체를 저장
+		
+		commands.put("/", new GreetingCommandImple());
+		commands.put("/greeting.do", new GreetingCommandImple());
+		commands.put("/date.do", new DateCommandImple());
+		// commands.put("/login.do", new DateCommandImple());
+		
+	}
+	
+	
+	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 		throws ServletException, IOException {
@@ -28,7 +56,8 @@ public class FrontController extends HttpServlet{
 	}
 	
 	
-	private void doProcess(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void doProcess(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
 
 		// 1. 사용자의 요청 분석 : URI를 추출해서 사용
 		String commandUri = request.getRequestURI();
@@ -41,16 +70,45 @@ public class FrontController extends HttpServlet{
 		
 		
 		// 결과 Data를 object타입 resultObject에 넣는다.
-		Object resultObj = null;
+		// Object resultObj = null;
+		
 		// view 페이지
 		// 사람들이 직접 default.jsp 페이지에 접속하는 것이 불가능하도록 WEB-INF 폴더 내에 넣는다. 
 		// (데이터를 받아야만 / 무조건 controller을 통해서만 노출되는 페이지 방식으로 설정)
 		String viewPage = "/WEB-INF/views/default.jsp";
+		Command command = null;
+		
+		command = commands.get(commandUri);
+		if(command == null) {
+			command = new InvalidCommandImple();
+		}
+		
+		viewPage = command.getPage(request);
+		
+		
+		
+		/*
+		if(commandUri.equals("/greeting.do")) {
+			command = new GreetingCommandImple();
+		} else if (commandUri.equals("/date.do")) {
+			command = new DateCommandImple(); 
+		} else if (commandUri.equals("/")) { 		// http://localhost:8080/mvc/
+			command = new GreetingCommandImple();
+		} else {
+			command = new InvalidCommandImple();
+			
+		}
+		*/
+		
+		
+		
 		
 		
 		// 2. 요청을 처리 : 모델 선택, 실행 -> 요청을 처리할 수 있는 Service를 선택
+		/*
 		if(commandUri.equals("/greeting.do")) { // http://localhost:8080/mvc/greeting.do
 			// 처리할 수 있는 서비스의 메소드를 실행
+			
 			// resultObj = "안녕하세요";
 			// viewPage = "/WEB-INF/views/greeting.jsp";
 			
@@ -59,20 +117,22 @@ public class FrontController extends HttpServlet{
 			viewPage = service.greeting(request);
 			
 		} else if (commandUri.equals("/date.do")) {
-			resultObj = new Date();
-			viewPage = "/WEB-INF/views/date.jsp";
+			// resultObj = new Date();
+			// viewPage = "/WEB-INF/views/date.jsp";
 			
 			DateService service = new DateService();
 			viewPage = service.getDate(request);
 		
 		} else {
-			resultObj = "Invalid Type Request";
-	
+			// resultObj = "Invalid Type Request";
+			
+			InvalidService service = new InvalidService();
+			viewPage = service.getPage(request);
 		}
-		
+		*/
 		
 		// 3. 결과 데이터를 공유(전달)
-		request.setAttribute("result", resultObj);
+		// request.setAttribute("result", resultObj);
 		
 		
 		// 4. viewPage로 포워딩
