@@ -27,9 +27,55 @@
 	display : none;
 }
 
+.color_blue {
+	color : blue;
+}
+
+.color_red {
+	color : red;
+}
+
 </style>
 
 <script src = "http://code.jquery.com/jquery-1.12.4.min"></script>
+<script>
+
+	$(document).ready(function (){
+		
+		$('#userID').focusin(fucntion(){
+			$('#msg').addClass('display_none');
+			$('#msg').removeClass('color_blue');
+			$('#msg').removeClass('color_red');
+			
+			$(this).val('');
+		});
+		
+		$('#userID').focusout(funciton(){
+			// ajax 비동기 통신 > ID를 서버로 보내고 사용 가능 유무의 응답 코드를 전달받는다. -> 화면에 메시지 출력
+		
+			$ajax ({
+				url : 'idcheck.jsp',
+				type : 'post',
+				data : {
+						mid : $(this).val()
+				},
+				beforeSend : function(){
+					
+				},
+				success : function(){
+					// data :  Y / N 형식으로
+					if (data == 'Y') { // 사용 가능한 ID
+						$('#msg').html('멋진 아이디네요!');
+						$('#msg').addClass('color_blue');
+					}
+				}
+			});
+			
+		});
+	
+	});
+
+</script>
 
 <body>
 
