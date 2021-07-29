@@ -41,12 +41,12 @@
 
 </style>
 
-<script src = "http://code.jquery.com/jquery-1.12.4.min"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
 
 	$(document).ready(function (){
 		
-		$('#userID').focusin(fucntion(){
+		$('#userID').focusin(function(){
 			$('#msg').addClass('display_none');
 			$('#msg').removeClass('color_blue');
 			$('#msg').removeClass('color_red');
@@ -54,10 +54,10 @@
 			$(this).val('');
 		});
 		
-		$('#userID').focusout(funciton(){
+		$('#userID').focusout(function(){
 			// ajax 비동기 통신 > ID를 서버로 보내고 사용 가능 유무의 응답 코드를 전달받는다. -> 화면에 메시지 출력
 		
-			$ajax ({
+			$.ajax ({
 				url : 'idcheck.jsp',
 				type : 'post',
 				data : {
@@ -66,7 +66,7 @@
 				beforeSend : function(){
 					$('#loadingImg').removeClass('display_none');
 				},
-				success : function(){
+				success : function(data){
 					// data :  Y / N 형식으로
 					if (data == 'Y') { // 사용 가능한 ID일 경우
 						$('#msg').html('멋진 아이디네요!');
@@ -88,7 +88,7 @@
 					console.log(error);
 				},
 				complete : function() {
-					$('#loadingImg').addCloass('display_none');
+					$('#loadingImg').addClass('display_none');
 				}
 			});
 			
@@ -130,7 +130,7 @@
 		</tr>
 			<tr>
 			<td>사진</td>
-			<td><input type = "file" name = "photo" required></td>
+			<td><input type = "file" name = "photo"></td>
 		</tr>
 		<tr>
 			<td></td>
