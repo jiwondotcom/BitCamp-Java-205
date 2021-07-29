@@ -15,7 +15,10 @@
 	<servlet-name>simpleController</servlet-name>
 	<servlet-class>controller.SimpleController</servlet-class>
 </servlet>
-
+<servlet-mapping>
+	<servlet-name>simpleController</servlet-name>
+	<url-pattern>/simple</url-pattern>
+</servlet-mapping>
 
 
 </web-app>
