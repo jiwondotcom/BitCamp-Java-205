@@ -45,7 +45,7 @@ public class SimpleController extends HttpServlet{
 			resultObj = "안녕하세요";
 			viewPage = "/WEB-INF/views/greeting.jsp";
 		
-		} else if (type.equals("data")) {
+		} else if (type.equals("date")) {
 			resultObj = new Date();
 			viewPage = "/WEB-INF/views/date.jsp";
 		
