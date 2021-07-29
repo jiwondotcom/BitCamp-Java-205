@@ -117,7 +117,7 @@ public class Member {
 	// index는 input type = readonly로 설정 예정
 	// 아이디, 비밀번호, 이름만 회원정보 수정이 가능하도록 설정한다.
 	public EditInfo editInfo() {
-		return new EditInfo(this.index, this.userID, this.userPW, this.userName, this.userPhoto);
+		return new EditInfo(this.index, this.userID, this.userPW, this.userName);
 	}
 	
 }

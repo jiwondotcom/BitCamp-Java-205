@@ -6,7 +6,6 @@ public class EditInfo {
 	private String userID;
 	private String userPW;
 	private String userName;
-	private String userPhoto;
 	
 	
 	public int getIndex() {
@@ -21,17 +20,12 @@ public class EditInfo {
 	public String getUserName() {
 		return userName;
 	}
-	public String getUserPhoto() {
-		return userPhoto;
-	}
 	
-	
-	public EditInfo(int index, String userID, String userPW, String userName, String userPhoto) {
+	public EditInfo(int index, String userID, String userPW, String userName) {
 		this.index = index;
 		this.userID = userID;
 		this.userPW = userPW;
 		this.userName = userName;
-		this.userPhoto = userPhoto;
 	}
 	
 	

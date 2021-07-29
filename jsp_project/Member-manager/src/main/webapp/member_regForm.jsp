@@ -35,6 +35,10 @@
 	color : red;
 }
 
+#loadingImg {
+	height : 30px;
+}
+
 </style>
 
 <script src = "http://code.jquery.com/jquery-1.12.4.min"></script>
@@ -60,14 +64,31 @@
 						mid : $(this).val()
 				},
 				beforeSend : function(){
-					
+					$('#loadingImg').removeClass('display_none');
 				},
 				success : function(){
 					// data :  Y / N 형식으로
-					if (data == 'Y') { // 사용 가능한 ID
+					if (data == 'Y') { // 사용 가능한 ID일 경우
 						$('#msg').html('멋진 아이디네요!');
 						$('#msg').addClass('color_blue');
+						$('#msg').removeClass('display_none');
+					
+					} else { // 사용이 불가능한 ID일 경우
+						$('#msg').html('사용이 불가능한 ID입니다.');
+						$('#msg').addClass('color_red');
+						$('#msg').removeClass('display_none');
+						
 					}
+				},
+				error : function(request, status, error) {
+					alert('서버 통신에 문제가 발생했습니다! 다시 실행해주세요.');
+					
+					console.log(request);
+					console.log(status);
+					console.log(error);
+				},
+				complete : function() {
+					$('#loadingImg').addCloass('display_none');
 				}
 			});
 			
@@ -96,6 +117,7 @@
 			<td>
 				<input type = "text" name = "userID" required>
 				<span id = "msg" class = "display_none"></span>
+				<img id = "loadingImg" class = "display_none" alt = "loading" src = "<c:url value = "/image/loading.gif"/>">
 			</td>
 		</tr>
 		<tr>
