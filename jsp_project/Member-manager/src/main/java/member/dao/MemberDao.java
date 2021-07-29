@@ -262,6 +262,23 @@ public class MemberDao {
 		String sql = "select count(*) from memberinfo where userID = ?";
 		
 		
+		try {
+			int resultCnt = dao.selectByID(conn, userID);
+			
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, userID);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				cnt = rs.getInt(1);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		return cnt;
 	}
 	
