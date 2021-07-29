@@ -252,8 +252,8 @@ public class MemberDao {
 
 
 	
-	// ID 중복여부 확인을 위한 id값으로 검색
-	public int selectByID(Connection conn, String userID) {
+	// ID 중복여부 확인을 위한 ID값으로 검색 -> 개수 반환
+	public int selectByID(Connection conn, String userID) throws SQLException {
 
 		int cnt = 0;
 		PreparedStatement pstmt = null;
@@ -263,8 +263,6 @@ public class MemberDao {
 		
 		
 		try {
-			int resultCnt = dao.selectByID(conn, userID);
-			
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, userID);
 			
@@ -274,9 +272,9 @@ public class MemberDao {
 				cnt = rs.getInt(1);
 			}
 			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		} finally {
+			JdbcUtil.close(rs);
+			JdbcUtil.close(pstmt);
 		}
 		
 		return cnt;

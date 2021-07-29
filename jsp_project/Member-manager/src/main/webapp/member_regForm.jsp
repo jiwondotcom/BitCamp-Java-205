@@ -43,46 +43,43 @@
 
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
+	
+	$(document).ready(function() {
 
-	$(document).ready(function (){
-		
-		$('#userID').focusin(function(){
+		$('#userID').focusin(function() {
 			$('#msg').addClass('display_none');
 			$('#msg').removeClass('color_blue');
 			$('#msg').removeClass('color_red');
-			
+
 			$(this).val('');
 		});
-		
-		$('#userID').focusout(function(){
-			// ajax 비동기 통신 > ID를 서버로 보내고 사용 가능 유무의 응답 코드를 전달받는다. -> 화면에 메시지 출력
-		
-			$.ajax ({
+
+		$('#userID').focusout(function() {
+			// ajax 비동기 통신 > id를 서버로 보내고 사용 가능 유무의 응답 코드를 받는다 -> 화면에 메시지 출력
+
+			$.ajax({
 				url : 'idcheck.jsp',
 				type : 'post',
 				data : {
-						mid : $(this).val()
+					mid : $(this).val()
 				},
-				beforeSend : function(){
+				beforeSend : function() {
 					$('#loadingImg').removeClass('display_none');
 				},
-				success : function(data){
-					// data :  Y / N 형식으로
-					if (data == 'Y') { // 사용 가능한 ID일 경우
+				success : function(data) {
+					// data : Y / N
+					if (data == 'Y' && data.size() > 0) {
 						$('#msg').html('멋진 아이디네요!');
 						$('#msg').addClass('color_blue');
 						$('#msg').removeClass('display_none');
-					
-					} else { // 사용이 불가능한 ID일 경우
-						$('#msg').html('사용이 불가능한 ID입니다.');
+					} else {
+						$('#msg').html('이미 사용하고 있는 아이디입니다.');
 						$('#msg').addClass('color_red');
 						$('#msg').removeClass('display_none');
-						
 					}
 				},
 				error : function(request, status, error) {
-					alert('서버 통신에 문제가 발생했습니다! 다시 실행해주세요.');
-					
+					alert('서버 통신에 문제가 발생했습니다. 다시 실행해주세요.');
 					console.log(request);
 					console.log(status);
 					console.log(error);
@@ -91,11 +88,10 @@
 					$('#loadingImg').addClass('display_none');
 				}
 			});
-			
-		});
-	
-	});
 
+		});
+
+	});
 </script>
 
 <body>
@@ -115,7 +111,7 @@
 		<tr>
 			<td>아이디</td>
 			<td>
-				<input type = "text" name = "userID" required>
+				<input type = "text" name = "userID" id = "userID" required>
 				<span id = "msg" class = "display_none"></span>
 				<img id = "loadingImg" class = "display_none" alt = "loading" src = "<c:url value = "/image/loading.gif"/>">
 			</td>
