@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import service.DateService;
+import service.GreetingService;
+
 public class FrontController extends HttpServlet{
 
 	@Override
@@ -48,12 +51,19 @@ public class FrontController extends HttpServlet{
 		// 2. 요청을 처리 : 모델 선택, 실행 -> 요청을 처리할 수 있는 Service를 선택
 		if(commandUri.equals("/greeting.do")) { // http://localhost:8080/mvc/greeting.do
 			// 처리할 수 있는 서비스의 메소드를 실행
-			resultObj = "안녕하세요";
-			viewPage = "/WEB-INF/views/greeting.jsp";
-		
+			// resultObj = "안녕하세요";
+			// viewPage = "/WEB-INF/views/greeting.jsp";
+			
+			GreetingService service = new GreetingService();
+			service.greeting(request);
+			viewPage = service.greeting(request);
+			
 		} else if (commandUri.equals("/date.do")) {
 			resultObj = new Date();
 			viewPage = "/WEB-INF/views/date.jsp";
+			
+			DateService service = new DateService();
+			viewPage = service.getDate(request);
 		
 		} else {
 			resultObj = "Invalid Type Request";
