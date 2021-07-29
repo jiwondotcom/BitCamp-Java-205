@@ -69,7 +69,7 @@
 				success : function(data) {
 					// data : Y / N
 					if (data == 'Y' && data.size() > 0) {
-						$('#msg').html('멋진 아이디네요!');
+						$('#msg').html('멋진 아이디네요!');3
 						$('#msg').addClass('color_blue');
 						$('#msg').removeClass('display_none');
 					} else {
