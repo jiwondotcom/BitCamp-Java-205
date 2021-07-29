@@ -25,6 +25,10 @@
 	<servlet-name>FrontController</servlet-name>
 	<servlet-class>controller.FrontController</servlet-class>
 </servlet> 
+<init-param>
+	<param-name>config</param-name>
+	<param-value>/WEB-INF/command.properties</param-value>
+</init-param>
 <servlet-mapping>
 	<servlet-name>FrontController</servlet-name>
 	<url-pattern>*.do</url-pattern>
