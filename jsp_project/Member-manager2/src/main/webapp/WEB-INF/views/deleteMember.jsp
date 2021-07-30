@@ -9,7 +9,7 @@
 
 <c:if test = "${result == 1}">
 	<script>
-			alert('탈퇴 처리되었습니다.');
+			alert('정상적으로 탈퇴처리되었습니다.');
 			session.invalidate();
 	</script>
 	<script>
