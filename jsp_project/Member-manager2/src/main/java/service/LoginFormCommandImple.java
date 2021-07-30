@@ -9,5 +9,5 @@ public class LoginFormCommandImple implements Command {
 	public String getPage(HttpServletRequest request, HttpServletResponse response) {
 		return "/WEB-INF/views/loginForm.jsp";
 	}
-
+ 
 }

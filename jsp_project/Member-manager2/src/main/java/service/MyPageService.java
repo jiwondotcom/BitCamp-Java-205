@@ -13,5 +13,5 @@ public class MyPageService implements Command {
 		request.setAttribute("result", member);
 		return "/WEB-INF/views/mypage.jsp";
 	}
-
+ 
 }

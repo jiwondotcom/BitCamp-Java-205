@@ -24,7 +24,7 @@ public class MemberEditService implements Command {
 		String userName = request.getParameter("userName");
 		
 		int resultCnt = 0;
-		
+		 
 		Connection conn = null;
 		
 		// EditInfo editinfo = (EditInfo) request.getSession().getAttribute("index");

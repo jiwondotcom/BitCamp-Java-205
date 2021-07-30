@@ -19,7 +19,7 @@ public class MemberDeleteService implements Command {
 		Connection conn = null;
 		
 		int resultCnt = 0;
-		
+		 
 		try {
 			conn = ConnectionProvider.getConnection();
 			member = (Member) request.getSession().getAttribute("member");

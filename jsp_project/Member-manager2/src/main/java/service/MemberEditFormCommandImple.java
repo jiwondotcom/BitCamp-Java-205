@@ -7,7 +7,9 @@ public class MemberEditFormCommandImple implements Command {
 
 	@Override
 	public String getPage(HttpServletRequest request, HttpServletResponse response) {
-		return "/WEB-INF/views/member_editForm.jsp";
+		String index = request.getParameter("index");
+		request.setAttribute("index", index);
+		return "/WEB-INF/views/editForm_view.jsp";
 	}
-
+ 
 }

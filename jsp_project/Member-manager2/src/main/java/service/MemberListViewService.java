@@ -28,7 +28,7 @@ public class MemberListViewService implements Command {
 		} finally {
 			JdbcUtil.close(conn);
 		}
-	
+	 
 	}
 	
 	

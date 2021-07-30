@@ -57,7 +57,7 @@
 			<!-- <th> : 표의 라벨링 기능 -->
 		</tr>
 	
-
+ 
 	<c:if test = "${mList != null}">
 		<c:forEach items = "${mList}" var = "member">
 			<tr>

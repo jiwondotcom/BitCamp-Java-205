@@ -20,7 +20,7 @@ public class IdCheckService implements Command {
 		
 		Connection conn = null;
 		MemberDao dao = null;
-		
+		 
 		try {
 			conn = ConnectionProvider.getConnection();
 			dao = MemberDao.getInstance();

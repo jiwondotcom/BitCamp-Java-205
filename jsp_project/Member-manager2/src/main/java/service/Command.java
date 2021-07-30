@@ -6,5 +6,5 @@ import javax.servlet.http.HttpServletResponse;
 public interface Command {
 	
 	String getPage(HttpServletRequest request, HttpServletResponse response);
-	
+	 
 }

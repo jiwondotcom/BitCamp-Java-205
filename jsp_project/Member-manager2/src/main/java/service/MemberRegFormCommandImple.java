@@ -9,5 +9,5 @@ public class MemberRegFormCommandImple implements Command {
 	public String getPage(HttpServletRequest request, HttpServletResponse response) {
 		return "/WEB-INF/views/member_regForm.jsp";
 	}
-
+ 
 }

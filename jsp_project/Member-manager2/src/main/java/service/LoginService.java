@@ -64,7 +64,7 @@ public class LoginService implements Command {
 			} catch (UnsupportedEncodingException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
-			}
+			} 
 		} else {
 			// 쿠키값을 저장하지 않는다.
 			try {

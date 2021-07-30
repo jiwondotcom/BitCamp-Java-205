@@ -31,7 +31,7 @@ public class MemberRegService implements Command{
 	public int regMember(HttpServletRequest request) throws FileUploadException {
 		
 		int resultCnt = 0;
-		
+		 
 		Member member = new Member();
 		
 		Connection conn = null;

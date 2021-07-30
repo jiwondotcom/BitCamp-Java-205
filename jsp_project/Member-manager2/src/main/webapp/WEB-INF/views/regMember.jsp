@@ -13,7 +13,7 @@
 		location.href = 'index.jsp';
 	</script>
 </c:if>
-
+ 
 
 <c:if test = "${result == 0}">
 	<script>

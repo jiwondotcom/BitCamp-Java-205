@@ -73,7 +73,7 @@
 				<%-- <button onclick = "location.href = 'member_editForm.jsp?index=${loginInfo.index}';" id = "btn">내정보 수정</button>
 				<input type = "button" onclick = "javascript:delMember('${loginInfo.index}');" id = "btn" value = "회원 탈퇴"> --%>
 				
-				<button onclick = "editForm.do?mid=${result.userID}" id = "btn">내정보 수정</button>
+				<button onclick = "location.href = 'editForm_view.do?mid=${loginInfo.index}';" id = "btn">내정보 수정</button>
 				<input type = "button" onclick = "javascript:delMember('${loginInfo.index}');" id = "btn" value = "회원 탈퇴">
 
 </div>

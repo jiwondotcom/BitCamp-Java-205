@@ -9,5 +9,5 @@ public class InvalidCommandImple implements Command {
 	public String getPage(HttpServletRequest request, HttpServletResponse response) {
 		return "/index.jsp";
 	}
-
+ 
 }
