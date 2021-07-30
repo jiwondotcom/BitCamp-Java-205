@@ -25,7 +25,7 @@ public class LoginService implements Command {
 		userID = request.getParameter("userID");
 		userPW = request.getParameter("userPW");
 		reID = request.getParameter("reID");
-		CookieChk(response);
+		CookieCheck(response);
 		
 		Connection conn = null;
 		
@@ -53,7 +53,7 @@ public class LoginService implements Command {
 	}
 	
 	
-	private void CookieChk(HttpServletResponse response) {
+	private void CookieCheck(HttpServletResponse response) {
 		
 		// ID 저장을 위한 쿠키 설정
 		// reID 값의 유무 체크
@@ -79,7 +79,7 @@ public class LoginService implements Command {
 
 	@Override
 	public String getPage(HttpServletRequest request, HttpServletResponse response) {
-		boolean loginChk = login(request, response);
+		loginChk = login(request, response);
 		request.setAttribute("loginChk", loginChk);
 		return "/WEB-INF/views/login.jsp";
 	

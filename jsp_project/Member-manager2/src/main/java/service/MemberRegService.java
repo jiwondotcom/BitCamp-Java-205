@@ -90,13 +90,13 @@ public class MemberRegService implements Command{
 					
 					String paramName = item.getFieldName();
 
-					if(paramName.equals("photo")) {
+					if(paramName.equals("userPhoto")) {
 						
 						// 파일 이름, 사이즈
 						if(item.getName() != null && item.getSize() > 0) {
 							// 저장
 							newFile = new File(saveDir, item.getName());
-							item.write (newFile);
+							item.write(new File(saveDir, item.getName()));
 							// DB에 저장할 파일의 이름
 							member.setUserPhoto(item.getName());
 							System.out.println("파일 저장 완료.");
@@ -121,8 +121,6 @@ public class MemberRegService implements Command{
 		dao = MemberDao.getInstance();
 		
 		resultCnt = dao.insertMember(conn, member);
-		resultCnt = MemberDao.getInstance().insertMember(conn, member);
-		
 		
 		} catch(SQLException e) {
 			e.printStackTrace();

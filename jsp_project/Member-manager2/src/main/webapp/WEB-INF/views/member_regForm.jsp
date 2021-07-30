@@ -3,7 +3,6 @@
     
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +39,6 @@
 }
 
 </style>
-
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
 	
@@ -118,7 +116,7 @@
 		</tr>
 		<tr>
 			<td>비밀번호</td>
-			<td><input type = "password" name = "userPW" minlength = '4' required ></td>
+			<td><input type = "password" name = "userPW" minlength = '4' required></td>
 		</tr>
 		<tr>
 			<td>이름</td>
@@ -126,7 +124,7 @@
 		</tr>
 			<tr>
 			<td>사진</td>
-			<td><input type = "file" name = "photo"></td>
+			<td><input type = "file" name = "userPhoto"></td>
 		</tr>
 		<tr>
 			<td></td>

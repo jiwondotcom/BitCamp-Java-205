@@ -35,7 +35,7 @@ public class MemberListViewService implements Command {
 	@Override
 	public String getPage(HttpServletRequest request, HttpServletResponse response) {
 		viewMemberList(request);
-		return "/WEB-INF/views/membrList_view.jsp";
+		return "/WEB-INF/views/memberList_view.jsp";
 	
 	}
 

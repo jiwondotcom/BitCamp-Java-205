@@ -43,7 +43,7 @@ public class IdCheckService implements Command {
 	public String getPage(HttpServletRequest request, HttpServletResponse response) {
 		idCheck(request);
 		request.setAttribute("result", result);
-		return "WEB-INF/views/idCheck.jsp";
+		return "WEB-INF/views/idcheck.jsp";
 	}
 	
 }

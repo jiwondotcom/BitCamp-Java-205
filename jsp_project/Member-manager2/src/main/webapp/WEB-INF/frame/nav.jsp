@@ -11,7 +11,7 @@
 	
 			<c:if test = "${sessionScope.loginInfo ne null}">
 			<li><a href = '<c:url value = "/logout.do"/>'>로그아웃</a></li>
-			<li><a href = '<c:url value = "/member_list.do"/>'>회원리스트</a></li>
+			<li><a href = '<c:url value = "/memberList_view.do"/>'>회원리스트</a></li>
 			</c:if>
 			
 			<li><a href = '<c:url value = "/mypage.do"/>'>MyPage</a></li>
