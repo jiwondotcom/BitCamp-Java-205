@@ -11,7 +11,7 @@
 
 <c:if test = "${loginChk}">
 		<script>
-			alert('로그인하신것을 환영합니다!');
+			alert('로그인 완료. 환영합니다!');
 			location.href = "index.jsp";
 		</script>
 </c:if>
