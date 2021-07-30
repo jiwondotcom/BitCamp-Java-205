@@ -2,6 +2,10 @@ package cal;
 
 import static org.junit.Assert.*;
 
+import java.sql.SQLException;
+
+import javax.management.RuntimeErrorException;
+
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -67,5 +71,43 @@ public class CalculatorTest {
 		// fail("Not yet implemented");
 	}
 
-
+	
+	///////////////////////////////////////////
+	// 예외 타입을 비교해서 테스트
+	/*
+	@Test(expected = RuntimeException.class)
+	public void test1() {
+		System.out.println("@Test 실행 중 예외타입을 확인");
+		throw new RuntimeException();
+	}
+	*/
+	
+	
+	@Test(expected = SQLException.class)
+	public void test1() throws SQLException {
+		System.out.println("@Test 실행 중 예외타입을 확인");
+		throw new SQLException();
+	}
+	
+	// 완료되면 true, 시간을 벗어내면 false (성능테스트시 사용)
+	@Test(timeout = 1) // 1 / 1000
+	public void test2() {
+		System.out.println("@Test 실행 중 허용시간 ms 안에 실행이 완료 되는지 테스트중");
+		cal.add(100, 200);
+		cal.substract(10, 2);
+	}
+	
+	
+	@Test
+	public void test3() {
+		// fail("테스트 미실행");
+		
+		// assertTrue("메소드의 반환값이 boolean타입일 경우에 사용한다.", false); // fail
+		
+		// assertNull(null); // true
+		assertNull("null"); // String형식이기 떄문에 not null :  false
+	}
+	
+	
+	
 }
