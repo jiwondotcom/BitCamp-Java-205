@@ -58,6 +58,7 @@ public class DeptDaoTest {
 	}
 	
 	
+	// Delete Test
 	@Test
 	public void testDeleteDept() {
 		int resultCnt = dao.deleteDept(conn, 3);
@@ -65,6 +66,7 @@ public class DeptDaoTest {
 	}
 	
 	
+	// Update Test
 	@Test
 	public void testUpdateDept() {
 		int resultCnt = dao.updateDept(conn, new Dept(2, "홍보팀", "여수"));
@@ -72,6 +74,7 @@ public class DeptDaoTest {
 	}
 	
 	
+	// SelectByDeptno Test
 	@Test
 	public void testSelectByDeptno() {
 		dept = dao.selectByDeptno(conn, 3);
