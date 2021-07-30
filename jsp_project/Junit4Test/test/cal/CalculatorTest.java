@@ -105,7 +105,15 @@ public class CalculatorTest {
 		// assertTrue("메소드의 반환값이 boolean타입일 경우에 사용한다.", false); // fail
 		
 		// assertNull(null); // true
-		assertNull("null"); // String형식이기 떄문에 not null :  false
+		// assertNull("null"); // String형식이기 떄문에 not null :  false
+		// assertNull("메소드의 실행값이 null이 예상되는 경우", new Object());
+		// assertNotNull("메소드의 실행값이 null이 아닌 값이 예상되는 경우", null);
+		
+		// assertSame("같은 값일 경우", 1, 2); //(메시지, 예상한 값, 실행한 값)
+		// assertNotSame("같지 않은 값일 경우", 1, 2); //(메시지, 예상한 값, 실행한 값)
+	
+		// assertTrue("메소드의 반환값이 true로 예상할때", true); 		// success
+		// assertTrue("메소드의 반환값이 true로 예상할때", false); 		// fail
 	}
 	
 	
