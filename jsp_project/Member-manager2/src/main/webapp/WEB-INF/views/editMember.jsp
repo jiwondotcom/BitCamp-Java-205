@@ -18,7 +18,7 @@
 <c:if test = "${result == 0}">
 	<script>
 		alert('해당 데이터를 찾지 못했습니다.');
-		location.href = "member_list.jsp";
+		history.go(-1); // 이전 페이지로 이동
 	</script>
 </c:if>
 

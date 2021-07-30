@@ -15,6 +15,7 @@
 
 #btn {
 	padding : 5px;
+	margin-top : 5px;
 }
 
 </style>
@@ -48,7 +49,10 @@
  			</tr>
  			<tr>
  				<th></th>
- 				<td><input type = "submit" id = "btn" value = "로그인"></td>
+ 				<td>
+ 					<input type = "submit" id = "btn" value = "로그인">
+ 					<input type = "button" id = "btn" value = "이전으로" onclick = "location.href='index.do';">
+ 				</td>
  			</tr>
  		</table>
  	</form>

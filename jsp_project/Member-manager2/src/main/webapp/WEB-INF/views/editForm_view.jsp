@@ -21,6 +21,11 @@
 		float : left;
 	}
 	
+	#btn {
+		padding : 5px;
+		margin-top : 5px;
+	}
+	
 </style>
 <body>
 
@@ -57,9 +62,9 @@
 		<tr>
 			<td></td>
 			<td>
-				<input type = "submit" value = "수정">
-				<input type = "reset" value = "초기화">
-				<input type = "button" value = "이전으로" onclick = "location.href='mypage.jsp';">
+				<input type = "submit" id = "btn" value = "수정">
+				<input type = "reset" id = "btn" value = "초기화">
+				<input type = "button" id = "btn" value = "이전으로" onclick = "location.href='mypage.do';">
 			</td>
 		</tr>
 	</table>

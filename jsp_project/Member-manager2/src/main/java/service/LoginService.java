@@ -22,13 +22,14 @@ public class LoginService implements Command {
 	
 	public boolean login(HttpServletRequest request, HttpServletResponse response) {
 		
+		Connection conn = null;
+
 		userID = request.getParameter("userID");
 		userPW = request.getParameter("userPW");
 		reID = request.getParameter("reID");
 		CookieCheck(response);
-		
-		Connection conn = null;
-		
+
+		  
 		if(userID != null && userPW != null && userID.trim().length() > 2 && userPW.trim().length() > 3) {
 			
 			try {
@@ -79,7 +80,7 @@ public class LoginService implements Command {
 
 	@Override
 	public String getPage(HttpServletRequest request, HttpServletResponse response) {
-		loginChk = login(request, response);
+		login(request, response);
 		request.setAttribute("loginChk", loginChk);
 		return "/WEB-INF/views/login.jsp";
 	

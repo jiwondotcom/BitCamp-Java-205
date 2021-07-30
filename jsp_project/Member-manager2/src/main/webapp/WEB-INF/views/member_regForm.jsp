@@ -17,8 +17,8 @@
 }
 	
 #btn {
-	margin-top : 8px;
-	margin-right : 5px;
+	margin-top : 5px;
+	margin-right : 2px;
 	padding : 5px;
 }
 
