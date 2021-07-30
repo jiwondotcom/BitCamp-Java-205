@@ -18,11 +18,11 @@ public class MemberEditService implements Command {
 		Member member = new Member();
 
 		// 1. 사용자가 입력한 데이터를 받는다.
-		String index = request.getParameter("index");
-		String userID = request.getParameter("userID");
-		String userPW = request.getParameter("userPW");
-		String userName = request.getParameter("userName");
-		
+		  String index = request.getParameter("index");
+		  String userID = request.getParameter("userID");
+		  String userPW = request.getParameter("userPW");
+		  String userName = request.getParameter("userName");
+		 		
 		int resultCnt = 0;
 		 
 		Connection conn = null;
