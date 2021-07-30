@@ -27,7 +27,27 @@ public class CalculatorTest {
 	}
 
 	@Test
-	public void test() {
+	public void testAdd() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testSubstract() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testMultiply() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testDivide() {
+		fail("Not yet implemented");
+	}
+
+	@Test
+	public void testMain() {
 		fail("Not yet implemented");
 	}
 
