@@ -19,7 +19,7 @@ public class CookieBox {
 	// 생성자를 이용해서 Map저장할 데이터 초기화
 	public CookieBox(HttpServletRequest request) {
 		Cookie[] cookies = request.getCookies();
-		
+		 
 		if(cookies != null && cookies.length > 0) {
 			for (int i = 0; i < cookies.length; i++) {
 				// cookieMap에 쿠키 정보를 저장

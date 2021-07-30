@@ -15,7 +15,7 @@ import member.util.JdbcUtil;
 
 public class MemberDao {
 	
-
+ 
 	// 싱글톤 패턴
 	// 1. 인스턴스 생성을 막는다.
 	private MemberDao() {}

@@ -12,7 +12,7 @@ public class jdbcListener implements ServletContextListener {
 	public void contextDestroyed(ServletContextEvent sce) {
 		
 		System.out.println("Listener 진입");
-		
+		 
 		try {
 		ServletContext context = sce.getServletContext();
 		String drivers = context.getInitParameter("jdbcdriver");
