@@ -53,7 +53,7 @@ public class DeptDaoTest {
 	// Insert Test
 	@Test
 	public void testInsertDept() {
-		int resultCnt = dao.insertDept(conn, new Dept(60, "마케팅팀", "천안"));
+		int resultCnt = dao.insertDept(conn, new Dept(70, "CS팀", "원주"));
 		assertSame("Dept가 insert되었는지 확인", resultCnt, 1);
 	}
 	
@@ -61,7 +61,7 @@ public class DeptDaoTest {
 	// Delete Test
 	@Test
 	public void testDeleteDept() {
-		int resultCnt = dao.deleteDept(conn, 3);
+		int resultCnt = dao.deleteDept(conn, 50);
 		assertSame("Dept가 delete되었는지 확인", resultCnt, 1);
 	}
 	
@@ -69,7 +69,7 @@ public class DeptDaoTest {
 	// Update Test
 	@Test
 	public void testUpdateDept() {
-		int resultCnt = dao.updateDept(conn, new Dept(2, "홍보팀", "여수"));
+		int resultCnt = dao.updateDept(conn, new Dept(2, "개발팀2", "서울"));
 		assertSame("Dept가 update되었는지 확인", resultCnt, 1);
 	}
 	
@@ -77,7 +77,7 @@ public class DeptDaoTest {
 	// SelectByDeptno Test
 	@Test
 	public void testSelectByDeptno() {
-		dept = dao.selectByDeptno(conn, 3);
+		dept = dao.selectByDeptno(conn, 30);
 		assertNotNull("Dept가 select되었는지 확인", dept);
 	}
 	
