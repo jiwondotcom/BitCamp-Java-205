@@ -7,7 +7,7 @@
 			<c:if test = "${sessionScope.loginInfo eq null}">
 				<li><a href = '<c:url value = "/member_regForm.do"/>'>회원가입</a></li>
 				<li><a href = '<c:url value = "/loginForm.do"/>'>로그인</a></li>
-			</c:if>
+			</c:if> 
 	
 			<c:if test = "${sessionScope.loginInfo ne null}">
 			<li><a href = '<c:url value = "/logout.do"/>'>로그아웃</a></li>

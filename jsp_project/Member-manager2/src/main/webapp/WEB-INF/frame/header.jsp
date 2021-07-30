@@ -2,5 +2,5 @@
     pageEncoding="UTF-8"%>
 
     <header>
-    	<h1>Member Manager</h1>
+    	<h1>Member Manager</h1> 
     </header>
