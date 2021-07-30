@@ -16,7 +16,7 @@ public class DeptDao {
 
 	// 싱글톤 패턴
 	// 1. 인스턴스 생성을 막는다.
-	private DeptDao() {}
+	// private DeptDao() {}
 	
 	// 2. 클래스 내부에서 인스턴스를 생성한다.
 	private static DeptDao dao = new DeptDao();
