@@ -10,9 +10,7 @@
 <c:if test = "${result == 1}">
 	<script>
 			alert('정상적으로 탈퇴처리되었습니다.');
-			session.invalidate();
-	</script>
-	<script>
+			<% session.invalidate(); %>
 			location.href = "index.jsp";
 	</script>
 </c:if>

@@ -100,8 +100,8 @@ public class MemberRegService implements Command{
 							// DB에 저장할 파일의 이름
 							member.setUserPhoto(item.getName());
 							System.out.println("파일 저장 완료.");
-						}
-
+						} 
+							
 					}
 	 	 		}
 				
