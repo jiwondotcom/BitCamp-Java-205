@@ -10,7 +10,7 @@
 <c:if test = "${result > 0}">
 	<script>
 		alert('등록되었습니다.');
-		location.href = index.jsp';
+		location.href = 'index.jsp';
 	</script>
 </c:if>
 
