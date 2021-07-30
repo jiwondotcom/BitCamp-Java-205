@@ -53,8 +53,7 @@
 			<td>이름</td>
 			<td><input type="text" name="userName" value = "${member.userName}"></td>
 		</tr>
-
-
+		
 		<tr>
 			<td></td>
 			<td>

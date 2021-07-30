@@ -57,6 +57,10 @@
 					</td>
 				</tr>
 				<tr>
+					<th>회원번호</th>
+					<td>${result.index}</td>
+				</tr>
+				<tr>
 					<th>이름</th>
 					<td>${result.userName}</td>
 				</tr>

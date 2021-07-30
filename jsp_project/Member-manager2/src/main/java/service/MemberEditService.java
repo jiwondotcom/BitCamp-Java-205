@@ -15,17 +15,17 @@ public class MemberEditService implements Command {
 
 	public int editMember(HttpServletRequest request) {
 		
-		Member member = new Member();
 
 		// 1. 사용자가 입력한 데이터를 받는다.
-		  String index = request.getParameter("index");
-		  String userID = request.getParameter("userID");
-		  String userPW = request.getParameter("userPW");
-		  String userName = request.getParameter("userName");
+		String index = request.getParameter("index");
+		String userID = request.getParameter("userID");
+		String userPW = request.getParameter("userPW");
+		String userName = request.getParameter("userName");
 		 		
 		int resultCnt = 0;
 		 
 		Connection conn = null;
+		Member member = new Member();
 		
 		// EditInfo editinfo = (EditInfo) request.getSession().getAttribute("index");
 		
@@ -40,7 +40,7 @@ public class MemberEditService implements Command {
 		member.setUserName(request.getParameter("userName"));
 		
 		resultCnt = MemberDao.getInstance().updateMember(conn, new EditInfo(Integer.parseInt(index), userID, userPW, userName));
-		// member.setIndex(request.getParameter("index"));
+		//member.setIndex(request.getParameter("index"));
 		
 		request.getSession().setAttribute("member", member);
 	

@@ -20,6 +20,7 @@ public class EditInfo {
 	public String getUserName() {
 		return userName;
 	}
+
 	
 	public EditInfo(int index, String userID, String userPW, String userName) {
 		this.index = index;
