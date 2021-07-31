@@ -19,20 +19,6 @@
 <link rel = "stylesheet" href = "<c:url value='/css/default.css'/>">
 </head>
 <style>
-
-	.allWrap {
-		padding : 10px 20px;
-	}
-	
-	td, th {
-		text-align : center;
-		padding : 5px 10px;
-	}
-
-	button {
-		margin-bottom : 15px;
-	}
-
 </style>
 <body>
 

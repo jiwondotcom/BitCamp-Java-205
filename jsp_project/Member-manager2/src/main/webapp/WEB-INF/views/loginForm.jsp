@@ -12,12 +12,6 @@
 <link rel = "stylesheet" href = "<c:url value='/css/default.css'/>">
 </head>
 <style> 
-
-#btn {
-	padding : 5px;
-	margin-top : 5px;
-}
-
 </style>
 <script>
 </script>

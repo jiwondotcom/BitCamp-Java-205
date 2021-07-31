@@ -22,17 +22,7 @@
 
 </head>
 <style>
-	
-.allWrap {
-		padding : 10px 20px;
-}
-	
-#btn {
-	margin-top : 8px;
-	margin-right : 5px;
-	padding : 5px;
-}
-	
+
 .table {
 	border : 1px solid #AAA;
 	width : 300px;

@@ -9,35 +9,9 @@
 <meta charset="UTF-8">
 <title>회원가입 페이지</title>
 <link rel = "stylesheet" href = "<c:url value='/css/default.css'/>">
+<link rel = "stylesheet" href = "<c:url value='/css/idcheck_style.css'/>">
 </head>
 <style>
-
-.allWrap {
-		padding : 10px 20px;
-}
-	
-#btn {
-	margin-top : 5px;
-	margin-right : 2px;
-	padding : 5px;
-}
-
-.display_none {
-	display : none;
-}
-
-.color_blue {
-	color : blue;
-}
-
-.color_red {
-	color : red;
-}
-
-#loadingImg {
-	height : 30px;
-}
-
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script src="<c:url value='/javaScript/Ajax_idcheck.js'/>"></script>

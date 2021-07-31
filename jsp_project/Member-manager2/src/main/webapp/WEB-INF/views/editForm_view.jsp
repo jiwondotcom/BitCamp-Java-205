@@ -12,20 +12,6 @@
 <link rel = "stylesheet" href = "<c:url value='/css/default.css'/>">
 </head>
 <style>
-
-	.allWrap {
-		padding : 10px 20px;
-	}
-	
-	.float_left {
-		float : left;
-	}
-	
-	#btn {
-		padding : 5px;
-		margin-top : 5px;
-	}
-	
 </style>
 <body>
 

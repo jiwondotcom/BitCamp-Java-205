@@ -8,9 +8,10 @@
 <title>회원가입 페이지</title>
 
 <c:if test = "${result == 1}">
+			<!-- 현재 세션객체 소멸 -->
+			<% session.invalidate(); %> 
 	<script>
 			alert('정상적으로 탈퇴처리되었습니다.');
-			<% session.invalidate(); %>
 			location.href = "index.jsp";
 	</script>
 </c:if>
