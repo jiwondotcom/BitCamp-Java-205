@@ -19,6 +19,12 @@
 <link rel = "stylesheet" href = "<c:url value='/css/default.css'/>">
 </head>
 <style>
+
+td, th {
+	text-align : center;
+	padding : 5px 10px;
+}
+
 </style>
 <body>
 
