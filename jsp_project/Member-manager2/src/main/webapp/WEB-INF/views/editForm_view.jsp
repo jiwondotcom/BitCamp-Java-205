@@ -15,8 +15,8 @@
 </style>
 <body>
 
-<%@ include file = "/WEB-INF/frame/header.jsp" %>
-<%@ include file = "/WEB-INF/frame/nav.jsp" %>
+<c:import url = "/WEB-INF/frame/header.jsp"/>
+<c:import url = "/WEB-INF/frame/nav.jsp"/>
 
 <div class = "allWrap">
 	<h2>회원 정보 수정</h2>
