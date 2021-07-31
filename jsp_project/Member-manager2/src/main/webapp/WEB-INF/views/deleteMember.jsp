@@ -16,7 +16,6 @@
 	</script>
 </c:if>
 
- 
 <c:if test = "${result == 0}">
 	<script>
 			alert('해당 데이터를 찾지 못했습니다. \n다시 시도해주세요.');
