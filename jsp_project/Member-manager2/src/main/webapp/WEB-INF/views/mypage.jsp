@@ -27,6 +27,11 @@
 	border : 1px solid #AAA;
 	width : 300px;
 }
+
+td {
+	text-align : center;
+	padding : 5px 10px;
+}
 	
 </style>
 <body>
@@ -41,9 +46,9 @@
 
 			<table class = "table" border = "1">
 				<tr>
-					<th>프로필 이미지</th>
+					<th>프로필<br>이미지</th>
 					<td>
-						<img src = "<c:url value = "/upload/${result.userPhoto}"/>" style = "height: 100px">
+						<img src = "<c:url value = "/upload/${result.userPhoto}"/>" style = "height: 150px">
 					</td>
 				</tr>
 				<tr>
