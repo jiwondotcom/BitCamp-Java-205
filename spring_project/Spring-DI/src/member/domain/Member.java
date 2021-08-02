@@ -2,7 +2,7 @@ package member.domain;
 
 import java.util.Date;
 
-public class Memeber {
+public class Member {
 
 	private int id;
 	private String email;
@@ -11,7 +11,7 @@ public class Memeber {
 	private Date regDate;
 	
 	// 생성자 생성
-	public Memeber(int id, String email, String password, String name, Date regDate) {
+	public Member(int id, String email, String password, String name, Date regDate) {
 		this.id = id;
 		this.email = email;
 		this.password = password;
