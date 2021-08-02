@@ -9,6 +9,10 @@ import member.service.MemberRegService;
 
 public class MainForMemberManager {
 
+	// static MemberDao dao = new MemberDao();
+
+	static Assembler assembler = new Assembler();
+	
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
@@ -45,7 +49,8 @@ public class MainForMemberManager {
 	private static void processChangePW(String[] values) {
 		// MemberRegService를 이용해서 패스워드를 변경한다.
 		
-		ChangePasswordService service = new ChangePasswordService(new MemberDao());
+		// ChangePasswordService service = new ChangePasswordService(new MemberDao());
+		ChangePasswordService service = assembler.getRegService();
 		
 		try {
 			service.changePassword(values[1], values[2], values[3]);
@@ -63,7 +68,9 @@ public class MainForMemberManager {
 	private static void processNewMember(String[] values) {
 		// MemberRegService를 이용해서 정보를 저장한다.
 		
-		MemberRegService service = new MemberRegService(new MemberDao());
+		// MemberRegService service = new MemberRegService(new MemberDao());
+		MemberRegService service = assembler.getRegService();
+		
 		RegRequest request = new RegRequest();
 		request.setEmail(values[1]);
 		request.setName(values[2]);
@@ -81,7 +88,7 @@ public class MainForMemberManager {
 			System.out.println("정상적으로 등록되었습니다.");
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			// e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 			
