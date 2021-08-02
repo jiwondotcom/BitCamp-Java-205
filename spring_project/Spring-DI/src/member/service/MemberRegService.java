@@ -30,10 +30,8 @@ public class MemberRegService {
 									request.getPassword(),
 									request.getName(),
 									new Date());
-				
 		
-		
-		dao.insert(member);
+		dao.insert(newMember);
 	}
 
 }

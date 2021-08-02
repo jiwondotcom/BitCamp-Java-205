@@ -13,6 +13,8 @@ public class ChangePasswordService {
 	
 	public void changePassword(String email, String oldPW, String newPW) throws Exception {
 		
+		System.out.println("change : " + email);
+		
 		Member member = dao.selectByEmail(email);
 		
 		if(member == null) {

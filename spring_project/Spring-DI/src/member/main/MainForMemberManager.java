@@ -21,6 +21,7 @@ public class MainForMemberManager {
 			printMenu();
 			
 			String command = sc.nextLine();
+		
 			// 프로그램의 종료 분기
 			if(command.equalsIgnoreCase("exit")) {
 				System.out.println("프로그램 종료");
@@ -50,7 +51,7 @@ public class MainForMemberManager {
 		// MemberRegService를 이용해서 패스워드를 변경한다.
 		
 		// ChangePasswordService service = new ChangePasswordService(new MemberDao());
-		ChangePasswordService service = assembler.getRegService();
+		ChangePasswordService service = assembler.getPasswordService();
 		
 		try {
 			service.changePassword(values[1], values[2], values[3]);
@@ -58,7 +59,7 @@ public class MainForMemberManager {
 			System.out.println("비밀번호를 변경완료했습니다.");
 			
 		} catch (Exception e) {
-			e.printStackTrace();
+			// e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
 	}
@@ -72,10 +73,12 @@ public class MainForMemberManager {
 		MemberRegService service = assembler.getRegService();
 		
 		RegRequest request = new RegRequest();
+	
 		request.setEmail(values[1]);
 		request.setName(values[2]);
 		request.setPassword(values[3]);
 		request.setConfirmPassword(values[4]);
+
 		
 		if(!request.isPasswordEqualToConfirmPassword()) {
 			// 같을때  true, 다를때 false
@@ -83,11 +86,12 @@ public class MainForMemberManager {
 			return; 
 		} 
 		
+		
 		try {
 			service.regMember(request);
 			System.out.println("정상적으로 등록되었습니다.");
+	
 		} catch (Exception e) {
-			// TODO Auto-generated catch block
 			// e.printStackTrace();
 			System.out.println(e.getMessage());
 		}
