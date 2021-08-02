@@ -47,7 +47,15 @@ public class MainForMemberManager {
 		
 		ChangePasswordService service = new ChangePasswordService(new MemberDao());
 		
-		service.changePassword(values[1], oldPW, newPW);
+		try {
+			service.changePassword(values[1], values[2], values[3]);
+			
+			System.out.println("비밀번호를 변경완료했습니다.");
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+			System.out.println(e.getMessage());
+		}
 	}
 
 	
