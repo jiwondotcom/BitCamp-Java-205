@@ -9,6 +9,7 @@ public class ChangePasswordService {
 	
 	public ChangePasswordService(Dao dao) {
 		this.dao = dao;
+		System.out.println("ChangePasswordService 인스턴스 생성");
 	}
 	
 	public void changePassword(String email, String oldPW, String newPW) throws Exception {

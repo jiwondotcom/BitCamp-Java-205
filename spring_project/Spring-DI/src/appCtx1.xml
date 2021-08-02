@@ -13,5 +13,9 @@
 		<constructor-arg ref = "memberDao"/>
 	</bean>	
 
+	<bean id = "changePasswordService" class = "member.service.ChangePasswordService">
+		<constructor-arg ref = "memberDao"/>
+	</bean>
+	
 
 </beans>
