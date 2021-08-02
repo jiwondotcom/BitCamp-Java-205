@@ -1,6 +1,6 @@
 package member.dao;
 
-import java.util.List;
+import java.util.Collection;
 
 import member.domain.Member;
 
@@ -10,13 +10,13 @@ public interface Dao {
 	Member selectByEmail(String email);
 
 	
-	// 데이터 저장
+	// 데이터 저장 insert
 	void insert(Member member);
 	
-	// Update(데이터 수정)
+	// 데이터 수정 update
 	void update(Member member);
 	
 	// 전체 데이터 출력
-	List<Member> selectAll();
+	Collection<Member> selectAll();
 
 }
