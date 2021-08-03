@@ -1,18 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+
+	<!-- 어노테이션을 읽고 기능을 처리 설정 -->
+	<context:annotation-config/>
 
 
 	<!-- MemberDao bean 등록 -->
 	<bean id = "memberDao" class="member.dao.MemberDao"></bean>
 
-
 	<!-- MemberRegService bean 등록 -->
-	<bean id = "regService" class = "member.service.MemberRegService" scope = "prototype">
+	<bean id = "regService" class = "member.service.MemberRegService">
 	</bean>	
 
-	<bean id = "changePasswordService" class = "member.service.ChangePasswordService" scope = "singleton">
+	<bean id = "changePasswordService" class = "member.service.ChangePasswordService">
 	</bean>
 	
 </beans>
