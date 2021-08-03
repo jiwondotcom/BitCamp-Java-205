@@ -13,7 +13,9 @@ public class ChangePasswordService {
 	}
 	
 	// 기본생성자 정의
-	public ChangePasswordService() {}
+	public ChangePasswordService() {
+		System.out.println("ChangePasswordService() 기본 생성자 생성 ");
+	}
 	
 	
 	public ChangePasswordService(Dao dao) {

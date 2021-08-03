@@ -21,7 +21,9 @@ public class MemberRegService {
 	// 정수데이터를 받는 생성자
 
 	// 기본생성자 정의
-	public MemberRegService() {}
+	public MemberRegService() {
+		System.out.println("MemberRegService() 기본 생성자 생성");
+	}
 	
 	
 	public MemberRegService(int num) {
