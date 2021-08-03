@@ -6,8 +6,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.GenericXmlApplicationContext;
 
 import member.domain.RegRequest;
-import member.service.ChangePasswordService;
-import member.service.MemberRegService;
+import member.service.ChangePasswordService2;
+import member.service.MemberRegService2;
 
 public class SpringMain3 {
 
@@ -57,7 +57,8 @@ public class SpringMain3 {
 		
 		// ChangePasswordService service = new ChangePasswordService(new MemberDao());
 		// ChangePasswordService service = assembler.getPasswordService();
-		ChangePasswordService service = ctx.getBean("ChangePasswordService", ChangePasswordService.class);
+		// ChangePasswordService service = ctx.getBean("ChangePasswordService", ChangePasswordService.class);
+		ChangePasswordService2 service = ctx.getBean("ChangePasswordService", ChangePasswordService2.class);
 		
 		try {
 			service.changePassword(values[1], values[2], values[3]);
@@ -77,8 +78,9 @@ public class SpringMain3 {
 		
 		// MemberRegService service = new MemberRegService(new MemberDao());
 		// MemberRegService service = assembler.getRegService();
-		MemberRegService service = ctx.getBean("regService", MemberRegService.class);
-		
+		// MemberRegService service = ctx.getBean("regService", MemberRegService.class);
+		MemberRegService2 service = ctx.getBean("regService", MemberRegService2.class);
+		 
 		RegRequest request = new RegRequest();
 	
 		request.setEmail(values[1]);

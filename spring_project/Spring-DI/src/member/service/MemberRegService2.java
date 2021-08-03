@@ -2,7 +2,10 @@ package member.service;
 
 import java.util.Date;
 
+import javax.annotation.Resource;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import member.dao.Dao;
 import member.domain.Member;
@@ -10,10 +13,11 @@ import member.domain.RegRequest;
 
 public class MemberRegService2 {
 	
-	@Autowired
+	//@Autowired(required = false)
+	//@Qualifier("member1")
+	@Resource(name = "guestDao")
 	private Dao dao;
 
-	
 	public void regMember(RegRequest request) throws Exception {
 		
 		// 중복 이메일 체크

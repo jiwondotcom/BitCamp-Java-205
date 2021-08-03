@@ -1,6 +1,7 @@
 package member.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 
 import member.dao.Dao;
 import member.domain.Member;
@@ -8,8 +9,8 @@ import member.domain.Member;
 public class ChangePasswordService2 {
 
 	@Autowired
+	@Qualifier("member")
 	private Dao dao;
-
 	
 	public void changePassword(String email, String oldPW, String newPW) throws Exception {
 		
