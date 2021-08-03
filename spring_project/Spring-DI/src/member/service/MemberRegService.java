@@ -10,9 +10,26 @@ public class MemberRegService {
 	
 	// Dao dao = new MemberDao();
 	Dao dao;
+	int num;
+	
+	public void setDao(Dao dao) {
+		this.dao = dao;
+	}
+	
+	// 정수데이터를 받는 생성자
+	public MemberRegService(int num) {
+		// this.dao = dao;
+		System.out.println("MemberRegService 인스턴스 생성");
+	}
 	
 	public MemberRegService(Dao dao) {
 		this.dao = dao;
+		System.out.println("MemberRegService 인스턴스 생성");
+	}
+	
+	public MemberRegService(Dao dao, int num) {
+		this.dao = dao;
+		this.num = num;
 		System.out.println("MemberRegService 인스턴스 생성");
 	}
 	
