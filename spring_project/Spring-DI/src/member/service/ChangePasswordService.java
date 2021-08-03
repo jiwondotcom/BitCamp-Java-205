@@ -5,7 +5,16 @@ import member.domain.Member;
 
 public class ChangePasswordService {
 
-	Dao dao;
+	private Dao dao;
+	
+	// 프로퍼티 방식의 주입 : dao 주입을 위한 setter 메소드를 이용, 기본생성자가 필요하다.
+	public void setDao(Dao dao) {
+		this.dao = dao;
+	}
+	
+	// 기본생성자 정의
+	public ChangePasswordService() {}
+	
 	
 	public ChangePasswordService(Dao dao) {
 		this.dao = dao;
