@@ -17,7 +17,8 @@ public class SpringMain3 {
 		
 		// ctx = new GenericXmlApplicationContext("classpath:appCtx1.xml");
 		// ctx = new GenericXmlApplicationContext("classpath:appCtx2.xml");
-		ctx = new GenericXmlApplicationContext("classpath:appCtx3.xml");
+		// ctx = new GenericXmlApplicationContext("classpath:appCtx3.xml");
+		ctx = new GenericXmlApplicationContext("classpath:appCtx5.xml");
 		
 		Scanner sc = new Scanner(System.in);
 		
