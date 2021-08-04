@@ -3,21 +3,27 @@ package com.bitcamp.firstSpring.member.controller;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+// 기본 경로를 먼저 잡아준다. 
 @Controller
-@RequestMapping("/member/login") // 기본 경로를 먼저 잡아준다.
+@RequestMapping("/member/login") // 브라우저에서 사용하는 URL 경로(context 경로 뒤 부터 등록) => http://localhostL8080/mvc/member/login
 public class LoginController {
 
 	// @RequestMapping(value = "/member/login", method = RequestMethod.GET)
 	@RequestMapping(method = RequestMethod.GET)
-	public String getLoginForm(/* @RequestParam("page") int page */) {
+	public String getLoginForm(
+			
+				@RequestParam(value = "page", defaultValue = "1") int page
+			
+				) {
 		
-		// System.out.println(page + 1);
+		System.out.println(page);
 		
-		return "member/loginForm"; 	// /WEB-INF/views/member/loginForm.jsp
+		return "member/loginForm"; 	// /WEB-INF/views/member/loginForm.jsp => 응답을 만들어줄 jsp 경로
 	}
 	
 	
@@ -28,7 +34,8 @@ public class LoginController {
 					@RequestParam("userID") String userID,
 					@RequestParam("userPW") String userPW,
 					HttpServletRequest request,
-					LoginRequest loginRequest
+					LoginRequest loginRequest,
+					Model model
 						
 					) {
 		
@@ -39,11 +46,24 @@ public class LoginController {
 		
 		System.out.println(userID + " : " + userPW);
 		
+		
+		// view에 전달할 데이터 저장 : Model 객체를 이용 (String 매개변수로 받아준다.)
+		model.addAttribute("userID", userID);
+		model.addAttribute("userPW", userPW);
+		
+		
 		String uID = request.getParameter("userID");
 		String uPW = request.getParameter("userPW");
 		
 		System.out.println(uID + " : " + uPW);
+		
+		
+		model.addAttribute("uID", uID);
+		model.addAttribute("uPW", uPW);
+		
 		System.out.println(loginRequest);
+		
+		
 		
 		return "member/login";		// /WEB-INF/views/member/login.jsp
 	
