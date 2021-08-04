@@ -97,3 +97,5 @@ hs_err_pid*
 
 # End of https://www.toptal.com/developers/gitignore/api/java,eclipse
 Servers/
+jsp_project/First-Web/src/main/webapp/META-INF/MANIFEST.MF
+jsp_project/Junit4Test/WebContent/META-INF/MANIFEST.MF

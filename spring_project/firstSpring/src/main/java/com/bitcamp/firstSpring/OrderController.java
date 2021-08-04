@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.bitcamp.firstSpring.member.domain.OrderCommand;
 
 @Controller
-@RequestMapping("/order/orderForm")
+@RequestMapping("/order/order")
 public class OrderController {
 
 	
@@ -26,6 +26,6 @@ public class OrderController {
 	
 		System.out.println(orderCommand);
 		
-		return null;
+		return "order/order";
 }
 	}
