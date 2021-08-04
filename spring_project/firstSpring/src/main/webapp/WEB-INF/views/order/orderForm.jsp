@@ -10,11 +10,13 @@
 
 	<h1>주문 페이지</h1>
 	<hr>
-	<form>
-		<table>
+	<form method = "post">
+		<table border = "1">
+		
+			<!-- 상품 선택란 -->
 			<tr>
 				<!-- rowspan : 수직 방향으로 n개 셀을 합쳐준다. -->
-				<td rowspan="3">상품-1</td>
+				<th rowspan="3">상품-1</th>
 				<td>ID</td>
 				<td><input type="text" name="orderItems[0].itemId"></td>
 			</tr>
@@ -29,7 +31,7 @@
 
 
 			<tr>
-				<td rowspan="3">상품-2</td>
+				<th rowspan="3">상품-2</th>
 				<td>ID</td>
 				<td><input type="text" name="orderItems[1].itemId"></td>
 			</tr>
@@ -44,7 +46,7 @@
 
 
 			<tr>
-				<td rowspan="3">상품-3</td>
+				<th rowspan="3">상품-3</th>
 				<td>ID</td>
 				<td><input type="text" name="orderItems[2].itemId"></td>
 			</tr>
@@ -57,19 +59,18 @@
 				<td><input type="text" name="orderItems[2].remark"></td>
 			</tr>
 
-			
+
+			<!-- 주소 입력란 -->
 			<tr>
-				<td rowspan = "3">주소</td>
+				<th rowspan = "3">주소</th>
 				<td>우편번호</td>
 				<td><input type = "text" name = "address.zipcode"></td>
 			</tr>
 			<tr>
-				<td rowspan = "3">주소</td>
 				<td>주소1</td>
 				<td><input type = "text" name = "address.address1"></td>
 			</tr>
 			<tr>
-				<td rowspan = "3">주소</td>
 				<td>주소2</td>
 				<td><input type = "text" name = "address.address2"></td>
 			</tr>
