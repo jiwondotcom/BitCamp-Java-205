@@ -20,28 +20,22 @@
 <body>
 
  <div class = "contents">
- 	<h2>Login Form</h2>
+ 	<h2>Login Request Data</h2>
  	<hr>
  	
  	<!-- <form action = "login.jsp" method = "post"> -->
- 	<form method = "post">
  	<!-- action = "/contextPath/member/login" -->
  	<!-- /web/member/mypage/mypage.jsp -->
  		<table>
  			<tr>
  				<td>아이디</td>
- 				<td><input type = "text" name = "userID"></td>
+ 				<td></td>
  			</tr>
  			<tr>
  				<td>비밀번호</td>
- 				<td><input type = "password" name = "userPW"></td>
- 			</tr>
- 			<tr>
  				<td></td>
- 				<td><input type = "submit" id = "btn" value = "로그인"></td>
  			</tr>
  		</table>
- 	</form>
  </div>
 
 

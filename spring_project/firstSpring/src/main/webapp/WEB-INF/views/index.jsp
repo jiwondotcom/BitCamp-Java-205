@@ -12,9 +12,9 @@
 	<h1>Spring MVC</h1>
 	<hr>
 	<ul>
-		<li><a href = "<c:url value = "/hello"/>">/hello</a></li>
-		<li><a href = "<c:url value = "/member/loginForm"/>">/member/loginForm</a></li>
-		<li><a href = "<c:url value = "/member/regForm"/>">/member/regForm</a></li>
+			<li><a href = "<c:url value = "/hello"/>">/hello</a></li>
+			<li><a href = "<c:url value = "/member/login"/>">/member/login</a></li>
+			<li><a href = "<c:url value = "/member/regForm"/>">/member/regForm</a></li>
 	</ul>
 	
 </body>
