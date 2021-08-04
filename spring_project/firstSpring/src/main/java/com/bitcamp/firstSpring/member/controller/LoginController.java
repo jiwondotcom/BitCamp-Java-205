@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bitcamp.firstSpring.member.domain.LoginRequest;
+
 // 기본 경로를 먼저 잡아준다. 
 @Controller
 @RequestMapping("/member/login") // 브라우저에서 사용하는 URL 경로(context 경로 뒤 부터 등록) => http://localhostL8080/mvc/member/login

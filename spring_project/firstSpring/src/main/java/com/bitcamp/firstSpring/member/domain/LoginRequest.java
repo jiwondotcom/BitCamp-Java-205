@@ -1,4 +1,4 @@
-package com.bitcamp.firstSpring.member.controller;
+package com.bitcamp.firstSpring.member.domain;
 
 public class LoginRequest {
 	

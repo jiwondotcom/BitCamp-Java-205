@@ -25,14 +25,13 @@
 	
 	<!-- 그리드 맞추는 용도의 테이블 생성 -->
 	<!-- required : 필수 입력 (공백 불가) -->
-	<form action = "regMember.jsp" method = "post" enctype = "multipart/form-data">
+	<form method = "post">
 	<table>
 		<tr>
 			<td>아이디</td>
 			<td>
 				<input type = "text" name = "userID" id = "userID" required>
 				<span id = "msg" class = "display_none"></span>
-				<img id = "loadingImg" class = "display_none" alt = "loading" src = "<c:url value = "/image/loading.gif"/>">
 			</td>
 		</tr>
 		<tr>
