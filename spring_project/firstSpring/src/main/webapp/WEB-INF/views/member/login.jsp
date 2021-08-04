@@ -29,11 +29,11 @@
  		<table>
  			<tr>
  				<td>아이디</td>
- 				<td></td>
+ 				<td>${userID}, ${uID}, ${loginReq.userID}</td>
  			</tr>
  			<tr>
  				<td>비밀번호</td>
- 				<td></td>
+ 				<td>${userPW}, ${uPW}, ${loginReq.userPW}</td>
  			</tr>
  		</table>
  </div>
