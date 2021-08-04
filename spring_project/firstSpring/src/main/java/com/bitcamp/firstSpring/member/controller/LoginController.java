@@ -32,6 +32,11 @@ public class LoginController {
 						
 					) {
 		
+		// 사용자의 파라미터 데이터를 받는 방법
+		// 1. HttpServletRequest 이용
+		// 2. @RequestParm("param name")
+		// 3. 커맨드 객체(Beans) 이용
+		
 		System.out.println(userID + " : " + userPW);
 		
 		String uID = request.getParameter("userID");
@@ -41,12 +46,9 @@ public class LoginController {
 		System.out.println(loginRequest);
 		
 		return "member/login";		// /WEB-INF/views/member/login.jsp
+	
+	
 	}
 	
-	/*
-	@RequestMapping("/member/loginForm")
-	public String getLoginForm() {
-		return "member/loginForm"; //	
-	}
-	*/
+	
 }
