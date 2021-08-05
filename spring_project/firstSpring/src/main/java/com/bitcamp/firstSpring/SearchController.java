@@ -18,6 +18,7 @@ public class SearchController {
 	}
 	
 	
+	
 	@ModelAttribute("searchTypeList")
 	public List<SearchType> getSearchType() {
 		List<SearchType> list = new ArrayList<SearchType>();
