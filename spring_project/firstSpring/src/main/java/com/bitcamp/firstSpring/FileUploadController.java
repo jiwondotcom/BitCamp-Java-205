@@ -12,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
+import com.bitcamp.firstSpring.domain.Report;
+
 @Controller
 public class FileUploadController {
 	
@@ -21,14 +23,15 @@ public class FileUploadController {
 		final String UPLOAD_URI = "/uploadfile";
 
 		
-		// @RequestParam 이용한 파일 업로드
 		@RequestMapping("/upload/uploadForm")
 		public String getUplaodForm() {
 			return "upload/uploadForm";
 		}
 		
 		
-		// MultipartHttpServletRequest 이용한 파일 업로드
+		
+		
+		// @RequestParam 이용한 파일 업로드
 		@RequestMapping(value = "/upload/upload1")
 		public String upload(
 				
@@ -40,9 +43,9 @@ public class FileUploadController {
 				
 				) throws IllegalStateException, IOException {
 			
-			System.out.println("학번 : " + sno);
-			System.out.println("이름 : " + sname);
-			System.out.println("파일 : " + report.getOriginalFilename());
+			System.out.println("학번1 : " + sno);
+			System.out.println("이름1 : " + sname);
+			System.out.println("파일1 : " + report.getOriginalFilename());
 			
 			// getOriginalFileName() : 파일 이름을 가져온다.
 
@@ -57,6 +60,8 @@ public class FileUploadController {
 		
 		
 		
+		
+		/* MultipartHttpServletRequest 이용한 파일 업로드 */
 		@RequestMapping("/upload/upload2")
 		public String upload2(
 				
@@ -69,9 +74,9 @@ public class FileUploadController {
 			String sname = request.getParameter("sname");
 			MultipartFile report = request.getFile("report");
 			
-			System.out.println("학번 : " + sno);
-			System.out.println("이름 : " + sname);
-			System.out.println("파일 : " + report.getOriginalFilename());
+			System.out.println("학번2 : " + sno);
+			System.out.println("이름2 : " + sname);
+			System.out.println("파일2 : " + report.getOriginalFilename());
 			
 			// getOriginalFileName() : 파일 이름을 가져온다.
 
@@ -85,9 +90,39 @@ public class FileUploadController {
 		}
 		
 		
-
 		
-		// 사용자 업로드한 파일을 저장하는 메소드
+		
+		/* Command 객체를 이용한 파일 업로드 */
+		@RequestMapping("/upload/upload3")
+		public String upload3(
+				
+				Report report,
+				Model model,
+				HttpServletRequest request
+				
+				) throws IllegalStateException, IOException {
+			
+			System.out.println("학번3 : " + report.getSno());
+			System.out.println("이름3 : " + report.getSname());
+			System.out.println("파일3 : " + report.getReport().getOriginalFilename());
+			
+			// getOriginalFileName() : 파일 이름을 가져온다.
+
+			model.addAttribute("sno", report.getSno());
+			model.addAttribute("sname", report.getSname());
+			model.addAttribute("reportFile", report.getReport().getOriginalFilename());
+			
+			
+			saveFile(request, report.getReport());
+			
+			
+			return "upload/upload";
+		}
+		
+		
+		
+		
+		// 사용자 업로드한 파일을 저장하는 메소드 : saveFile
 		private void saveFile(HttpServletRequest request, MultipartFile file) 
 									throws IllegalStateException, IOException {
 			

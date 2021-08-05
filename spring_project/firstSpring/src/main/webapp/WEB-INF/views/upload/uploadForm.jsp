@@ -20,14 +20,14 @@
 		  method = "post"
 		  enctype = "multipart/form-data">
 	
-	학번 : <input type = "text" name = "sno"> <br>
-	이름 : <input type = "text" name = "sname"> <br>
-	파일 : <input type = "file" name = "report"> <br>
+	학번1 : <input type = "text" name = "sno"> <br>
+	이름1 : <input type = "text" name = "sname"> <br>
+	파일1 : <input type = "file" name = "report"> <br>
 	<input type = "submit" value = "제출">
 	
 	</form>
 	
-	
+	<hr>
 
 	<h3>MultipartHttpServletRequest 이용한 파일 업로드</h3>
 	
@@ -35,13 +35,27 @@
 		  method = "post"
 		  enctype = "multipart/form-data">
 	
-	학번 : <input type = "text" name = "sno"> <br>
-	이름 : <input type = "text" name = "sname"> <br>
-	파일 : <input type = "file" name = "report"> <br>
+	학번2 : <input type = "text" name = "sno"> <br>
+	이름2 : <input type = "text" name = "sname"> <br>
+	파일2 : <input type = "file" name = "report"> <br>
 	<input type = "submit" value = "제출">
 	
 	</form>
 	
+	<hr>
+	
+	<h3>Command 객체를 이용한 파일 업로드</h3>
+	
+	<form action="upload3"
+		  method = "post"
+		  enctype = "multipart/form-data">
+	
+	학번3 : <input type = "text" name = "sno"> <br>
+	이름3 : <input type = "text" name = "sname"> <br>
+	파일3 : <input type = "file" name = "report"> <br>
+	<input type = "submit" value = "제출">
+	
+	</form>
 	
 	
 

@@ -26,9 +26,8 @@
 	
 	<beans:bean id = "multipartResolver"
 				class = "org.springframework.web.multipart.commons.CommonsMultipartResolver"
-				p:defaultEncoding="UTF-8"
+				p:defaultEncoding="UTF-8"	<!-- 파일 이름 인코딩 처리 -->
 				p:maxUploadSize="10000000">
-				<!-- 파일 이름 인코딩 처리 -->
 	</beans:bean>
 	
 	
