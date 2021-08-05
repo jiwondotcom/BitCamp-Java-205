@@ -1,7 +1,13 @@
 package com.bitcamp.firstSpring;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
+
+import com.bitcamp.firstSpring.domain.SearchType;
 
 @Controller
 public class SearchController {
@@ -10,5 +16,22 @@ public class SearchController {
 	public String search() {
 		return "search/search";
 	}
+	
+	
+	@ModelAttribute("searchTypeList")
+	public List<SearchType> getSearchType() {
+		List<SearchType> list = new ArrayList<SearchType>();
+		list.add(new SearchType(1, "팀이름  + 선수이름"));
+		list.add(new SearchType(2, "팀이름"));
+		list.add(new SearchType(3, "선수이름"));
+		
+		return list;
+	}
 
+	
+	@ModelAttribute("queryList")
+	public String[] getQueryList() {
+		return new String[] {"안산", "김연경", "김희진"};
+	}
+	
 }
