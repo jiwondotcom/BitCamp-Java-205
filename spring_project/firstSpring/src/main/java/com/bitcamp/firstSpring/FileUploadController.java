@@ -85,8 +85,7 @@ public class FileUploadController {
 		}
 		
 		
-		
-		
+
 		
 		// 사용자 업로드한 파일을 저장하는 메소드
 		private void saveFile(HttpServletRequest request, MultipartFile file) 
