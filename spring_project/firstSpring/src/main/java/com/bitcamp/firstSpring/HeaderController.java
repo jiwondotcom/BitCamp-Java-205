@@ -16,11 +16,12 @@ public class HeaderController {
 			
 			) {
 		
-		System.out.println("reString");
+		System.out.println(reString);
 		model.addAttribute("re", reString);
 		
 		
-		return "header/headerInfo";
+		// return "header/headerInfo";
+		return "redirect:"+reString;
 	}
 	
 }
