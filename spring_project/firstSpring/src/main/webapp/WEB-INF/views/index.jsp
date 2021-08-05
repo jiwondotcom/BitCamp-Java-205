@@ -17,6 +17,7 @@
 			<li><a href = "<c:url value = "/member/memberReg"/>">/member/memberReg</a></li>
 			<li><a href = "<c:url value = "/order/order"/>">/order/order</a></li>
 			<li><a href = "<c:url value = "/cookie/make"/>">/cookie/make</a></li>
+			<li><a href = "<c:url value = "/header/header"/>">/header/header</a></li>
 	</ul>
 	
 </body>
