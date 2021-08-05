@@ -24,16 +24,17 @@
 	</beans:bean>
 	
 	
+	<!-- 파일 이름 인코딩 처리 -->
 	<beans:bean id = "multipartResolver"
 				class = "org.springframework.web.multipart.commons.CommonsMultipartResolver"
-				p:defaultEncoding="UTF-8"	<!-- 파일 이름 인코딩 처리 -->
-				p:maxUploadSize="10000000">
+				p:defaultEncoding = "UTF-8"	
+				p:maxUploadSize = "10000000">
 	</beans:bean>
 	
 	
-	
-	
-	
+	<!-- 자동주입 beans 추가 필요 -->
+	<beans:bean id = "fileDao" class = "com.bitcamp.firstSpring.dao.FileUploadDao"/>
+	<beans:bean id = "fileService" class = "com.bitcamp.firstSpring.service.FileUploadService"/>
 	
 	
 	<!-- 자동 bean 등록 : 애노테이션 찾아서 bean 생성 -->
@@ -44,7 +45,3 @@
 				@Repository	: DAO
 	 -->
 	<context:component-scan base-package="com.bitcamp.firstSpring" />
-	
-	
-	
-</beans:beans>

@@ -5,6 +5,7 @@ import java.io.IOException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,11 +14,17 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import com.bitcamp.firstSpring.domain.Report;
+import com.bitcamp.firstSpring.service.FileUploadService;
 
 @Controller
 public class FileUploadController {
 	
 	
+		// 자동 주입
+		@Autowired
+		private FileUploadService uploadService;
+
+		
 		// 업로드 된 파일을 저장할 폴더 경로 설정
 		// 상수 표현 -> 대문자
 		final String UPLOAD_URI = "/uploadfile";
@@ -54,6 +61,9 @@ public class FileUploadController {
 			model.addAttribute("reportFile", report.getOriginalFilename());
 		
 			saveFile(request, report);
+			
+			uploadService.fileUpload();
+			
 			
 			return "upload/upload";
 		}

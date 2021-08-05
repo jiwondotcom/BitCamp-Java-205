@@ -120,15 +120,6 @@
 		</dependency>
 
 
-	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-	<!-- 
-		<dependency>
-			<groupId>mysql</groupId>
-			<artifactId>mysql-connector-java</artifactId>
-		<version>8.0.26</version>
-		</dependency> -->
-
-
 	<!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
 	<!-- 
 	<dependency>
@@ -146,6 +137,14 @@
 			<version>2.11.0</version>
 		</dependency>
 	-->
+
+
+	<!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+	<dependency>
+		<groupId>mysql</groupId>
+		<artifactId>mysql-connector-java</artifactId>
+		<version>8.0.26</version>
+	</dependency>
 
 
 	<!-- commons-fileupload -->
