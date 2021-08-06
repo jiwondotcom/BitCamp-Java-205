@@ -34,15 +34,13 @@
 	<!-- 데이터베이스 드라이버 로더 -->
 	<servlet>
 		<servlet-name>DriverLoader</servlet-name>
-		<servlet-class></servlet-class>
+		<servlet-class>com.bitcamp.op.jdbc.DriverLoader</servlet-class>
 		<init-param>
-			<param-name></param-name>
-			<param-value></param-value>
+			<param-name>driver</param-name>
+			<param-value>com.mysql.cj.jdbc.Driver</param-value>
 		</init-param>
-		<load-on-startup></load-on-startup>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
-	
-	
 	
 	
 

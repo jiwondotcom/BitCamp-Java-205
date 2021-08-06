@@ -5,29 +5,15 @@
 <head>
 <meta charset="UTF-8">
 
-<title>Insert title here</title>
+<title>Open Project</title>
 
-<link rel = "stylesheet" href = "/op/css/default.css">
-<script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<%@ include file = "/WEB-INF/views/frame/metaheader.jsp" %>
 
 </head>
 <body>
+<%@ include file = "/WEB-INF/views/frame/header.jsp" %>
+<%@ include file = "/WEB-INF/views/frame/nav.jsp" %>
 
-	<header>
-		<h1>Open Project</h1>
-	</header>
-	
-	<nav>
-		<ul>
-			<li>회원가입</li>
-			<li>로그인</li>
-			<li>로그아웃</li>
-			<li>회원 리스트</li>
-			<li>방명록</li>
-		</ul>
-	</nav>
-	
-	
 	<div>
 		<h1>Content : Index</h1>
 	</div>
