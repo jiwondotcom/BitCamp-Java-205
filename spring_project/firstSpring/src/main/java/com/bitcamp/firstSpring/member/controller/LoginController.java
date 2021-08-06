@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bitcamp.firstSpring.member.domain.LoginInfo;
 import com.bitcamp.firstSpring.member.domain.LoginRequest;
 
 // 기본 경로를 먼저 잡아준다. 
@@ -65,6 +66,11 @@ public class LoginController {
 		model.addAttribute("uPW", uPW);
 		
 		System.out.println(loginRequest);
+		
+		// 세션의 속성에 loginInfo 등록
+		request.getSession(false).setAttribute("loginInfo", new LoginInfo());
+		
+		
 		
 		
 		

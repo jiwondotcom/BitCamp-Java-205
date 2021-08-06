@@ -33,8 +33,18 @@
 	
 	
 	<!-- 자동주입 beans 추가 필요 -->
-	<beans:bean id = "fileDao" class = "com.bitcamp.firstSpring.dao.FileUploadDao"/>
-	<beans:bean id = "fileService" class = "com.bitcamp.firstSpring.service.FileUploadService"/>
+	<!-- <beans:bean id = "fileDao" class = "com.bitcamp.firstSpring.dao.FileUploadDao"/>
+	<beans:bean id = "fileService" class = "com.bitcamp.firstSpring.service.FileUploadService"/> -->
+	
+	
+	<!-- 로그인 체크 인터셉터 등록 -->
+	<interceptors> 
+		<interceptor>
+			<mapping path = "/member/mypage/**"/>
+			<beans:bean class = "com.bitcamp.firstSpring.member.interceptor.AuthCheckInterceptor"/>
+		</interceptor>
+	</interceptors>
+	
 	
 	
 	<!-- 자동 bean 등록 : 애노테이션 찾아서 bean 생성 -->
@@ -44,4 +54,5 @@
 				@Service	: Service 
 				@Repository	: DAO
 	 -->
-	<context:component-scan base-package="com.bitcamp.firstSpring" />
+	<context:component-scan base-package="com.bitcamp.firstSpring"/>
+</beans:beans>

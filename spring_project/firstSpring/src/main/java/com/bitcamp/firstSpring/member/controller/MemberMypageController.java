@@ -11,7 +11,7 @@ public class MemberMypageController {
 	@RequestMapping("/member/mypage/{id}") // {변수}
 	public String mypage(
 			
-			@PathVariable("ID") String uid,
+			@PathVariable("id") String uid,
 			Model model
 			
 			) {
