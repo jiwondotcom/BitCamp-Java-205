@@ -13,6 +13,8 @@ public class ExceptionController {
 	@RequestMapping("error/error")
 	public String getPage() {
 		
+		// str = "String";
+		
 		System.out.println(str.charAt(0));
 		
 		return "index";

@@ -21,6 +21,10 @@
 			<li><a href = "<c:url value = "/view/view1"/>">/view/view1</a></li>
 			<li><a href = "<c:url value = "/search/search"/>">/search/search</a></li>
 			<li><a href = "<c:url value = "/upload/uploadForm"/>">/upload/uploadForm</a></li>
+			<li><a href = "<c:url value = "/member/mypage/jiwon"/>">/member/mypage/jiwon</a></li>
+			<li><a href = "<c:url value = "/member/mypage/goo"/>">/member/mypage/goo</a></li>
+			<li><a href = "<c:url value = "/member/mypage/won"/>">/member/mypage/won</a></li>
+			<li><a href = "<c:url value = "/error/error"/>">/error/error</a></li>
 	</ul>
 	
 </body>
