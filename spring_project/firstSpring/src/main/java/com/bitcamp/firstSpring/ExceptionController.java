@@ -21,6 +21,7 @@ public class ExceptionController {
 	
 	@ExceptionHandler(NullPointerException.class)
 	public String HandleNullPointerException(NullPointerException e) {
+		e.printStackTrace(); // 오류에 대한 흔적 남기기
 		return "error/nullPointer";
 	}
 	
