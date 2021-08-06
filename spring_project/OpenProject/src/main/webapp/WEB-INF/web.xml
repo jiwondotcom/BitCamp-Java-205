@@ -29,5 +29,21 @@
 		<servlet-name>appServlet</servlet-name>
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
+	
+	
+	<!-- 데이터베이스 드라이버 로더 -->
+	<servlet>
+		<servlet-name>DriverLoader</servlet-name>
+		<servlet-class></servlet-class>
+		<init-param>
+			<param-name></param-name>
+			<param-value></param-value>
+		</init-param>
+		<load-on-startup></load-on-startup>
+	</servlet>
+	
+	
+	
+	
 
 </web-app>
