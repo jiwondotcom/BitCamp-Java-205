@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -22,7 +23,16 @@ public class LoginController {
 	
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String loginForm() {
+	public String loginForm(
+			
+			/* null값이 들어올수도 있다 -> required = false 처리 */
+			@RequestHeader(value = "referer", required = false) String redirectUri,
+			Model model
+			
+			) {
+	
+		model.addAttribute("redirectUri", redirectUri);
+		
 		return "member/loginForm";
 	}
 	

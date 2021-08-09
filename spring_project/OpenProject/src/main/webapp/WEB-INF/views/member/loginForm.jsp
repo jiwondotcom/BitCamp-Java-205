@@ -39,7 +39,7 @@
 						<input type="checkbox" name="reID" value="on"
 						${cookie.reID.value ne null ? 'checked':''}> 아이디 기억하기
 						
-						<input type = "hidden">
+						<input type = "text" name = "redirectUri" value = "${redirectUri ne null ? redirectUri : ''}">
 							
 					</td>
 				</tr>
