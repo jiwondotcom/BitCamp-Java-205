@@ -1,4 +1,4 @@
-package com.bitcamp.firstSpring.member.interceptor;
+package com.bitcamp.op.interceptor;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;

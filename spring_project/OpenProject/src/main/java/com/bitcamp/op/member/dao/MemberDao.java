@@ -191,7 +191,6 @@ public class MemberDao {
 */
 	
 	
-	
 	public Member selectByIdPw(Connection conn, String userID, String userPW) {
 		
 		Member member = null;
@@ -244,7 +243,7 @@ public class MemberDao {
 	}
 
 
-	
+/*	
 	// ID 중복여부 확인을 위한 ID값으로 검색 -> 개수 반환
 	public int selectByID(Connection conn, String userID) throws SQLException {
 
@@ -272,7 +271,7 @@ public class MemberDao {
 		
 		return cnt;
 	}
-	
+*/	
 	
 	
 	

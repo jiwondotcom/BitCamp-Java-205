@@ -17,6 +17,7 @@ import com.bitcamp.op.member.domain.Member;
 @Service
 public class LoginService {
 
+	
 	@Autowired
 	MemberDao dao;
 	
