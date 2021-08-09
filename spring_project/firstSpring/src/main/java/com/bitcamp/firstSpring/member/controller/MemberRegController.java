@@ -44,7 +44,7 @@ public class MemberRegController {
 		model.addAttribute("userName", request.getParameter("userName"));
 			
 		
-		// 회원가입을 위한 Service 객체를 이용한 핵심 처리
+		// 회원가입을 위해 Service 객체를 이용한 핵심 처리
 		
 		return "member/memberReg";
 		

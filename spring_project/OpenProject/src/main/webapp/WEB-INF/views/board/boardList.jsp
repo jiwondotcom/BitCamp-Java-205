@@ -7,7 +7,7 @@
 <!-- 로그인 정보가 없을 때 -->
 	<script>
 		alert('로그인 후 사용이 가능합니다.');
-		location.href = '/member/login';
+		location.href = '../member/login';
 	</script>
 </c:if>
     

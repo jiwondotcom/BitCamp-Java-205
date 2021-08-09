@@ -1,4 +1,4 @@
-package service;
+package com.bitcamp.op.member.service;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
@@ -14,30 +14,37 @@ import org.apache.commons.fileupload.FileItem;
 import org.apache.commons.fileupload.FileUploadException;
 import org.apache.commons.fileupload.disk.DiskFileItemFactory;
 import org.apache.commons.fileupload.servlet.ServletFileUpload;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
-import member.dao.MemberDao;
-import member.domain.Member;
-import member.util.ConnectionProvider;
+import com.bitcamp.op.jdbc.ConnectionProvider;
+import com.bitcamp.op.member.dao.MemberDao;
+import com.bitcamp.op.member.domain.Member;
+import com.bitcamp.op.member.domain.MemberRegRequest;
 
-public class MemberRegService implements Command{
+@Service
+public class RegService {
+
+	@Autowired
+	MemberDao dao;
+
 	
-	/*
-	 * // 싱글톤 처리 private MemberRegService() {} private static MemberRegService
-	 * service = new MemberRegService(); public static MemberRegService
-	 * getInstance() { return service; }
-	 */
+	int resultCnt = 0;
 	
+	Member member = new Member();
 	
-	public int regMember(HttpServletRequest request) throws FileUploadException {
-		
-		int resultCnt = 0;
+	Connection conn = null;
+	File newFile = null;
+
+	
+	public int regMember(
+			
+			MemberRegRequest regRequest,
+			HttpServletRequest request
+			
+			
+			) throws FileUploadException {
 		 
-		Member member = new Member();
-		
-		Connection conn = null;
-		MemberDao dao = null;
-		
-		File newFile = null;
 		
 		try {
 		// 1. mulitpart 여부 확인
@@ -143,19 +150,5 @@ public class MemberRegService implements Command{
 		return resultCnt;
 	}
 
-	
-	
-	
-	public String getPage(HttpServletRequest request, HttpServletResponse response) {
-		
-		try {
-			request.setAttribute("result", regMember(request));
-		} catch (FileUploadException e) {
-			e.printStackTrace();
-		}
-		
-		return "/WEB-INF/views/regMember.jsp";
-	}
-	
-	
+
 }

@@ -15,7 +15,19 @@ import com.bitcamp.op.member.domain.Member;
 
 @Repository
 public class MemberDao {
+
 	
+	// 싱글톤 패턴
+	// 1. 인스턴스 생성을 막는다.
+	private MemberDao() {}
+	
+	// 2. 클래스 내부에서 인스턴스를 생성한다.
+	private static MemberDao dao = new MemberDao();
+	
+	// 3. 외부에서 참조값을 반환 받을 수 있는 메소드 필요
+	public static MemberDao getInstance() {
+		return dao == null ? new MemberDao() : dao;
+	}
 	
 	// 회원번호를 전달받아 선택처리
 		public Member selectByIndex (Connection conn, int index) {
@@ -88,7 +100,7 @@ public class MemberDao {
 		return list;
 
 	}
-	
+*/
 	
 	
 	
@@ -130,7 +142,7 @@ public class MemberDao {
 	}
 	
 	
-	
+/*	
 	// DB 처리 : 기존 데이터 삭제 delete
 	public int deleteMember (Connection conn, int index) {
 		
@@ -243,7 +255,7 @@ public class MemberDao {
 	}
 
 
-/*	
+	
 	// ID 중복여부 확인을 위한 ID값으로 검색 -> 개수 반환
 	public int selectByID(Connection conn, String userID) throws SQLException {
 
@@ -271,7 +283,7 @@ public class MemberDao {
 		
 		return cnt;
 	}
-*/	
+
 	
 	
 	

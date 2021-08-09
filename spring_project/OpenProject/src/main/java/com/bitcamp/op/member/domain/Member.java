@@ -11,9 +11,9 @@ public class Member {
 	private String userName;
 	private String userPhoto;
 	private Timestamp regDate;
+
 	
-
-
+	
 	public Member(int index, String userID, String userPW, String userName, String userPhoto, Timestamp regDate) {
 		this.index = index;
 		this.userID = userID;

@@ -41,9 +41,10 @@ public class LoginController {
 	public String login(
 				
 				/* 매개변수는 따로 클래스 처리를 하기도 한다. */
-				/* null값이 들어와도 상관없도록 reID는 required = false 처리한다. */
+				/* null값이 들어와도 상관없을 경우엔 required = false 처리한다. */
 				@RequestParam("userID") String userID,
 				@RequestParam("userPW") String userPW,
+				@RequestParam(value = "redirectUri", required = false) String redirectUri,
 				@RequestParam(value = "reID", required = false) String reID,
 			
 				HttpSession session,
@@ -57,9 +58,14 @@ public class LoginController {
 		boolean loginChk = loginService.login(userID, userPW, reID, session, response);
 		model.addAttribute("loginChk", loginChk);
 		
+		String view = "member/login";
+		
+		if(redirectUri != null && loginChk) { // loginChk = true
+			view = "redirect:" + redirectUri;
+		}
 		
 		
-		return "member/login";
+		return view;
 	}
 	
 }
