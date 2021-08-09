@@ -30,9 +30,11 @@ public class LoginController {
 	public String login(
 				
 				/* 매개변수는 따로 클래스 처리를 하기도 한다. */
+				/* null값이 들어와도 상관없도록 reID는 required = false 처리한다. */
 				@RequestParam("userID") String userID,
 				@RequestParam("userPW") String userPW,
-				@RequestParam("reID") String reID,
+				@RequestParam(value = "reID", required = false) String reID,
+			
 				HttpSession session,
 				HttpServletResponse response
 			
