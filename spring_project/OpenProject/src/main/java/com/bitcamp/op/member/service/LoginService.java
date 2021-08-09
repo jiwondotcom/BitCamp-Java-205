@@ -35,6 +35,10 @@ public class LoginService {
 			conn = ConnectionProvider.getConnection();
 			Member member = dao.selectByIdPw(conn, userID, userPW);
 			
+			
+			// 전달받은 ID와 PW로 DB에서 검색
+			// : 존재한다면 로그인 처리(true return), 없다면 false 리턴 처리
+
 			if(member != null) {
 				
 				// 로그인 처리
@@ -51,23 +55,26 @@ public class LoginService {
 		
 		
 		// 아이디 저장을 위한 Cookie 설정 필요
-		if(reID != null && reID.length() > 0) {
-			
+		if (reID != null && reID.length() > 0) {
+
 			Cookie cookie = new Cookie("reID", reID);
-			
+
 			cookie.setPath("/");
-			cookie.setMaxAge(60*60*24*365);
+			cookie.setMaxAge(60 * 60 * 24 * 365);
 			// 60초 * 60분 * 24시간 * 365일
-		
+
 			response.addCookie(cookie);
-		
+
+		} else {
+
+			Cookie cookie = new Cookie("reID", reID);
+
+			cookie.setPath("/");
+			cookie.setMaxAge(0);
+
+			response.addCookie(cookie);
+
 		}
-		
-		
-		// 전달받은 ID와 PW로 DB에서 검색
-		// : 존재한다면 로그인 처리(true return), 없다면 false 리턴 처리
-		
-		
 		
 		
 		return loginChk;
