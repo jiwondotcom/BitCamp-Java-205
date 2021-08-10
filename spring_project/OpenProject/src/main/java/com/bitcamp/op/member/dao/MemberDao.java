@@ -16,7 +16,7 @@ import com.bitcamp.op.member.domain.Member;
 @Repository
 public class MemberDao {
 
-	
+	/*
 	// 싱글톤 패턴
 	// 1. 인스턴스 생성을 막는다.
 	private MemberDao() {}
@@ -28,6 +28,7 @@ public class MemberDao {
 	public static MemberDao getInstance() {
 		return dao == null ? new MemberDao() : dao;
 	}
+	*/
 	
 	// 회원번호를 전달받아 선택처리
 		public Member selectByIndex (Connection conn, int index) {
@@ -62,7 +63,7 @@ public class MemberDao {
 		
 	
 	
-/*	
+
 	// 멤버 리스트 생성-출력
 	public List<Member> getMemberList(Connection conn) throws SQLException {
 		
@@ -100,7 +101,7 @@ public class MemberDao {
 		return list;
 
 	}
-*/
+
 	
 	
 	
