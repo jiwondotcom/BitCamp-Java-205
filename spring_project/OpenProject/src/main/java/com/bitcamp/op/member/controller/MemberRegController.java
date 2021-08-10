@@ -33,19 +33,7 @@ public class MemberRegController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String memberReg(
 			
-			/*
-			 * @RequestParam(value = "userID") String userID,
-			 * 
-			 * @RequestParam(value = "userPW") String userPW,
-			 * 
-			 * @RequestParam(value = "userName") String userName,
-			 * 
-			 * @RequestParam(value = "userPhoto", required = false) String userPhoto,
-			 */
-			
-			MemberRegRequest regRequest,
-			HttpServletRequest request,
-			Model model
+			@ModelAttribute("regRequest") MemberRegRequest regRequest
 			
 			) throws FileUploadException {
 		

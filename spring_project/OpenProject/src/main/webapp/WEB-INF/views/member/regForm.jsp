@@ -25,9 +25,7 @@
 	
 	<!-- 그리드 맞추는 용도의 테이블 생성 -->
 	<!-- required : 필수 입력 (공백 불가) -->
-	<form action = "<c:url value = '/member/memberReg'/>" 
-		  method = "post"
-		  enctype = "multipart/form-data"> 
+	<form method = "post" enctype = "multipart/form-data"> 
 
 	<table>
 		<tr>
