@@ -40,10 +40,18 @@ public class MemberRegController {
 			
 			) throws FileUploadException {
 	
-			model.addAttribute("result", regService.regMember(regRequest, request));
+			int result = regService.regMember(regRequest, request);
+			model.addAttribute("result", result);
 		
+			String view = "member/memberReg";
+			
+			if(result == 1) {
+				// 인덱스 페이지로 리다이렉트 처리
+				view = "redirect:/index";
+			}
+			
+			
 		
-		
-		return "member/memberReg";
+		return view;
 	}
 }

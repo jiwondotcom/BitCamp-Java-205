@@ -2,19 +2,18 @@ package com.bitcamp.op.member.service;
 
 import java.io.File;
 import java.io.IOException;
-import java.lang.reflect.Member;
 import java.sql.Connection;
 import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.fileupload.FileUploadException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.op.jdbc.ConnectionProvider;
 import com.bitcamp.op.jdbc.JdbcUtil;
 import com.bitcamp.op.member.dao.MemberDao;
+import com.bitcamp.op.member.domain.Member;
 import com.bitcamp.op.member.domain.MemberRegRequest;
 
 @Service
@@ -25,8 +24,6 @@ public class RegService {
 	
 	@Autowired
 	private MemberDao dao;
-	Member member;
-	
 	
 	public int regMember(
 			
@@ -93,11 +90,6 @@ public class RegService {
 		} finally {
 			JdbcUtil.close(conn);
 		}
-		
-		
-		
-		
-		
 		
 		return resultCnt;
 	}
