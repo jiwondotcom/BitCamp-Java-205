@@ -7,6 +7,7 @@ import org.apache.commons.fileupload.FileUploadException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -21,9 +22,9 @@ public class MemberRegController {
 	
 	
 	@Autowired
-	RegService regService;
+	private RegService regService;
 	
-	@RequestMapping(method = RequestMethod.GET)
+	@RequestMapping(method = RequestMethod.GET)  
 	public String RegForm() {
 		
 		return "member/regForm";
@@ -33,14 +34,16 @@ public class MemberRegController {
 	@RequestMapping(method = RequestMethod.POST)
 	public String memberReg(
 			
-			@ModelAttribute("regRequest") MemberRegRequest regRequest
+			@ModelAttribute("regRequest") MemberRegRequest regRequest,
+			HttpServletRequest request,
+			Model model
 			
 			) throws FileUploadException {
+	
+			model.addAttribute("result", regService.regMember(regRequest, request));
 		
-		  int result = regService.regMember(regRequest, request);
-		  model.addAttribute("result", result);
 		
-		// 회원가입을 위해 Service 객체를 이용한 핵심 처리
+		
 		return "member/memberReg";
 	}
 }
