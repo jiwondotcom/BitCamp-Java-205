@@ -24,7 +24,7 @@ public class MemberRegController {
 	RegService regService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String getRegForm() {
+	public String RegForm() {
 		
 		return "member/regForm";
 	}

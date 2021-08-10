@@ -1,5 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +19,8 @@
 <%@ include file = "/WEB-INF/views/frame/header.jsp" %>
 <%@ include file = "/WEB-INF/views/frame/nav.jsp" %>
 
-<div class = "content">
-	<h2>회원 정보 등록</h2>
+<div id = "content">
+	<h2>회원가입</h2>
 	<hr>
 	
 	<!-- 그리드 맞추는 용도의 테이블 생성 -->
