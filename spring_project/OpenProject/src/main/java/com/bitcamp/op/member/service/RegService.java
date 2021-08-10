@@ -53,7 +53,7 @@ public class RegService {
 			}
 			
 			// 파일 저장시에 파일 이름이 같으면 덮어쓴다. -> 회원별 고유한 파일을 만들자(회원의 아이디 활용)
-			String newFileName = regRequest.getUserID()+System.currentTimeMillis();
+			String newFileName = regRequest.getUserID()+System.currentTimeMillis()+".jpg";
 			// 예) jiwon23897235852938
 			
 			
@@ -61,7 +61,7 @@ public class RegService {
 			newFile = new File(newDir, newFileName);
 			
 			// 파일 저장
-			if(regRequest.getUserPhoto() != null && regRequest.getUserPhoto().isEmpty()) {
+			if(regRequest.getUserPhoto() != null && !regRequest.getUserPhoto().isEmpty()) {
 				regRequest.getUserPhoto().transferTo(newFile);
 			}
 			
