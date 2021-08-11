@@ -26,9 +26,9 @@ public class IdCheckService {
 		Connection conn = null;
 		
 		try {
-			conn = ConnectionProvider.getConnection();
+			// conn = ConnectionProvider.getConnection();
 		
-			if(dao.selectByID(conn, id) > 0) {
+			if(dao.selectByID(id) > 0) {
 				result = "N";
 			}
 			

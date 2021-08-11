@@ -55,7 +55,7 @@ public class JdbcTemplateMemberDao {
 	
 	
 
-	// 硫ㅻ쾭 由ъ뒪�듃 �깮�꽦-異쒕젰
+	// 멤버 리스트 생성-출력
 	public List<Member> getMemberList(Connection conn) throws SQLException {
 		
 		List<Member> list = null;
@@ -96,7 +96,7 @@ public class JdbcTemplateMemberDao {
 	
 	
 	
-	// DB 泥섎━ : �깉濡쒖슫 �뜲�씠�꽣 �궫�엯 insert
+	// DB 처리 : 새로운 데이터 삽입 insert
 	public int insertMember(Connection conn, Member member) throws SQLException {
 		
 		int resultCnt = 0;
@@ -135,7 +135,7 @@ public class JdbcTemplateMemberDao {
 	
 	
 /*	
-	// DB 泥섎━ : 湲곗〈 �뜲�씠�꽣 �궘�젣 delete
+	// DB 처리 : 기존 데이터 삭제 delete
 	public int deleteMember (Connection conn, int index) {
 		
 		int resultCnt = 0;
@@ -163,7 +163,7 @@ public class JdbcTemplateMemberDao {
 	
 
 /*
-	// �쐞�뿉�꽌 �쟾�떖諛쏆� (selectByIndex) �쉶�썝踰덊샇�뿉 �빐�떦�릺�뒗 �뜲�씠�꽣瑜� �닔�젙 (�쉶�썝 鍮꾨�踰덊샇, �쉶�썝 �씠由�)
+	// 위에서 전달받은 (selectByIndex) 회원번호에 해당되는 데이터를 수정 (회원 비밀번호, 회원 이름)
 	public int updateMember(Connection conn, EditInfo editInfo) {
 		
 		int resultCnt = 0;
@@ -195,35 +195,7 @@ public class JdbcTemplateMemberDao {
 */
 	
 	
-	public Member selectByIdPw(Connection conn, String userID, String userPW) {
-		
-		/*
-		Member member = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		
-		// String sql = "select * from memberinfo where `userID` = ? and `userPW` = ?";
-		
-		try {
-			pstmt = conn.prepareStatement(sql);
-			
-			pstmt.setString(1, userID);
-			pstmt.setString(2, userPW);
-			
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()) {
-				member = makeMember(rs);
-			}
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} finally {
-			JdbcUtil.close(rs);
-			JdbcUtil.close(pstmt);
-		}
-		*/
+	public Member selectByIdPw(String userID, String userPW) {
 		
 		// String sql = "select * from memberinfo where `userID` = ? and `userPW` = ?";
 		List<Member> list = template.query("select * from memberinfo where `userID` = ? and `userPW` = ?", new MemberRowMapper(), userID, userPW);
@@ -235,6 +207,18 @@ public class JdbcTemplateMemberDao {
 		
 	}
 
+	
+	// ID 중복여부 확인을 위한 ID값으로 검색 -> 개수 반환
+	public int selectByID(String userID) throws SQLException {
+		
+		// String sql = "select count(*) from memberinfo where userID = ?";
+		// int cnt = template.queryForObject(sql, Integer.class, userID);
+		
+		return template.queryForObject("select count(*) from memberinfo where userID = ?", Integer.class, userID);
+	}
+
+	
+	
 	
 	
 	
@@ -253,17 +237,6 @@ public class JdbcTemplateMemberDao {
 		
 	}
 
-	
-	// ID 以묐났�뿬遺� �솗�씤�쓣 �쐞�븳 ID媛믪쑝濡� 寃��깋 -> 媛쒖닔 諛섑솚
-	public int selectByID(Connection conn, String userID) throws SQLException {
-		
-		// String sql = "select count(*) from memberinfo where userID = ?";
-		// int cnt = template.queryForObject(sql, Integer.class, userID);
-		
-		return template.queryForObject("select count(*) from memberinfo where userID = ?", Integer.class, userID);
-	}
-
-	
 	
 	
 }

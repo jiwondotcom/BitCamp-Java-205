@@ -17,7 +17,6 @@ import com.bitcamp.op.member.domain.Member;
 
 @Service
 public class LoginService {
-
 	
 	// @Autowired
 	// MemberDao dao;
@@ -33,16 +32,12 @@ public class LoginService {
 		
 		boolean loginChk = false;
 		
-		Connection conn = null;
+		// Connection conn = null;
 		
-		try {
-			conn = ConnectionProvider.getConnection();
-			Member member = dao.selectByIdPw(conn, userID, userPW);
+			// conn = ConnectionProvider.getConnection();
+			Member member = dao.selectByIdPw(userID, userPW);
 			
-			
-			// �쟾�떖諛쏆� ID�� PW濡� DB�뿉�꽌 寃��깋
-			// : 議댁옱�븳�떎硫� 濡쒓렇�씤 泥섎━(true return), �뾾�떎硫� false 由ы꽩 泥섎━
-
+		
 			if(member != null) {
 				
 				// 濡쒓렇�씤 泥섎━
@@ -51,21 +46,18 @@ public class LoginService {
 				loginChk = true;
 			}
 			
+		
 			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		
-		
-		// �븘�씠�뵒 ���옣�쓣 �쐞�븳 Cookie �꽕�젙 �븘�슂
+			
+		// ID 저장을 위한 쿠키 설정
+		// reID 값의 유무 체크
 		if (reID != null && reID.length() > 0) {
 
 			Cookie cookie = new Cookie("reID", reID);
 
 			cookie.setPath("/");
 			cookie.setMaxAge(60 * 60 * 24 * 365);
-			// 60珥� * 60遺� * 24�떆媛� * 365�씪
+			// 60초 * 60분 * 24시간 * 365일
 
 			response.addCookie(cookie);
 
