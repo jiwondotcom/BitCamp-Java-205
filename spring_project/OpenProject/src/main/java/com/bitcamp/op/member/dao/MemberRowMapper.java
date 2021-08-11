@@ -11,7 +11,9 @@ public class MemberRowMapper implements RowMapper<Member> {
 
 	@Override
 	public Member mapRow(ResultSet rs, int rowNum) throws SQLException {
+	
 		Member member = new Member();
+	
 		member.setIndex(rs.getInt("index"));
 		member.setUserID(rs.getString("userid"));
 		member.setUserPW(rs.getString("userpw"));
@@ -19,7 +21,7 @@ public class MemberRowMapper implements RowMapper<Member> {
 		member.setUserPhoto(rs.getString("userPhoto"));
 		member.setRegDate(rs.getTimestamp("regdate"));
 		
-		return null;
+		return member;
 	}
 
 }

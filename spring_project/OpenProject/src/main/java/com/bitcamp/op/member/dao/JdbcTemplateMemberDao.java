@@ -19,9 +19,11 @@ import com.bitcamp.op.member.domain.Member;
 @Repository
 public class JdbcTemplateMemberDao {
 
+	
 	@Autowired
 	private JdbcTemplate template;
 	
+		// 회원번호를 전달받아 선택처리
 		public Member selectByIndex (Connection conn, int index) {
 			
 			Member member = null;
@@ -123,6 +125,8 @@ public class JdbcTemplateMemberDao {
 		return resultCnt;
 		
 	}
+	
+	
 	
 	
 /*	
