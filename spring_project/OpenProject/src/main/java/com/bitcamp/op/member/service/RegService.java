@@ -107,7 +107,15 @@ public class RegService {
 			Member member = regRequest.toMember();
 			member.setUserPhoto(newFileName);
 			
-			resultCnt = dao.insertMember(member);
+			resultCnt = dao.insertMember1(member);
+			
+			System.out.println("새롭게 등록된 index => " + member.getIndex());
+			
+		
+			// index 값은 자식 테이블  insert시 외래키로 사용한다.
+			
+			// 자식테이블 insert 구문 실행
+			
 			
 			
 		} catch (IllegalStateException | IOException e) {
