@@ -59,7 +59,7 @@ public class MemberRegRequest {
 						  userID,
 						  userPW,
 						  userName,
-						  userPhoto.getOriginalFilename(),
+						  null,
 						  null);
 	}
 	
