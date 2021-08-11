@@ -70,7 +70,7 @@ public class JdbcTemplateMemberDao {
 		try {
 			stmt = conn.createStatement();
 			
-			String sql = "select * from memberinfo;";
+			String sql = "select * from memberinfo";
 			
 			rs = stmt.executeQuery(sql);
 		
@@ -246,10 +246,10 @@ public class JdbcTemplateMemberDao {
 	// ID 중복여부 확인을 위한 ID값으로 검색 -> 개수 반환
 	public int selectByID(String userID) throws SQLException {
 		
-		// String sql = "select count(*) from memberinfo where userID = ?";
-		// int cnt = template.queryForObject(sql, Integer.class, userID);
+		String sql = "select count(*) from memberinfo where userID = ?";
+		int cnt = template.queryForObject(sql, Integer.class, userID);
 		
-		return template.queryForObject("select count(*) from memberinfo where userID = ?", Integer.class, userID);
+		return cnt;
 	}
 
 	
