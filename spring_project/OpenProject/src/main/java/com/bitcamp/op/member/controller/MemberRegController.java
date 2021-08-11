@@ -47,9 +47,9 @@ public class MemberRegController {
 			
 			if(result == 1) {
 				// 인덱스 페이지로 리다이렉트 처리
+				System.out.println("회원 등록 완료");
 				view = "redirect:/index";
 			}
-			
 			
 		
 		return view;
