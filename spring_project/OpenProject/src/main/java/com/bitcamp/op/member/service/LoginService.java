@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.op.jdbc.ConnectionProvider;
+import com.bitcamp.op.member.dao.JdbcTemplateMemberDao;
 import com.bitcamp.op.member.dao.MemberDao;
 import com.bitcamp.op.member.domain.Member;
 
@@ -18,9 +19,11 @@ import com.bitcamp.op.member.domain.Member;
 public class LoginService {
 
 	
-	@Autowired
-	MemberDao dao;
+	// @Autowired
+	// MemberDao dao;
 	
+	@Autowired
+	private JdbcTemplateMemberDao dao;
 	
 	public boolean login(String userID,
 						 String userPW,
@@ -37,12 +40,12 @@ public class LoginService {
 			Member member = dao.selectByIdPw(conn, userID, userPW);
 			
 			
-			// 전달받은 ID와 PW로 DB에서 검색
-			// : 존재한다면 로그인 처리(true return), 없다면 false 리턴 처리
+			// �쟾�떖諛쏆� ID�� PW濡� DB�뿉�꽌 寃��깋
+			// : 議댁옱�븳�떎硫� 濡쒓렇�씤 泥섎━(true return), �뾾�떎硫� false 由ы꽩 泥섎━
 
 			if(member != null) {
 				
-				// 로그인 처리
+				// 濡쒓렇�씤 泥섎━
 				session.setAttribute("loginInfo", member.toLoginInfo());
 				
 				loginChk = true;
@@ -55,14 +58,14 @@ public class LoginService {
 		}
 		
 		
-		// 아이디 저장을 위한 Cookie 설정 필요
+		// �븘�씠�뵒 ���옣�쓣 �쐞�븳 Cookie �꽕�젙 �븘�슂
 		if (reID != null && reID.length() > 0) {
 
 			Cookie cookie = new Cookie("reID", reID);
 
 			cookie.setPath("/");
 			cookie.setMaxAge(60 * 60 * 24 * 365);
-			// 60초 * 60분 * 24시간 * 365일
+			// 60珥� * 60遺� * 24�떆媛� * 365�씪
 
 			response.addCookie(cookie);
 
