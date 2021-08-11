@@ -7,13 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.op.jdbc.ConnectionProvider;
+import com.bitcamp.op.member.dao.JdbcTemplateMemberDao;
 import com.bitcamp.op.member.dao.MemberDao;
 
 @Service
 public class IdCheckService {
 
+	// @Autowired
+	// MemberDao dao;
+	
 	@Autowired
-	MemberDao dao;
+	JdbcTemplateMemberDao dao;
+	
 	
 	public String idCheck(String id) {
 		
@@ -21,9 +26,9 @@ public class IdCheckService {
 		Connection conn = null;
 		
 		try {
-			conn = ConnectionProvider.getConnection();
+			// conn = ConnectionProvider.getConnection();
 		
-			if(dao.selectByID(conn, id) > 0) {
+			if(dao.selectByID(id) > 0) {
 				result = "N";
 			}
 			
