@@ -10,7 +10,9 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
-
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.jdbc.support.KeyHolder;
 import org.springframework.stereotype.Repository;
 
 import com.bitcamp.op.jdbc.JdbcUtil;
@@ -127,6 +129,43 @@ public class JdbcTemplateMemberDao {
 	}
 	
 	
+	// DB 처리 : 새로운 데이터 삽입 insert
+	public int insertMember1(final Member member) throws SQLException {
+		
+		int resultCnt = 0;
+		
+		// 자동 증가한 컬럼의 값을 저장할 객체
+		KeyHolder holder = new GeneratedKeyHolder();
+		
+		template.update(
+						new PreparedStatementCreator() {
+							
+							@Override
+							public PreparedStatement createPreparedStatement(Connection conn) throws SQLException {
+								
+								final String sql1 = "insert into memberinfo (userID, userPW, userName, userPhoto) values (?, ?, ?, ?)";   
+								PreparedStatement pstmt = conn.prepareStatement(sql1, new String[] {"index"});
+								pstmt.setString(1, member.getUserID());
+								pstmt.setString(2, member.getUserPW());
+								pstmt.setString(3, member.getUserName());
+								pstmt.setString(4, member.getUserPhoto());
+								
+								return pstmt;
+							}
+						},
+						holder);
+		
+		
+		Number index = holder.getKey();
+		member.setIndex(index.intValue());
+		
+		
+		return resultCnt;
+	
+	}
+	
+	
+	
 	
 	
 /*	
@@ -203,6 +242,7 @@ public class JdbcTemplateMemberDao {
 	}
 
 	
+	
 	// ID 중복여부 확인을 위한 ID값으로 검색 -> 개수 반환
 	public int selectByID(String userID) throws SQLException {
 		
@@ -212,7 +252,6 @@ public class JdbcTemplateMemberDao {
 		return template.queryForObject("select count(*) from memberinfo where userID = ?", Integer.class, userID);
 	}
 
-	
 	
 	
 	
@@ -232,6 +271,5 @@ public class JdbcTemplateMemberDao {
 		
 	}
 
-	
 	
 }
