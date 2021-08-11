@@ -97,36 +97,27 @@ public class JdbcTemplateMemberDao {
 	
 	
 	// DB 처리 : 새로운 데이터 삽입 insert
-	public int insertMember(Connection conn, Member member) throws SQLException {
+	public int insertMember(Member member) throws SQLException {
 		
 		int resultCnt = 0;
-		PreparedStatement pstmt = null;
 		
-		String sql1 = "insert into memberinfo (userID, userPW, userName) values (?, ?, ?)";
-		String sql2 = "insert into memberinfo (userID, userPW, userName, userPhoto) values (?, ?, ?, ?)";
+		String sql1 = "insert into memberinfo (userID, userPW, userName, userPhoto) values (?, ?, ?, ?)";
+		String sql2 = "insert into memberinfo (userID, userPW, userName) values (?, ?, ?)";
 		
-		try {
-			
-			if(member.getUserPhoto() == null) {
-				pstmt = conn.prepareStatement(sql1);
-				
-				pstmt.setString(1, member.getUserID());
-				pstmt.setString(2, member.getUserPW());
-				pstmt.setString(3, member.getUserName());
-			} else {
-				pstmt = conn.prepareStatement(sql2);
-				
-				pstmt.setString(1, member.getUserID());
-				pstmt.setString(2, member.getUserPW());
-				pstmt.setString(3, member.getUserName());
-				pstmt.setString(4, member.getUserPhoto());
-			}
-			
-			resultCnt = pstmt.executeUpdate();
-			
-		} finally {
-			JdbcUtil.close(pstmt);
-			
+		// photo가 있을 시
+		if(member.getUserPhoto() != null) {
+			resultCnt = template.update(sql1,
+										member.getUserID(),
+										member.getUserPW(),
+										member.getUserName(),
+										member.getUserPhoto());
+		
+		// photo가 없을 시
+		} else {
+			resultCnt = template.update(sql2,
+										member.getUserID(),
+										member.getUserPW(),
+										member.getUserName());
 		}
 		
 		return resultCnt;

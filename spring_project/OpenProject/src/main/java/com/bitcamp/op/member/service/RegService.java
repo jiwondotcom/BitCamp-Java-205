@@ -12,18 +12,22 @@ import org.springframework.stereotype.Service;
 
 import com.bitcamp.op.jdbc.ConnectionProvider;
 import com.bitcamp.op.jdbc.JdbcUtil;
+import com.bitcamp.op.member.dao.JdbcTemplateMemberDao;
 import com.bitcamp.op.member.dao.MemberDao;
 import com.bitcamp.op.member.domain.Member;
 import com.bitcamp.op.member.domain.MemberRegRequest;
 
 @Service
 public class RegService {
-
 	
 	final String UPLOAD_URI = "/uploadfile";
 	
+	// @Autowired
+	// private MemberDao dao;
+	
 	@Autowired
-	private MemberDao dao;
+	private JdbcTemplateMemberDao dao;
+	
 	
 	public int regMember(
 			
@@ -34,7 +38,7 @@ public class RegService {
 		 
 		int resultCnt = 0;
 		
-		Connection conn = null;
+		// Connection conn = null;
 		File newFile = null;
 	
 		try {
@@ -68,27 +72,26 @@ public class RegService {
 			
 			// 2. dao 저장
 			
-			conn = ConnectionProvider.getConnection();
+			// conn = ConnectionProvider.getConnection();
 			
 			// Member 객체 생성 -> 저장된 파일의 이름을 set
 			Member member = regRequest.toMember();
 			member.setUserPhoto(newFileName);
 			
-			resultCnt = dao.insertMember(conn, member);
+			resultCnt = dao.insertMember(member);
 			
 			
 		} catch (IllegalStateException | IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
+		
 		} catch (SQLException e) {
 			
 			// DB예외 발생시, 저장된 파일을 삭제한다.
 			if(newFile != null && newFile.exists()) {
 				newFile.delete();
 			}
+			
 			e.printStackTrace();
-		} finally {
-			JdbcUtil.close(conn);
 		}
 		
 		return resultCnt;
