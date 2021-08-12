@@ -28,11 +28,11 @@
 	
 	<!-- SqlSessionFactoryBean 등록 -->
 	<bean id = "SqlSessionFactoryBean"
-		  class = "org.mybatis.spring.SqlSessionFactoryBean">
-		
+		  class = "org.mybatis.spring.SqlSessionFactoryBean"
+		  p:dataSource-ref = "datasource"
+		  p:mapperLocations = "classpath:com/bitcamp/op/member/dao/mapper/*.xml">
+		  <!-- WEB-INF/mapper/*.xml -->
 	</bean>
-	
-	
 	
 	
 	
