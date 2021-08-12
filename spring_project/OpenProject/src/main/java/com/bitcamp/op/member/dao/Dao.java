@@ -19,7 +19,7 @@ public interface Dao {
 	// 회원 전체 리스트
 	List<Member> selectAll();
 	// 페이징 처리가 가능한 리스트
-	List<Member> selectList(int startRow, int count); 
+	List<Member> selectList(int startRow, int count); // (0,3)
 	// 전체 회원의 수
 	int selectTotalCount();
 	

@@ -26,8 +26,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			parameterType = "com.bitcamp.op.member.domain.Member"
 			useGeneratedKeys = "true"
 			keyProperty = "index">
-			
-			insert into Memberinfo (userD, userPW, userName, userPhoto)
+			insert into Memberinfo (userID, userPW, userName, userPhoto)
 			values (#{userID}, #{userPW}, #{userName}, #{userPhoto})
 	</insert>
 
@@ -35,7 +34,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- 회원정보 수정 -->
 	<update id = "updateMember"
 			parameterType = "com.bitcamp.op.member.domain.Member">
-			
 			update memberinfo 
 			set userName = #{userName}, userPW = #{userPW}
 			where index = #{index}
