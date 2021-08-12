@@ -103,12 +103,13 @@ public class mybatisMemberDao {
 
 	}
 
+	/*
 	// DB 처리 : 새로운 데이터 삽입 insert
 	public int insertMember1(final Member member) throws SQLException {
 
 		int resultCnt = 0;
 
-		/*
+		
 		// 자동 증가한 컬럼의 값을 저장할 객체
 		KeyHolder holder = new GeneratedKeyHolder();
 
@@ -130,57 +131,69 @@ public class mybatisMemberDao {
 
 		Number index = holder.getKey();
 		member.setIndex(index.intValue());
-		 */
-
-
+		
 		return resultCnt;
 
 	}
+ */
+	
+	
+	
+/*	
+	  // DB 처리 : 기존 데이터 삭제 delete public int deleteMember (Connection conn, intindex) {
+	  
+	  int resultCnt = 0; PreparedStatement pstmt = null;
+	  
+	  String sql = "delete from memberinfo where `index`=?";
+	  
+	  try { pstmt = conn.prepareStatement(sql); pstmt.setInt(1, index);
+	  
+	  resultCnt = pstmt.executeUpdate();
+	  
+	  } catch (SQLException e) { // TODO Auto-generated catch block
+	  e.printStackTrace(); }
+	  
+	  return resultCnt;
+	  
+	  }
+
+*/
 
 	
-	/*
-	 * // DB 처리 : 기존 데이터 삭제 delete public int deleteMember (Connection conn, int
-	 * index) {
-	 * 
-	 * int resultCnt = 0; PreparedStatement pstmt = null;
-	 * 
-	 * String sql = "delete from memberinfo where `index`=?";
-	 * 
-	 * try { pstmt = conn.prepareStatement(sql); pstmt.setInt(1, index);
-	 * 
-	 * resultCnt = pstmt.executeUpdate();
-	 * 
-	 * } catch (SQLException e) { // TODO Auto-generated catch block
-	 * e.printStackTrace(); }
-	 * 
-	 * return resultCnt; }
-	 */
+	
+/*
+	  // 위에서 전달받은 (selectByIndex) 회원번호에 해당되는 데이터를 수정 (회원 비밀번호, 회원 이름)
+	  public int updateMember(Connection conn, EditInfo editInfo) {
+	  
+	  int resultCnt = 0; PreparedStatement pstmt = null;
+	  
+	  String sql = "update memberinfo set `USERID`=?, `USERPW`=?, `USERNAME`=? where `INDEX`=?";
+	  
+	  try {
+	  
+	  pstmt = conn.prepareStatement(sql);
+	  
+	  pstmt.setString(1, editInfo.getUserID());
+	  pstmt.setString(2, editInfo.getUserPW());
+	  pstmt.setString(3,editInfo.getUserName());
+	  pstmt.setInt(4, editInfo.getIndex());
+	  
+	  resultCnt = pstmt.executeUpdate();
+	  
+	  } catch (SQLException e) {
+	  // TODO Auto-generated catch block
+	  e.printStackTrace();
+	  
+	  } finally {
+	  JdbcUtil.close(pstmt);
+	  
+	  }
+	  return resultCnt;
+	  
+	  }
 
-	/*
-	 * // 위에서 전달받은 (selectByIndex) 회원번호에 해당되는 데이터를 수정 (회원 비밀번호, 회원 이름) public int
-	 * updateMember(Connection conn, EditInfo editInfo) {
-	 * 
-	 * int resultCnt = 0; PreparedStatement pstmt = null;
-	 * 
-	 * String sql =
-	 * "update memberinfo set `USERID`=?, `USERPW`=?, `USERNAME`=? where `INDEX`=?";
-	 * 
-	 * try {
-	 * 
-	 * pstmt = conn.prepareStatement(sql); pstmt.setString(1, editInfo.getUserID());
-	 * pstmt.setString(2, editInfo.getUserPW()); pstmt.setString(3,
-	 * editInfo.getUserName()); pstmt.setInt(4, editInfo.getIndex());
-	 * 
-	 * resultCnt = pstmt.executeUpdate();
-	 * 
-	 * } catch (SQLException e) { // TODO Auto-generated catch block
-	 * e.printStackTrace(); } finally { JdbcUtil.close(pstmt); }
-	 * 
-	 * return resultCnt;
-	 * 
-	 * }
-	 * 
-	 */
+*/	  
+	 
 
 	
 	public Member selectByIdPw(String id, String pw) {

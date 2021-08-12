@@ -5,9 +5,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace = "com.bitcamp.op.member.dao.memberMapper">
 
+	
+	<insert id = "insertMember"
+			parameterType = "com.bitcamp.op.member.domain.Member">
+		
+		insert into memberinfo (userID, userPW, userName, userPhoto) 
+		values (#{userID}, #{userPW}, #{userName}, #{userPhoto})
+	</insert>
+	
+	
 	<select id = "selectAll"
 			resultType = "com.bitcamp.op.member.domain.Member">
-	select * from memberinfo
+		select * from memberinfo
 	</select>
 
 
@@ -15,8 +24,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- resultType = "int" : int -> Integer -->
 	<select id = "selectByID"
 			resultType = "int">
-	select count(*) from memberinfo where userID = #{id}
-	<!-- #{arg0} #{arg1} -->
+		select count(*) from memberinfo where userID = #{id}
+		<!-- #{arg0} #{arg1} -->
 	</select>
 
 

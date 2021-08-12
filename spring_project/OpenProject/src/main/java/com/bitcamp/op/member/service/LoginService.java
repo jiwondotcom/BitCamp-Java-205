@@ -26,7 +26,7 @@ public class LoginService {
 	// private JdbcTemplateMemberDao dao;
 	
 	@Autowired
-	mybatisMemberDao dao;
+	private mybatisMemberDao dao;
 	
 	
 	public boolean login(String userID,

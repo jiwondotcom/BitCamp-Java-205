@@ -14,14 +14,8 @@ import com.bitcamp.op.member.service.IdCheckService;
 @Controller
 public class IdCheckController {
 	
-	// @Autowired
-	// private IdCheckService checkService;
-	
-	// @Autowired
-	// private JdbcTemplateMemberDao dao;
-	
 	@Autowired
-	private mybatisMemberDao dao;
+	private IdCheckService checkService;
 	
 	@RequestMapping(value = "/member/idCheck", method = RequestMethod.POST)
 	public String idCheck(
