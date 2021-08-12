@@ -7,11 +7,13 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.bitcamp.op.jdbc.ConnectionProvider;
 import com.bitcamp.op.jdbc.JdbcUtil;
+import com.bitcamp.op.member.dao.Dao;
 import com.bitcamp.op.member.dao.JdbcTemplateMemberDao;
 import com.bitcamp.op.member.dao.MemberDao;
 import com.bitcamp.op.member.dao.mybatisMemberDao;
@@ -29,8 +31,13 @@ public class RegService {
 	// @Autowired
 	// private JdbcTemplateMemberDao dao;
 	
+	// @Autowired
+	// private mybatisMemberDao dao;
+
+	private Dao dao;
+	
 	@Autowired
-	private mybatisMemberDao dao;
+	private SqlSessionTemplate template;
 	
 	
 	public int regMember(
@@ -39,10 +46,13 @@ public class RegService {
 			HttpServletRequest request
 			
 			) {
-		 
-		int resultCnt = 0;
 		
+		int resultCnt = 0;
 		// Connection conn = null;
+		
+		dao = template.getMapper(Dao.class);
+		resultCnt = dao.insertMember(member);
+		
 		File newFile = null;
 	
 		try {

@@ -140,7 +140,7 @@ public class mybatisMemberDao {
 	
 	
 /*	
-	  // DB 처리 : 기존 데이터 삭제 delete public int deleteMember (Connection conn, intindex) {
+	  // DB 처리 : 기존 데이터 삭제 delete public int deleteMember (Connection conn, int index) {
 	  
 	  int resultCnt = 0; PreparedStatement pstmt = null;
 	  
