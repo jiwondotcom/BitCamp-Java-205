@@ -14,4 +14,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select * from memberinfo where userID = #{param1} and userPW = #{param2}
 	</select>
 
+	<select id = "selectByID" resultType = "int">
+		select count(*) from memberinfo where userID = #{uid}
+	</select>
+
+
 </mapper>

@@ -6,4 +6,6 @@ public interface Dao {
 
 	Member selectByIdPw(String id, String pw);
 	
+	int selectByID(String userID);
+
 }
