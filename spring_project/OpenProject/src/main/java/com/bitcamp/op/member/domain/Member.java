@@ -13,7 +13,6 @@ public class Member {
 	private Timestamp regDate;
 
 	
-	
 	public Member(int index, String userID, String userPW, String userName, String userPhoto, Timestamp regDate) {
 		this.index = index;
 		this.userID = userID;
@@ -24,13 +23,11 @@ public class Member {
 	}
 
 
-
 	@Override
 	public String toString() {
 		return "Member [index=" + index + ", userID=" + userID + ", userPW=" + userPW + ", userName=" + userName
 				+ ", userPhoto=" + userPhoto + ", regDate=" + regDate + "]";
 	}
-
 
 
 	// 기본 생성자 생성

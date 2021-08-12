@@ -13,6 +13,7 @@ import org.springframework.stereotype.Service;
 import com.bitcamp.op.jdbc.ConnectionProvider;
 import com.bitcamp.op.member.dao.JdbcTemplateMemberDao;
 import com.bitcamp.op.member.dao.MemberDao;
+import com.bitcamp.op.member.dao.mybatisMemberDao;
 import com.bitcamp.op.member.domain.Member;
 
 @Service
@@ -20,9 +21,13 @@ public class LoginService {
 	
 	// @Autowired
 	// MemberDao dao;
+
+	// @Autowired
+	// private JdbcTemplateMemberDao dao;
 	
 	@Autowired
-	private JdbcTemplateMemberDao dao;
+	mybatisMemberDao dao;
+	
 	
 	public boolean login(String userID,
 						 String userPW,
@@ -40,7 +45,6 @@ public class LoginService {
 		
 			if(member != null) {
 				
-				// 濡쒓렇�씤 泥섎━
 				session.setAttribute("loginInfo", member.toLoginInfo());
 				
 				loginChk = true;

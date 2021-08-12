@@ -18,6 +18,7 @@ import org.springframework.stereotype.Repository;
 
 import com.bitcamp.op.jdbc.JdbcUtil;
 import com.bitcamp.op.member.domain.Member;
+import com.bitcamp.op.member.domain.SearchIdPw;
 
 @Repository
 public class mybatisMemberDao {
@@ -28,31 +29,14 @@ public class mybatisMemberDao {
 	@Autowired
 	private SqlSessionTemplate template;
 	
+	private final String NAME_SPACE = "com.bitcamp.op.member.dao.memberMapper";
+	
 	
 	// DB 처리 : 새로운 데이터 삽입 insert
 	public int insertMember(Member member) throws SQLException {
 
-		int resultCnt = 0;
-
-		/*
-		 * String sql1 =
-		 * "insert into memberinfo (userID, userPW, userName, userPhoto) values (?, ?, ?, ?)"
-		 * ; String sql2 =
-		 * "insert into memberinfo (userID, userPW, userName) values (?, ?, ?)";
-		 * 
-		 * // photo가 있을 시 if (member.getUserPhoto() != null) { resultCnt =
-		 * template.update(sql1, member.getUserID(), member.getUserPW(),
-		 * member.getUserName(), member.getUserPhoto());
-		 * 
-		 * // photo가 없을 시 } else { resultCnt = template.update(sql2, member.getUserID(),
-		 * member.getUserPW(), member.getUserName()); }
-		 */
-		
-		
-		return resultCnt;
-
+		return template.update(NAME_SPACE + ".insertMember", member);
 	}
-
 	
 	
 	// 회원번호를 전달받아 선택처리
@@ -199,29 +183,18 @@ public class mybatisMemberDao {
 	 */
 
 	
-	public Member selectByIdPw(String userID, String userPW) {
-
-		template.selectOne(statement, parameter);
-
-		return null;
-
+	public Member selectByIdPw(String id, String pw) {
+		return template.selectOne(NAME_SPACE + ".selectByIdPw", new SearchIdPw(id, pw));
 	}
 	
 	
-
+	
 	// ID 중복여부 확인을 위한 ID값으로 검색 -> 개수 반환
 	public int selectByID(String userID) throws SQLException {
 
-		
-/*
-		String sql = "select count(*) from memberinfo where userID = ?";
-		int cnt = template.queryForObject(sql, Integer.class, userID);
-*/
-		
-		return cnt;
+		return template.selectOne(NAME_SPACE + ".selectByID", userID);
 	}
 
-	
 	
 	
 	private Member makeMember(ResultSet rs) throws SQLException {

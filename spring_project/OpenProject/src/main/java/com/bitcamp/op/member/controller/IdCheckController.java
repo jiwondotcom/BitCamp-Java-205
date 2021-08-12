@@ -7,14 +7,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bitcamp.op.member.dao.JdbcTemplateMemberDao;
+import com.bitcamp.op.member.dao.mybatisMemberDao;
 import com.bitcamp.op.member.service.IdCheckService;
 
 @Controller
 public class IdCheckController {
 	
+	// @Autowired
+	// private IdCheckService checkService;
+	
+	// @Autowired
+	// private JdbcTemplateMemberDao dao;
+	
 	@Autowired
-	private IdCheckService checkService;
-
+	private mybatisMemberDao dao;
+	
 	@RequestMapping(value = "/member/idCheck", method = RequestMethod.POST)
 	public String idCheck(
 			@RequestParam("mid") String uid,

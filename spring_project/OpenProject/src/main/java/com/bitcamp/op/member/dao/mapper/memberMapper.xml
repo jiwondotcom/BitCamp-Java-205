@@ -10,15 +10,22 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	select * from memberinfo
 	</select>
 
-	<select id = "selectByID">
-	
+
+	<!-- 파라미터가 하나이고 기본형 또는 문자열인 경우 parmeterType을 생략한다. -->
+	<!-- resultType = "int" : int -> Integer -->
+	<select id = "selectByID"
+			resultType = "int">
 	select count(*) from memberinfo where userID = #{id}
-	
-	
 	<!-- #{arg0} #{arg1} -->
-	
-	
 	</select>
 
+
+
+	<!-- 로그인을 위한 select -->
+	<select id = "selectByIdPw"
+			parameterType = "com.bitcamp.op.member.domain.SearchIdPw"
+			resultType = "com.bitcamp.op.member.domain.Member">
+		select * from memberinfo where userID = #{id} and userPW = #{pw}
+	</select>
 
 </mapper>
