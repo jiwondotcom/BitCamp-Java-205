@@ -57,7 +57,6 @@ public class JdbcTemplateMemberDao {
 		}
 		
 	
-	
 
 	// 멤버 리스트 생성-출력
 	public List<Member> getMemberList(Connection conn) throws SQLException {
@@ -167,7 +166,6 @@ public class JdbcTemplateMemberDao {
 	
 	
 	
-	
 /*	
 	// DB 처리 : 기존 데이터 삭제 delete
 	public int deleteMember (Connection conn, int index) {
@@ -191,7 +189,6 @@ public class JdbcTemplateMemberDao {
 		return resultCnt;
 	}
 */	
-	
 	
 	
 	
@@ -229,6 +226,7 @@ public class JdbcTemplateMemberDao {
 */
 	
 	
+	
 	public Member selectByIdPw(String userID, String userPW) {
 		
 		// String sql = "select * from memberinfo where `userID` = ? and `userPW` = ?";
@@ -254,8 +252,6 @@ public class JdbcTemplateMemberDao {
 
 	
 	
-	
-	
 	private Member makeMember(ResultSet rs) throws SQLException {
 
 		Member member = new Member();
@@ -265,7 +261,6 @@ public class JdbcTemplateMemberDao {
 		member.setUserName(rs.getString("username"));
 		member.setUserPhoto(rs.getString("userPhoto"));
 		member.setRegDate(rs.getTimestamp("regdate"));
-		
 		
 		return member;
 		
