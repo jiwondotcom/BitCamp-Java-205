@@ -12,6 +12,9 @@
 
 <%@ include file="/WEB-INF/views/frame/metaheader.jsp"%>
 
+<link rel = "stylesheet" href = "/op/css/default.css">
+<script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
 </head>
 <body>
 
@@ -21,12 +24,23 @@
 	<div id="content">
 		<h2>회원 리스트</h2>
 		<hr>
+		<form>
+			검색타입
+			<select name = "searchType">
+				<option value = "id">아이디</option>
+				<option value = "name">이름</option>
+				<option value = "both">아이디+이름</option>
+			</select>
+			검색 키워드 <input type = "text" name = "keyword">
+			<input type = "submit" value = "검색">
+		</form>
+		<hr>
 
 		<table class="border">
 			<tr>
-				<th>INDEX</th>
+				<th>index</th>
 				<th>아이디</th>
-				<th>비밀번호</th>
+				<!-- <th>비밀번호</th> -->
 				<th>이름</th>
 				<th>사진</th>
 				<th>가입일</th>
@@ -37,7 +51,7 @@
 			<tr>
 				<td>${member.index}</td>
 				<td>${member.userID}</td>
-				<td>${member.userPW}</td>
+				<%-- <td>${member.userPW}</td> --%>
 				<td>${member.userName}</td>
 				<td>${member.userPhoto}</td>
 				<td><fmt:formatDate value="${member.date}" type="both"/></td>
