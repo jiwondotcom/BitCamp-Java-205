@@ -80,4 +80,31 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	</select>
 	
 	
+	<!-- 검색을 통한 회원 리스트 출력 -->
+	<select id = "selectMember"
+			parameterType = "com.bitcamp.op.member.domain.SearchType"
+			resultType = "com.bitcamp.op.member.domain.Member">
+	
+		select * from memberinfo 
+		
+		<!-- where 태그안쪽의 조건절 사용 : 'where' 생략 가능-->
+		<!-- concat : 문자열을 이어준다. -->
+		<where>
+			<if test = "searchType == 'id'">
+			userID like concat('%', #{keyword},'%') 
+			</if>
+
+			<if test = "searchType == 'name'">
+			userName like concat('%', #{keyword},'%') 
+			</if>
+
+			<if test = "searchType == 'both'">
+			userID like concat('%', #{keyword},'%') or where userName like concat('%', #{keyword},'%')
+			</if>
+		</where>
+		
+	</select>
+	
+	
+	
 </mapper>

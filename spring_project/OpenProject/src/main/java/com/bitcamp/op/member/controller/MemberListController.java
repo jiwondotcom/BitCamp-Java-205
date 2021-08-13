@@ -5,6 +5,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.bitcamp.op.member.domain.SearchType;
 import com.bitcamp.op.member.service.MemberListService;
 
 @Controller
@@ -14,7 +15,12 @@ public class MemberListController {
 	private MemberListService listService ;
 	
 	@RequestMapping("/member/list")
-	public String getList(Model model) {
+	public String getList(
+			
+			SearchType searchType,
+			Model model
+			
+			) {
 		model.addAttribute("memberList", listService.getMemberList());
 		return "member/list";
 	}
