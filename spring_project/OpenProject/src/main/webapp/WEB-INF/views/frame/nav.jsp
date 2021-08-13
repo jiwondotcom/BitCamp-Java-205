@@ -7,7 +7,7 @@
 	<ul>
 		<li><a href = "<c:url value = '/member/memberReg'/>">회원가입</a></li>
 		<li><a href = "<c:url value = '/member/login'/>">로그인</a></li>
-		<li><a>로그아웃</a></li>
+		<li><a href="<c:url value='/member/logout'/>">로그아웃</a></li>
 		<li><a href="<c:url value='/member/list'/>">회원 리스트</a></li>
 		<li><a href = "<c:url value = '/board/boardList'/>">방명록</a></li>
 	</ul>

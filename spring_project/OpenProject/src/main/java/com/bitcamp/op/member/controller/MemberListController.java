@@ -25,7 +25,7 @@ public class MemberListController {
 			
 			) {
 		
-		System.out.println(searchType);
+		// System.out.println(searchType);
 		
 		List<Member> list = null;
 		

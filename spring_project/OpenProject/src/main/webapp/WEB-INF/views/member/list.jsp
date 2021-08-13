@@ -10,10 +10,7 @@
 <meta charset="UTF-8">
 <title>Open Project : 로그인</title>
 
-<%@ include file="/WEB-INF/views/frame/metaheader.jsp"%>
-
-<link rel = "stylesheet" href = "/op/css/default.css">
-<script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<%@ include file="/WEB-INF/views/frame/metaheader.jsp" %>
 
 </head>
 <body>
@@ -21,7 +18,7 @@
 	<%@ include file="/WEB-INF/views/frame/header.jsp"%>
 	<%@ include file="/WEB-INF/views/frame/nav.jsp"%>
 
-	<div id="content">
+	<div id = "content">
 		<h2>회원 리스트</h2>
 		<hr>
 		<form>
@@ -56,8 +53,8 @@
 				<td>${member.userPhoto}</td>
 				<td><fmt:formatDate value="${member.date}" type="both"/></td>
 				<td>
-					<a class="border" href="edit?idx=${member.index}">수정</a> 
-					<a class="border" href="delete?idx=${member.index}">삭제</a>
+					<a class="border" href="edit?index=${member.index}">수정</a> 
+					<a class="border" href="delete?index=${member.index}">삭제</a>
 				</td>
 			</tr>
 			</c:forEach>
