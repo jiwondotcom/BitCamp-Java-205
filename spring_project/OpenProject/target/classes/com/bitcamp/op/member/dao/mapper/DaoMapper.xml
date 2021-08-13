@@ -6,6 +6,20 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace = "com.bitcamp.op.member.dao.Dao">
 <!-- 인터페이스의 full name을 namespace로 설정 필수! -->
 
+	
+	<!-- Select의 결과를 매핑하는 설정 -->
+	<resultMap id = "memberListResult"
+			   type = "com.bitcamp.op.member.domain.Member">
+		<id column = "index" property = "index"/>
+		<result column = "userID" property = "userID"/>
+		<result column = "userName" property = "userName"/>
+		<result column = "userPW" property = "userPW"/>
+		<result column = "userPhoto" property = "userPhoto"/>
+		<result column = "regDate" property = "regDate"/>
+	</resultMap>
+
+
+
 	<!-- sql tag 식별은 인터페이스의 메소드 이름과 일치시킨다. -->
 	<!-- 로그인을 위한 select -->
 	<select id = "selectByIdPw"
