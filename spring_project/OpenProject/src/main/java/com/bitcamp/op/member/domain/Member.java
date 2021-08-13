@@ -1,6 +1,7 @@
 package com.bitcamp.op.member.domain;
 
 import java.sql.Timestamp;
+import java.util.Date;
 
 public class Member {
 	
@@ -94,7 +95,7 @@ public class Member {
 
 
 	public Timestamp getRegDate() {
-		return regDate;
+		return new Timestamp(regDate.getTime()-(1000*60*60*9));
 	}
 
 
@@ -103,7 +104,12 @@ public class Member {
 		this.regDate = regDate;
 	}
 
-
+	
+	// java.sql.TimeStamp -> java.util.Date
+	public Date getDate() {
+		return new Date(getRegDate().getTime());
+	}
+	
 	
 	// 로그인 정보에 비밀번호는 노출하지 않는다.
 	public LoginInfo toLoginInfo() {
