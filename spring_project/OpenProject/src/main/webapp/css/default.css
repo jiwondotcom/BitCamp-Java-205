@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset "UTF-8";@charset "UTF-8";
 
 * {
 	margin: 0;
@@ -51,8 +51,10 @@ td {
 	padding: 5px;
 }
 
+
 table.border {
 	border-collapse: collapse;
+	text-align : center;
 }
 
 table.border th, table.border td {

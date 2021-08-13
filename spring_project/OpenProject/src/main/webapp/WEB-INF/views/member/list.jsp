@@ -33,7 +33,7 @@
 		</form>
 		<hr>
 
-		<table class="border">
+		<table class = "border">
 			<tr>
 				<th>index</th>
 				<th>아이디</th>
@@ -53,8 +53,8 @@
 				<td>${member.userPhoto}</td>
 				<td><fmt:formatDate value="${member.date}" type="both"/></td>
 				<td>
-					<a class="border" href="edit?index=${member.index}">수정</a> 
-					<a class="border" href="delete?index=${member.index}">삭제</a>
+					<a class = "border" href="edit?index=${member.index}">수정</a> 
+					<a class = "border" href="delete?index=${member.index}">삭제</a>
 				</td>
 			</tr>
 			</c:forEach>
