@@ -22,7 +22,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	<!-- sql tag 식별은 인터페이스의 메소드 이름과 일치시킨다. -->
 	<!-- 로그인을 위한 select -->
 	<select id = "selectByIdPw"
-			parameterType = "com.bitcamp.op.member.domain.SearchIdPw"
 			resultType = "com.bitcamp.op.member.domain.Member">
 		select * from memberinfo where userID = #{param1} and userPW = #{param2}
 	</select>
@@ -61,15 +60,17 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 전체 회원의 리스트 -->
 	<select id = "selectAll"
-			resultType = "com.bitcamp.op.member.domain.Member">
+			resultMap = "memberListResult">
 		select * from memberinfo
 	</select>
+
 	
 	
 	<!-- 페이징 처리가 가능한 회원 리스트 -->
 	<select id = "selectList"
 			resultType = "com.bitcamp.op.member.domain.Member">
-		select * from memberinfo order by userID limit #{param1}, #{param2}
+		select * from memberinfo 
+		order by userID limit #{param1}, #{param2}
 	</select>
 	
 	
@@ -78,6 +79,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			resultType = "int">
 		select count (*) from memberinfo
 	</select>
+	
 	
 	
 	<!-- 검색을 통한 회원 리스트 출력 -->
