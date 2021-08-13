@@ -71,6 +71,7 @@ public class mybatisMemberDao {
 
 		List<Member> list = null;
 
+/*
 		Statement stmt = null;
 		ResultSet rs = null;
 
@@ -95,10 +96,13 @@ public class mybatisMemberDao {
 			JdbcUtil.close(rs);
 		}
 
+*/
 		return list;
 
 	}
 
+	
+	
 	/*
 	// DB 처리 : 새로운 데이터 삽입 insert
 	public int insertMember1(final Member member) throws SQLException {

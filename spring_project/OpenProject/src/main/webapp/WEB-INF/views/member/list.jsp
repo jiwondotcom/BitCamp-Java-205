@@ -12,15 +12,11 @@
 
 <%@ include file="/WEB-INF/views/frame/metaheader.jsp"%>
 
-
 </head>
 <body>
 
 	<%@ include file="/WEB-INF/views/frame/header.jsp"%>
-
 	<%@ include file="/WEB-INF/views/frame/nav.jsp"%>
-
-
 
 	<div id="content">
 		<h2>회원 리스트</h2>
@@ -28,7 +24,7 @@
 
 		<table class="border">
 			<tr>
-				<th>IDX</th>
+				<th>INDEX</th>
 				<th>아이디</th>
 				<th>비밀번호</th>
 				<th>이름</th>
@@ -39,23 +35,21 @@
 			
 			<c:forEach items="${memberList}" var="member" >
 			<tr>
-				<td>${member.idx}</td>
-				<td>${member.memberid}</td>
-				<td>${member.password}</td>
-				<td>${member.membername}</td>
-				<td>${member.memberphoto}</td>
+				<td>${member.index}</td>
+				<td>${member.userID}</td>
+				<td>${member.userPW}</td>
+				<td>${member.userName}</td>
+				<td>${member.userPhoto}</td>
 				<td><fmt:formatDate value="${member.date}" type="both"/></td>
 				<td>
-					<a class="border" href="edit?idx=${member.idx}">수정</a> 
-					<a class="border" href="delete?idx=${member.idx}">삭제</a>
+					<a class="border" href="edit?idx=${member.index}">수정</a> 
+					<a class="border" href="delete?idx=${member.index}">삭제</a>
 				</td>
 			</tr>
 			</c:forEach>
 		</table>
 
-
 	</div>
-
 
 
 </body>
