@@ -23,7 +23,7 @@ public class MemberListService {
 	}
 	
 	public List<Member> getMemberList(SearchType searchType) {
-		return template.getMapper(Dao.class).selectAll();
+		return template.getMapper(Dao.class).selectMember(searchType);
 	}
 	
 }

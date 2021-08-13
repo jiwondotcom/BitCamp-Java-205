@@ -87,7 +87,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 		select * from memberinfo 
 		
-		<!-- where 태그안쪽의 조건절 사용 : 'where' 생략 가능-->
+		<!-- where 태그 안쪽의 조건절 사용 : 'where' 생략 가능-->
 		<!-- concat : 문자열을 이어준다. -->
 		<where>
 			<if test = "searchType == 'id'">
