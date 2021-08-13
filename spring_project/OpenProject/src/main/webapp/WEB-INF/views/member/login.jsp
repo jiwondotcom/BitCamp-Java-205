@@ -24,9 +24,6 @@
 
 <%@ include file = "/WEB-INF/views/frame/metaheader.jsp" %>
 
-<link rel = "stylesheet" href = "/op/css/default.css">
-<script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
-
 </head>
 <body>
 

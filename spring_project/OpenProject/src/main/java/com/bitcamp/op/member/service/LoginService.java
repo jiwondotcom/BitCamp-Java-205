@@ -61,7 +61,7 @@ public class LoginService {
 		// reID 값의 유무 체크
 		if (reID != null && reID.length() > 0) {
 
-			Cookie cookie = new Cookie("reID", reID);
+			Cookie cookie = new Cookie("reID", userID);
 
 			cookie.setPath("/");
 			cookie.setMaxAge(60 * 60 * 24 * 365);
@@ -71,7 +71,7 @@ public class LoginService {
 
 		} else {
 
-			Cookie cookie = new Cookie("reID", reID);
+			Cookie cookie = new Cookie("reID", userID);
 
 			cookie.setPath("/");
 			cookie.setMaxAge(0);
