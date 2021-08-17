@@ -1,5 +1,7 @@
 package com.bitcamp.op.member.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -28,4 +30,14 @@ public class MemberRestController {
 		return member;
 	}
 
+ 	
+ 	@DeleteMapping
+ 	@PutMapping
+ 	@PostMapping
+ 	@GetMapping("/members")
+ 	public List<Member> getMembers() {
+ 		return restService.getMembers();
+ 	}
+ 	
+ 	
 }
