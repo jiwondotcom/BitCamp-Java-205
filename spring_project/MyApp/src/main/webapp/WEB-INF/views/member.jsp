@@ -71,9 +71,11 @@
 				data : {
 					mid : $(this).val()
 				},
+				
 				beforeSend : function() {
 					$('#loadingImg').removeClass('display_none');
 				},
+				
 				success : function(data) {
 					// data : Y / N
 					if (data == 'Y') {
@@ -153,7 +155,12 @@
 			$('#regForm').addClass('display_none');
 		});
 		
+		
+		
+		
 		memberList();
+		
+		
 		
 		});
 
@@ -209,7 +216,7 @@
 			</tr>
 			<tr>
 				<td>비밀번호</td>
-				<td><input type="password" name="userPW" minlength='4' required></td>
+				<td><input type="password" name="userPW" required></td>
 			</tr>
 			<tr>
 				<td>이름</td>
