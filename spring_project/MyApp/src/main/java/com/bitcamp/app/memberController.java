@@ -12,6 +12,4 @@ public class memberController {
 		return "member";
 	}
 	
-	
-	
 }

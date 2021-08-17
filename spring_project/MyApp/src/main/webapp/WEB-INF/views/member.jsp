@@ -14,7 +14,7 @@
 	
 	div.card {
 		float: left;
-		width: 28%;
+		width: 300px;
 		padding: 10px;
 		border: 1px solid #AAA;
 		border-radius: 5px;
@@ -36,10 +36,19 @@
 	.color_red {
 		color: red;
 	}
+	
+	#regBtn {
+		cursor : pointer;
+	}
+	
+	img {
+		width : 30px;
+	}
 
 </style>
 
-<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
+
 <script>
 	
 	$(document).ready(function() {
@@ -93,15 +102,18 @@
 		
 	$('#submit').click(function(){
 			
-			var photoFile = $('#photo');
+			var photoFile = $('#userPhoto');
+			
 			var file1 = photoFile[0].files[0];
-			//console.log(file1);
+			
 			var formData = new FormData();
-			formData.append("memberid", $('#memberid').val());
-			formData.append("password", $('#password').val());
-			formData.append("membername", $('#membername').val());
-			formData.append("photo", file1);
+			formData.append("userID", $('#userID').val());
+			formData.append("userPW", $('#userPW').val());
+			formData.append("userName", $('#userName').val());
+			formData.append("userPhoto", file1);
+		
 			console.log(formData);
+			
 			$.ajax({
 				url : '/op/members/reg1',
 				type : 'post',
@@ -114,23 +126,36 @@
 					console.log(data);
 					if(data == 1){
 						alert('회원가입이 되었습니다.');
+						$('#regForm').addClass('display_none');
+						
+						memberList();
 					}
 				}
 			});
 			
-			
-			
+
 		});
+		
+	
+		$('#regBtn').click(function(){
 			
-			
-			
+			$('#regForm').removeClass('display_none');
+			$('#msg').removeClass('display_none');
+			$('#userID').val('');
+			$('#userPW').val('');
+			$('#userName').val('');
+			$('#userPhoto').val('');
 			
 		});
 		
+		$('#formClose').click(function(){
+
+			$('#regForm').addClass('display_none');
+		});
 		
 		memberList();
 		
-	});
+		});
 
 	
 	function memberList() {
@@ -144,12 +169,12 @@
 					console.log(index, item);
 					
 					var html = '<div class = "card">';
-					html += "index : " + item.index + "<br>";
-					html += "아이디 : " + item.userID + "<br>";
-					html += "이름 : " + item.userName + "<br>";
-					html += "사진 : " + item.userPhoto + "<br>";
-					html += "등록일 : " + item.regDate + "<br>";
-					html += "</div>"
+					html += 'index : ' + item.index + '<br>';
+					html += '아이디 : ' + item.userID + '<br>';
+					html += '이름 : ' + item.userName + '<br>';
+					html += '사진 : <img src = "http://localhost:8080/op/uploadfile/"'+ item.userPhoto + '<br>';
+					html += '등록일 : ' + item.regDate + '<br>';
+					html += '</div>';
 					
 					$('#memberlist').append(html);
 					
@@ -170,7 +195,7 @@
 		<span id = "regBtn">회원가입</span>
 	</div>
 
-	<div>
+	<div id = "regForm" class = "display_none">
 		<h1>회원가입</h1>
 		<hr>
 		
@@ -180,7 +205,7 @@
 				<td><input type = "text" name = "userID" id = "userID" required>
 					<span id = "msg" class = "display_none"></span>
 					<img id = "loadingImg" class = "display_none" alt = "loading"
-					src = "http://localhost:8080/op//images/loading.gif"></td>
+					src = "http://localhost:8080/op/images/loading.gif"></td>
 			</tr>
 			<tr>
 				<td>비밀번호</td>
@@ -196,9 +221,11 @@
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" value="등록" id="submit"> <input
-					type="reset" value="초기화" id="btn"> <input type="button"
-					value="이전으로" id="btn"></td>
+				<td>
+					<input type="submit" value="등록" id="submit">
+					<input type="reset" value="초기화">
+					<input type="button" value="입력 폼 닫기" id = "formClose">
+				</td>
 			</tr>
 		</table>
 
@@ -207,7 +234,9 @@
 
 	<h1>회원 리스트</h1>
 	<hr>
-	<div id="memberlist"></div>
+	<div id="memberlist">
+	
+	</div>
 
 
 
