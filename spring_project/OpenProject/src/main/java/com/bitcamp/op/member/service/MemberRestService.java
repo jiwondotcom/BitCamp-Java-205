@@ -16,7 +16,7 @@ public class MemberRestService {
 	private SqlSessionTemplate template;
 	
 	
-	public Member getMember(int idx) {
+	public Member getMember(int index) {
 
 		dao = template.getMapper(Dao.class);
 		// Member member = dao.selectByIndex(index);

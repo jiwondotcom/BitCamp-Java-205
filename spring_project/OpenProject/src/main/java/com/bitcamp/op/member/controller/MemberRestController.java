@@ -15,8 +15,7 @@ public class MemberRestController {
 	@Autowired
 	private MemberRestService restService;
 	
-	
-	@RequestMapping("/members/{id}")
+ 	@RequestMapping("/members/{id}")
 	@ResponseBody
 	public Member getMember(
 			
