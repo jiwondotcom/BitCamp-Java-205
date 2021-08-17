@@ -99,6 +99,7 @@ public class RegService {
 		}
 		return resultCnt;
 	}
+	
 
 	// 파일의 ContentType 과 파일 확장자를 체크
 	private String chkFileType(MultipartFile file) throws Exception {
