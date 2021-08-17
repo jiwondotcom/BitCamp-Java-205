@@ -32,6 +32,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		select count(*) from memberinfo where userID = #{uid}
 	</select>
 
+	
+	<!-- Rest get : idx값으로 Membr 객체를 반환 -->
+	<select id = "selectByIndex" resultType = "com.bitcamp.op.memebr.domain.Member">
+		select * from memeberinfo where index = #{index}
+	</select>
+
 
 	<!-- 회원정보 등록 -->
 	<insert id = "insertMember"
