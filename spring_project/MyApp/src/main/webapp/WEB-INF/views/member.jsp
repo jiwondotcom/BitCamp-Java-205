@@ -66,7 +66,7 @@
 
 			    
 			$.ajax({
-				url : 'http://localhost:8080/op/member/idCheck',
+				url : 'http://3.144.47.221:8080/op/member/idCheck',
 				type : 'post',
 				data : {
 					mid : $(this).val()
@@ -168,7 +168,7 @@
 	function memberList() {
 		
 		$.ajax({
-			url : 'http://localhost:8080/op/members',
+			url : 'http://3.144.47.221:8080/op/members',
 			type : 'GET',
 			success : function(data) {
 				// console.log(data);
@@ -212,7 +212,7 @@
 				<td><input type = "text" name = "userID" id = "userID" required>
 					<span id = "msg" class = "display_none"></span>
 					<img id = "loadingImg" class = "display_none" alt = "loading"
-					src = "http://localhost:8080/op/images/loading.gif"></td>
+					src = "http://3.144.47.221:8080/op/images/loading.gif"></td>
 			</tr>
 			<tr>
 				<td>비밀번호</td>
