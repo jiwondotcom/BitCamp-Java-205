@@ -3,6 +3,8 @@ package com.bitcamp.op.member.domain;
 import java.sql.Timestamp;
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Member {
 	
 	// Beans 빈즈 형태
@@ -11,6 +13,7 @@ public class Member {
 	private String userPW;
 	private String userName;
 	private String userPhoto;
+	@JsonFormat(pattern = "yyyy.MM.dd. HH:mm")
 	private Timestamp regDate;
 
 	
@@ -109,6 +112,8 @@ public class Member {
 	public Date getDate() {
 		return new Date(getRegDate().getTime());
 	}
+	
+	
 	
 	
 	// 로그인 정보에 비밀번호는 노출하지 않는다.

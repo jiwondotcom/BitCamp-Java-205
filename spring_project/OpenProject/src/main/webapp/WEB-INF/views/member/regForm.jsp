@@ -10,8 +10,6 @@
 <title>Open Project : 회원가입</title>
 
 <%@ include file = "/WEB-INF/views/frame/metaheader.jsp" %>
-<link rel = "stylesheet" href = "/op/css/default.css">
-<script src = "https://code.jquery.com/jquery-1.12.4.min.js"></script>
 
 <style>
 
@@ -124,14 +122,83 @@
 		<tr>
 			<td></td>
 			<td>
-				<input type = "submit" value = "등록" id = "btn">
 				<input type = "reset" value = "초기화" id = "btn">
-				<input type = "button" value = "이전으로" id = "btn">
 			</td>
 		</tr>
 	</table>
 	</form>
+	
+	<div>
+		ajax로 회원 가입 
+		<input type="button" value="회원가입" id="btnReg1">
+	</div>
+	<div>
+		ajax로 Json 전송 회원 가입
+		<input type="button" value="회원가입" id="btnReg2">
+	</div>
+
+	
 </div>
+
+
+<script>
+		$(document).ready(function() {
+			$('#btnReg1').click(function() {
+				var photoFile = $('#userPhoto');
+				var file1 = photoFile[0].files[0];
+				//console.log(file1);
+				var formData = new FormData();
+				formData.append("userID", $('#userID').val());
+				formData.append("userPW", $('#userPW').val());
+				formData.append("userName", $('#userName').val());
+				formData.append("userPhoto", file1);
+				console.log(formData);
+				$.ajax({
+					url : '/op/members/reg1',
+					type : 'post',
+					data : formData,
+					enctype : 'multipart/form-data',
+					processData : false,
+					contentType : false,
+					cache : false,
+					success : function(data) {
+						console.log(data);
+						if(data==1){
+							alert('회원가입이 되었습니다.');
+						}
+					}
+				});
+			});
+			
+			
+			$('#btnReg2').click(function() {
+				var userid = $('#userID').val();
+				var pw = $('#userPW').val();
+				var username = $('#userName').val();
+				var member = {
+						userID: userID,
+						userPW: userPw,
+						userName: userName
+				}
+				
+				console.log(JSON.stringify(member));
+				
+				$.ajax({
+					url : '/op/members/reg2',
+					type : 'post',
+					data : JSON.stringify(member),
+					dataType : 'json',
+					contentType : 'application/json',
+					success : function(data) {
+						console.log(data);
+						if(data==1){
+							alert('회원가입이 되었습니다.');
+						}
+					}
+				});
+			});
+		});
+	</script>
 
 
 </body>

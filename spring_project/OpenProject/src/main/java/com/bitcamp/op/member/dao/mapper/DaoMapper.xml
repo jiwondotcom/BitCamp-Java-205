@@ -13,7 +13,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<id column = "index" property = "index"/>
 		<result column = "userID" property = "userID"/>
 		<result column = "userName" property = "userName"/>
-		<!-- <result column = "userPW" property = "userPW"/> -->
 		<result column = "userPhoto" property = "userPhoto"/>
 		<result column = "regDate" property = "regDate"/>
 	</resultMap>
@@ -34,8 +33,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 	
 	<!-- Rest get : idx값으로 Membr 객체를 반환 -->
-	<select id = "selectByIndex" resultType = "com.bitcamp.op.memebr.domain.Member">
-		select * from memeberinfo where index = #{index}
+	<select id = "selectByIndex" resultType = "com.bitcamp.op.member.domain.Member">
+		select * from memberinfo where index = #{index}
 	</select>
 
 
