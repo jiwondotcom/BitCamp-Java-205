@@ -122,22 +122,13 @@
 		<tr>
 			<td></td>
 			<td>
+				<input type = "submit" value = "등록" id = "btn">
 				<input type = "reset" value = "초기화" id = "btn">
+				<input type = "button" value = "이전으로" id = "btn">
 			</td>
 		</tr>
 	</table>
 	</form>
-	
-	<div>
-		ajax로 회원 가입 
-		<input type="button" value="회원가입" id="btnReg1">
-	</div>
-	<div>
-		ajax로 Json 전송 회원 가입
-		<input type="button" value="회원가입" id="btnReg2">
-	</div>
-
-	
 </div>
 
 

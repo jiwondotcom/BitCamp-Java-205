@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 			parameterType = "com.bitcamp.op.member.domain.Member"
 			useGeneratedKeys = "true"
 			keyProperty = "index">
-			insert into Memberinfo (userID, userPW, userName, userPhoto)
+			insert into memberinfo (userID, userPW, userName, userPhoto)
 			values (#{userID}, #{userPW}, #{userName}, #{userPhoto})
 	</insert>
 
