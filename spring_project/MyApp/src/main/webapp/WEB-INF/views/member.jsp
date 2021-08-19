@@ -222,9 +222,11 @@ img {
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="submit" value="등록" id="submit"> <input
-					type="reset" value="초기화"> <input type="button"
-					value="입력 폼 닫기" id="formClose"></td>
+				<td>
+					<input type="submit" value="등록" id="submit">
+					<input type="reset" value="초기화">
+					<input type="button" value="입력 폼 닫기" id="formClose">
+				</td>
 			</tr>
 		</table>
 
@@ -234,7 +236,6 @@ img {
 	<h1>회원 리스트</h1>
 	<hr>
 	<div id="memberlist"></div>
-
 
 
 
