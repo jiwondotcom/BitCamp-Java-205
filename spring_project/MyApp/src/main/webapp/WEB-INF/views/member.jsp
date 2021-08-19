@@ -179,7 +179,7 @@
 					html += 'index : ' + item.index + '<br>';
 					html += '아이디 : ' + item.userID + '<br>';
 					html += '이름 : ' + item.userName + '<br>';
-					html += '사진 : <img src = "http://localhost:8080/op/uploadfile/"'+ item.userPhoto + '<br>';
+					html += '사진 : <img src = "http://3.144.47.221:8080/op/uploadfile/"'+ item.userPhoto + '<br>';
 					html += '등록일 : ' + item.regDate + '<br>';
 					html += '</div>';
 					
