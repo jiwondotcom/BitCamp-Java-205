@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Drvier
+    url: jdbc:mysql://localhost:3306/project?servertimezone=UTC
+    username: bit
+    password: bit
+    
+server:
+  port: 8081
