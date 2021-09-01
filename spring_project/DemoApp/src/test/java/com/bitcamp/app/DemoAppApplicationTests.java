@@ -11,27 +11,32 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 class DemoAppApplicationTests {
-
+	
 	@Autowired
 	private DataSource dataSource;
 	
 	private Connection conn;
 	
-	
+
 	@Test
 	void contextLoads() {
 	}
-
+	
 	@Test
 	public void testConnection() throws SQLException {
-		System.out.println(dataSource);
+		System.out.println("dataSource >>>>>>" + dataSource);
 		
 		conn = dataSource.getConnection();
-		System.out.println("Connection >>>>>> " + conn);
+		System.out.println("Connection >>>>>>> " + conn);
 		conn.close();
-		
 	}
 	
 	
 	
+	
+	
+	
+	
+	
+
 }

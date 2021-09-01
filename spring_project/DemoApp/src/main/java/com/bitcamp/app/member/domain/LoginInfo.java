@@ -1,42 +1,41 @@
 package com.bitcamp.app.member.domain;
 
 public class LoginInfo {
-	
-	private int index;
-	private String userID;
-	private String userName;
-	private String userPhoto;
-	
-	
-	public int getIndex() {
-		return index;
+
+	private int idx;
+	private String memberId;
+	private String memberName;
+	private String memberPhoto;
+
+	public LoginInfo(int idx, String memberId, String memberName, String memberPhoto) {
+		this.idx = idx;
+		this.memberId = memberId;
+		this.memberName = memberName;
+		this.memberPhoto = memberPhoto;
 	}
-	public String getUserID() {
-		return userID;
+
+	public int getIdx() {
+		return idx;
 	}
-	public String getUserName() {
-		return userName;
+
+	public String getMemberId() {
+		return memberId;
 	}
-	public String getUserPhoto() {
-		return userPhoto;
+
+	public String getMemberName() {
+		return memberName;
 	}
-	
-	
-	
-	public LoginInfo(int index, String userID, String userName, String userPhoto) {
-		this.index = index;
-		this.userID = userID;
-		this.userName = userName;
-		this.userPhoto = userPhoto;
+
+	public String getMemberPhoto() {
+		return memberPhoto;
 	}
-	
-	
-	
+
 	@Override
 	public String toString() {
-		return "회원정보 [회원번호 : " + index + " / 회원ID : " + userID + " / 회원 이름 : " + userName + " / 회원 사진 : " + userPhoto + "]";
+		return "LoginInfo [idx=" + idx + ", memberId=" + memberId + ", memberName=" + memberName + ", memberPhoto="
+				+ memberPhoto + "]";
 	}
-	
 
+	
 
 }

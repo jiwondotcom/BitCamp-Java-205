@@ -19,30 +19,24 @@ public class MemberListController {
 	
 	@RequestMapping("/member/list")
 	public String getList(
-			
 			SearchType searchType,
 			Model model
-			
 			) {
 		
-		// System.out.println(searchType);
+		System.out.println(searchType);
 		
 		List<Member> list = null;
 		
-		
-		if(searchType.getKeyword() != null && searchType.getKeyword().trim().length() > 0) {
+		if(searchType.getKeyword() != null && searchType.getKeyword().trim().length()>0) {
 			list = listService.getMemberList(searchType);
-		} else { 
-			// 키워드가 없을시에는 리스트 전체가 검색되도록 설정한다.
+			System.out.println(1);
+		} else {
 			list = listService.getMemberList();
 		}
 		
 		model.addAttribute("memberList", list);
-		// model.addAttribute("memberList", listService.getMemberList(searchType));
 		
 		return "member/list";
-
 	}
-	
 	
 }

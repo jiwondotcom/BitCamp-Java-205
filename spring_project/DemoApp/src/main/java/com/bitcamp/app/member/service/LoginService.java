@@ -13,75 +13,65 @@ import com.bitcamp.app.member.mapper.MemberMapper;
 
 @Service
 public class LoginService {
-	
-	// @Autowired
-	// MemberDao dao;
 
-	// @Autowired
-	// private JdbcTemplateMemberDao dao;
+	//@Autowired
+	//MemberDao dao;
 	
-	// @Autowired
-	// private mybatisMemberDao dao;
+	//@Autowired
+	//private JdbcTemplateMemberDao dao;
+	
+	//@Autowired
+	//private mybatisMemberDao dao;
 	
 	@Autowired
 	private SqlSessionTemplate template;
 	
- 	private MemberMapper dao;
+	private MemberMapper dao;
 	
- 	
-	public boolean login(String userID,
-						 String userPW,
-						 String reID,
-						 HttpSession session,
-						 HttpServletResponse response) {
+	public boolean login(
+			String id, 
+			String pw, 
+			String reid, 
+			HttpSession session, 
+			HttpServletResponse response) {
 		
 		boolean loginChk = false;
 		
-		// Connection conn = null;
+		//Connection conn = null;
 		
-		// 인터페이스의 Mapper Dao 생성
+		// 인터페이스 Dao 구현체 Mapper
 		dao = template.getMapper(MemberMapper.class);
 		
-		System.out.println("인터페이스 매퍼 dao 생성 완.");
+		System.out.println("인터페이스 메퍼 dao 생성");
 		
 		
-			// conn = ConnectionProvider.getConnection();
-			Member member = dao.selectByIdPw(userID, userPW);
-			
+		// 전달받은 id와 pw 로 DB에서 검색 
+		// => 있다면 로그인 처리 true return
+		// => 없다면 false return
+		Member member = dao.selectByIdPw(id, pw);
 		
-			if(member != null) {
-				
-				session.setAttribute("loginInfo", member.toLoginInfo());
-				
-				loginChk = true;
-			}
+		if(member != null) {
+			// 로그인 처리
+			session.setAttribute("loginInfo", member.toLoginInfo());
 			
-			
-		// ID 저장을 위한 쿠키 설정
-		// reID 값의 유무 체크
-		if (reID != null && reID.length() > 0) {
-
-			Cookie cookie = new Cookie("reID", userID);
-
-			cookie.setPath("/");
-			cookie.setMaxAge(60 * 60 * 24 * 365);
-			// 60초 * 60분 * 24시간 * 365일
-
-			response.addCookie(cookie);
-
-		} else {
-
-			Cookie cookie = new Cookie("reID", userID);
-
-			cookie.setPath("/");
-			cookie.setMaxAge(0);
-
-			response.addCookie(cookie);
-
+			loginChk = true;
 		}
 		
-		
+		// 아이디 저장을 위한 Cookie 설정
+		if(reid != null && reid.length() > 0) {
+			Cookie cookie = new Cookie("reid", id);
+			cookie.setPath("/");
+			cookie.setMaxAge(60*60*24*365);
+			
+			response.addCookie(cookie);
+		} else {
+			Cookie cookie = new Cookie("reid", id);
+			cookie.setPath("/");
+			cookie.setMaxAge(0);
+			
+			response.addCookie(cookie);
+		}
+				
 		return loginChk;
 	}
-	
 }

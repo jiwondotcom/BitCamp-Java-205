@@ -8,38 +8,35 @@ import com.bitcamp.app.member.mapper.MemberMapper;
 
 @Service
 public class IdCheckService {
-
-	// @Autowired
-	// MemberDao dao;
 	
-	// @Autowired
-	// JdbcTemplateMemberDao dao;
+//	@Autowired
+//	MemberDao dao;
 	
-	// @Autowired
-	// private mybatisMemberDao dao;
+	//@Autowired
+	//private JdbcTemplateMemberDao dao;
+	
+	//@Autowired
+	//private mybatisMemberDao dao;
 	
 	private MemberMapper dao;
 	
 	@Autowired
 	private SqlSessionTemplate template;
 	
-	
 	public String idCheck(String id) {
 		
 		String result = "Y";
-		// Connection conn = null;
+		//Connection conn = null;
 		
-		// 인터페이스의 Mapper Dao 생성
+		// 인터페이스의 메퍼 DAO 생성
 		dao = template.getMapper(MemberMapper.class);
-
-			// conn = ConnectionProvider.getConnection();
-			if(dao.selectByID(id) > 0) {
-				result = "N";
-			}
 		
+		
+		//conn = ConnectionProvider.getConnection();
+		if(dao.selectById(id)>0) {
+			result="N";
+		}
 		return result;
-
 	}
-	
-	
+
 }

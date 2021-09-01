@@ -1,57 +1,52 @@
 package com.bitcamp.app.member.controller;
 
-import java.sql.SQLException;
-
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.tomcat.util.http.fileupload.FileUploadException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.bitcamp.app.member.domain.MemberRegRequest;
-import com.bitcamp.app.member.service.RegService;
+import com.bitcamp.app.member.domain.RegRequest;
+import com.bitcamp.app.member.service.MemberRegService;
 
 @Controller
 @RequestMapping("/member/memberReg")
 public class MemberRegController {
 	
-	
 	@Autowired
-	private RegService regService;
+	private MemberRegService regService;
 
-	
-	@RequestMapping(method = RequestMethod.GET)  
-	public String RegForm() {
-		
+	@RequestMapping(method = RequestMethod.GET)
+	public String regForm() {
 		return "member/regForm";
 	}
-
 	
 	@RequestMapping(method = RequestMethod.POST)
-	public String memberReg(
-			
-			@ModelAttribute("regRequest") MemberRegRequest regRequest,
+	public String reg(
+			//@ModelAttribute("regRequest") MemberRegRequest regRequest,
+			RegRequest regRequest,
 			HttpServletRequest request,
 			Model model
-			
-			) throws FileUploadException, SQLException {
-	
-			int result = regService.regMember(regRequest, request);
-			model.addAttribute("result", result);
+			) {
+		System.out.println(regRequest);
 		
-			String view = "member/memberReg";
-			
-			if(result == 1) {
-				// 인덱스 페이지로 리다이렉트 처리
-				System.out.println("회원 등록 완료");
-				view = "redirect:/index";
-			}
-			
+		//int result = 0;
+		int result = regService.memberReg(regRequest, request);
 		
+		model.addAttribute("result", result);
+		
+		String view = "member/reg" ;
+		if(result == 1) {
+			// 인텍스 페이지로 리다이렉트
+			view = "redirect:/index";
+		}
 		return view;
 	}
+	
 }
+
+
+
+

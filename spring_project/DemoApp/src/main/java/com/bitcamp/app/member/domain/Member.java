@@ -4,122 +4,97 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import com.fasterxml.jackson.annotation.JsonFormat.Shape;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 public class Member {
-	
-	// Beans 빈즈 형태
-	private int index;
-	private String userID;
-	private String userPW;
-	private String userName;
-	private String userPhoto;
-	@JsonFormat(pattern = "yyyy.MM.dd. HH:mm")
-	private Timestamp regDate;
 
-	
-	public Member(int index, String userID, String userPW, String userName, String userPhoto, Timestamp regDate) {
-		this.index = index;
-		this.userID = userID;
-		this.userPW = userPW;
-		this.userName = userName;
-		this.userPhoto = userPhoto;
-		this.regDate = regDate;
+	private int idx;
+	private String memberid;
+	@JsonIgnore
+	private String password;
+	private String membername;
+	private String memberphoto;
+	//@JsonFormat(shape = Shape.STRING)
+	@JsonFormat(pattern = "yyyy.MM.dd. HH:mm")
+	private Timestamp regdate;
+
+	public Member(int idx, String memberid, String password, String username, String memberphoto, Timestamp regdate) {
+		this.idx = idx;
+		this.memberid = memberid;
+		this.password = password;
+		this.membername = username;
+		this.memberphoto = memberphoto;
+		this.regdate = regdate;
 	}
 
+	public Member() {
+	}
+
+	public int getIdx() {
+		return idx;
+	}
+
+	public void setIdx(int idx) {
+		this.idx = idx;
+	}
+
+	public String getMemberid() {
+		return memberid;
+	}
+
+	public void setMemberid(String memberid) {
+		this.memberid = memberid;
+	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
+
+	public String getMembername() {
+		return membername;
+	}
+
+	public void setMembername(String membername) {
+		this.membername = membername;
+	}
+
+	public Timestamp getRegdate() {
+		return new Timestamp(regdate.getTime()-(1000*60*60*9));
+	}
+
+	public void setRegdate(Timestamp regdate) {
+		this.regdate = regdate;
+	}
+
+	public String getMemberphoto() {
+		return memberphoto;
+	}
+
+	public void setMemberphoto(String memberphoto) {
+		this.memberphoto = memberphoto;
+	}
+
+	// java.sql.TimeStamp -> java.util.Date
+	public Date getDate() {
+		return new Date(getRegdate().getTime());
+	}
+
+	
 
 	@Override
 	public String toString() {
-		return "Member [index=" + index + ", userID=" + userID + ", userPW=" + userPW + ", userName=" + userName
-				+ ", userPhoto=" + userPhoto + ", regDate=" + regDate + "]";
+		return "Member [idx=" + idx + ", memberid=" + memberid + ", password=" + password + ", membername=" + membername
+				+ ", memberphoto=" + memberphoto + ", regdate=" + regdate + "]";
 	}
 
-
-	// 기본 생성자 생성
-	public Member() {}
-
-	
-
-	// getter-setter
-	public int getIndex() {
-		return index;
-	}
-
-
-
-	public void setIndex(int index) {
-		this.index = index;
-	}
-
-
-
-	public String getUserID() {
-		return userID;
-	}
-
-
-
-	public void setUserID(String userID) {
-		this.userID = userID;
-	}
-
-
-
-	public String getUserPW() {
-		return userPW;
-	}
-
-
-
-	public void setUserPW(String userPW) {
-		this.userPW = userPW;
-	}
-
-
-
-	public String getUserName() {
-		return userName;
-	}
-
-
-
-	public void setUserName(String userName) {
-		this.userName = userName;
-	}
-
-	
-	public String getUserPhoto() {
-		return userPhoto;
-	}
-
-
-	public void setUserPhoto(String userPhoto) {
-		this.userPhoto = userPhoto;
-	}
-
-
-	public Timestamp getRegDate() {
-		return new Timestamp(regDate.getTime()-(1000*60*60*9));
-	}
-
-
-
-	public void setRegDate(Timestamp regDate) {
-		this.regDate = regDate;
-	}
-
-	
-	// java.sql.TimeStamp -> java.util.Date
-	public Date getDate() {
-		return new Date(getRegDate().getTime());
-	}
-	
-	
-	
-	
-	// 로그인 정보에 비밀번호는 노출하지 않는다.
+	// Member -> LoginInfo
 	public LoginInfo toLoginInfo() {
-		return new LoginInfo(this.index, this.userID, this.userName, this.userPhoto);
+		return new LoginInfo(this.idx, this.memberid, this.membername, this.memberphoto);
 	}
-	
 
 }
