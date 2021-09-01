@@ -6,24 +6,24 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bitcamp.op.member.dao.Dao;
-import com.bitcamp.op.member.domain.Member;
-import com.bitcamp.op.member.domain.SearchType;
+import com.bitcamp.app.member.domain.Member;
+import com.bitcamp.app.member.domain.SearchType;
+import com.bitcamp.app.member.mapper.MemberMapper;
 
 @Service
 public class MemberListService {
 
-	private Dao dao;
+	private MemberMapper dao;
 	
 	@Autowired
 	private SqlSessionTemplate template;
 	
 	public List<Member> getMemberList(){
-		return template.getMapper(Dao.class).selectAll();
+		return template.getMapper(MemberMapper.class).selectAll();
 	}
 	
 	public List<Member> getMemberList(SearchType searchType) {
-		return template.getMapper(Dao.class).selectMember(searchType);
+		return template.getMapper(MemberMapper.class).selectMember(searchType);
 	}
 	
 }

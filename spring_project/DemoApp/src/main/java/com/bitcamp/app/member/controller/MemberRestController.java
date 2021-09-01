@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bitcamp.op.member.domain.Member;
-import com.bitcamp.op.member.domain.MemberRegRequest;
-import com.bitcamp.op.member.service.MemberRestService;
-import com.bitcamp.op.member.service.RegService;
+import com.bitcamp.app.member.domain.Member;
+import com.bitcamp.app.member.domain.MemberRegRequest;
+import com.bitcamp.app.member.service.MemberRestService;
+import com.bitcamp.app.member.service.RegService;
 
 //@Controller
 @RestController

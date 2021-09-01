@@ -4,7 +4,7 @@ import java.sql.SQLException;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.commons.fileupload.FileUploadException;
+import org.apache.tomcat.util.http.fileupload.FileUploadException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,8 +12,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.bitcamp.op.member.domain.MemberRegRequest;
-import com.bitcamp.op.member.service.RegService;
+import com.bitcamp.app.member.domain.MemberRegRequest;
+import com.bitcamp.app.member.service.RegService;
 
 @Controller
 @RequestMapping("/member/memberReg")

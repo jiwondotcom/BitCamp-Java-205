@@ -11,9 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.bitcamp.op.member.dao.Dao;
-import com.bitcamp.op.member.domain.Member;
-import com.bitcamp.op.member.domain.MemberRegRequest;
+import com.bitcamp.app.member.domain.Member;
+import com.bitcamp.app.member.domain.MemberRegRequest;
+import com.bitcamp.app.member.mapper.MemberMapper;
 
 @Service
 public class RegService {
@@ -29,7 +29,7 @@ public class RegService {
 	//@Autowired
 	//private mybatisMemberDao dao;
 	
-	private Dao dao;
+	private MemberMapper dao;
 	
 	@Autowired
 	private SqlSessionTemplate template;
@@ -75,7 +75,7 @@ public class RegService {
 			// 2. dao 저장
 			// conn = ConnectionProvider.getConnection();
 			
-			dao = template.getMapper(Dao.class);
+			dao = template.getMapper(MemberMapper.class);
 
 			resultCnt = dao.insertMember(member);
 

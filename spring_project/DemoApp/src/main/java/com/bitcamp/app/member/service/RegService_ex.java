@@ -10,9 +10,9 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bitcamp.op.member.dao.Dao;
-import com.bitcamp.op.member.domain.Member;
-import com.bitcamp.op.member.domain.MemberRegRequest;
+import com.bitcamp.app.member.domain.Member;
+import com.bitcamp.app.member.domain.MemberRegRequest;
+import com.bitcamp.app.member.mapper.MemberMapper;
 
 @Service
 public class RegService_ex {
@@ -28,7 +28,7 @@ public class RegService_ex {
 	// @Autowired
 	// private mybatisMemberDao dao;
 
-	private Dao dao;
+	private MemberMapper dao;
 	
 	@Autowired
 	private SqlSessionTemplate template;
@@ -109,7 +109,7 @@ public class RegService_ex {
 			// conn = ConnectionProvider.getConnection();
 			
 			// Member 객체 생성 -> 저장된 파일의 이름을 set
-			dao = template.getMapper(Dao.class);
+			dao = template.getMapper(MemberMapper.class);
 			resultCnt = dao.insertMember(member);
 			System.out.println("새롭게 등록된 index => " + member.getIndex());
 			

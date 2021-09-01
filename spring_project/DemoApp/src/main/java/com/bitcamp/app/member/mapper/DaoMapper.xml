@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace = "com.bitcamp.app.member.mapper.MemberMapper">
+<!-- 인터페이스의 full name을 namespace로 설정 필수! -->
+
+	
+	<!-- Select의 결과를 매핑하는 설정 -->
+	<resultMap id = "memberListResult"
+			   type = "com.bitcamp.app.member.domain.Member">
+		<id column = "index" property = "index"/>
+		<result column = "userID" property = "userID"/>
+		<result column = "userName" property = "userName"/>
+		<result column = "userPhoto" property = "userPhoto"/>
+		<result column = "regDate" property = "regDate"/>
+	</resultMap>
+
+
+	<!-- sql tag 식별은 인터페이스의 메소드 이름과 일치시킨다. -->
+	<!-- 로그인을 위한 select -->
+	<select id = "selectByIdPw"
+			resultType = "com.bitcamp.app.member.domain.Member">
+		select * from memberinfo where userID = #{param1} and userPW = #{param2}
+	</select>
+
+
+	<!-- 아이디 중복체크 -->
+	<select id = "selectByID" resultType = "int">
+		select count(*) from memberinfo where userID = #{uid}
+	</select>
+
+	
+	<!-- Rest get : idx값으로 Membr 객체를 반환 -->
+	<select id = "selectByIndex" resultType = "com.bitcamp.app.member.domain.Member">
+		select * from memberinfo where index = #{index}
+	</select>
+
+
+	<!-- 회원정보 등록 -->
+	<insert id = "insertMember"
+			parameterType = "com.bitcamp.app.member.domain.Member"
+			useGeneratedKeys = "true"
+			keyProperty = "index">
+			insert into memberinfo (userID, userPW, userName, userPhoto)
+			values (#{userID}, #{userPW}, #{userName}, #{userPhoto})
+	</insert>
+
+
+	<!-- 회원정보 수정 -->
+	<update id = "updateMember"
+			parameterType = "com.bitcamp.app.member.domain.Member">
+			update memberinfo 
+			set userName = #{userName}, userPW = #{userPW}
+			where index = #{index}
+	</update>
+	
+	
+	<!-- 회원정보 삭제(회원 탈퇴) -->
+	<delete id ="deleteMember">
+		delete from memberinfo where index = #{index}
+	</delete>
+	
+	
+	<!-- 전체 회원의 리스트 -->
+	<select id = "selectAll"
+			resultMap = "memberListResult">
+		select * from memberinfo
+	</select>
+
+	
+	
+	<!-- 페이징 처리가 가능한 회원 리스트 -->
+	<select id = "selectList"
+			resultType = "com.bitcamp.app.member.domain.Member">
+		select * from memberinfo 
+		order by userID limit #{param1}, #{param2}
+	</select>
+	
+	
+	<!-- 전체 회원의 수 -->
+	<select id = "selectTotalCount"
+			resultType = "int">
+		select count (*) from memberinfo
+	</select>
+	
+	
+	
+	<!-- 검색을 통한 회원 리스트 출력 -->
+	<select id = "selectMember"
+			parameterType = "com.bitcamp.app.member.domain.SearchType"
+			resultType = "com.bitcamp.op.member.domain.Member">
+	
+		select * from memberinfo 
+		
+		<!-- where 태그 안쪽의 조건절 사용 : 'where' 생략 가능-->
+		<!-- where 태그 속 where 절에서는 'or'를 자동 생략해준다. -->
+		<where>
+			<if test = "searchType == 'id'">
+			<!-- userID like concat('%', #{keyword},'%') -->
+			<include refid = "searchID"/>
+			</if>
+
+			<if test = "searchType == 'name'">
+			<!-- userName like concat('%', #{keyword},'%') -->
+			<include refid = "searchName"/>
+			</if>
+
+			<if test = "searchType == 'both'">
+			<!-- userID like concat('%', #{keyword},'%') or userName like concat('%', #{keyword},'%') -->
+			<!-- <include refid = "searchID"/> or <include refid = "searchName"/> -->
+			<include refid = "searchID"/>
+			<include refid = "searchName"/>
+			</if>
+		</where>
+		
+	</select>
+	
+		<!-- sql문은 select문 바깥에 정의한다. -->
+		<!-- concat : 문자열을 이어준다. mybatis에서는 concat 사용 필수! -->
+		<sql id = "searchID">
+			or userID like concat('%', #{keyword},'%')
+		</sql>
+		
+		<sql id = "searchName">
+			or userName like concat('%', #{keyword},'%')
+		</sql>
+		
+	
+</mapper>

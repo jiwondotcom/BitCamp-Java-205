@@ -4,7 +4,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bitcamp.op.member.dao.Dao;
+import com.bitcamp.app.member.mapper.MemberMapper;
 
 @Service
 public class IdCheckService {
@@ -18,7 +18,7 @@ public class IdCheckService {
 	// @Autowired
 	// private mybatisMemberDao dao;
 	
-	private Dao dao;
+	private MemberMapper dao;
 	
 	@Autowired
 	private SqlSessionTemplate template;
@@ -30,7 +30,7 @@ public class IdCheckService {
 		// Connection conn = null;
 		
 		// 인터페이스의 Mapper Dao 생성
-		dao = template.getMapper(Dao.class);
+		dao = template.getMapper(MemberMapper.class);
 
 			// conn = ConnectionProvider.getConnection();
 			if(dao.selectByID(id) > 0) {

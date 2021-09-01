@@ -7,9 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.bitcamp.op.member.domain.Member;
-import com.bitcamp.op.member.domain.SearchType;
-import com.bitcamp.op.member.service.MemberListService;
+import com.bitcamp.app.member.domain.Member;
+import com.bitcamp.app.member.domain.SearchType;
+import com.bitcamp.app.member.service.MemberListService;
 
 @Controller
 public class MemberListController {

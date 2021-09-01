@@ -8,8 +8,8 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bitcamp.op.member.dao.Dao;
-import com.bitcamp.op.member.domain.Member;
+import com.bitcamp.app.member.domain.Member;
+import com.bitcamp.app.member.mapper.MemberMapper;
 
 @Service
 public class LoginService {
@@ -26,7 +26,7 @@ public class LoginService {
 	@Autowired
 	private SqlSessionTemplate template;
 	
- 	private Dao dao;
+ 	private MemberMapper dao;
 	
  	
 	public boolean login(String userID,
@@ -40,7 +40,7 @@ public class LoginService {
 		// Connection conn = null;
 		
 		// 인터페이스의 Mapper Dao 생성
-		dao = template.getMapper(Dao.class);
+		dao = template.getMapper(MemberMapper.class);
 		
 		System.out.println("인터페이스 매퍼 dao 생성 완.");
 		
