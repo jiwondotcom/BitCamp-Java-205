@@ -1,9 +1,9 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://mysql205.cjctzbdszd1g.ap-northeast-2.rds.amazonaws.com:3306/project?servertimezone=UTC
-    username: bit
-    password: bit
+    url: jdbc:mysql://mysql205.cjctzbdszd1g.ap-northeast-2.rds.amazonaws.com:3306/member?servertimezone=UTC
+    username: root
+    password: 1234
 
   thymeleaf:
     prefix: classpath:templates/
