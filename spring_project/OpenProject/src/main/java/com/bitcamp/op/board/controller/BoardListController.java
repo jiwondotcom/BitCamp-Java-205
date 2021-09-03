@@ -9,7 +9,7 @@ public class BoardListController {
 	@RequestMapping("/board/boardList")
 	public String getList() {
 		
-		
+
 		return "board/boardList";
 	}
 	
