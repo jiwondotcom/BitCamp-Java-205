@@ -1,6 +1,6 @@
 package com.bitcamp.firstSpring;
 
-public class gogodanTest {
+public class googoodanTest {
 
 	public static void main(String[] args) {
 		for(int i = 1; i < 10; i++) {
